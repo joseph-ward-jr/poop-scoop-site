@@ -16,37 +16,43 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path
 
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
+    <header className="bg-offwhite-50/95 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-offwhite-200">
       <nav className="container-max">
-        <div className="flex justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-6 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">🐕</span>
+            <Link to="/" className="flex items-center space-x-3">
+              <div className="w-12 h-12 bg-gradient-to-br from-sage-400 to-sage-500 rounded-2xl flex items-center justify-center shadow-lg">
+                <span className="text-offwhite-50 font-bold text-xl">🌿</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">Poop Scoop Pro</span>
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold text-sage-800 tracking-tight">Field & Foyer</span>
+                <span className="text-xs text-sage-600 font-medium tracking-wide uppercase">Pet Care Services</span>
+              </div>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-10">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`font-medium transition-colors duration-200 ${
+                className={`font-medium transition-all duration-300 relative ${
                   isActive(item.href)
-                    ? 'text-primary-600 border-b-2 border-primary-600'
-                    : 'text-gray-700 hover:text-primary-600'
+                    ? 'text-sage-700'
+                    : 'text-sage-600 hover:text-sage-700'
                 }`}
               >
                 {item.name}
+                {isActive(item.href) && (
+                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-sage-400 to-sage-500 rounded-full"></div>
+                )}
               </Link>
             ))}
             <Link
               to="/contact"
-              className="btn-primary"
+              className="btn-primary ml-4"
             >
               Get Free Quote
             </Link>
@@ -56,13 +62,13 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-primary-600 focus:outline-none focus:text-primary-600"
+              className="text-sage-600 hover:text-sage-700 focus:outline-none focus:text-sage-700 p-2 rounded-xl hover:bg-sage-50 transition-colors duration-200"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
@@ -72,22 +78,22 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
+            <div className="px-4 pt-4 pb-6 space-y-2 bg-offwhite-50 border-t border-offwhite-200">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                  className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
                     isActive(item.href)
-                      ? 'text-primary-600 bg-primary-50'
-                      : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                      ? 'text-sage-700 bg-sage-100'
+                      : 'text-sage-600 hover:text-sage-700 hover:bg-sage-50'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="px-3 py-2">
+              <div className="pt-4">
                 <Link
                   to="/contact"
                   className="btn-primary w-full text-center block"
