@@ -25,9 +25,9 @@ const Header = () => {
             <Link to="/" className="flex items-center space-x-4 group">
               <div className="w-14 h-14 rounded-3xl overflow-hidden shadow-xl group-hover:scale-110 transition-transform duration-300">
                 <img
-                  src="/images/logo/field-foyer-logo.jpg"
+                  src="/images/logo/field-foyer-logo.svg"
                   alt="Field & Foyer Logo"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div className="flex flex-col">

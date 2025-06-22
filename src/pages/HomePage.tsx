@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom'
 const HomePage = () => {
   const benefits = [
     {
-      image: '/images/benefits/thoughtful-service.jpg',
+      image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=300&h=300&fit=crop&auto=format',
       title: 'Thoughtful',
       description: 'Meticulous attention to detail with a gentle approach that respects your outdoor sanctuary.'
     },
     {
-      image: '/images/benefits/premium-quality.jpg',
+      image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=300&h=300&fit=crop&auto=format',
       title: 'Premium',
       description: 'Boutique service tailored to discerning homeowners who value quality and discretion.'
     },
     {
-      image: '/images/benefits/sustainable-practices.jpg',
+      image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=300&h=300&fit=crop&auto=format',
       title: 'Sustainable',
       description: 'Eco-conscious methods that protect your garden ecosystem and the environment.'
     }
@@ -80,7 +80,7 @@ const HomePage = () => {
                 <div className="bg-gradient-to-br from-sage-100 to-cream-100 rounded-[3rem] p-16 text-center shadow-2xl border border-sage-200 transform hover:scale-105 transition-transform duration-700">
                   <div className="w-32 h-32 mx-auto mb-8">
                     <img
-                      src="/images/hero/garden-sanctuary.jpg"
+                      src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500&h=500&fit=crop&auto=format"
                       alt="Beautiful Garden Sanctuary"
                       className="w-full h-full object-cover rounded-3xl shadow-lg animate-pulse"
                     />

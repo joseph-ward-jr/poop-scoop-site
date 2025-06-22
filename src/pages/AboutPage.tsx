@@ -15,19 +15,19 @@ const AboutPage = () => {
       name: 'Sarah Johnson',
       role: 'Founder & CEO',
       description: 'Visionary behind Field & Foyer, passionate about elevating complete home and garden care to premium standards.',
-      image: '/images/team/sarah-johnson.jpg'
+      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&auto=format'
     },
     {
       name: 'Mike Thompson',
       role: 'Operations Director',
       description: 'Former landscape professional ensuring every service meets our premium quality standards across all divisions.',
-      image: '/images/team/mike-thompson.jpg'
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&auto=format'
     },
     {
       name: 'Lisa Chen',
       role: 'Client Relations',
       description: 'Dedicated to providing exceptional customer experiences across our growing portfolio of home and garden services.',
-      image: '/images/team/lisa-chen.jpg'
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&auto=format'
     }
   ]
 

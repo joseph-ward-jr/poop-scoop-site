@@ -13,9 +13,9 @@ const Footer = () => {
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-10 h-10 rounded-2xl overflow-hidden shadow-lg">
                   <img
-                    src="/images/logo/field-foyer-logo.jpg"
+                    src="/images/logo/field-foyer-logo.svg"
                     alt="Field & Foyer Logo"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <div className="flex flex-col">

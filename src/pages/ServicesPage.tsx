@@ -5,7 +5,7 @@ const ServicesPage = () => {
     {
       id: 'pet-waste-removal',
       name: 'Pet Waste Removal',
-      image: '/images/services/pet-waste-removal.jpg',
+      image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop&auto=format',
       status: 'Available Now',
       description: 'Professional pet waste management that transforms your outdoor sanctuary into a pristine haven.',
       features: [
@@ -25,19 +25,19 @@ const ServicesPage = () => {
   const comingSoonServices = [
     {
       name: 'Lawn & Yard Maintenance',
-      image: '/images/services/lawn-maintenance.jpg',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&auto=format',
       description: 'Professional lawn care, mowing, edging, and seasonal yard maintenance to keep your outdoor space pristine.',
       status: 'Coming 2025'
     },
     {
       name: 'Landscape Design & Installation',
-      image: '/images/services/landscape-design.jpg',
+      image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop&auto=format',
       description: 'Custom landscape design and installation services to transform your outdoor vision into reality.',
       status: 'Coming 2025'
     },
     {
       name: 'Indoor House Cleaning',
-      image: '/images/services/house-cleaning.jpg',
+      image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=300&fit=crop&auto=format',
       description: 'Premium residential cleaning services bringing the same attention to detail indoors.',
       status: 'Coming 2026'
     }
