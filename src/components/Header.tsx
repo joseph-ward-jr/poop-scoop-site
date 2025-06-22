@@ -7,6 +7,7 @@ const Header = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
     { name: 'About', href: '/about' },
     { name: 'Testimonials', href: '/testimonials' },
     { name: 'Pricing', href: '/pricing' },
@@ -16,43 +17,43 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path
 
   return (
-    <header className="bg-offwhite-50/95 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-offwhite-200">
+    <header className="bg-offwhite-50/90 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-sage-200/30 transition-all duration-300">
       <nav className="container-max">
-        <div className="flex justify-between items-center py-6 px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-8 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-sage-400 to-sage-500 rounded-2xl flex items-center justify-center shadow-lg">
-                <span className="text-offwhite-50 font-bold text-xl">🌿</span>
+            <Link to="/" className="flex items-center space-x-4 group">
+              <div className="w-14 h-14 bg-gradient-to-br from-sage-400 to-sage-600 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                <span className="text-offwhite-50 font-bold text-2xl">🌿</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-2xl font-bold text-sage-800 tracking-tight">Field & Foyer</span>
-                <span className="text-xs text-sage-600 font-medium tracking-wide uppercase">Pet Care Services</span>
+                <span className="text-3xl font-black text-sage-800 tracking-tight">Field & Foyer</span>
+                <span className="text-xs text-sage-600 font-semibold tracking-wider uppercase">Home & Garden Services</span>
               </div>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden md:flex items-center space-x-12">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`font-medium transition-all duration-300 relative ${
+                className={`font-semibold text-lg transition-all duration-500 relative group ${
                   isActive(item.href)
-                    ? 'text-sage-700'
-                    : 'text-sage-600 hover:text-sage-700'
+                    ? 'text-sage-800'
+                    : 'text-sage-600 hover:text-sage-800'
                 }`}
               >
                 {item.name}
-                {isActive(item.href) && (
-                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-sage-400 to-sage-500 rounded-full"></div>
-                )}
+                <div className={`absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-sage-400 to-sage-600 rounded-full transition-all duration-300 ${
+                  isActive(item.href) ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'
+                }`}></div>
               </Link>
             ))}
             <Link
               to="/contact"
-              className="btn-primary ml-4"
+              className="btn-primary ml-6 text-lg"
             >
               Get Free Quote
             </Link>
