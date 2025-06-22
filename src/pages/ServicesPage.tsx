@@ -5,7 +5,7 @@ const ServicesPage = () => {
     {
       id: 'pet-waste-removal',
       name: 'Pet Waste Removal',
-      icon: '🌿',
+      image: '/images/services/pet-waste-removal.jpg',
       status: 'Available Now',
       description: 'Professional pet waste management that transforms your outdoor sanctuary into a pristine haven.',
       features: [
@@ -24,22 +24,22 @@ const ServicesPage = () => {
 
   const comingSoonServices = [
     {
-      name: 'Garden Maintenance',
-      icon: '🌱',
-      description: 'Comprehensive garden care including pruning, weeding, and seasonal maintenance.',
-      status: 'Coming Soon'
+      name: 'Lawn & Yard Maintenance',
+      image: '/images/services/lawn-maintenance.jpg',
+      description: 'Professional lawn care, mowing, edging, and seasonal yard maintenance to keep your outdoor space pristine.',
+      status: 'Coming 2025'
     },
     {
-      name: 'Landscape Design',
-      icon: '🏡',
-      description: 'Custom landscape design and installation for beautiful outdoor spaces.',
-      status: 'Coming Soon'
+      name: 'Landscape Design & Installation',
+      image: '/images/services/landscape-design.jpg',
+      description: 'Custom landscape design and installation services to transform your outdoor vision into reality.',
+      status: 'Coming 2025'
     },
     {
-      name: 'Outdoor Cleaning',
-      icon: '✨',
-      description: 'Pressure washing, deck cleaning, and outdoor surface restoration.',
-      status: 'Coming Soon'
+      name: 'Indoor House Cleaning',
+      image: '/images/services/house-cleaning.jpg',
+      description: 'Premium residential cleaning services bringing the same attention to detail indoors.',
+      status: 'Coming 2026'
     }
   ]
 
@@ -53,11 +53,12 @@ const ServicesPage = () => {
               Our Services
             </h1>
             <p className="text-xl md:text-2xl text-sage-700 leading-relaxed mb-8">
-              Field & Foyer offers premium home and garden services designed to enhance your outdoor living experience. 
-              We're starting with pet waste removal and expanding to serve all your outdoor sanctuary needs.
+              Field & Foyer offers premium home and garden services designed to enhance your complete living experience.
+              Starting with pet waste removal, expanding to lawn & landscape services, then bringing our expertise indoors.
             </p>
             <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full">
-              <span className="text-sage-800 font-medium">🌿 Currently Serving: Pet Waste Removal</span>
+              <img src="/images/icons/leaf-icon.svg" alt="Service" className="w-5 h-5 mr-2" />
+              <span className="text-sage-800 font-medium">Currently Serving: Pet Waste Removal</span>
             </div>
           </div>
         </div>
@@ -81,8 +82,12 @@ const ServicesPage = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div>
                     <div className="flex items-center mb-6">
-                      <div className="text-5xl mr-4 group-hover:scale-110 transition-transform duration-300">
-                        {service.icon}
+                      <div className="w-20 h-20 mr-6 group-hover:scale-110 transition-transform duration-300">
+                        <img
+                          src={service.image}
+                          alt={service.name}
+                          className="w-full h-full object-cover rounded-2xl shadow-lg"
+                        />
                       </div>
                       <div>
                         <h3 className="text-3xl font-bold text-sage-800 mb-2">{service.name}</h3>
@@ -143,18 +148,23 @@ const ServicesPage = () => {
         <div className="container-max">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-sage-900 mb-6">
-              Expanding Our Services
+              Our Growth Journey
             </h2>
-            <p className="text-xl text-sage-700 max-w-3xl mx-auto">
-              We're growing to serve all your home and garden needs. Here's what's coming to the Field & Foyer family.
+            <p className="text-xl text-sage-700 max-w-4xl mx-auto">
+              We're strategically expanding our services: starting with outdoor pet care, growing into complete yard and landscape services,
+              then bringing our premium standards indoors. Here's our roadmap.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {comingSoonServices.map((service, index) => (
               <div key={index} className="card-modern text-center group opacity-75 hover:opacity-90 transition-opacity duration-300">
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
+                <div className="w-24 h-24 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className="w-full h-full object-cover rounded-2xl shadow-lg"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold text-sage-800 mb-4">{service.name}</h3>
                 <p className="text-sage-600 mb-6 leading-relaxed">{service.description}</p>
@@ -187,17 +197,23 @@ const ServicesPage = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="text-center">
-              <div className="text-4xl mb-4">🏆</div>
+              <div className="w-16 h-16 mx-auto mb-4">
+                <img src="/images/icons/premium-quality.svg" alt="Premium Quality" className="w-full h-full" />
+              </div>
               <h3 className="text-xl font-bold text-offwhite-50 mb-3">Premium Quality</h3>
               <p className="text-sage-200">Boutique service standards with attention to every detail</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl mb-4">🌱</div>
+              <div className="w-16 h-16 mx-auto mb-4">
+                <img src="/images/icons/eco-conscious.svg" alt="Eco-Conscious" className="w-full h-full" />
+              </div>
               <h3 className="text-xl font-bold text-offwhite-50 mb-3">Eco-Conscious</h3>
               <p className="text-sage-200">Sustainable practices that protect your garden ecosystem</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl mb-4">🤝</div>
+              <div className="w-16 h-16 mx-auto mb-4">
+                <img src="/images/icons/trusted-partner.svg" alt="Trusted Partner" className="w-full h-full" />
+              </div>
               <h3 className="text-xl font-bold text-offwhite-50 mb-3">Trusted Partner</h3>
               <p className="text-sage-200">Building long-term relationships with discerning homeowners</p>
             </div>

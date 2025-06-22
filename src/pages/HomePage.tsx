@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom'
 const HomePage = () => {
   const benefits = [
     {
-      icon: '🌿',
+      image: '/images/benefits/thoughtful-service.jpg',
       title: 'Thoughtful',
       description: 'Meticulous attention to detail with a gentle approach that respects your outdoor sanctuary.'
     },
     {
-      icon: '✨',
+      image: '/images/benefits/premium-quality.jpg',
       title: 'Premium',
-      description: 'Boutique service tailored to discerning pet owners who value quality and discretion.'
+      description: 'Boutique service tailored to discerning homeowners who value quality and discretion.'
     },
     {
-      icon: '🍃',
+      image: '/images/benefits/sustainable-practices.jpg',
       title: 'Sustainable',
       description: 'Eco-conscious methods that protect your garden ecosystem and the environment.'
     }
@@ -50,8 +50,8 @@ const HomePage = () => {
                   </h1>
                 </div>
                 <p className="text-2xl md:text-3xl text-sage-600 leading-relaxed max-w-2xl font-light">
-                  Transform your outdoor sanctuary with our boutique services.
-                  <span className="font-medium text-sage-800"> Starting with premium pet waste management.</span>
+                  Transform your complete living experience with our expanding services.
+                  <span className="font-medium text-sage-800"> Starting with pet waste removal, growing to full home and garden care.</span>
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-8">
@@ -78,10 +78,16 @@ const HomePage = () => {
             <div className="lg:col-span-5 relative">
               <div className="relative">
                 <div className="bg-gradient-to-br from-sage-100 to-cream-100 rounded-[3rem] p-16 text-center shadow-2xl border border-sage-200 transform hover:scale-105 transition-transform duration-700">
-                  <div className="text-[8rem] mb-8 animate-bounce">🌿</div>
+                  <div className="w-32 h-32 mx-auto mb-8">
+                    <img
+                      src="/images/hero/garden-sanctuary.jpg"
+                      alt="Beautiful Garden Sanctuary"
+                      className="w-full h-full object-cover rounded-3xl shadow-lg animate-pulse"
+                    />
+                  </div>
                   <h3 className="text-3xl font-bold text-sage-800 mb-6">Field & Foyer</h3>
                   <p className="text-sage-600 font-medium text-xl leading-relaxed">
-                    Where pristine gardens<br />meet happy pets
+                    Where pristine spaces<br />meet complete care
                   </p>
                 </div>
                 {/* Floating elements */}
@@ -121,8 +127,8 @@ const HomePage = () => {
               <span className="text-gradient">Field & Foyer?</span>
             </h2>
             <p className="text-2xl text-sage-600 max-w-5xl mx-auto leading-relaxed font-light">
-              We're redefining home and garden services with a boutique approach.
-              <span className="font-medium text-sage-800"> Starting with premium pet waste management, expanding to transform your entire outdoor sanctuary.</span>
+              We're redefining home and garden services with a strategic growth approach.
+              <span className="font-medium text-sage-800"> Starting with pet waste removal, expanding to lawn & landscape services, then bringing our expertise indoors.</span>
             </p>
           </div>
 
@@ -133,7 +139,13 @@ const HomePage = () => {
                 className="group relative"
               >
                 <div className="card-modern text-center h-full">
-                  <div className="text-7xl mb-8 group-hover:scale-125 transition-all duration-700">{benefit.icon}</div>
+                  <div className="w-24 h-24 mx-auto mb-8 group-hover:scale-125 transition-all duration-700">
+                    <img
+                      src={benefit.image}
+                      alt={benefit.title}
+                      className="w-full h-full object-cover rounded-2xl shadow-lg"
+                    />
+                  </div>
                   <h3 className="text-3xl font-bold text-sage-800 mb-8">{benefit.title}</h3>
                   <p className="text-sage-600 leading-relaxed text-xl font-light">{benefit.description}</p>
                 </div>
@@ -164,8 +176,8 @@ const HomePage = () => {
               <span className="bg-gradient-to-r from-cream-200 to-offwhite-100 bg-clip-text text-transparent">Garden Transformation?</span>
             </h2>
             <p className="text-2xl text-sage-100 mb-16 leading-relaxed font-light max-w-4xl mx-auto">
-              Join discerning homeowners who trust Field & Foyer to maintain their outdoor sanctuaries.
-              <span className="font-medium text-offwhite-50"> Experience the difference of premium home and garden services.</span>
+              Join discerning homeowners who trust Field & Foyer for their complete home and garden needs.
+              <span className="font-medium text-offwhite-50"> Experience our growing suite of premium services.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-8 justify-center">
               <button
