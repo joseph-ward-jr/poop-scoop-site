@@ -16,12 +16,12 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xl font-bold text-offwhite-50">Field & Foyer</span>
-                  <span className="text-xs text-sage-300 font-medium tracking-wide uppercase">Pet Care Services</span>
+                  <span className="text-xs text-sage-300 font-medium tracking-wide uppercase">Home & Garden Services</span>
                 </div>
               </div>
               <p className="text-sage-200 mb-6 max-w-md leading-relaxed">
-                Boutique pet waste removal service creating pristine outdoor spaces.
-                Thoughtful, reliable, and eco-conscious solutions for discerning pet owners.
+                Premium home and garden services creating pristine outdoor spaces.
+                Thoughtful, reliable, and eco-conscious solutions for discerning homeowners.
               </p>
               <div className="space-y-3">
                 <p className="text-sage-200 flex items-center">
@@ -45,6 +45,11 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/services" className="text-sage-200 hover:text-sage-300 transition-colors">
+                    Services
+                  </Link>
+                </li>
+                <li>
                   <Link to="/about" className="text-sage-200 hover:text-sage-300 transition-colors">
                     About Us
                   </Link>
@@ -64,12 +69,12 @@ const Footer = () => {
 
             {/* Services */}
             <div>
-              <h3 className="text-lg font-semibold mb-6 text-offwhite-50">Services</h3>
+              <h3 className="text-lg font-semibold mb-6 text-offwhite-50">Our Services</h3>
               <ul className="space-y-3 text-sage-200">
-                <li>Weekly Maintenance</li>
-                <li>Bi-weekly Service</li>
-                <li>One-time Restoration</li>
-                <li>Premium Care</li>
+                <li>Pet Waste Removal</li>
+                <li>Garden Maintenance</li>
+                <li>Landscape Care</li>
+                <li>More Services Coming</li>
               </ul>
             </div>
           </div>

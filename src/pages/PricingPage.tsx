@@ -108,22 +108,22 @@ const PricingPage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 to-secondary-50 section-padding">
+      <section className="bg-gradient-to-br from-offwhite-50 via-cream-50 to-sage-50 section-padding">
         <div className="container-max">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-sage-900 mb-6">
               Simple, Transparent Pricing
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Choose the service that fits your needs and budget. No contracts, 
-              no hidden fees, just clean yards and happy dogs.
+            <p className="text-xl text-sage-700 leading-relaxed">
+              Choose the pet waste removal service that fits your needs and budget. No contracts,
+              no hidden fees, just pristine gardens and happy pets.
             </p>
           </div>
         </div>
       </section>
 
       {/* Pricing Plans */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-offwhite-50">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {pricingPlans.map((plan, index) => (
@@ -131,30 +131,30 @@ const PricingPage = () => {
                 key={index}
                 className={`relative rounded-2xl p-8 ${
                   plan.popular
-                    ? 'bg-primary-600 text-white shadow-2xl scale-105'
-                    : 'bg-white border-2 border-gray-200 shadow-lg'
+                    ? 'bg-sage-600 text-offwhite-50 shadow-2xl scale-105'
+                    : 'bg-offwhite-50 border-2 border-sage-200 shadow-lg'
                 }`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-secondary-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                    <span className="bg-cream-500 text-sage-800 px-4 py-2 rounded-full text-sm font-semibold">
                       Most Popular
                     </span>
                   </div>
                 )}
 
                 <div className="text-center mb-8">
-                  <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
+                  <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-offwhite-50' : 'text-sage-900'}`}>
                     {plan.name}
                   </h3>
-                  <p className={`mb-4 ${plan.popular ? 'text-primary-100' : 'text-gray-600'}`}>
+                  <p className={`mb-4 ${plan.popular ? 'text-sage-100' : 'text-sage-600'}`}>
                     {plan.description}
                   </p>
                   <div className="mb-6">
-                    <span className={`text-4xl font-bold ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
+                    <span className={`text-4xl font-bold ${plan.popular ? 'text-offwhite-50' : 'text-sage-900'}`}>
                       ${plan.basePrice}
                     </span>
-                    <span className={`text-lg ${plan.popular ? 'text-primary-100' : 'text-gray-600'}`}>
+                    <span className={`text-lg ${plan.popular ? 'text-sage-100' : 'text-sage-600'}`}>
                       /visit
                     </span>
                   </div>
@@ -164,7 +164,7 @@ const PricingPage = () => {
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center">
                       <svg
-                        className={`w-5 h-5 mr-3 ${plan.popular ? 'text-primary-200' : 'text-primary-600'}`}
+                        className={`w-5 h-5 mr-3 ${plan.popular ? 'text-sage-200' : 'text-sage-600'}`}
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -174,7 +174,7 @@ const PricingPage = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className={plan.popular ? 'text-primary-100' : 'text-gray-700'}>
+                      <span className={plan.popular ? 'text-sage-100' : 'text-sage-700'}>
                         {feature}
                       </span>
                     </li>
@@ -185,8 +185,8 @@ const PricingPage = () => {
                   href="/contact"
                   className={`block w-full text-center py-3 px-6 rounded-lg font-semibold transition-colors duration-200 ${
                     plan.popular
-                      ? 'bg-white text-primary-600 hover:bg-gray-100'
-                      : 'bg-primary-600 text-white hover:bg-primary-700'
+                      ? 'bg-offwhite-50 text-sage-600 hover:bg-offwhite-100'
+                      : 'bg-sage-600 text-offwhite-50 hover:bg-sage-700'
                   }`}
                 >
                   Get Started
@@ -198,21 +198,21 @@ const PricingPage = () => {
       </section>
 
       {/* Detailed Pricing Table */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-cream-50">
         <div className="container-max">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
               Detailed Pricing Guide
             </h2>
-            <p className="text-xl text-gray-600">
-              Exact pricing based on your number of dogs and yard size
+            <p className="text-xl text-sage-700">
+              Exact pricing based on your number of pets and garden size
             </p>
           </div>
 
           <div className="space-y-8">
             {pricingPlans.map((plan, planIndex) => (
-              <div key={planIndex} className="bg-white rounded-xl shadow-lg overflow-hidden">
-                <div className="bg-primary-600 text-white p-6">
+              <div key={planIndex} className="bg-offwhite-50 rounded-xl shadow-lg overflow-hidden border border-sage-200">
+                <div className="bg-sage-600 text-offwhite-50 p-6">
                   <h3 className="text-2xl font-bold">{plan.name}</h3>
                 </div>
                 <div className="p-6">
@@ -220,34 +220,34 @@ const PricingPage = () => {
                     <table className="w-full">
                       <thead>
                         <tr className="border-b">
-                          <th className="text-left py-3 px-4 font-semibold text-gray-900">
-                            Number of Dogs
+                          <th className="text-left py-3 px-4 font-semibold text-sage-900">
+                            Number of Pets
                           </th>
-                          <th className="text-center py-3 px-4 font-semibold text-gray-900">
-                            Small Yard<br />
-                            <span className="text-sm font-normal text-gray-600">(under 1/4 acre)</span>
+                          <th className="text-center py-3 px-4 font-semibold text-sage-900">
+                            Small Garden<br />
+                            <span className="text-sm font-normal text-sage-600">(under 1/4 acre)</span>
                           </th>
-                          <th className="text-center py-3 px-4 font-semibold text-gray-900">
-                            Medium Yard<br />
-                            <span className="text-sm font-normal text-gray-600">(1/4 - 1/2 acre)</span>
+                          <th className="text-center py-3 px-4 font-semibold text-sage-900">
+                            Medium Garden<br />
+                            <span className="text-sm font-normal text-sage-600">(1/4 - 1/2 acre)</span>
                           </th>
-                          <th className="text-center py-3 px-4 font-semibold text-gray-900">
-                            Large Yard<br />
-                            <span className="text-sm font-normal text-gray-600">(over 1/2 acre)</span>
+                          <th className="text-center py-3 px-4 font-semibold text-sage-900">
+                            Large Garden<br />
+                            <span className="text-sm font-normal text-sage-600">(over 1/2 acre)</span>
                           </th>
                         </tr>
                       </thead>
                       <tbody>
                         {Object.entries(plan.pricing).map(([dogs, prices]) => (
-                          <tr key={dogs} className="border-b hover:bg-gray-50">
-                            <td className="py-3 px-4 font-medium text-gray-900">{dogs}</td>
-                            <td className="py-3 px-4 text-center text-primary-600 font-bold">
+                          <tr key={dogs} className="border-b border-sage-200 hover:bg-sage-50">
+                            <td className="py-3 px-4 font-medium text-sage-900">{dogs}</td>
+                            <td className="py-3 px-4 text-center text-sage-600 font-bold">
                               ${prices.small}
                             </td>
-                            <td className="py-3 px-4 text-center text-primary-600 font-bold">
+                            <td className="py-3 px-4 text-center text-sage-600 font-bold">
                               ${prices.medium}
                             </td>
-                            <td className="py-3 px-4 text-center text-primary-600 font-bold">
+                            <td className="py-3 px-4 text-center text-sage-600 font-bold">
                               ${prices.large}
                             </td>
                           </tr>
