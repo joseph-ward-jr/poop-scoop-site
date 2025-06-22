@@ -44,25 +44,25 @@ const ContactPage = () => {
 
   const contactInfo = [
     {
-      icon: '📞',
+      image: '/images/icons/phone.svg',
       title: 'Phone',
       details: '(123) 456-7890',
       description: 'Call us Monday-Friday, 8am-6pm'
     },
     {
-      icon: '✉️',
+      image: '/images/icons/email.svg',
       title: 'Email',
-      details: 'info@poopscooppro.com',
+      details: 'hello@fieldandfoyer.com',
       description: 'We respond within 24 hours'
     },
     {
-      icon: '📍',
+      image: '/images/icons/location.svg',
       title: 'Service Area',
       details: 'Greater Metro Area',
       description: 'Serving 15+ neighborhoods'
     },
     {
-      icon: '⏰',
+      image: '/images/icons/clock.svg',
       title: 'Hours',
       details: 'Mon-Fri: 8am-6pm',
       description: 'Weekend service available'
@@ -95,9 +95,9 @@ const ContactPage = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Get Your Free Estimate
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Ready to enjoy a clean yard without the hassle? Contact us today for your 
-              personalized quote and join hundreds of satisfied customers.
+            <p className="text-xl text-sage-700 leading-relaxed">
+              Ready to experience complete home and garden care? Contact us today for your
+              personalized quote and join hundreds of satisfied customers across all our services.
             </p>
           </div>
         </div>
@@ -112,7 +112,9 @@ const ContactPage = () => {
                 key={index}
                 className="text-center p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="text-4xl mb-4">{info.icon}</div>
+                <div className="w-12 h-12 mx-auto mb-4">
+                  <img src={info.image} alt={info.title} className="w-full h-full object-contain" />
+                </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{info.title}</h3>
                 <p className="text-primary-600 font-semibold mb-2">{info.details}</p>
                 <p className="text-gray-600 text-sm">{info.description}</p>

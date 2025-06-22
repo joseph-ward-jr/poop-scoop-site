@@ -23,12 +23,16 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-4 group">
-              <div className="w-14 h-14 bg-gradient-to-br from-sage-400 to-sage-600 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
-                <span className="text-offwhite-50 font-bold text-2xl">🌿</span>
+              <div className="w-14 h-14 rounded-3xl overflow-hidden shadow-xl group-hover:scale-110 transition-transform duration-300">
+                <img
+                  src="/images/logo/field-foyer-logo.jpg"
+                  alt="Field & Foyer Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="text-3xl font-black text-sage-800 tracking-tight">Field & Foyer</span>
-                <span className="text-xs text-sage-600 font-semibold tracking-wider uppercase">Home & Garden Services</span>
+                <span className="text-xs text-sage-600 font-semibold tracking-wider uppercase">Complete Home & Garden Care</span>
               </div>
             </Link>
           </div>

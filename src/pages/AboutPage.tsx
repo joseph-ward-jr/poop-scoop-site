@@ -14,20 +14,20 @@ const AboutPage = () => {
     {
       name: 'Sarah Johnson',
       role: 'Founder & CEO',
-      description: 'Visionary behind Field & Foyer, passionate about elevating outdoor living spaces to interior design standards.',
-      emoji: '👩‍💼'
+      description: 'Visionary behind Field & Foyer, passionate about elevating complete home and garden care to premium standards.',
+      image: '/images/team/sarah-johnson.jpg'
     },
     {
       name: 'Mike Thompson',
       role: 'Operations Director',
-      description: 'Former landscape professional ensuring every service meets our premium quality standards.',
-      emoji: '👨‍🔧'
+      description: 'Former landscape professional ensuring every service meets our premium quality standards across all divisions.',
+      image: '/images/team/mike-thompson.jpg'
     },
     {
       name: 'Lisa Chen',
       role: 'Client Relations',
-      description: 'Dedicated to providing exceptional customer experiences across all our home and garden services.',
-      emoji: '👩‍💻'
+      description: 'Dedicated to providing exceptional customer experiences across our growing portfolio of home and garden services.',
+      image: '/images/team/lisa-chen.jpg'
     }
   ]
 
@@ -41,8 +41,8 @@ const AboutPage = () => {
               About Field & Foyer
             </h1>
             <p className="text-xl text-sage-700 leading-relaxed">
-              We're a family-owned home and garden services company dedicated to creating pristine outdoor sanctuaries.
-              Starting with premium pet waste management, we're expanding to serve all your outdoor living needs.
+              We're a family-owned company dedicated to complete home and garden care.
+              Starting with premium pet waste management, expanding to lawn & landscape services, then bringing our expertise indoors.
             </p>
           </div>
         </div>
@@ -68,9 +68,9 @@ const AboutPage = () => {
                   to transform a necessary service into something elegant and discreet.
                 </p>
                 <p>
-                  What started as boutique pet waste removal has evolved into a comprehensive home and garden
-                  services company. We're expanding our offerings to include landscape maintenance, garden design,
-                  and outdoor space enhancement – all with the same attention to detail that made our pet services exceptional.
+                  What started as boutique pet waste removal is evolving into a comprehensive home and garden
+                  services company. Our strategic growth plan includes lawn & yard maintenance, landscape design and installation,
+                  and eventually premium indoor house cleaning – bringing the same attention to detail throughout your entire home.
                 </p>
               </div>
             </div>
@@ -133,7 +133,13 @@ const AboutPage = () => {
                 key={index}
                 className="text-center p-6 bg-sage-50 rounded-xl hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="text-5xl mb-4">{member.emoji}</div>
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <h3 className="text-xl font-bold text-sage-900 mb-2">{member.name}</h3>
                 <p className="text-sage-600 font-semibold mb-3">{member.role}</p>
                 <p className="text-sage-700">{member.description}</p>

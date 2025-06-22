@@ -11,25 +11,29 @@ const Footer = () => {
             {/* Company Info */}
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-sage-400 to-sage-500 rounded-2xl flex items-center justify-center shadow-lg">
-                  <span className="text-offwhite-50 font-bold text-lg">🌿</span>
+                <div className="w-10 h-10 rounded-2xl overflow-hidden shadow-lg">
+                  <img
+                    src="/images/logo/field-foyer-logo.jpg"
+                    alt="Field & Foyer Logo"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xl font-bold text-offwhite-50">Field & Foyer</span>
-                  <span className="text-xs text-sage-300 font-medium tracking-wide uppercase">Home & Garden Services</span>
+                  <span className="text-xs text-sage-300 font-medium tracking-wide uppercase">Complete Home & Garden Care</span>
                 </div>
               </div>
               <p className="text-sage-200 mb-6 max-w-md leading-relaxed">
-                Premium home and garden services creating pristine outdoor spaces.
+                Complete home and garden services from outdoor pet care to lawn maintenance to indoor cleaning.
                 Thoughtful, reliable, and eco-conscious solutions for discerning homeowners.
               </p>
               <div className="space-y-3">
                 <p className="text-sage-200 flex items-center">
-                  <span className="mr-3">📞</span>
+                  <img src="/images/icons/phone.svg" alt="Phone" className="w-4 h-4 mr-3" />
                   <a href="tel:+1234567890" className="hover:text-sage-300 transition-colors">(123) 456-7890</a>
                 </p>
                 <p className="text-sage-200 flex items-center">
-                  <span className="mr-3">✉️</span>
+                  <img src="/images/icons/email.svg" alt="Email" className="w-4 h-4 mr-3" />
                   <a href="mailto:hello@fieldandfoyer.com" className="hover:text-sage-300 transition-colors">hello@fieldandfoyer.com</a>
                 </p>
               </div>
@@ -72,9 +76,9 @@ const Footer = () => {
               <h3 className="text-lg font-semibold mb-6 text-offwhite-50">Our Services</h3>
               <ul className="space-y-3 text-sage-200">
                 <li>Pet Waste Removal</li>
-                <li>Garden Maintenance</li>
-                <li>Landscape Care</li>
-                <li>More Services Coming</li>
+                <li>Lawn & Yard Maintenance</li>
+                <li>Landscape Design</li>
+                <li>Indoor House Cleaning</li>
               </ul>
             </div>
           </div>
