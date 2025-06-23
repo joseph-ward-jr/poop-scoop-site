@@ -80,7 +80,7 @@ const HomePage = () => {
                 <div className="bg-gradient-to-br from-sage-100 to-cream-100 rounded-[3rem] p-16 text-center shadow-2xl border border-sage-200 transform hover:scale-105 transition-transform duration-700">
                   <div className="w-32 h-32 mx-auto mb-8">
                     <img
-                      src="/public/images/hero/garden-sanctuary.jpg"
+                      src="/images/hero/garden-sanctuary.jpg"
                       alt="Beautiful Garden Sanctuary"
                       className="w-full h-full object-cover rounded-3xl shadow-lg animate-pulse"
                     />
