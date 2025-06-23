@@ -1,23 +1,102 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false)
+  const [pricingDropdownOpen, setPricingDropdownOpen] = useState(false)
   const location = useLocation()
+  const headerRef = useRef<HTMLElement>(null)
+
+  const services = [
+    {
+      name: 'Pet Waste Removal',
+      href: '/services/pet-waste-removal',
+      description: 'Professional pet waste management',
+      status: 'Available Now'
+    },
+    {
+      name: 'Lawn & Yard Maintenance',
+      href: '/services/lawn-maintenance',
+      description: 'Complete lawn care services',
+      status: 'Coming 2025'
+    },
+    {
+      name: 'Landscape Design',
+      href: '/services/landscape-design',
+      description: 'Custom landscape solutions',
+      status: 'Coming 2025'
+    },
+    {
+      name: 'Indoor House Cleaning',
+      href: '/services/house-cleaning',
+      description: 'Premium residential cleaning',
+      status: 'Coming 2026'
+    }
+  ]
+
+  const pricingOptions = [
+    {
+      name: 'Pet Waste Removal Pricing',
+      href: '/pricing/pet-waste-removal',
+      description: 'Transparent pricing for pet services',
+      status: 'Available Now'
+    },
+    {
+      name: 'Lawn Care Pricing',
+      href: '/pricing/lawn-care',
+      description: 'Competitive lawn maintenance rates',
+      status: 'Coming 2025'
+    },
+    {
+      name: 'Landscape Design Pricing',
+      href: '/pricing/landscape-design',
+      description: 'Custom design project pricing',
+      status: 'Coming 2025'
+    },
+    {
+      name: 'House Cleaning Pricing',
+      href: '/pricing/house-cleaning',
+      description: 'Premium cleaning service rates',
+      status: 'Coming 2026'
+    }
+  ]
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
     { name: 'About', href: '/about' },
     { name: 'Testimonials', href: '/testimonials' },
-    { name: 'Pricing', href: '/pricing' },
     { name: 'Contact', href: '/contact' },
   ]
 
-  const isActive = (path: string) => location.pathname === path
+  const isActive = (path: string) => location.pathname === path || location.pathname.startsWith(path + '/')
+
+  const closeAllDropdowns = () => {
+    setServicesDropdownOpen(false)
+    setPricingDropdownOpen(false)
+  }
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        closeAllDropdowns()
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
+  // Close dropdowns when route changes
+  useEffect(() => {
+    closeAllDropdowns()
+  }, [location.pathname])
 
   return (
-    <header className="bg-offwhite-50/90 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-sage-200/30 transition-all duration-300">
+    <header ref={headerRef} className="bg-offwhite-50/90 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-sage-200/30 transition-all duration-300">
       <nav className="container-max">
         <div className="flex justify-between items-center py-8 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
@@ -25,9 +104,9 @@ const Header = () => {
             <Link to="/" className="flex items-center space-x-4 group">
               <div className="w-14 h-14 rounded-3xl overflow-hidden shadow-xl group-hover:scale-110 transition-transform duration-300">
                 <img
-                  src="/images/logo/field-foyer-logo.jpg"
+                  src="/images/logo/field-foyer-logo.svg"
                   alt="Field & Foyer Logo"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div className="flex flex-col">
@@ -48,6 +127,7 @@ const Header = () => {
                     ? 'text-sage-800'
                     : 'text-sage-600 hover:text-sage-800'
                 }`}
+                onClick={closeAllDropdowns}
               >
                 {item.name}
                 <div className={`absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-sage-400 to-sage-600 rounded-full transition-all duration-300 ${
@@ -55,9 +135,137 @@ const Header = () => {
                 }`}></div>
               </Link>
             ))}
+
+            {/* Services Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => {
+                  setServicesDropdownOpen(!servicesDropdownOpen)
+                  setPricingDropdownOpen(false)
+                }}
+                className={`font-semibold text-lg transition-all duration-500 relative group flex items-center ${
+                  isActive('/services')
+                    ? 'text-sage-800'
+                    : 'text-sage-600 hover:text-sage-800'
+                }`}
+              >
+                Services
+                <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                <div className={`absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-sage-400 to-sage-600 rounded-full transition-all duration-300 ${
+                  isActive('/services') ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'
+                }`}></div>
+              </button>
+
+              {servicesDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-sage-100 py-4 z-50">
+                  <div className="px-4 py-2 border-b border-sage-100">
+                    <Link
+                      to="/services"
+                      className="text-sage-800 font-semibold hover:text-sage-600 transition-colors"
+                      onClick={closeAllDropdowns}
+                    >
+                      All Services Overview
+                    </Link>
+                  </div>
+                  {services.map((service) => (
+                    <Link
+                      key={service.name}
+                      to={service.href}
+                      className="block px-4 py-3 hover:bg-sage-50 transition-colors group"
+                      onClick={closeAllDropdowns}
+                    >
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <div className="font-semibold text-sage-800 group-hover:text-sage-600">
+                            {service.name}
+                          </div>
+                          <div className="text-sm text-sage-600 mt-1">
+                            {service.description}
+                          </div>
+                        </div>
+                        <span className={`text-xs px-2 py-1 rounded-full ${
+                          service.status === 'Available Now'
+                            ? 'bg-sage-100 text-sage-700'
+                            : 'bg-cream-100 text-sage-600'
+                        }`}>
+                          {service.status}
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Pricing Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => {
+                  setPricingDropdownOpen(!pricingDropdownOpen)
+                  setServicesDropdownOpen(false)
+                }}
+                className={`font-semibold text-lg transition-all duration-500 relative group flex items-center ${
+                  isActive('/pricing')
+                    ? 'text-sage-800'
+                    : 'text-sage-600 hover:text-sage-800'
+                }`}
+              >
+                Pricing
+                <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                <div className={`absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-sage-400 to-sage-600 rounded-full transition-all duration-300 ${
+                  isActive('/pricing') ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'
+                }`}></div>
+              </button>
+
+              {pricingDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-sage-100 py-4 z-50">
+                  <div className="px-4 py-2 border-b border-sage-100">
+                    <Link
+                      to="/pricing"
+                      className="text-sage-800 font-semibold hover:text-sage-600 transition-colors"
+                      onClick={closeAllDropdowns}
+                    >
+                      All Pricing Overview
+                    </Link>
+                  </div>
+                  {pricingOptions.map((pricing) => (
+                    <Link
+                      key={pricing.name}
+                      to={pricing.href}
+                      className="block px-4 py-3 hover:bg-sage-50 transition-colors group"
+                      onClick={closeAllDropdowns}
+                    >
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <div className="font-semibold text-sage-800 group-hover:text-sage-600">
+                            {pricing.name}
+                          </div>
+                          <div className="text-sm text-sage-600 mt-1">
+                            {pricing.description}
+                          </div>
+                        </div>
+                        <span className={`text-xs px-2 py-1 rounded-full ${
+                          pricing.status === 'Available Now'
+                            ? 'bg-sage-100 text-sage-700'
+                            : 'bg-cream-100 text-sage-600'
+                        }`}>
+                          {pricing.status}
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link
               to="/contact"
               className="btn-primary ml-6 text-lg"
+              onClick={closeAllDropdowns}
             >
               Get Free Quote
             </Link>
@@ -98,6 +306,59 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
+
+              {/* Mobile Services Section */}
+              <div className="pt-2">
+                <div className="px-4 py-2 text-sage-800 font-semibold text-sm uppercase tracking-wide">
+                  Services
+                </div>
+                {services.map((service) => (
+                  <Link
+                    key={service.name}
+                    to={service.href}
+                    className="block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 text-sage-600 hover:text-sage-700 hover:bg-sage-50"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <div className="flex justify-between items-center">
+                      <span>{service.name}</span>
+                      <span className={`text-xs px-2 py-1 rounded-full ${
+                        service.status === 'Available Now'
+                          ? 'bg-sage-100 text-sage-700'
+                          : 'bg-cream-100 text-sage-600'
+                      }`}>
+                        {service.status}
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              {/* Mobile Pricing Section */}
+              <div className="pt-2">
+                <div className="px-4 py-2 text-sage-800 font-semibold text-sm uppercase tracking-wide">
+                  Pricing
+                </div>
+                {pricingOptions.map((pricing) => (
+                  <Link
+                    key={pricing.name}
+                    to={pricing.href}
+                    className="block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 text-sage-600 hover:text-sage-700 hover:bg-sage-50"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <div className="flex justify-between items-center">
+                      <span>{pricing.name}</span>
+                      <span className={`text-xs px-2 py-1 rounded-full ${
+                        pricing.status === 'Available Now'
+                          ? 'bg-sage-100 text-sage-700'
+                          : 'bg-cream-100 text-sage-600'
+                      }`}>
+                        {pricing.status}
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
               <div className="pt-4">
                 <Link
                   to="/contact"
