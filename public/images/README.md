@@ -5,7 +5,7 @@ This directory contains all the realistic images used throughout the Field & Foy
 ## Business Evolution
 Field & Foyer's strategic growth plan:
 1. **Phase 1 (Current)**: Pet Waste Removal
-2. **Phase 2 (2025)**: Lawn & Yard Maintenance + Landscape Design
+2. **Phase 2 (2025)**: Lawn & Yard Maintenance
 3. **Phase 3 (2026)**: Indoor House Cleaning
 
 ## Required Images
@@ -25,9 +25,7 @@ Field & Foyer's strategic growth plan:
   - Size: 400x300px
   - Style: Pristine lawn care, professional equipment
   
-- `services/landscape-design.jpg` - Beautiful landscape design
-  - Size: 400x300px
-  - Style: Elegant garden design, professional landscaping
+
   
 - `services/house-cleaning.jpg` - Clean, organized interior space
   - Size: 400x300px
@@ -104,8 +102,7 @@ Images should complement the website's sage green and off-white color scheme:
 **Lawn Maintenance:**
 "Perfectly manicured lawn, professional landscaping equipment, well-maintained yard, premium lawn care service, natural lighting"
 
-**Landscape Design:**
-"Beautiful landscape design, elegant garden layout, professional landscaping, premium outdoor space design, sophisticated garden architecture"
+
 
 **House Cleaning:**
 "Spotless, organized home interior, premium residential cleaning service, clean modern home, professional housekeeping results"
@@ -129,7 +126,6 @@ public/images/
 ├── services/
 │   ├── pet-waste-removal.jpg
 │   ├── lawn-maintenance.jpg
-│   ├── landscape-design.jpg
 │   └── house-cleaning.jpg
 ├── benefits/
 │   ├── thoughtful-service.jpg
