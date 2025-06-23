@@ -70,9 +70,12 @@ const TestimonialsPage = () => {
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
-      <span key={i} className={`text-2xl ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}>
-        ⭐
-      </span>
+      <img
+        key={i}
+        src={i < rating ? '/images/icons/star.svg' : '/images/icons/star-empty.svg'}
+        alt={i < rating ? 'Filled star' : 'Empty star'}
+        className="w-6 h-6 inline-block"
+      />
     ))
   }
 

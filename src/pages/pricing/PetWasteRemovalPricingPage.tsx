@@ -82,7 +82,8 @@ const PetWasteRemovalPricingPage = () => {
               Transparent, flat-rate pricing with no hidden fees. Choose the service frequency that works best for your family and pets.
             </p>
             <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full">
-              <span className="text-sage-800 font-medium">✅ 100% Satisfaction Guarantee</span>
+              <img src="/images/icons/checkmark.svg" alt="Checkmark" className="w-5 h-5 mr-2" />
+              <span className="text-sage-800 font-medium">100% Satisfaction Guarantee</span>
             </div>
           </div>
         </div>

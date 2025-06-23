@@ -41,7 +41,8 @@ const HomePage = () => {
               <div className="space-y-8">
                 <div className="space-y-4">
                   <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full text-sage-800 font-medium text-sm tracking-wide uppercase">
-                    🌿 Premium Home & Garden Services
+                    <img src="/images/icons/leaf-icon.svg" alt="Leaf" className="w-4 h-4 mr-2" />
+                    Premium Home & Garden Services
                   </div>
                   <h1 className="hero-text text-sage-900">
                     Pristine<br />
