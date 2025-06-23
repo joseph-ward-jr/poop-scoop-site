@@ -24,7 +24,7 @@ const Footer = () => {
                 </div>
               </div>
               <p className="text-sage-200 mb-6 max-w-md leading-relaxed">
-                Complete home and garden services from outdoor pet care to lawn maintenance to indoor cleaning.
+                Complete home and garden services from outdoor pet care to comprehensive lawn maintenance to indoor cleaning.
                 Thoughtful, reliable, and eco-conscious solutions for discerning homeowners.
               </p>
               <div className="space-y-3">
@@ -77,7 +77,6 @@ const Footer = () => {
               <ul className="space-y-3 text-sage-200">
                 <li>Pet Waste Removal</li>
                 <li>Lawn & Yard Maintenance</li>
-                <li>Landscape Design</li>
                 <li>Indoor House Cleaning</li>
               </ul>
             </div>

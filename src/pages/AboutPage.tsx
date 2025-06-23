@@ -42,7 +42,7 @@ const AboutPage = () => {
             </h1>
             <p className="text-xl text-sage-700 leading-relaxed">
               We're a family-owned company dedicated to complete home and garden care.
-              Starting with premium pet waste management, expanding to lawn & landscape services, then bringing our expertise indoors.
+              Starting with premium pet waste management, expanding to comprehensive lawn care services, then bringing our expertise indoors.
             </p>
           </div>
         </div>
@@ -69,7 +69,7 @@ const AboutPage = () => {
                 </p>
                 <p>
                   What started as boutique pet waste removal is evolving into a comprehensive home and garden
-                  services company. Our strategic growth plan includes lawn & yard maintenance, landscape design and installation,
+                  services company. Our strategic growth plan includes complete lawn & yard maintenance services,
                   and eventually premium indoor house cleaning – bringing the same attention to detail throughout your entire home.
                 </p>
               </div>

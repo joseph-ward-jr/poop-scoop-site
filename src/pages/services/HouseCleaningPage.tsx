@@ -35,9 +35,9 @@ const HouseCleaningPage = () => {
               Complete Home Care Vision for 2026
             </h2>
             <p className="text-lg text-sage-700 leading-relaxed">
-              Our ultimate goal is to provide complete home care services, from outdoor pet waste removal 
-              and lawn maintenance to premium indoor cleaning. Join our waitlist to be part of our 
-              comprehensive home care journey.
+              Our ultimate goal is to provide complete home care services, from outdoor pet waste removal
+              and comprehensive lawn maintenance to premium indoor cleaning. Join our waitlist to be part of our
+              complete home care journey.
             </p>
           </div>
         </div>

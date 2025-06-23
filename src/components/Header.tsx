@@ -22,12 +22,6 @@ const Header = () => {
       status: 'Coming 2025'
     },
     {
-      name: 'Landscape Design',
-      href: '/services/landscape-design',
-      description: 'Custom landscape solutions',
-      status: 'Coming 2025'
-    },
-    {
       name: 'Indoor House Cleaning',
       href: '/services/house-cleaning',
       description: 'Premium residential cleaning',
@@ -46,12 +40,6 @@ const Header = () => {
       name: 'Lawn Care Pricing',
       href: '/pricing/lawn-care',
       description: 'Competitive lawn maintenance rates',
-      status: 'Coming 2025'
-    },
-    {
-      name: 'Landscape Design Pricing',
-      href: '/pricing/landscape-design',
-      description: 'Custom design project pricing',
       status: 'Coming 2025'
     },
     {

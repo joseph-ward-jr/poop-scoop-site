@@ -30,12 +30,6 @@ const ServicesPage = () => {
       status: 'Coming 2025'
     },
     {
-      name: 'Landscape Design & Installation',
-      image: '/images/services/landscape-design.jpg',
-      description: 'Custom landscape design and installation services to transform your outdoor vision into reality.',
-      status: 'Coming 2025'
-    },
-    {
       name: 'Indoor House Cleaning',
       image: '/images/services/house-cleaning.jpg',
       description: 'Premium residential cleaning services bringing the same attention to detail indoors.',
@@ -151,7 +145,7 @@ const ServicesPage = () => {
               Our Growth Journey
             </h2>
             <p className="text-xl text-sage-700 max-w-4xl mx-auto">
-              We're strategically expanding our services: starting with outdoor pet care, growing into complete yard and landscape services,
+              We're strategically expanding our services: starting with outdoor pet care, growing into complete lawn and yard maintenance,
               then bringing our premium standards indoors. Here's our roadmap.
             </p>
           </div>

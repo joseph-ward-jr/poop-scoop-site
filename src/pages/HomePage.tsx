@@ -51,7 +51,7 @@ const HomePage = () => {
                 </div>
                 <p className="text-2xl md:text-3xl text-sage-600 leading-relaxed max-w-2xl font-light">
                   Transform your complete living experience with our expanding services.
-                  <span className="font-medium text-sage-800"> Starting with pet waste removal, growing to full home and garden care.</span>
+                  <span className="font-medium text-sage-800"> Starting with pet waste removal, expanding to lawn care, then bringing our expertise indoors.</span>
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-8">
@@ -128,7 +128,7 @@ const HomePage = () => {
             </h2>
             <p className="text-2xl text-sage-600 max-w-5xl mx-auto leading-relaxed font-light">
               We're redefining home and garden services with a strategic growth approach.
-              <span className="font-medium text-sage-800"> Starting with pet waste removal, expanding to lawn & landscape services, then bringing our expertise indoors.</span>
+              <span className="font-medium text-sage-800"> Starting with pet waste removal, expanding to complete lawn care services, then bringing our expertise indoors.</span>
             </p>
           </div>
 

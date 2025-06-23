@@ -35,7 +35,7 @@ const LawnMaintenancePage = () => {
               Complete Lawn Care Solutions
             </h2>
             <p className="text-xl text-sage-700 max-w-3xl mx-auto">
-              Building on our pet waste removal expertise, we're expanding to offer comprehensive lawn and yard maintenance services.
+              Building on our pet waste removal expertise, we're expanding to offer comprehensive lawn and yard maintenance services as our next phase of growth.
             </p>
           </div>
 
@@ -115,12 +115,7 @@ const LawnMaintenancePage = () => {
                   description: 'Launching comprehensive lawn care services for existing and new customers.',
                   status: 'upcoming'
                 },
-                {
-                  period: 'Mid 2025',
-                  title: 'Landscape Design',
-                  description: 'Adding custom landscape design and installation services.',
-                  status: 'planned'
-                },
+
                 {
                   period: '2026',
                   title: 'Indoor House Cleaning',
