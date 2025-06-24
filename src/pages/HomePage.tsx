@@ -6,17 +6,17 @@ const HomePage = () => {
     {
       image: '/images/benefits/thoughtful-service.jpg',
       title: 'Thoughtful',
-      description: 'Meticulous attention to detail with a gentle approach that respects your outdoor sanctuary.'
+      description: 'It’s in the details. Our service is defined by a proactive and considerate approach—from remembering to close a gate to ensuring your pet\'s comfort. We care for your home as if it were our own.'
     },
     {
       image: '/images/benefits/premium-quality.jpg',
       title: 'Premium',
-      description: 'Boutique service tailored to discerning homeowners who value quality and discretion.'
+      description: 'A single, high standard of service tailored to the discerning homeowner. Expect meticulous results, absolute discretion, and a seamless client experience from a team that values quality above all else.'
     },
     {
       image: '/images/benefits/sustainable-practices.jpg',
       title: 'Sustainable',
-      description: 'Eco-conscious methods that protect your lawn ecosystem and the environment.'
+      description: 'Protecting your family, pets, and property\'s ecosystem is fundamental. We exclusively use highly effective, eco-conscious products and sustainable practices that are safe for a thriving environment.'
     }
   ]
 
