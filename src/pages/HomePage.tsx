@@ -28,72 +28,61 @@ const HomePage = () => {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background with subtle animation */}
-        <div className="absolute inset-0 bg-gradient-to-br from-offwhite-50 via-cream-50 to-sage-50"></div>
-        <div className="absolute top-20 right-20 w-96 h-96 bg-sage-100 rounded-full opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-20 left-20 w-64 h-64 bg-cream-200 rounded-full opacity-30 animate-pulse delay-1000"></div>
-
-        <div className="container-max relative z-10 py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      {/* Premium Minimalist Hero Section */}
+      <section className="relative min-h-screen flex items-center bg-offwhite-50">
+        <div className="container-max relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center min-h-screen py-20">
+            {/* Left Side - Content */}
             <div className="lg:col-span-7 space-y-12">
-              <div className="space-y-8">
-                <div className="space-y-4">
-                  <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full text-sage-800 font-medium text-sm tracking-wide uppercase">
-                    🌿 Premium Home & Garden Services
-                  </div>
-                  <h1 className="hero-text text-sage-900">
-                    Your<br />
-                    <span className="text-gradient">Standards.</span><br />
-                    <span className="text-sage-700 text-5xl md:text-6xl lg:text-7xl">Our Priority.</span>
-                  </h1>
-                </div>
-                <p className="text-2xl md:text-3xl text-sage-600 leading-relaxed max-w-2xl font-light">
-                Elevating your lifestyle by perfecting your outdoors—from pristine yards to immaculate lawns—and extending our signature care to 
-                  <span className="font-medium text-sage-800"> every corner of your home.</span>
-                </p>
+              {/* Top Tag */}
+              <div className="inline-flex items-center px-4 py-2 bg-sage-100/50 rounded-full">
+                <span className="text-sage-700 font-medium text-xs tracking-[0.2em] uppercase">
+                  Premium Home & Garden Services
+                </span>
               </div>
-              <div className="flex flex-col sm:flex-row gap-8">
+
+              {/* Main Headline */}
+              <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl font-bold text-sage-900 leading-[0.9] tracking-tight">
+                Your Standards.<br />
+                Our Priority.
+              </h1>
+
+              {/* Body Paragraph */}
+              <p className="text-xl md:text-2xl text-sage-600 leading-relaxed max-w-2xl font-light">
+                Elevating your lifestyle with premium home and garden services that exceed expectations.
+                From outdoor pet care to comprehensive property maintenance, we deliver excellence in every detail.
+              </p>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-6 pt-4">
                 <button
                   onClick={scrollToContact}
-                  className="btn-primary text-xl group"
+                  className="bg-sage-800 hover:bg-sage-900 text-offwhite-50 font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                 >
-                  <span>Schedule Consultation</span>
-                  <svg className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  Schedule Consultation
                 </button>
                 <Link
                   to="/services"
-                  className="btn-secondary text-xl text-center group"
+                  className="border-2 border-sage-800 text-sage-800 hover:bg-sage-800 hover:text-offwhite-50 font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300"
                 >
-                  <span>Explore Services</span>
-                  <svg className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                  Explore Services
                 </Link>
               </div>
             </div>
+            {/* Right Side - Designated Space for Graphic */}
             <div className="lg:col-span-5 relative">
-              <div className="relative">
-                <div className="bg-gradient-to-br from-sage-100 to-cream-100 rounded-[3rem] p-16 text-center shadow-2xl border border-sage-200 transform hover:scale-105 transition-transform duration-700">
-                  <div className="w-32 h-32 mx-auto mb-8">
+              <div className="aspect-square max-w-lg mx-auto">
+                {/* Rounded corner graphic element space */}
+                <div className="w-full h-full bg-gradient-to-br from-sage-100/20 to-cream-100/20 rounded-3xl border border-sage-200/30 flex items-center justify-center">
+                  {/* Placeholder for graphic element - replace with your chosen image */}
+                  <div className="w-64 h-64 rounded-2xl overflow-hidden shadow-lg bg-white/50 backdrop-blur-sm border border-sage-200/50">
                     <img
                       src="/images/hero/garden-sanctuary.jpg"
                       alt="Beautiful Garden Sanctuary"
-                      className="w-full h-full object-cover rounded-3xl shadow-lg animate-pulse"
+                      className="w-full h-full object-cover opacity-80"
                     />
                   </div>
-                  <h3 className="text-3xl font-bold text-sage-800 mb-6">Field & Foyer</h3>
-                  <p className="text-sage-600 font-medium text-xl leading-relaxed">
-                  Curating pristine spaces,<br /> inside and out.
-                  </p>
                 </div>
-                {/* Floating elements */}
-                <div className="absolute -top-8 -right-8 w-32 h-32 bg-sage-200 rounded-full opacity-30 animate-pulse"></div>
-                <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-cream-200 rounded-full opacity-40 animate-pulse delay-500"></div>
-                <div className="absolute top-1/2 -right-16 w-20 h-20 bg-sage-300 rounded-full opacity-20 animate-pulse delay-1000"></div>
               </div>
             </div>
           </div>
