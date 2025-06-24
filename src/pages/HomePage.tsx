@@ -44,14 +44,14 @@ const HomePage = () => {
                     🌿 Premium Home & Garden Services
                   </div>
                   <h1 className="hero-text text-sage-900">
-                    Pristine<br />
-                    <span className="text-gradient">Spaces.</span><br />
-                    <span className="text-sage-700 text-5xl md:text-6xl lg:text-7xl">Pure Joy.</span>
+                    Your<br />
+                    <span className="text-gradient">Standards.</span><br />
+                    <span className="text-sage-700 text-5xl md:text-6xl lg:text-7xl">Our Priority.</span>
                   </h1>
                 </div>
                 <p className="text-2xl md:text-3xl text-sage-600 leading-relaxed max-w-2xl font-light">
-                  Transform your complete living experience with our expanding services.
-                  <span className="font-medium text-sage-800"> Starting with pet waste removal, expanding to lawn care, then bringing our expertise indoors.</span>
+                Elevating your lifestyle by perfecting your outdoors—from pristine yards to immaculate lawns—and extending our signature care to 
+                  <span className="font-medium text-sage-800"> every corner of your home.</span>
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-8">
@@ -87,7 +87,7 @@ const HomePage = () => {
                   </div>
                   <h3 className="text-3xl font-bold text-sage-800 mb-6">Field & Foyer</h3>
                   <p className="text-sage-600 font-medium text-xl leading-relaxed">
-                    Where pristine spaces<br />meet complete care
+                  Curating pristine spaces,<br /> inside and out.
                   </p>
                 </div>
                 {/* Floating elements */}
