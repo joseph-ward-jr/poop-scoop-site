@@ -1,44 +1,16 @@
 import { useState } from 'react'
+import ContactForm from '../components/ContactForm'
 
 const ContactPage = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    dogs: '',
-    yardSize: '',
-    service: '',
-    message: ''
-  })
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
+  const handleFormSubmit = (data: any) => {
+    console.log('Form submitted:', data)
     setIsSubmitted(true)
-    
+
     // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        address: '',
-        dogs: '',
-        yardSize: '',
-        service: '',
-        message: ''
-      })
     }, 3000)
   }
 
@@ -72,16 +44,7 @@ const ContactPage = () => {
   if (isSubmitted) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50">
-        <div className="max-w-md mx-auto text-center p-8 bg-white rounded-2xl shadow-lg">
-          <div className="text-6xl mb-6">✅</div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Thank You!</h2>
-          <p className="text-gray-600 mb-6">
-            We've received your request and will contact you within 24 hours with your free estimate.
-          </p>
-          <div className="text-sm text-gray-500">
-            Redirecting back to form in a few seconds...
-          </div>
-        </div>
+        <ContactForm variant="contact" onSubmit={handleFormSubmit} />
       </div>
     )
   }
@@ -134,154 +97,7 @@ const ContactPage = () => {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Request Your Free Estimate
                 </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        placeholder="Your full name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        placeholder="(123) 456-7890"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                        Service Type *
-                      </label>
-                      <select
-                        id="service"
-                        name="service"
-                        value={formData.service}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      >
-                        <option value="">Select service</option>
-                        <option value="weekly">Weekly Service</option>
-                        <option value="biweekly">Bi-weekly Service</option>
-                        <option value="onetime">One-time Cleanup</option>
-                        <option value="unsure">Not sure yet</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
-                      Address or ZIP Code *
-                    </label>
-                    <input
-                      type="text"
-                      id="address"
-                      name="address"
-                      value={formData.address}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      placeholder="123 Main St or 12345"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="dogs" className="block text-sm font-medium text-gray-700 mb-2">
-                        Number of Dogs *
-                      </label>
-                      <select
-                        id="dogs"
-                        name="dogs"
-                        value={formData.dogs}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      >
-                        <option value="">Select number</option>
-                        <option value="1">1 dog</option>
-                        <option value="2">2 dogs</option>
-                        <option value="3">3 dogs</option>
-                        <option value="4+">4+ dogs</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label htmlFor="yardSize" className="block text-sm font-medium text-gray-700 mb-2">
-                        Yard Size *
-                      </label>
-                      <select
-                        id="yardSize"
-                        name="yardSize"
-                        value={formData.yardSize}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      >
-                        <option value="">Select size</option>
-                        <option value="small">Small (under 1/4 acre)</option>
-                        <option value="medium">Medium (1/4 - 1/2 acre)</option>
-                        <option value="large">Large (over 1/2 acre)</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Additional Information
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      rows={4}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      placeholder="Tell us about any special requirements, gate access, or questions you have..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full btn-primary text-lg py-4"
-                  >
-                    Request My Free Estimate
-                  </button>
-                </form>
+                <ContactForm variant="contact" onSubmit={handleFormSubmit} />
               </div>
 
               {/* Info Sidebar */}
