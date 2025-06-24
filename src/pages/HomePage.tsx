@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import ContactForm from '../components/ContactForm'
 
 const HomePage = () => {
   const benefits = [
@@ -215,105 +216,7 @@ const HomePage = () => {
               </p>
             </div>
 
-            <form
-              onSubmit={(e) => {
-                e.preventDefault()
-                const formData = new FormData(e.currentTarget)
-                const data = Object.fromEntries(formData.entries())
-                console.log('Form submitted:', data)
-                alert('Thank you! We\'ll contact you within 24 hours with your personalized service plan.')
-              }}
-              className="bg-offwhite-50 rounded-[2rem] p-12 shadow-2xl border border-sage-200 hover:shadow-3xl transition-all duration-500"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
-                <div>
-                  <label htmlFor="name" className="block text-lg font-semibold text-sage-800 mb-4">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    className="w-full px-6 py-5 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 text-lg hover:border-sage-300"
-                    placeholder="Your full name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-lg font-semibold text-sage-800 mb-4">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className="w-full px-6 py-5 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 text-lg hover:border-sage-300"
-                    placeholder="your@email.com"
-                  />
-                </div>
-              </div>
-
-              <div className="mb-10">
-                <label htmlFor="address" className="block text-lg font-semibold text-sage-800 mb-4">
-                  Address or ZIP Code *
-                </label>
-                <input
-                  type="text"
-                  id="address"
-                  name="address"
-                  required
-                  className="w-full px-6 py-5 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 text-lg hover:border-sage-300"
-                  placeholder="123 Main St or 12345"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
-                <div>
-                  <label htmlFor="dogs" className="block text-lg font-semibold text-sage-800 mb-4">
-                    Number of Pets *
-                  </label>
-                  <select
-                    id="dogs"
-                    name="dogs"
-                    required
-                    className="w-full px-6 py-5 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 text-lg hover:border-sage-300"
-                  >
-                    <option value="">Select number</option>
-                    <option value="1">1 pet</option>
-                    <option value="2">2 pets</option>
-                    <option value="3">3 pets</option>
-                    <option value="4+">4+ pets</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="yardSize" className="block text-lg font-semibold text-sage-800 mb-4">
-                    Lawn Size *
-                  </label>
-                  <select
-                    id="yardSize"
-                    name="yardSize"
-                    required
-                    className="w-full px-6 py-5 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 text-lg hover:border-sage-300"
-                  >
-                    <option value="">Select size</option>
-                    <option value="small">Intimate (under 1/4 acre)</option>
-                    <option value="medium">Spacious (1/4 - 1/2 acre)</option>
-                    <option value="large">Expansive (over 1/2 acre)</option>
-                  </select>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-sage-600 hover:bg-sage-700 text-offwhite-50 font-bold py-6 px-12 rounded-2xl text-xl transition-all duration-500 shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:scale-105 group"
-              >
-                <span>Begin My Journey</span>
-                <svg className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </button>
-            </form>
+            <ContactForm variant="homepage" />
           </div>
         </div>
       </section>

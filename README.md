@@ -69,7 +69,9 @@ src/
 ├── components/          # Reusable components
 │   ├── Header.tsx      # Navigation header
 │   ├── Footer.tsx      # Site footer
-│   └── Layout.tsx      # Page layout wrapper
+│   ├── Layout.tsx      # Page layout wrapper
+│   ├── ContactForm.tsx # Unified contact form component
+│   └── __tests__/      # Component tests
 ├── pages/              # Page components
 │   ├── HomePage.tsx    # Landing page
 │   ├── AboutPage.tsx   # About us page
@@ -105,11 +107,28 @@ The site uses Tailwind CSS with custom utility classes defined in `src/index.css
 
 ## Form Handling
 
-The contact forms currently log data to the console. To integrate with a backend:
+The contact forms use a unified `ContactForm` component with the following fields:
+- Name (required)
+- Email address (required)
+- Phone number (required)
+- Home or commercial address (required)
+- Additional information (optional)
+
+The forms currently log data to the console. To integrate with a backend:
 
 1. Replace the `console.log()` calls in form submission handlers
 2. Add your API endpoint or form service (e.g., Netlify Forms, Formspree)
 3. Add proper error handling and loading states
+
+## Testing
+
+The project includes comprehensive tests for the contact form component:
+
+```bash
+npm test
+```
+
+Tests cover form validation, submission handling, and different variants (homepage vs contact page).
 
 ## Deployment
 
