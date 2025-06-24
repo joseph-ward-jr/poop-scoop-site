@@ -10,6 +10,7 @@ describe('ContactForm', () => {
     expect(screen.getByLabelText(/email address/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/phone number/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/home or commercial address/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/how would you like to be contacted/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/additional information/i)).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /begin my journey/i })).toBeInTheDocument()
   })
@@ -21,6 +22,7 @@ describe('ContactForm', () => {
     expect(screen.getByLabelText(/email address/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/phone number/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/home or commercial address/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/how would you like to be contacted/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/additional information/i)).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /request my free estimate/i })).toBeInTheDocument()
   })
@@ -36,6 +38,7 @@ describe('ContactForm', () => {
     expect(screen.getByLabelText(/email address/i)).toBeRequired()
     expect(screen.getByLabelText(/phone number/i)).toBeRequired()
     expect(screen.getByLabelText(/home or commercial address/i)).toBeRequired()
+    expect(screen.getByLabelText(/how would you like to be contacted/i)).toBeRequired()
   })
 
   it('calls onSubmit with form data when submitted', async () => {
@@ -47,6 +50,7 @@ describe('ContactForm', () => {
     fireEvent.change(screen.getByLabelText(/email address/i), { target: { value: 'john@example.com' } })
     fireEvent.change(screen.getByLabelText(/phone number/i), { target: { value: '(555) 123-4567' } })
     fireEvent.change(screen.getByLabelText(/home or commercial address/i), { target: { value: '123 Main St, City, State 12345' } })
+    fireEvent.change(screen.getByLabelText(/how would you like to be contacted/i), { target: { value: 'email' } })
     fireEvent.change(screen.getByLabelText(/additional information/i), { target: { value: 'Test message' } })
     
     // Submit the form
@@ -58,6 +62,7 @@ describe('ContactForm', () => {
         email: 'john@example.com',
         phone: '(555) 123-4567',
         address: '123 Main St, City, State 12345',
+        contactPreference: 'email',
         additionalInfo: 'Test message'
       })
     })
@@ -71,6 +76,7 @@ describe('ContactForm', () => {
     fireEvent.change(screen.getByLabelText(/email address/i), { target: { value: 'john@example.com' } })
     fireEvent.change(screen.getByLabelText(/phone number/i), { target: { value: '(555) 123-4567' } })
     fireEvent.change(screen.getByLabelText(/home or commercial address/i), { target: { value: '123 Main St' } })
+    fireEvent.change(screen.getByLabelText(/how would you like to be contacted/i), { target: { value: 'call' } })
     
     // Submit the form
     fireEvent.click(screen.getByRole('button', { name: /request my free estimate/i }))
@@ -90,6 +96,7 @@ describe('ContactForm', () => {
     fireEvent.change(screen.getByLabelText(/email address/i), { target: { value: 'john@example.com' } })
     fireEvent.change(screen.getByLabelText(/phone number/i), { target: { value: '(555) 123-4567' } })
     fireEvent.change(screen.getByLabelText(/home or commercial address/i), { target: { value: '123 Main St' } })
+    fireEvent.change(screen.getByLabelText(/how would you like to be contacted/i), { target: { value: 'text' } })
 
     fireEvent.click(screen.getByRole('button', { name: /begin my journey/i }))
 
@@ -98,6 +105,7 @@ describe('ContactForm', () => {
       email: 'john@example.com',
       phone: '(555) 123-4567',
       address: '123 Main St',
+      contactPreference: 'text',
       additionalInfo: ''
     })
   })
