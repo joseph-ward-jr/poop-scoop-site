@@ -10,6 +10,7 @@ interface FormData {
   email: string
   phone: string
   address: string
+  contactPreference: string
   additionalInfo: string
 }
 
@@ -19,12 +20,13 @@ const ContactForm = ({ variant = 'homepage', onSubmit }: ContactFormProps) => {
     email: '',
     phone: '',
     address: '',
+    contactPreference: '',
     additionalInfo: ''
   })
 
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
@@ -54,6 +56,7 @@ const ContactForm = ({ variant = 'homepage', onSubmit }: ContactFormProps) => {
         email: '',
         phone: '',
         address: '',
+        contactPreference: '',
         additionalInfo: ''
       })
     }, 3000)
@@ -146,6 +149,25 @@ const ContactForm = ({ variant = 'homepage', onSubmit }: ContactFormProps) => {
               placeholder="123 Main St, City, State 12345"
             />
           </div>
+        </div>
+
+        <div className="mb-10">
+          <label htmlFor="contactPreference" className="block text-lg font-semibold text-sage-800 mb-4">
+            How would you like to be contacted? *
+          </label>
+          <select
+            id="contactPreference"
+            name="contactPreference"
+            value={formData.contactPreference}
+            onChange={handleInputChange}
+            required
+            className="w-full px-6 py-5 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 text-lg hover:border-sage-300"
+          >
+            <option value="">Select contact method</option>
+            <option value="call">Call</option>
+            <option value="email">Email</option>
+            <option value="text">Text</option>
+          </select>
         </div>
 
         <div className="mb-12">
@@ -243,6 +265,25 @@ const ContactForm = ({ variant = 'homepage', onSubmit }: ContactFormProps) => {
             placeholder="123 Main St, City, State 12345"
           />
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="contactPreference" className="block text-sm font-medium text-gray-700 mb-2">
+          How would you like to be contacted? *
+        </label>
+        <select
+          id="contactPreference"
+          name="contactPreference"
+          value={formData.contactPreference}
+          onChange={handleInputChange}
+          required
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        >
+          <option value="">Select contact method</option>
+          <option value="call">Call</option>
+          <option value="email">Email</option>
+          <option value="text">Text</option>
+        </select>
       </div>
 
       <div>

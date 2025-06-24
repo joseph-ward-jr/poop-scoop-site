@@ -112,6 +112,7 @@ The contact forms use a unified `ContactForm` component with the following field
 - Email address (required)
 - Phone number (required)
 - Home or commercial address (required)
+- Contact preference: Call, Email, or Text (required)
 - Additional information (optional)
 
 The forms currently log data to the console. To integrate with a backend:
