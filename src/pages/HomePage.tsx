@@ -15,7 +15,7 @@ const HomePage = () => {
     {
       image: '/images/benefits/sustainable-practices.jpg',
       title: 'Sustainable',
-      description: 'Eco-conscious methods that protect your garden ecosystem and the environment.'
+      description: 'Eco-conscious methods that protect your lawn ecosystem and the environment.'
     }
   ]
 
@@ -37,7 +37,7 @@ const HomePage = () => {
               {/* Top Tag */}
               <div className="inline-flex items-center px-4 py-2 bg-sage-100/50 rounded-full">
                 <span className="text-sage-700 font-medium text-xs tracking-[0.2em] uppercase">
-                  Premium Home & Garden Services
+                  Premium Home & Lawn Services
                 </span>
               </div>
 
@@ -49,8 +49,8 @@ const HomePage = () => {
 
               {/* Body Paragraph */}
               <p className="text-xl md:text-2xl text-sage-600 leading-relaxed max-w-2xl font-light">
-                Elevating your lifestyle with premium home and garden services that exceed expectations.
-                From outdoor pet care to comprehensive property maintenance, we deliver excellence in every detail.
+                Elevating your lifestyle with premium home and lawn services that exceed expectations.
+                From outdoor pet care to comprehensive property maintenance coming soon, we deliver excellence in every detail.
               </p>
 
               {/* Buttons */}
@@ -75,10 +75,10 @@ const HomePage = () => {
                 {/* Rounded corner graphic element space */}
                 <div className="w-full h-full bg-gradient-to-br from-sage-100/20 to-cream-100/20 rounded-3xl border border-sage-200/30 flex items-center justify-center">
                   {/* Placeholder for graphic element - replace with your chosen image */}
-                  <div className="w-64 h-64 rounded-2xl overflow-hidden shadow-lg bg-white/50 backdrop-blur-sm border border-sage-200/50">
+                  <div className="w-90 h-90 rounded-2xl overflow-hidden shadow-lg bg-white/50 backdrop-blur-sm border border-sage-200/50">
                     <img
                       src="/images/hero/garden-sanctuary.jpg"
-                      alt="Beautiful Garden Sanctuary"
+                      alt="Beautiful Lawn Sanctuary"
                       className="w-full h-full object-cover opacity-80"
                     />
                   </div>
@@ -116,8 +116,8 @@ const HomePage = () => {
               <span className="text-gradient">Field & Foyer?</span>
             </h2>
             <p className="text-2xl text-sage-600 max-w-5xl mx-auto leading-relaxed font-light">
-              We're redefining home and garden services with a strategic growth approach.
-              <span className="font-medium text-sage-800"> Starting with pet waste removal, expanding to complete lawn care services, then bringing our expertise indoors.</span>
+            Field & Foyer was founded on the belief that you deserve a higher standard of home care without the complexity of managing multiple providers. We deliver one unwavering standard of excellence for every service—from meticulous lawn care to comprehensive interior solutions—all managed through a single, trusted point of contact. 
+              <span className="font-medium text-sage-800"> This integrated approach is about more than just completing tasks; it’s about providing thoughtful, complete home stewardship that gives you true peace of mind.</span>
             </p>
           </div>
 
@@ -158,14 +158,16 @@ const HomePage = () => {
         <div className="container-max text-center relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="inline-flex items-center px-6 py-3 bg-sage-500 rounded-full text-offwhite-50 font-medium text-sm tracking-wide uppercase mb-8">
-              🚀 Transform Your Space
+              Transform Your Space
             </div>
             <h2 className="section-title text-offwhite-50 mb-12">
               Ready for Your<br />
-              <span className="bg-gradient-to-r from-cream-200 to-offwhite-100 bg-clip-text text-transparent">Garden Transformation?</span>
+              <span className="bg-gradient-to-r from-cream-200 to-offwhite-100 bg-clip-text text-transparent">Lawn Transformation?</span>
             </h2>
             <p className="text-2xl text-sage-100 mb-16 leading-relaxed font-light max-w-4xl mx-auto">
-              Join discerning homeowners who trust Field & Foyer for their complete home and garden needs.
+              Join discerning homeowners who trust
+              <span className="font-medium text-offwhite-50"> Field & Foyer </span>
+              for their complete home and lawn needs.
               <span className="font-medium text-offwhite-50"> Experience our growing suite of premium services.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-8 justify-center">
@@ -205,11 +207,11 @@ const HomePage = () => {
               </div>
               <h2 className="section-title text-sage-900 mb-8">
                 Begin Your<br />
-                <span className="text-gradient">Garden Journey</span>
+                <span className="text-gradient">Journey</span>
               </h2>
               <p className="text-2xl text-sage-600 leading-relaxed font-light max-w-3xl mx-auto">
                 Share your vision with us and we'll craft a personalized service plan within 24 hours.
-                <span className="font-medium text-sage-800"> Your outdoor sanctuary awaits.</span>
+                <span className="font-medium text-sage-800"> Your sanctuary awaits.</span>
               </p>
             </div>
 
@@ -286,7 +288,7 @@ const HomePage = () => {
                 </div>
                 <div>
                   <label htmlFor="yardSize" className="block text-lg font-semibold text-sage-800 mb-4">
-                    Garden Size *
+                    Lawn Size *
                   </label>
                   <select
                     id="yardSize"
@@ -306,7 +308,7 @@ const HomePage = () => {
                 type="submit"
                 className="w-full bg-sage-600 hover:bg-sage-700 text-offwhite-50 font-bold py-6 px-12 rounded-2xl text-xl transition-all duration-500 shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:scale-105 group"
               >
-                <span>Begin My Garden Journey</span>
+                <span>Begin My Journey</span>
                 <svg className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
