@@ -90,79 +90,84 @@ const ContactPage = () => {
       {/* Contact Form */}
       <section className="section-padding bg-gray-50">
         <div className="container-max">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Form */}
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  Request Your Free Estimate
-                </h2>
-                <ContactForm variant="contact" onSubmit={handleFormSubmit} />
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+              Request Your Free Estimate
+            </h2>
+            <p className="text-xl text-gray-600 mb-12 leading-relaxed">
+              Get your personalized quote in 24 hours. No obligations, just honest pricing for premium service.
+            </p>
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl">
+              <ContactForm variant="contact" onSubmit={handleFormSubmit} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What Happens Next */}
+      <section className="section-padding bg-white">
+        <div className="container-max">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What Happens Next?</h2>
+              <p className="text-xl text-gray-600 leading-relaxed">
+                Our simple 3-step process gets you from quote to clean yard in no time.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+              <div className="text-center p-8 bg-gray-50 rounded-2xl">
+                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6">
+                  1
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">We Review Your Request</h3>
+                <p className="text-gray-600 leading-relaxed">Our team carefully reviews your information and service needs to prepare your personalized quote.</p>
               </div>
 
-              {/* Info Sidebar */}
-              <div className="space-y-8">
-                <div className="bg-white rounded-xl p-8 shadow-lg">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">What Happens Next?</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start space-x-3">
-                      <div className="flex-shrink-0 w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">
-                        1
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900">We Review Your Request</h4>
-                        <p className="text-gray-600 text-sm">Our team reviews your information and service needs.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="flex-shrink-0 w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">
-                        2
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900">We Contact You</h4>
-                        <p className="text-gray-600 text-sm">We'll call or email within 24 hours with your custom quote.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="flex-shrink-0 w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">
-                        3
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900">Schedule Service</h4>
-                        <p className="text-gray-600 text-sm">If you're happy with the quote, we'll schedule your first visit.</p>
-                      </div>
-                    </div>
-                  </div>
+              <div className="text-center p-8 bg-gray-50 rounded-2xl">
+                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6">
+                  2
                 </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">We Contact You</h3>
+                <p className="text-gray-600 leading-relaxed">We'll reach out within 24 hours using your preferred contact method with your custom quote.</p>
+              </div>
 
-                <div className="bg-primary-600 text-white rounded-xl p-8">
-                  <h3 className="text-2xl font-bold mb-4">Why Choose Us?</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-center">
-                      <svg className="w-5 h-5 mr-3 text-primary-200" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      <span>100% Satisfaction Guarantee</span>
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="w-5 h-5 mr-3 text-primary-200" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      <span>Fully Insured & Bonded</span>
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="w-5 h-5 mr-3 text-primary-200" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      <span>Eco-Friendly Methods</span>
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="w-5 h-5 mr-3 text-primary-200" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      <span>Local Family Business</span>
-                    </li>
-                  </ul>
+              <div className="text-center p-8 bg-gray-50 rounded-2xl">
+                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6">
+                  3
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Schedule Service</h3>
+                <p className="text-gray-600 leading-relaxed">If you're happy with the quote, we'll schedule your first visit at your convenience.</p>
+              </div>
+            </div>
+
+            {/* Why Choose Us */}
+            <div className="bg-primary-600 text-white rounded-2xl p-8 md:p-12 text-center">
+              <h3 className="text-3xl md:text-4xl font-bold mb-8">Why Choose Field & Foyer?</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="flex flex-col items-center">
+                  <svg className="w-8 h-8 mb-4 text-primary-200" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-lg font-semibold">100% Satisfaction Guarantee</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <svg className="w-8 h-8 mb-4 text-primary-200" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-lg font-semibold">Fully Insured & Bonded</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <svg className="w-8 h-8 mb-4 text-primary-200" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-lg font-semibold">Eco-Friendly Methods</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <svg className="w-8 h-8 mb-4 text-primary-200" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-lg font-semibold">Local Family Business</span>
                 </div>
               </div>
             </div>
