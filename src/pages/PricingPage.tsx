@@ -304,6 +304,50 @@ const PricingPage = () => {
         </div>
       </section>
 
+      {/* Commercial Pricing Section */}
+      <section className="section-padding bg-sage-50">
+        <div className="container-max">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-sage-200">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
+                  Commercial & Property Management Pricing
+                </h2>
+                <p className="text-xl text-sage-700 leading-relaxed">
+                  We offer specialized pricing for commercial properties, property management companies,
+                  HOAs, and large-scale residential developments. Contact us for custom solutions.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div className="text-center p-6 bg-sage-50 rounded-xl">
+                  <h3 className="text-lg font-bold text-sage-800 mb-3">Property Management</h3>
+                  <p className="text-sage-600 text-sm">Multi-unit residential complexes and apartment communities</p>
+                </div>
+                <div className="text-center p-6 bg-cream-50 rounded-xl">
+                  <h3 className="text-lg font-bold text-sage-800 mb-3">Commercial Properties</h3>
+                  <p className="text-sage-600 text-sm">Office complexes, retail centers, and business parks</p>
+                </div>
+                <div className="text-center p-6 bg-sage-50 rounded-xl">
+                  <h3 className="text-lg font-bold text-sage-800 mb-3">HOA Communities</h3>
+                  <p className="text-sage-600 text-sm">Homeowner associations and community common areas</p>
+                </div>
+              </div>
+
+              <div className="bg-sage-100 rounded-xl p-6 text-center">
+                <p className="text-sage-800 font-medium text-lg mb-4">
+                  <img src="/images/icons/checkmark.svg" alt="Commercial Solutions" className="w-5 h-5 inline mr-2" />
+                  Volume discounts, flexible billing, and custom service plans available
+                </p>
+                <a href="/contact" className="btn-primary">
+                  Request Commercial Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="section-padding bg-primary-600">
         <div className="container-max text-center">

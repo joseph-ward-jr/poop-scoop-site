@@ -221,6 +221,59 @@ const ServicesPage = () => {
         </div>
       </section>
 
+      {/* Commercial Services Section */}
+      <section className="section-padding bg-sage-50">
+        <div className="container-max">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-sage-200">
+              <div className="w-16 h-16 mx-auto mb-6">
+                <img src="/images/icons/trusted-partner.svg" alt="Commercial Services" className="w-full h-full" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-6">
+                Commercial & Property Management Services
+              </h2>
+              <p className="text-xl text-sage-700 mb-8 leading-relaxed">
+                Looking for commercial pet waste removal, property management solutions, or large-scale services?
+                We work with businesses, property managers, HOAs, and commercial properties to provide
+                customized solutions that meet your specific needs.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 text-left">
+                <div className="space-y-3">
+                  <h3 className="font-bold text-sage-800 text-lg">Commercial Properties</h3>
+                  <ul className="space-y-2 text-sage-600">
+                    <li>• Office complexes with outdoor areas</li>
+                    <li>• Retail centers and shopping plazas</li>
+                    <li>• Hotels and hospitality properties</li>
+                    <li>• Multi-unit residential complexes</li>
+                  </ul>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="font-bold text-sage-800 text-lg">Property Management</h3>
+                  <ul className="space-y-2 text-sage-600">
+                    <li>• HOA community services</li>
+                    <li>• Apartment complex maintenance</li>
+                    <li>• Property management companies</li>
+                    <li>• Large residential developments</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="bg-sage-100 rounded-xl p-6 mb-8">
+                <p className="text-sage-800 font-medium text-lg">
+                  <img src="/images/icons/checkmark.svg" alt="Custom Solutions" className="w-5 h-5 inline mr-2" />
+                  Custom pricing, flexible scheduling, and tailored service plans available
+                </p>
+              </div>
+              <Link
+                to="/contact"
+                className="btn-primary text-lg"
+              >
+                Request Commercial Quote
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="section-padding bg-offwhite-50">
         <div className="container-max text-center">
@@ -228,7 +281,7 @@ const ServicesPage = () => {
             Ready to Transform Your Outdoor Space?
           </h2>
           <p className="text-xl text-sage-700 mb-8 max-w-3xl mx-auto">
-            Start with our pet waste removal service and experience the Field & Foyer difference. 
+            Start with our pet waste removal service and experience the Field & Foyer difference.
             Your outdoor sanctuary awaits.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">

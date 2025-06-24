@@ -135,6 +135,60 @@ const PetWasteRemovalPage = () => {
         </div>
       </section>
 
+      {/* Commercial Services Section */}
+      <section className="section-padding bg-sage-50">
+        <div className="container-max">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-sage-200">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
+                  Commercial Pet Waste Management
+                </h2>
+                <p className="text-xl text-sage-700 leading-relaxed">
+                  Property managers, HOAs, and commercial properties trust us for reliable,
+                  professional pet waste removal services at scale.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <h3 className="text-xl font-bold text-sage-800 mb-4">Perfect For:</h3>
+                  <ul className="space-y-2 text-sage-600">
+                    <li>• Apartment complexes and condominiums</li>
+                    <li>• HOA communities with dog parks</li>
+                    <li>• Property management companies</li>
+                    <li>• Commercial properties with outdoor areas</li>
+                    <li>• Pet-friendly businesses and hotels</li>
+                    <li>• Large residential developments</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-sage-800 mb-4">Commercial Benefits:</h3>
+                  <ul className="space-y-2 text-sage-600">
+                    <li>• Volume pricing for multiple units</li>
+                    <li>• Flexible scheduling around residents</li>
+                    <li>• Professional, uniformed service teams</li>
+                    <li>• Detailed service reporting</li>
+                    <li>• Liability insurance and bonding</li>
+                    <li>• Emergency and on-call services</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-sage-100 rounded-xl p-6 text-center">
+                <p className="text-sage-800 font-medium text-lg mb-4">
+                  <img src="/images/icons/checkmark.svg" alt="Commercial Solutions" className="w-5 h-5 inline mr-2" />
+                  Custom commercial solutions with competitive pricing
+                </p>
+                <a href="/contact" className="btn-primary">
+                  Request Commercial Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="section-padding bg-sage-800 text-white">
         <div className="container-max">
@@ -143,7 +197,7 @@ const PetWasteRemovalPage = () => {
               Ready for a Cleaner Yard?
             </h2>
             <p className="text-xl text-sage-100 mb-8 leading-relaxed">
-              Join hundreds of satisfied customers who trust Field & Foyer for professional pet waste management. 
+              Join hundreds of satisfied customers who trust Field & Foyer for professional pet waste management.
               Get your free estimate today and experience the difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

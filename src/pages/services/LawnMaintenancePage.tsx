@@ -145,6 +145,60 @@ const LawnMaintenancePage = () => {
         </div>
       </section>
 
+      {/* Commercial Lawn Services Section */}
+      <section className="section-padding bg-sage-50">
+        <div className="container-max">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-sage-200">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
+                  Commercial Lawn & Property Maintenance
+                </h2>
+                <p className="text-xl text-sage-700 leading-relaxed">
+                  Planning ahead for 2025? We're already accepting inquiries for commercial lawn maintenance
+                  contracts. Get priority consideration for our commercial services launch.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <h3 className="text-xl font-bold text-sage-800 mb-4">Commercial Properties:</h3>
+                  <ul className="space-y-2 text-sage-600">
+                    <li>• Office parks and business complexes</li>
+                    <li>• Retail centers and shopping plazas</li>
+                    <li>• Apartment and condo communities</li>
+                    <li>• HOA common areas and amenities</li>
+                    <li>• Property management portfolios</li>
+                    <li>• Municipal and government properties</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-sage-800 mb-4">Services Coming 2025:</h3>
+                  <ul className="space-y-2 text-sage-600">
+                    <li>• Weekly/bi-weekly lawn maintenance</li>
+                    <li>• Seasonal cleanup and preparation</li>
+                    <li>• Fertilization and weed control</li>
+                    <li>• Integrated pest waste management</li>
+                    <li>• Emergency and storm cleanup</li>
+                    <li>• Custom maintenance schedules</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-sage-100 rounded-xl p-6 text-center">
+                <p className="text-sage-800 font-medium text-lg mb-4">
+                  <img src="/images/icons/checkmark.svg" alt="Early Access" className="w-5 h-5 inline mr-2" />
+                  Early bird pricing and priority scheduling for commercial inquiries
+                </p>
+                <a href="/contact" className="btn-primary">
+                  Inquire About Commercial Services
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="section-padding bg-sage-800 text-white">
         <div className="container-max">

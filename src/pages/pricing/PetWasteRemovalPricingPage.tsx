@@ -183,6 +183,56 @@ const PetWasteRemovalPricingPage = () => {
         </div>
       </section>
 
+      {/* Commercial Pricing Section */}
+      <section className="section-padding bg-sage-50">
+        <div className="container-max">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-sage-200">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
+                  Commercial & Volume Pricing
+                </h2>
+                <p className="text-xl text-sage-700 leading-relaxed">
+                  Property managers, HOAs, and commercial properties receive special volume pricing
+                  and customized service plans tailored to your specific needs.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div className="bg-sage-50 rounded-xl p-6">
+                  <h3 className="text-xl font-bold text-sage-800 mb-4">Volume Discounts Available</h3>
+                  <ul className="space-y-2 text-sage-600">
+                    <li>• 10+ units: 15% discount</li>
+                    <li>• 25+ units: 20% discount</li>
+                    <li>• 50+ units: 25% discount</li>
+                    <li>• 100+ units: Custom pricing</li>
+                  </ul>
+                </div>
+                <div className="bg-cream-50 rounded-xl p-6">
+                  <h3 className="text-xl font-bold text-sage-800 mb-4">Commercial Benefits</h3>
+                  <ul className="space-y-2 text-sage-600">
+                    <li>• Flexible billing options</li>
+                    <li>• Priority scheduling</li>
+                    <li>• Dedicated account manager</li>
+                    <li>• Detailed service reporting</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-sage-100 rounded-xl p-6 text-center">
+                <p className="text-sage-800 font-medium text-lg mb-4">
+                  <img src="/images/icons/checkmark.svg" alt="Custom Quote" className="w-5 h-5 inline mr-2" />
+                  Custom quotes available for properties with unique requirements
+                </p>
+                <a href="/contact" className="btn-primary">
+                  Request Commercial Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="section-padding bg-sage-800 text-white">
         <div className="container-max">
