@@ -13,19 +13,18 @@ const Footer = () => {
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-10 h-10 rounded-2xl overflow-hidden shadow-lg">
                   <img
-                    src="/images/logo/field-foyer-logo.jpg"
+                    src="/images/logo/field-foyer-logo.png"
                     alt="Field & Foyer Logo"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xl font-bold text-offwhite-50">Field & Foyer</span>
-                  <span className="text-xs text-sage-300 font-medium tracking-wide uppercase">Complete Home & Garden Care</span>
+                  <span className="font-serif text-xl font-bold text-offwhite-50">Field & Foyer</span>
+                  <span className="text-xs text-sage-300 font-medium tracking-wide uppercase"></span>
                 </div>
               </div>
               <p className="text-sage-200 mb-6 max-w-md leading-relaxed">
-                Complete home and garden services from outdoor pet care to comprehensive lawn maintenance to indoor cleaning.
-                Thoughtful, reliable, and eco-conscious solutions for discerning homeowners.
+              A higher standard of home solutions for discerning homeowners. We offer thoughtful outdoor pet care, with comprehensive lawn and indoor services coming soon.
               </p>
               <div className="space-y-3">
                 <p className="text-sage-200 flex items-center">
@@ -74,10 +73,10 @@ const Footer = () => {
             {/* Services */}
             <div>
               <h3 className="text-lg font-semibold mb-6 text-offwhite-50">Our Services</h3>
-              <ul className="space-y-3 text-sage-200">
+              <ul className="text-sm space-y-3 text-sage-200">
                 <li>Pet Waste Removal</li>
-                <li>Lawn & Yard Maintenance</li>
-                <li>Indoor House Cleaning</li>
+                <li>Indoor House Cleaning (Coming Soon)</li>
+                <li>Lawn & Yard Maintenance (Coming Soon)</li>
               </ul>
             </div>
           </div>

@@ -16,15 +16,15 @@ const Header = () => {
       status: 'Available Now'
     },
     {
-      name: 'Lawn & Yard Maintenance',
-      href: '/services/lawn-maintenance',
-      description: 'Complete lawn care services',
-      status: 'Coming 2025'
-    },
-    {
       name: 'Indoor House Cleaning',
       href: '/services/house-cleaning',
       description: 'Premium residential cleaning',
+      status: 'Coming 2025'
+    },
+    {
+      name: 'Lawn & Yard Maintenance',
+      href: '/services/lawn-maintenance',
+      description: 'Complete lawn care services',
       status: 'Coming 2026'
     }
   ]
@@ -37,15 +37,15 @@ const Header = () => {
       status: 'Available Now'
     },
     {
-      name: 'Lawn Care Pricing',
-      href: '/pricing/lawn-care',
-      description: 'Competitive lawn maintenance rates',
-      status: 'Coming 2025'
-    },
-    {
       name: 'House Cleaning Pricing',
       href: '/pricing/house-cleaning',
       description: 'Premium cleaning service rates',
+      status: 'Coming 2025'
+    },
+    {
+      name: 'Lawn Care Pricing',
+      href: '/pricing/lawn-care',
+      description: 'Competitive lawn maintenance rates',
       status: 'Coming 2026'
     }
   ]
@@ -92,14 +92,14 @@ const Header = () => {
             <Link to="/" className="flex items-center space-x-4 group">
               <div className="w-14 h-14 rounded-3xl overflow-hidden shadow-xl group-hover:scale-110 transition-transform duration-300">
                 <img
-                  src="/images/logo/field-foyer-logo.svg"
+                  src="/images/logo/field-foyer-logo.png"
                   alt="Field & Foyer Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-3xl font-black text-sage-800 tracking-tight">Field & Foyer</span>
-                <span className="text-xs text-sage-600 font-semibold tracking-wider uppercase">Complete Home & Garden Care</span>
+                <span className="font-serif text-3xl font-black text-sage-800">Field & Foyer</span>
+                <span className="text-xs text-sage-600 font-semibold uppercase tracking-wider"></span>
               </div>
             </Link>
           </div>
@@ -110,7 +110,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`font-semibold text-lg transition-all duration-500 relative group ${
+                className={`font-semibold text-md transition-all duration-500 relative group ${
                   isActive(item.href)
                     ? 'text-sage-800'
                     : 'text-sage-600 hover:text-sage-800'
@@ -131,7 +131,7 @@ const Header = () => {
                   setServicesDropdownOpen(!servicesDropdownOpen)
                   setPricingDropdownOpen(false)
                 }}
-                className={`font-semibold text-lg transition-all duration-500 relative group flex items-center ${
+                className={`font-semibold text-md transition-all duration-500 relative group flex items-center ${
                   isActive('/services')
                     ? 'text-sage-800'
                     : 'text-sage-600 hover:text-sage-800'
@@ -194,7 +194,7 @@ const Header = () => {
                   setPricingDropdownOpen(!pricingDropdownOpen)
                   setServicesDropdownOpen(false)
                 }}
-                className={`font-semibold text-lg transition-all duration-500 relative group flex items-center ${
+                className={`font-semibold text-md transition-all duration-500 relative group flex items-center ${
                   isActive('/pricing')
                     ? 'text-sage-800'
                     : 'text-sage-600 hover:text-sage-800'
@@ -252,7 +252,7 @@ const Header = () => {
 
             <Link
               to="/contact"
-              className="btn-primary ml-6 text-lg"
+              className="btn-primary ml-6 text-md"
               onClick={closeAllDropdowns}
             >
               Get Free Quote
