@@ -7,12 +7,12 @@ const ServicesPage = () => {
       name: 'Pet Waste Removal',
       image: '/images/services/pet-waste-removal.jpg',
       status: 'Available Now',
-      description: 'Professional pet waste management that transforms your outdoor sanctuary into a pristine haven.',
+      description: 'Professional pet waste management that transforms your outdoor space into a pristine haven.',
       features: [
         'Weekly and bi-weekly maintenance schedules',
         'One-time restoration services',
         'Eco-conscious disposal methods',
-        'Garden-safe sanitization',
+        'Lawn-safe sanitization',
         'Discreet, professional service',
         'Rain or shine reliability'
       ],
@@ -24,15 +24,15 @@ const ServicesPage = () => {
 
   const comingSoonServices = [
     {
-      name: 'Lawn & Yard Maintenance',
-      image: '/images/services/lawn-maintenance.jpg',
-      description: 'Professional lawn care, mowing, edging, and seasonal yard maintenance to keep your outdoor space pristine.',
-      status: 'Coming 2025'
-    },
-    {
       name: 'Indoor House Cleaning',
       image: '/images/services/house-cleaning.jpg',
       description: 'Premium residential cleaning services bringing the same attention to detail indoors.',
+      status: 'Coming 2025'
+    },
+    {
+      name: 'Lawn Maintenance',
+      image: '/images/services/lawn-maintenance.jpg',
+      description: 'Professional lawn care, mowing, edging, and seasonal yard maintenance to keep your outdoor space pristine.',
       status: 'Coming 2026'
     }
   ]
@@ -47,8 +47,8 @@ const ServicesPage = () => {
               Our Services
             </h1>
             <p className="text-xl md:text-2xl text-sage-700 leading-relaxed mb-8">
-              Field & Foyer offers premium home and garden services designed to enhance your complete living experience.
-              Starting with pet waste removal, expanding to lawn & landscape services, then bringing our expertise indoors.
+              Field & Foyer offers premium home and lawn services designed to enhance your complete living experience.
+              Starting with pet waste removal, expanding to indoor cleaning, then bringing our expertise to lawn service.
             </p>
             <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full">
               <img src="/images/icons/leaf-icon.svg" alt="Service" className="w-5 h-5 mr-2" />
@@ -66,7 +66,7 @@ const ServicesPage = () => {
               Available Now
             </h2>
             <p className="text-xl text-sage-700 max-w-3xl mx-auto">
-              Our flagship service, setting the standard for thoughtful outdoor care.
+              Our first flagship service, setting the standard for thoughtful outdoor care.
             </p>
           </div>
 
@@ -150,7 +150,7 @@ const ServicesPage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {comingSoonServices.map((service, index) => (
               <div key={index} className="card-modern text-center group opacity-75 hover:opacity-90 transition-opacity duration-300">
                 <div className="w-24 h-24 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -202,14 +202,14 @@ const ServicesPage = () => {
                 <img src="/images/icons/eco-conscious.svg" alt="Eco-Conscious" className="w-full h-full" />
               </div>
               <h3 className="text-xl font-bold text-offwhite-50 mb-3">Eco-Conscious</h3>
-              <p className="text-sage-200">Sustainable practices that protect your garden ecosystem</p>
+              <p className="text-sage-200">Sustainable practices that protect your lawn ecosystem</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4">
                 <img src="/images/icons/trusted-partner.svg" alt="Trusted Partner" className="w-full h-full" />
               </div>
               <h3 className="text-xl font-bold text-offwhite-50 mb-3">Trusted Partner</h3>
-              <p className="text-sage-200">Building long-term relationships with discerning homeowners</p>
+              <p className="text-sage-200">Building long-term relationships with homeowners and businesses</p>
             </div>
           </div>
           <Link

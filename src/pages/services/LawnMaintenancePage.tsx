@@ -6,10 +6,10 @@ const LawnMaintenancePage = () => {
         <div className="container-max">
           <div className="text-center max-w-4xl mx-auto">
             <span className="inline-flex items-center px-4 py-2 bg-cream-200 text-sage-700 rounded-full text-sm font-medium mb-6">
-              Coming 2025
+              Coming Spring 2026
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-sage-900 mb-6">
-              Lawn & Yard Maintenance
+              Lawn Maintenance
             </h1>
             <p className="text-xl md:text-2xl text-sage-700 leading-relaxed mb-8">
               Professional lawn care, mowing, edging, and seasonal yard maintenance to keep your outdoor space pristine. 
@@ -104,24 +104,24 @@ const LawnMaintenancePage = () => {
             <div className="space-y-8">
               {[
                 {
-                  period: 'Now - 2024',
+                  period: 'Now - 2025',
                   title: 'Pet Waste Removal',
                   description: 'Establishing our reputation with premium pet waste management services.',
                   status: 'active'
                 },
                 {
-                  period: 'Early 2025',
-                  title: 'Lawn & Yard Maintenance',
-                  description: 'Launching comprehensive lawn care services for existing and new customers.',
-                  status: 'upcoming'
-                },
-
-                {
-                  period: '2026',
+                  period: 'Fall 2025',
                   title: 'Indoor House Cleaning',
                   description: 'Expanding indoors with premium residential cleaning services.',
                   status: 'future'
+                },
+                {
+                  period: 'Early 2026',
+                  title: 'Lawn Maintenance',
+                  description: 'Launching comprehensive lawn care services for existing and new customers.',
+                  status: 'upcoming'
                 }
+
               ].map((phase, index) => (
                 <div key={index} className={`flex items-center space-x-6 p-6 rounded-xl ${
                   phase.status === 'active' ? 'bg-sage-100' : 
@@ -155,7 +155,7 @@ const LawnMaintenancePage = () => {
                   Commercial Lawn & Property Maintenance
                 </h2>
                 <p className="text-xl text-sage-700 leading-relaxed">
-                  Planning ahead for 2025? We're already accepting inquiries for commercial lawn maintenance
+                  Planning ahead for 2026? We're already accepting inquiries for commercial lawn maintenance
                   contracts. Get priority consideration for our commercial services launch.
                 </p>
               </div>
@@ -173,7 +173,7 @@ const LawnMaintenancePage = () => {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-sage-800 mb-4">Services Coming 2025:</h3>
+                  <h3 className="text-xl font-bold text-sage-800 mb-4">Services Coming 2026:</h3>
                   <ul className="space-y-2 text-sage-600">
                     <li>• Weekly/bi-weekly lawn maintenance</li>
                     <li>• Seasonal cleanup and preparation</li>
@@ -207,7 +207,7 @@ const LawnMaintenancePage = () => {
               Be First to Experience Our Lawn Care
             </h2>
             <p className="text-xl text-sage-100 mb-8 leading-relaxed">
-              Join our waitlist to be among the first customers when we launch lawn and yard maintenance services in 2025. 
+              Join our waitlist to be among the first customers when we launch lawn and yard maintenance services in 2026. 
               Current pet waste removal customers get priority access.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

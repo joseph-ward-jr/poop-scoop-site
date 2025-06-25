@@ -22,7 +22,7 @@ const Header = () => {
       status: 'Coming 2025'
     },
     {
-      name: 'Lawn & Yard Maintenance',
+      name: 'Lawn Maintenance',
       href: '/services/lawn-maintenance',
       description: 'Complete lawn care services',
       status: 'Coming 2026'
@@ -252,10 +252,10 @@ const Header = () => {
 
             <Link
               to="/contact"
-              className="btn-primary ml-6 text-md"
+              className="bg-sage-800 hover:bg-sage-900 btn-primary ml-6 text-md"
               onClick={closeAllDropdowns}
             >
-              Get Free Quote
+              Get In Touch
             </Link>
           </div>
 

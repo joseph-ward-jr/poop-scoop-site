@@ -181,7 +181,7 @@ const ContactForm = ({ variant = 'homepage', onSubmit }: ContactFormProps) => {
             onChange={handleInputChange}
             rows={4}
             className="w-full px-6 py-5 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 text-lg hover:border-sage-300"
-            placeholder="Tell us about any special requirements, access instructions, or questions you have..."
+            placeholder="Tell us what services you're interested in, any special requirements, access instructions, or questions you have..."
           />
         </div>
 
@@ -297,7 +297,7 @@ const ContactForm = ({ variant = 'homepage', onSubmit }: ContactFormProps) => {
           onChange={handleInputChange}
           rows={4}
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-          placeholder="Tell us about any special requirements, access instructions, or questions you have..."
+          placeholder="Tell us what services you're interested in, any special requirements, access instructions, or questions you have..."
         />
       </div>
 

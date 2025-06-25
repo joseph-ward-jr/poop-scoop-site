@@ -4,35 +4,35 @@ const TestimonialsPage = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'Jennifer Martinez',
-      location: 'Springdale',
+      name: 'Jennifer M.',
+      location: 'Canton',
       petName: 'Bella & Max',
       rating: 5,
-      text: 'Field & Foyer has been a lifesaver! With two large dogs, keeping our garden pristine was becoming impossible. Sarah and her team are reliable, professional, and our outdoor space has never looked better. Highly recommend!',
+      text: 'Field & Foyer has been a lifesaver! With two large dogs, keeping our grass clean was becoming impossible. Joey, Robb, and their team are reliable, professional, and our outdoor space has never looked better. Highly recommend!',
       service: 'Weekly Service'
     },
     {
       id: 2,
-      name: 'Robert Chen',
-      location: 'Riverside',
+      name: 'Robert C.',
+      location: 'Canton',
       petName: 'Charlie',
       rating: 5,
-      text: 'I was skeptical at first, but after the first cleanup I was amazed. They\'re thorough, reasonably priced, and Charlie loves having a clean yard to play in. Worth every penny!',
+      text: 'I was skeptical at first, but after the first cleanup I was amazed. They\'re thorough, reasonably priced, and Charlie loves having a clean yard to play in.',
       service: 'Bi-weekly Service'
     },
     {
       id: 3,
-      name: 'Lisa Thompson',
-      location: 'Oak Hills',
+      name: 'Lisa T.',
+      location: 'Woodstock',
       petName: 'Luna & Rocky',
       rating: 5,
-      text: 'As a busy mom with two kids and two dogs, I don\'t have time for garden maintenance. Field & Foyer takes care of everything so we can just enjoy our outdoor sanctuary. The kids can play safely again!',
+      text: 'As a busy mom with two kids and two dogs, I don\'t have time for keeping up with my yard. Field & Foyer takes care of everything so we can just enjoy our yard.',
       service: 'Weekly Service'
     },
     {
       id: 4,
-      name: 'David Wilson',
-      location: 'Meadowbrook',
+      name: 'David W.',
+      location: 'Holly Springs',
       petName: 'Buddy',
       rating: 5,
       text: 'Professional, punctual, and affordable. They show up every week like clockwork, even in bad weather. Buddy\'s yard is always spotless when I get home from work.',
@@ -40,8 +40,8 @@ const TestimonialsPage = () => {
     },
     {
       id: 5,
-      name: 'Amanda Rodriguez',
-      location: 'Pine Valley',
+      name: 'Amanda R.',
+      location: 'Canton',
       petName: 'Daisy',
       rating: 5,
       text: 'I love that they use eco-friendly methods. Daisy is sensitive to chemicals, so knowing they use safe, natural cleaning products gives me peace of mind. Great service!',
@@ -49,11 +49,11 @@ const TestimonialsPage = () => {
     },
     {
       id: 6,
-      name: 'Michael Johnson',
-      location: 'Sunset Ridge',
+      name: 'Michael J.',
+      location: 'Woodstock',
       petName: 'Zeus & Apollo',
       rating: 5,
-      text: 'Two German Shepherds make a lot of mess! Field & Foyer handles it all with a smile. They\'re friendly, reliable, and our property value has definitely improved with a pristine garden.',
+      text: 'Two German Shepherds make a lot of mess! Field & Foyer handles it all with a smile. They\'re friendly, reliable, and our property value has definitely improved (at least to us!).',
       service: 'Weekly Service'
     }
   ]
@@ -86,8 +86,7 @@ const TestimonialsPage = () => {
               What Our Customers Say
             </h1>
             <p className="text-xl text-sage-700 leading-relaxed">
-              Don't just take our word for it – hear from real customers who love
-              our premium home and garden services.
+            We believe the most authentic measure of our work is the satisfaction of the homeowners we serve. Discover what our clients have to say about our meticulous and thoughtful approach to home and yard care.
             </p>
           </div>
         </div>
@@ -198,22 +197,18 @@ const TestimonialsPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-12">
               Our Track Record
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
-                <div className="text-4xl md:text-5xl font-bold mb-2">500+</div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">50+</div>
                 <p className="text-sage-100">Happy Customers</p>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold mb-2">5,000+</div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">500+</div>
                 <p className="text-sage-100">Services Completed</p>
               </div>
               <div>
                 <div className="text-4xl md:text-5xl font-bold mb-2">99%</div>
                 <p className="text-sage-100">Customer Satisfaction</p>
-              </div>
-              <div>
-                <div className="text-4xl md:text-5xl font-bold mb-2">5</div>
-                <p className="text-sage-100">Years of Excellence</p>
               </div>
             </div>
           </div>
@@ -228,7 +223,7 @@ const TestimonialsPage = () => {
           </h2>
           <p className="text-xl text-sage-700 mb-8 max-w-2xl mx-auto">
             Experience the same reliable, professional service that has earned us
-            hundreds of 5-star reviews across all our home and garden services.
+            hundreds of 5-star reviews across all our home and lawn services.
           </p>
           <a
             href="/contact"

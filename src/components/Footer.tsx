@@ -76,7 +76,7 @@ const Footer = () => {
               <ul className="text-sm space-y-3 text-sage-200">
                 <li>Pet Waste Removal</li>
                 <li>Indoor House Cleaning (Coming Soon)</li>
-                <li>Lawn & Yard Maintenance (Coming Soon)</li>
+                <li>Lawn Maintenance (Coming Soon)</li>
               </ul>
             </div>
           </div>
