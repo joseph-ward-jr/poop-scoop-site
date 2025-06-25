@@ -251,7 +251,7 @@ const Header = () => {
             </div>
 
             <Link
-              to="/contact"
+              to="/contact?form=true"
               className="bg-sage-800 hover:bg-sage-900 btn-primary ml-6 text-md"
               onClick={closeAllDropdowns}
             >
@@ -349,7 +349,7 @@ const Header = () => {
 
               <div className="pt-4">
                 <Link
-                  to="/contact"
+                  to="/contact?quote=true"
                   className="btn-primary w-full text-center block"
                   onClick={() => setIsMenuOpen(false)}
                 >
