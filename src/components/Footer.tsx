@@ -24,7 +24,7 @@ const Footer = () => {
                 </div>
               </div>
               <p className="text-sage-200 mb-6 max-w-md leading-relaxed">
-              A higher standard of home solutions for discerning homeowners. We offer thoughtful outdoor pet care, with comprehensive lawn and indoor services coming soon.
+              A higher standard of home solutions for homeowners. We offer thoughtful outdoor pet care, with comprehensive lawn and indoor services coming soon.
               </p>
               <div className="space-y-3">
                 <p className="text-sage-200 flex items-center">

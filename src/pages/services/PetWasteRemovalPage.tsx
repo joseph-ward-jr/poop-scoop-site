@@ -177,7 +177,6 @@ const PetWasteRemovalPage = () => {
 
               <div className="bg-sage-100 rounded-xl p-6 text-center">
                 <p className="text-sage-800 font-medium text-lg mb-4">
-                  <img src="/images/icons/checkmark.svg" alt="Commercial Solutions" className="w-5 h-5 inline mr-2" />
                   Custom commercial solutions with competitive pricing
                 </p>
                 <a href="/contact" className="btn-primary">

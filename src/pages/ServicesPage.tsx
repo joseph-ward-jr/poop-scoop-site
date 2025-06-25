@@ -27,13 +27,13 @@ const ServicesPage = () => {
       name: 'Indoor House Cleaning',
       image: '/images/services/house-cleaning.jpg',
       description: 'Premium residential cleaning services bringing the same attention to detail indoors.',
-      status: 'Coming 2025'
+      status: 'Coming Fall 2025'
     },
     {
       name: 'Lawn Maintenance',
       image: '/images/services/lawn-maintenance.jpg',
       description: 'Professional lawn care, mowing, edging, and seasonal yard maintenance to keep your outdoor space pristine.',
-      status: 'Coming 2026'
+      status: 'Coming Spring 2026'
     }
   ]
 
@@ -259,7 +259,6 @@ const ServicesPage = () => {
               </div>
               <div className="bg-sage-100 rounded-xl p-6 mb-8">
                 <p className="text-sage-800 font-medium text-lg">
-                  <img src="/images/icons/checkmark.svg" alt="Custom Solutions" className="w-5 h-5 inline mr-2" />
                   Custom pricing, flexible scheduling, and tailored service plans available
                 </p>
               </div>
