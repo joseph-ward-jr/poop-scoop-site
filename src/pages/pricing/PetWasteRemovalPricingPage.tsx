@@ -224,7 +224,7 @@ const PetWasteRemovalPricingPage = () => {
                   <img src="/images/icons/checkmark.svg" alt="Custom Quote" className="w-5 h-5 inline mr-2" />
                   Custom quotes available for properties with unique requirements
                 </p>
-                <a href="/contact" className="btn-primary">
+                <a href="/contact?quote=true" className="btn-primary">
                   Request Commercial Quote
                 </a>
               </div>
@@ -244,7 +244,7 @@ const PetWasteRemovalPricingPage = () => {
               Get your free estimate today and join hundreds of satisfied customers who trust Field & Foyer for professional pet waste management.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact" className="bg-white text-sage-800 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-sage-50 transition-colors">
+              <a href="/contact?estimate=true" className="bg-white text-sage-800 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-sage-50 transition-colors">
                 Get Free Estimate
               </a>
               <a href="/services/pet-waste-removal" className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-sage-800 transition-colors">

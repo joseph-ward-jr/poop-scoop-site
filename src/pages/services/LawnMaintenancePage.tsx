@@ -16,7 +16,7 @@ const LawnMaintenancePage = () => {
               Expanding our services to provide complete yard care solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact" className="btn-primary text-lg">
+              <a href="/contact?form=true" className="btn-primary text-lg">
                 Join Waitlist
               </a>
               <a href="/services" className="btn-secondary text-lg">
@@ -211,7 +211,7 @@ const LawnMaintenancePage = () => {
               Current pet waste removal customers get priority access.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact" className="bg-white text-sage-800 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-sage-50 transition-colors">
+              <a href="/contact?form=true" className="bg-white text-sage-800 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-sage-50 transition-colors">
                 Join Waitlist
               </a>
               <a href="/services/pet-waste-removal" className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-sage-800 transition-colors">

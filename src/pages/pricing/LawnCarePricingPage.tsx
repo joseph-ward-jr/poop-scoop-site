@@ -16,7 +16,7 @@ const LawnCarePricingPage = () => {
               Professional lawn care services launching in 2025.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact" className="btn-primary text-lg">
+              <a href="/contact?form=true" className="btn-primary text-lg">
                 Join Waitlist
               </a>
               <a href="/pricing/pet-waste-removal" className="btn-secondary text-lg">
