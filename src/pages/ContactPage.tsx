@@ -87,7 +87,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-gray-50" data-form-section>
         <div className="container-max">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
