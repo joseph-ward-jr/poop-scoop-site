@@ -66,9 +66,9 @@ What starts with premium pet care is the first step on our journey. We are delib
               </div>
             </div>
             <div className="bg-sage-100 rounded-2xl p-8 text-center">
-              <div className="w-16 h-16 mx-auto mb-4">
+              <div className="w-32 h-32 mx-auto mb-6">
                 <img
-                  src="/images/icons/house.jpg"
+                  src="/images/icons/house.svg"
                   alt="Family Business"
                   className="w-full h-full object-contain"
                 />
