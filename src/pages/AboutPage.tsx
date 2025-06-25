@@ -2,32 +2,32 @@ const AboutPage = () => {
   const reasons = [
     'Family-owned and operated business with over 5 years of experience',
     'Fully insured and bonded for your peace of mind',
-    'Eco-conscious methods that protect your garden ecosystem',
+    'Eco-conscious methods that protect your lawn ecosystem',
     'Flexible scheduling to fit your busy lifestyle',
     'Transparent pricing with no hidden fees or surprises',
     'Reliable service - we show up when scheduled, rain or shine',
-    'Garden-safe products and sanitization methods',
+    'Lawn-safe products and sanitization methods',
     'Local business expanding to serve all your outdoor needs'
   ]
 
   const teamMembers = [
     {
-      name: 'Sarah Johnson',
-      role: 'Founder & CEO',
-      description: 'Visionary behind Field & Foyer, passionate about elevating complete home and garden care to premium standards.',
-      image: '/images/team/sarah-johnson.jpg'
+      name: 'Joey Ward',
+      role: 'Founder & Co-Owner',
+      description: 'As the visionary leader of Field & Foyer, Joey is focused on the strategic growth and future direction of the company. He is dedicated to expanding our services and ensuring our founding commitment to a higher standard of home care is realized.',
+      image: '/images/team/joey-ward.jpg'
     },
     {
-      name: 'Mike Thompson',
-      role: 'Operations Director',
-      description: 'Former landscape professional ensuring every service meets our premium quality standards across all divisions.',
-      image: '/images/team/mike-thompson.jpg'
+      name: 'Robb Dreher',
+      role: 'Founder & Co-Owner',
+      description: 'Robb is the operational heart of the company, meticulously managing our day-to-day services and professional team. His focus is on ensuring every task is performed with unparalleled efficiency and the extraordinary quality our clients expect.',
+      image: '/images/team/robb-dreher.jpg'
     },
     {
-      name: 'Lisa Chen',
-      role: 'Client Relations',
-      description: 'Dedicated to providing exceptional customer experiences across our growing portfolio of home and garden services.',
-      image: '/images/team/lisa-chen.jpg'
+      name: 'Meagan Ward',
+      role: 'Creative & Marketing Director',
+      description: 'Meagan is the steward of the Field & Foyer brand, shaping the story and aesthetic that defines our boutique client experience. She leads all marketing and social media initiatives, ensuring our message of thoughtful, premium service resonates with homeowners.',
+      image: '/images/team/meagan-ward.jpg'
     }
   ]
 
@@ -38,11 +38,10 @@ const AboutPage = () => {
         <div className="container-max">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-sage-900 mb-6">
-              About Field & Foyer
+            A Thoughtful Approach to Modern Home Care
             </h1>
             <p className="text-xl text-sage-700 leading-relaxed">
-              We're a family-owned company dedicated to complete home and garden care.
-              Starting with premium pet waste management, expanding to comprehensive lawn care services, then bringing our expertise indoors.
+            Field & Foyer was founded on a simple philosophy: that caring for your home should be a sophisticated yet seamless experience. Our journey begins with perfecting your outdoor sanctuary through meticulous pet care and waste management. From this foundation, we will soon extend our signature standard of quality to detailed indoor services and comprehensive lawn maintenance, becoming your single, trusted partner in home stewardship.
             </p>
           </div>
         </div>
@@ -58,19 +57,11 @@ const AboutPage = () => {
               </h2>
               <div className="space-y-4 text-sage-700 leading-relaxed">
                 <p>
-                  Field & Foyer was born out of a vision to elevate outdoor living spaces to the same standard
-                  as interior design. As homeowners and pet lovers ourselves, we understand that your garden
-                  is an extension of your home – a sanctuary that deserves thoughtful, professional care.
-                </p>
-                <p>
-                  Founded in 2019 by Sarah Johnson, a lifelong advocate for beautiful outdoor spaces and mother
-                  of three rescue pups, our mission began with premium pet waste management. We saw an opportunity
-                  to transform a necessary service into something elegant and discreet.
-                </p>
-                <p>
-                  What started as boutique pet waste removal is evolving into a comprehensive home and garden
-                  services company. Our strategic growth plan includes complete lawn & yard maintenance services,
-                  and eventually premium indoor house cleaning – bringing the same attention to detail throughout your entire home.
+                Field & Foyer began as a conversation between two best friends, Joey and Robb, who shared a single belief: homeowners deserve better. We looked at the home services industry and saw a lack of personal touch and a true commitment to quality. We knew we could create a different kind of company—one founded on trust, friendship, and an uncompromisingly high standard for every task.
+
+In 2025, we turned that vision into a reality. As a family-owned business, we bring that personal-level commitment to our clients, starting with a service fundamental to a pristine yard: premium pet waste management. Our mission is to elevate this essential service, proving that even the most necessary tasks can be performed with a boutique-like feel, absolute discretion, and an extraordinary level of care.
+
+What starts with premium pet care is the first step on our journey. We are deliberately growing to become your single, trusted partner for complete home stewardship, soon expanding to include comprehensive lawn maintenance and meticulous indoor cleaning. As we grow, our core promise remains the same: we only accept extraordinary work from our employees, because our standards are higher than anyone else's. That is the Field & Foyer difference.
                 </p>
               </div>
             </div>
@@ -78,7 +69,7 @@ const AboutPage = () => {
               <div className="text-6xl mb-4">🏡</div>
               <h3 className="text-2xl font-bold text-sage-900 mb-4">Family Business</h3>
               <p className="text-sage-700">
-                We treat every garden like our own and every home like family.
+                We treat every property like our own and every home like family.
               </p>
             </div>
           </div>
@@ -93,7 +84,7 @@ const AboutPage = () => {
               Why Our Clients Love Us
             </h2>
             <p className="text-xl text-sage-700 max-w-3xl mx-auto">
-              Here's what sets us apart as a premium home and garden services company:
+              Here's what sets us apart as a premium home and lawn services company:
             </p>
           </div>
 

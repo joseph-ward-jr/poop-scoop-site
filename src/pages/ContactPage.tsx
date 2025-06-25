@@ -31,12 +31,12 @@ const ContactPage = () => {
       image: '/images/icons/location.svg',
       title: 'Service Area',
       details: 'Greater Metro Area',
-      description: 'Serving 15+ neighborhoods'
+      description: 'Serving 5+ neighborhoods'
     },
     {
       image: '/images/icons/clock.svg',
       title: 'Hours',
-      details: 'Mon-Fri: 8am-6pm',
+      details: 'Mon-Fri: 9am-5pm',
       description: 'Weekend service available'
     }
   ]
@@ -56,11 +56,10 @@ const ContactPage = () => {
         <div className="container-max">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Get Your Free Estimate
+            Begin the Conversation
             </h1>
             <p className="text-xl text-sage-700 leading-relaxed">
-              Ready to experience complete home and garden care? Contact us today for your
-              personalized quote and join hundreds of satisfied customers across all our services.
+            The first step toward a more seamless home care experience is a simple conversation. Let’s discuss your needs, beginning with our thoughtful outdoor pet care solutions. Contact us to schedule your personalized consultation and discover the Field & Foyer standard of service.
             </p>
           </div>
         </div>
@@ -95,7 +94,7 @@ const ContactPage = () => {
               Request Your Free Estimate
             </h2>
             <p className="text-xl text-gray-600 mb-12 leading-relaxed">
-              Get your personalized quote in 24 hours. No obligations, just honest pricing for premium service.
+              Get your personalized quote within 24 hours. No obligations, just honest pricing for premium service.
             </p>
             <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl">
               <ContactForm variant="contact" onSubmit={handleFormSubmit} />
@@ -117,7 +116,7 @@ const ContactPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
               <div className="text-center p-8 bg-gray-50 rounded-2xl">
-                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6">
+                <div className="w-16 h-16 bg-primary-600 text-black rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6">
                   1
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">We Review Your Request</h3>
@@ -125,7 +124,7 @@ const ContactPage = () => {
               </div>
 
               <div className="text-center p-8 bg-gray-50 rounded-2xl">
-                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6">
+                <div className="w-16 h-16 bg-primary-600 text-black rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6">
                   2
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">We Contact You</h3>
@@ -133,7 +132,7 @@ const ContactPage = () => {
               </div>
 
               <div className="text-center p-8 bg-gray-50 rounded-2xl">
-                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6">
+                <div className="w-16 h-16 bg-primary-600 text-black rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6">
                   3
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Schedule Service</h3>
@@ -142,7 +141,7 @@ const ContactPage = () => {
             </div>
 
             {/* Why Choose Us */}
-            <div className="bg-primary-600 text-white rounded-2xl p-8 md:p-12 text-center">
+            <div className="bg-primary-600 text-gray rounded-2xl p-8 md:p-12 text-center">
               <h3 className="text-3xl md:text-4xl font-bold mb-8">Why Choose Field & Foyer?</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="flex flex-col items-center">
