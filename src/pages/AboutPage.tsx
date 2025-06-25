@@ -75,7 +75,13 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="bg-sage-100 rounded-2xl p-8 text-center">
-              <div className="text-6xl mb-4">🏡</div>
+              <div className="w-16 h-16 mx-auto mb-4">
+                <img
+                  src="/images/icons/house.svg"
+                  alt="Family Business"
+                  className="w-full h-full object-contain"
+                />
+              </div>
               <h3 className="text-2xl font-bold text-sage-900 mb-4">Family Business</h3>
               <p className="text-sage-700">
                 We treat every garden like our own and every home like family.
