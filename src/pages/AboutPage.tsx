@@ -1,6 +1,6 @@
 const AboutPage = () => {
   const reasons = [
-    'Family-owned and operated business with over 5 years of experience',
+    'Family-owned and operated',
     'Fully insured and bonded for your peace of mind',
     'Eco-conscious methods that protect your lawn ecosystem',
     'Flexible scheduling to fit your busy lifestyle',
@@ -66,9 +66,9 @@ What starts with premium pet care is the first step on our journey. We are delib
               </div>
             </div>
             <div className="bg-sage-100 rounded-2xl p-8 text-center">
-              <div className="w-32 h-32 mx-auto mb-6">
+              <div className="w-128 h-128 mx-auto mb-6">
                 <img
-                  src="/images/icons/house.svg"
+                  src="/images/icons/house.jpg"
                   alt="Family Business"
                   className="w-full h-full object-contain"
                 />
