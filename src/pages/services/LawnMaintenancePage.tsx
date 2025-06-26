@@ -27,67 +27,6 @@ const LawnMaintenancePage = () => {
         </div>
       </section>
 
-      {/* Coming Soon Features */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-sage-900 mb-6">
-              Complete Lawn Care Solutions
-            </h2>
-            <p className="text-xl text-sage-700 max-w-3xl mx-auto">
-              Building on our pet waste removal expertise, we're expanding to offer comprehensive lawn and yard maintenance services as our next phase of growth.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Professional Mowing',
-                description: 'Regular mowing with precision cutting heights for optimal lawn health and appearance.',
-                image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&auto=format'
-              },
-              {
-                title: 'Edging & Trimming',
-                description: 'Clean, professional edges around walkways, driveways, and landscape features.',
-                image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=300&h=200&fit=crop&auto=format'
-              },
-              {
-                title: 'Seasonal Cleanup',
-                description: 'Spring and fall cleanup services including leaf removal and debris clearing.',
-                image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=300&h=200&fit=crop&auto=format'
-              },
-              {
-                title: 'Fertilization Programs',
-                description: 'Customized fertilization schedules to promote healthy, lush lawn growth.',
-                image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=300&h=200&fit=crop&auto=format'
-              },
-              {
-                title: 'Weed Control',
-                description: 'Eco-friendly weed prevention and removal to maintain pristine lawn appearance.',
-                image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=300&h=200&fit=crop&auto=format'
-              },
-              {
-                title: 'Integrated Pet Care',
-                description: 'Seamless integration with our pet waste removal for complete yard maintenance.',
-                image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=300&h=200&fit=crop&auto=format'
-              }
-            ].map((feature, index) => (
-              <div key={index} className="card-modern text-center opacity-75">
-                <div className="w-full h-48 mb-4 rounded-xl overflow-hidden">
-                  <img 
-                    src={feature.image} 
-                    alt={feature.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-sage-800 mb-3">{feature.title}</h3>
-                <p className="text-sage-600 leading-relaxed">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Timeline Section */}
       <section className="section-padding bg-sage-50">
         <div className="container-max">
