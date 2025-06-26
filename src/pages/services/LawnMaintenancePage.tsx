@@ -126,7 +126,6 @@ const LawnMaintenancePage = () => {
 
               <div className="bg-sage-100 rounded-xl p-6 text-center">
                 <p className="text-sage-800 font-medium text-lg mb-4">
-                  <img src="/images/icons/checkmark.svg" alt="Early Access" className="w-5 h-5 inline mr-2" />
                   Early bird pricing and priority scheduling for commercial inquiries
                 </p>
                 <a href="/contact" className="btn-primary">

@@ -6,14 +6,14 @@ const LawnCarePricingPage = () => {
         <div className="container-max">
           <div className="text-center max-w-4xl mx-auto">
             <span className="inline-flex items-center px-4 py-2 bg-cream-200 text-sage-700 rounded-full text-sm font-medium mb-6">
-              Coming 2025
+              Coming 2026
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-sage-900 mb-6">
               Lawn Care Pricing
             </h1>
             <p className="text-xl md:text-2xl text-sage-700 leading-relaxed mb-8">
               Competitive lawn maintenance rates with the same transparent pricing approach. 
-              Professional lawn care services launching in 2025.
+              Professional lawn care services launching in 2026.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/contact?form=true" className="btn-primary text-lg">
