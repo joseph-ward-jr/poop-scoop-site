@@ -18,13 +18,13 @@ const ContactPage = () => {
     {
       image: '/images/icons/phone.svg',
       title: 'Phone',
-      details: '(123) 456-7890',
+      details: '(770) 547-8457',
       description: 'Call us Monday-Friday, 8am-6pm'
     },
     {
       image: '/images/icons/email.svg',
       title: 'Email',
-      details: 'hello@fieldandfoyer.com',
+      details: 'customersupport@fieldandfoyer.com',
       description: 'We respond within 24 hours'
     },
     {

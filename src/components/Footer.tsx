@@ -29,11 +29,11 @@ const Footer = () => {
               <div className="space-y-3">
                 <p className="text-sage-200 flex items-center">
                   <img src="/images/icons/phone.svg" alt="Phone" className="w-4 h-4 mr-3" />
-                  <a href="tel:+1234567890" className="hover:text-sage-300 transition-colors">(123) 456-7890</a>
+                  <a href="tel:+111111111" className="hover:text-sage-300 transition-colors">(770) 547-8457</a>
                 </p>
                 <p className="text-sage-200 flex items-center">
                   <img src="/images/icons/email.svg" alt="Email" className="w-4 h-4 mr-3" />
-                  <a href="mailto:hello@fieldandfoyer.com" className="hover:text-sage-300 transition-colors">hello@fieldandfoyer.com</a>
+                  <a href="mailto:hello@fieldandfoyer.com" className="hover:text-sage-300 transition-colors">customersupport@fieldandfoyer.com</a>
                 </p>
               </div>
             </div>

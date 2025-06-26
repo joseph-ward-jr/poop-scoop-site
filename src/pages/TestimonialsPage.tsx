@@ -203,7 +203,7 @@ const TestimonialsPage = () => {
                 <p className="text-sage-100">Happy Customers</p>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold mb-2">500+</div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">100+</div>
                 <p className="text-sage-100">Services Completed</p>
               </div>
               <div>

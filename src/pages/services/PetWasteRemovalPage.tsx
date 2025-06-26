@@ -44,12 +44,12 @@ const PetWasteRemovalPage = () => {
               {
                 title: 'Weekly & Bi-weekly Service',
                 description: 'Regular maintenance schedules that keep your yard consistently clean and odor-free.',
-                image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=300&h=200&fit=crop&auto=format'
+                image: '/images/services/weekly-pet-waste-removal.jpg'
               },
               {
                 title: 'One-time Restoration',
                 description: 'Complete yard cleanup for special events or when starting fresh with our service.',
-                image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&auto=format'
+                image: '/images/services/one-time-restoration.jpg'
               },
               {
                 title: 'Eco-conscious Disposal',
@@ -69,7 +69,7 @@ const PetWasteRemovalPage = () => {
               {
                 title: 'Rain or Shine Reliability',
                 description: 'Consistent service regardless of weather conditions with flexible rescheduling.',
-                image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=300&h=200&fit=crop&auto=format'
+                image: '/images/services/rain-or-shine.jpg'
               }
             ].map((feature, index) => (
               <div key={index} className="card-modern text-center">
