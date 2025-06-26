@@ -16,6 +16,7 @@ import HouseCleaningPage from './pages/services/HouseCleaningPage'
 // Pricing-specific pages
 import PetWasteRemovalPricingPage from './pages/pricing/PetWasteRemovalPricingPage'
 import LawnCarePricingPage from './pages/pricing/LawnCarePricingPage'
+import HouseCleaningPricingPage from './pages/pricing/HouseCleaningPricingPage'
 
 function App() {
   return (
@@ -42,7 +43,7 @@ function App() {
           {/* Individual pricing pages */}
           <Route path="/pricing/pet-waste-removal" element={<PetWasteRemovalPricingPage />} />
           <Route path="/pricing/lawn-care" element={<LawnCarePricingPage />} />
-          <Route path="/pricing/house-cleaning" element={<LawnCarePricingPage />} />
+          <Route path="/pricing/house-cleaning" element={<HouseCleaningPricingPage />} />
 
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
