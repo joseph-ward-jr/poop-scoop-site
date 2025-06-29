@@ -1,4 +1,4 @@
-// Jobber API Types
+// Jobber API Types - Based on official Jobber API schema
 export interface JobberClientInput {
   firstName: string
   lastName?: string
@@ -6,7 +6,7 @@ export interface JobberClientInput {
   emails: JobberEmailInput[]
   phones?: JobberPhoneInput[]
   billingAddress?: JobberAddressInput
-  notes?: string
+  // Note: 'notes' field doesn't exist on ClientCreateInput according to official Jobber API
 }
 
 export interface JobberEmailInput {
