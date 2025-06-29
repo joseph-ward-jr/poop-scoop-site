@@ -51,6 +51,45 @@ const OAuthSuccessPage = () => {
             </ul>
           </div>
 
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
+            <h2 className="text-xl font-semibold text-yellow-900 mb-4">🔑 Your Refresh Token:</h2>
+            <p className="text-yellow-800 mb-4">
+              Copy this refresh token and add it to your Vercel environment variables:
+            </p>
+            <div className="bg-white border border-yellow-300 rounded-lg p-4 mb-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="font-medium text-gray-700">JOBBER_REFRESH_TOKEN:</span>
+                <button
+                  onClick={() => {
+                    const refreshToken = localStorage.getItem('jobber_refresh_token')
+                    if (refreshToken) {
+                      navigator.clipboard.writeText(refreshToken)
+                      alert('Refresh token copied to clipboard!')
+                    } else {
+                      alert('Refresh token not found. Please complete the OAuth flow again.')
+                    }
+                  }}
+                  className="bg-yellow-600 text-white px-3 py-1 rounded text-sm hover:bg-yellow-700 transition-colors"
+                >
+                  Copy Token
+                </button>
+              </div>
+              <div className="bg-gray-50 border border-gray-200 rounded p-3 font-mono text-sm break-all">
+                {localStorage.getItem('jobber_refresh_token') || 'Refresh token not available'}
+              </div>
+            </div>
+            <div className="text-sm text-yellow-700">
+              <p className="font-medium mb-1">Next steps:</p>
+              <ol className="list-decimal list-inside space-y-1">
+                <li>Click "Copy Token" above</li>
+                <li>Go to Vercel → Your Project → Settings → Environment Variables</li>
+                <li>Add: Name = JOBBER_REFRESH_TOKEN, Value = [paste token]</li>
+                <li>Set environments to: Production, Preview, Development</li>
+                <li>Save and test your contact form!</li>
+              </ol>
+            </div>
+          </div>
+
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
             <h2 className="text-xl font-semibold text-blue-900 mb-4">🧪 Test Your Integration:</h2>
             <div className="space-y-3">
