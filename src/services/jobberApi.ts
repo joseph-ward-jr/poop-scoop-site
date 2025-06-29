@@ -328,8 +328,8 @@ class JobberApiService {
    */
   async createClientFromNewsletter(subscriptionData: NewsletterSubscriptionData): Promise<NewsletterJobberSubmissionResult> {
     try {
-      // Use the Supabase newsletter API that handles both database and Jobber
-      const response = await fetch('/api/newsletter-supabase', {
+      // Use the enhanced Jobber newsletter API that now also saves to Supabase
+      const response = await fetch('/api/jobber-newsletter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

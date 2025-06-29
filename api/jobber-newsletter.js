@@ -1,5 +1,10 @@
-// Vercel Serverless Function for Jobber Newsletter Subscription
-// Uses the same refresh token flow as the contact form
+// Vercel Serverless Function for Jobber Newsletter Subscription + Supabase
+// Uses the same refresh token flow as the contact form + saves to Supabase database
+
+const { createClient } = require('@supabase/supabase-js')
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 export default async function handler(req, res) {
   // Only allow POST requests
@@ -258,10 +263,42 @@ export default async function handler(req, res) {
       email: client.emails?.[0]?.address
     })
 
+    // Also save to Supabase database for email campaigns
+    let supabaseResult = null
+    if (supabaseUrl && supabaseAnonKey) {
+      try {
+        const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+        const { data: subscriber, error } = await supabase
+          .from('newsletter_subscribers')
+          .insert([{
+            name: name || 'Newsletter Subscriber',
+            email: email.toLowerCase().trim(),
+            interests: interests || ['home-cleaning', 'lawn-maintenance'],
+            source: source || 'Website',
+            status: 'active',
+            jobber_client_id: client.id
+          }])
+          .select()
+          .single()
+
+        if (error && error.code !== '23505') { // Ignore duplicate email errors
+          console.error('Supabase storage failed:', error)
+        } else {
+          console.log('✅ Also stored in Supabase for email campaigns')
+          supabaseResult = subscriber
+        }
+      } catch (supabaseError) {
+        console.error('Supabase storage error:', supabaseError)
+        // Don't fail the whole request if Supabase fails
+      }
+    }
+
     return res.status(200).json({
       success: true,
       client: client,
-      message: 'Newsletter subscriber successfully added to Jobber'
+      subscriber: supabaseResult,
+      message: 'Newsletter subscriber successfully added to Jobber' + (supabaseResult ? ' and Supabase' : '')
     })
 
   } catch (error) {
