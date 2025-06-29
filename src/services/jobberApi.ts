@@ -122,7 +122,6 @@ class JobberApiService {
                 number
               }
               billingAddress {
-                id
                 street1
                 street2
                 city
