@@ -6,9 +6,7 @@ import {
   ContactFormData,
   JobberEmailInput,
   JobberPhoneInput,
-  JobberAddressInput,
-  NewsletterSubscriptionData,
-  NewsletterJobberSubmissionResult
+  JobberAddressInput
 } from '../types/jobber'
 
 class JobberApiService {
@@ -322,89 +320,7 @@ class JobberApiService {
     }
   }
 
-  /**
-   * Create a client in Jobber from newsletter subscription data using enhanced API
-   * This now stores in both database and Jobber for email campaigns
-   */
-  async createClientFromNewsletter(subscriptionData: NewsletterSubscriptionData): Promise<NewsletterJobberSubmissionResult> {
-    try {
-      console.log('Attempting newsletter subscription:', {
-        endpoint: '/api/jobber-newsletter',
-        data: subscriptionData,
-        timestamp: new Date().toISOString()
-      })
 
-      // Use the working Jobber newsletter API (enhanced with Supabase storage)
-      const response = await fetch('/api/jobber-newsletter', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: subscriptionData.name,
-          email: subscriptionData.email,
-          interests: subscriptionData.interests,
-          source: subscriptionData.source,
-          subscriptionDate: subscriptionData.subscriptionDate
-        })
-      })
-
-      if (!response.ok) {
-        console.error('Newsletter API Response Error:', {
-          status: response.status,
-          statusText: response.statusText,
-          url: response.url,
-          headers: Object.fromEntries(response.headers.entries())
-        })
-
-        let errorData
-        try {
-          errorData = await response.json()
-          console.error('Newsletter API Error Data:', errorData)
-        } catch (parseError) {
-          console.error('Failed to parse error response:', parseError)
-          errorData = { errors: [`HTTP ${response.status}: ${response.statusText}`] }
-        }
-
-        return {
-          success: false,
-          errors: errorData.errors || [`HTTP ${response.status}: ${response.statusText} - URL: ${response.url}`]
-        }
-      }
-
-      const result = await response.json()
-
-      if (result.success) {
-        return {
-          success: true,
-          client: result.jobberResult?.client || result.subscriber,
-          subscriber: result.subscriber // Database record
-        }
-      } else {
-        return {
-          success: false,
-          errors: result.errors || ['Unknown error occurred']
-        }
-      }
-
-    } catch (error) {
-      console.error('Error creating newsletter subscription:', {
-        error,
-        message: error instanceof Error ? error.message : 'Unknown error',
-        stack: error instanceof Error ? error.stack : undefined,
-        type: typeof error
-      })
-
-      return {
-        success: false,
-        errors: [
-          error instanceof Error ? error.message : 'An unexpected error occurred',
-          `Error type: ${typeof error}`,
-          `Timestamp: ${new Date().toISOString()}`
-        ]
-      }
-    }
-  }
 
 
 }

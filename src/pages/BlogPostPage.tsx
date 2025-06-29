@@ -2,12 +2,10 @@ import { useState, useEffect } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { getBlogPostBySlug } from '../data/blogPosts'
 import { BlogPost } from '../types/blog'
-import { useGlobalNewsletterContext } from '../components/GlobalNewsletterProvider'
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>()
   const [post, setPost] = useState<BlogPost | null>(null)
-  const { openNewsletter } = useGlobalNewsletterContext()
 
   useEffect(() => {
     if (slug) {
@@ -148,34 +146,7 @@ const BlogPostPage = () => {
             dangerouslySetInnerHTML={{ __html: formatContent(post.content) }}
           />
           
-          {/* Newsletter CTA */}
-          {post.showNewsletterPrompt && (
-            <div className="mt-16 p-8 bg-gradient-to-r from-sage-50 to-cream-50 rounded-2xl border border-sage-200">
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-sage-800 mb-4">
-                  Want More Tips Like This?
-                </h3>
-                <p className="text-sage-600 mb-6 max-w-2xl mx-auto">
-                  Subscribe to our newsletter for weekly insights on home cleaning,
-                  lawn maintenance, and eco-friendly solutions.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <button
-                    onClick={() => openNewsletter(`Blog Post: ${post.title}`)}
-                    className="bg-sage-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-sage-700 transition-colors shadow-lg hover:shadow-xl"
-                  >
-                    📧 Subscribe to Newsletter
-                  </button>
-                  <Link
-                    to="/blog"
-                    className="text-sage-600 hover:text-sage-800 font-medium transition-colors"
-                  >
-                    ← Back to All Articles
-                  </Link>
-                </div>
-              </div>
-            </div>
-          )}
+
         </div>
       </article>
 

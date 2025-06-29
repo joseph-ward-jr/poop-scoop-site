@@ -1,13 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import BlogCard from '../components/BlogCard'
 import { blogPosts } from '../data/blogPosts'
-import { useGlobalNewsletterContext } from '../components/GlobalNewsletterProvider'
-import { testNewsletterEndpoints } from '../utils/apiTest'
 
 const BlogPage = () => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
-  const [hasShownNewsletter, setHasShownNewsletter] = useState(false)
-  const { openNewsletter } = useGlobalNewsletterContext()
 
   // Get all unique tags
   const allTags = Array.from(new Set(blogPosts.flatMap(post => post.tags)))
@@ -19,18 +15,6 @@ const BlogPage = () => {
 
   const featuredPost = blogPosts[0] // First post is featured
 
-  // Show newsletter popup after user has been on blog page for a bit
-  useEffect(() => {
-    if (!hasShownNewsletter) {
-      const timer = setTimeout(() => {
-        openNewsletter('Blog Page Visit')
-        setHasShownNewsletter(true)
-      }, 15000) // Show after 15 seconds
-
-      return () => clearTimeout(timer)
-    }
-  }, [hasShownNewsletter, openNewsletter])
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-offwhite-50 to-cream-50">
       {/* Hero Section */}
@@ -40,16 +24,6 @@ const BlogPage = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Home & Yard Insights
             </h1>
-            {/* Temporary API test button */}
-            <button
-              onClick={() => {
-                console.log('🧪 Testing API endpoints...')
-                testNewsletterEndpoints()
-              }}
-              className="bg-red-600 text-white px-4 py-2 rounded mb-4 text-sm"
-            >
-              🧪 Test API Endpoints (Check Console)
-            </button>
             <p className="text-xl text-sage-200 mb-8 leading-relaxed">
               Expert tips, eco-friendly solutions, and professional insights for maintaining 
               a beautiful, safe, and healthy home environment.
@@ -147,27 +121,7 @@ const BlogPage = () => {
           )}
         </section>
 
-        {/* Newsletter CTA */}
-        <section className="mt-20">
-          <div className="bg-gradient-to-r from-sage-600 to-sage-700 rounded-3xl p-12 text-center text-white">
-            <h2 className="text-3xl font-bold mb-4">📧 Subscribe to Our Newsletter</h2>
-            <p className="text-sage-100 mb-8 max-w-2xl mx-auto">
-              Get weekly tips and insights delivered straight to your inbox.
-              Learn about eco-friendly cleaning, lawn maintenance, and creating a healthier home environment.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button
-                onClick={() => openNewsletter('Blog Page CTA')}
-                className="bg-white text-sage-700 px-8 py-4 rounded-xl font-semibold hover:bg-sage-50 transition-colors shadow-lg hover:shadow-xl"
-              >
-                Subscribe Now
-              </button>
-              <span className="text-sage-200 text-sm">
-                Join 50+ homeowners getting weekly tips
-              </span>
-            </div>
-          </div>
-        </section>
+
       </div>
     </div>
   )
