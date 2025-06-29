@@ -102,7 +102,7 @@ const HomePage = () => {
     <div>
       {/* Premium Minimalist Hero Section */}
       <section className="relative min-h-screen flex items-center bg-offwhite-50">
-        <div className="container-max relative z-10">
+        <div className="container-max px-4 md:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center min-h-screen py-20">
             {/* Left Side - Content */}
             <div className="lg:col-span-7 space-y-12">
@@ -178,7 +178,7 @@ const HomePage = () => {
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,_var(--tw-gradient-stops))] from-sage-300 to-transparent"></div>
         </div>
 
-        <div className="container-max relative z-10">
+        <div className="container-max px-4 md:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-32">
             <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full text-sage-800 font-medium text-sm tracking-wide uppercase mb-8">
               ✨ The Field & Foyer Difference
@@ -227,7 +227,7 @@ const HomePage = () => {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-sage-300 rounded-full opacity-5 animate-pulse delay-500"></div>
         </div>
 
-        <div className="container-max text-center relative z-10">
+        <div className="container-max px-4 md:px-6 lg:px-8 text-center relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="inline-flex items-center px-6 py-3 bg-sage-500 rounded-full text-offwhite-50 font-medium text-sm tracking-wide uppercase mb-8">
               Transform Your Space
@@ -271,7 +271,7 @@ const HomePage = () => {
           <div className="absolute bottom-20 left-20 w-48 h-48 bg-cream-300 rounded-full"></div>
         </div>
 
-        <div className="container-max relative z-10">
+        <div className="container-max px-4 md:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-20">
               <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full text-sage-800 font-medium text-sm tracking-wide uppercase mb-8">

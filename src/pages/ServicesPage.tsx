@@ -40,32 +40,32 @@ const ServicesPage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-offwhite-50 via-cream-50 to-sage-50 section-padding">
-        <div className="container-max">
+      <section className="bg-gradient-to-br from-offwhite-50 via-cream-50 to-sage-50 py-12 md:py-20">
+        <div className="container-max px-4">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-sage-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-sage-900 mb-4 md:mb-6">
               Our Services
             </h1>
-            <p className="text-xl md:text-2xl text-sage-700 leading-relaxed mb-8">
+            <p className="text-lg md:text-2xl text-sage-700 leading-relaxed mb-6 md:mb-8">
               Field & Foyer offers premium home and lawn services designed to enhance your complete living experience.
               Starting with pet waste removal, expanding to home maintenance services, then bringing our expertise to comprehensive lawn care.
             </p>
-            <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full">
-              <img src="/images/icons/leaf-icon.svg" alt="Service" className="w-5 h-5 mr-2" />
-              <span className="text-sage-800 font-medium">Currently Serving: Pet Waste Removal</span>
+            <div className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-sage-100 rounded-full">
+              <img src="/images/icons/leaf-icon.svg" alt="Service" className="w-4 md:w-5 h-4 md:h-5 mr-2" />
+              <span className="text-sm md:text-base text-sage-800 font-medium">Currently Serving: Pet Waste Removal</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Current Services */}
-      <section className="section-padding bg-offwhite-50">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-sage-900 mb-6">
+      <section className="py-12 md:py-20 bg-offwhite-50">
+        <div className="container-max px-4">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-sage-900 mb-4 md:mb-6">
               Available Now
             </h2>
-            <p className="text-xl text-sage-700 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-sage-700 max-w-3xl mx-auto">
               Our first flagship service, setting the standard for thoughtful property care.
             </p>
           </div>
@@ -73,10 +73,10 @@ const ServicesPage = () => {
           <div className="max-w-4xl mx-auto">
             {currentServices.map((service) => (
               <div key={service.id} className="card-modern group hover:-translate-y-2">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center">
                   <div>
-                    <div className="flex items-center mb-6">
-                      <div className="w-20 h-20 mr-6 group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex items-center mb-4 md:mb-6">
+                      <div className="w-16 md:w-20 h-16 md:h-20 mr-4 md:mr-6 group-hover:scale-110 transition-transform duration-300">
                         <img
                           src={service.image}
                           alt={service.name}
@@ -84,18 +84,18 @@ const ServicesPage = () => {
                         />
                       </div>
                       <div>
-                        <h3 className="text-3xl font-bold text-sage-800 mb-2">{service.name}</h3>
+                        <h3 className="text-2xl md:text-3xl font-bold text-sage-800 mb-2">{service.name}</h3>
                         <span className="inline-flex items-center px-3 py-1 bg-sage-100 text-sage-700 rounded-full text-sm font-medium">
                           {service.status}
                         </span>
                       </div>
                     </div>
-                    
-                    <p className="text-lg text-sage-600 mb-8 leading-relaxed">
+
+                    <p className="text-base md:text-lg text-sage-600 mb-6 md:mb-8 leading-relaxed">
                       {service.description}
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                    <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8">
                       <Link
                         to={service.link}
                         className="btn-primary text-center"
@@ -116,8 +116,8 @@ const ServicesPage = () => {
                   </div>
 
                   <div>
-                    <h4 className="text-xl font-bold text-sage-800 mb-6">Service Features</h4>
-                    <ul className="space-y-4">
+                    <h4 className="text-lg md:text-xl font-bold text-sage-800 mb-4 md:mb-6">Service Features</h4>
+                    <ul className="space-y-3 md:space-y-4">
                       {service.features.map((feature, index) => (
                         <li key={index} className="flex items-start">
                           <div className="flex-shrink-0 w-6 h-6 bg-sage-500 rounded-full flex items-center justify-center mt-1 mr-3">
@@ -138,39 +138,39 @@ const ServicesPage = () => {
       </section>
 
       {/* Coming Soon Services */}
-      <section className="section-padding bg-cream-50">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-sage-900 mb-6">
+      <section className="py-12 md:py-20 bg-cream-50">
+        <div className="container-max px-4">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-sage-900 mb-4 md:mb-6">
               Our Growth Journey
             </h2>
-            <p className="text-xl text-sage-700 max-w-4xl mx-auto">
+            <p className="text-lg md:text-xl text-sage-700 max-w-4xl mx-auto">
               We're strategically expanding our services: starting with pet care, growing into complete lawn care and maintenance,
               then bringing our premium standards indoors. Here's our roadmap.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {comingSoonServices.map((service, index) => (
               <div key={index} className="card-modern text-center group opacity-75 hover:opacity-90 transition-opacity duration-300">
-                <div className="w-24 h-24 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-20 md:w-24 h-20 md:h-24 mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300">
                   <img
                     src={service.image}
                     alt={service.name}
                     className="w-full h-full object-cover rounded-2xl shadow-lg"
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-sage-800 mb-4">{service.name}</h3>
-                <p className="text-sage-600 mb-6 leading-relaxed">{service.description}</p>
-                <span className="inline-flex items-center px-4 py-2 bg-cream-200 text-sage-700 rounded-full text-sm font-medium">
+                <h3 className="text-xl md:text-2xl font-bold text-sage-800 mb-3 md:mb-4">{service.name}</h3>
+                <p className="text-sm md:text-base text-sage-600 mb-4 md:mb-6 leading-relaxed">{service.description}</p>
+                <span className="inline-flex items-center px-3 md:px-4 py-1 md:py-2 bg-cream-200 text-sage-700 rounded-full text-sm font-medium">
                   {service.status}
                 </span>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <p className="text-lg text-sage-700 mb-6">
+          <div className="text-center mt-8 md:mt-12">
+            <p className="text-base md:text-lg text-sage-700 mb-4 md:mb-6">
               Interested in being notified when new services launch?
             </p>
             <Link
@@ -184,32 +184,32 @@ const ServicesPage = () => {
       </section>
 
       {/* Why Choose Field & Foyer */}
-      <section className="section-padding bg-sage-600">
-        <div className="container-max text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-offwhite-50 mb-8">
+      <section className="py-12 md:py-20 bg-sage-600">
+        <div className="container-max px-4 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-offwhite-50 mb-6 md:mb-8">
             Why Choose Field & Foyer?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4">
+              <div className="w-12 md:w-16 h-12 md:h-16 mx-auto mb-3 md:mb-4">
                 <img src="/images/icons/premium-quality.svg" alt="Premium Quality" className="w-full h-full" />
               </div>
-              <h3 className="text-xl font-bold text-offwhite-50 mb-3">Premium Quality</h3>
-              <p className="text-sage-200">Boutique service standards with attention to every detail</p>
+              <h3 className="text-lg md:text-xl font-bold text-offwhite-50 mb-2 md:mb-3">Premium Quality</h3>
+              <p className="text-sm md:text-base text-sage-200">Boutique service standards with attention to every detail</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4">
+              <div className="w-12 md:w-16 h-12 md:h-16 mx-auto mb-3 md:mb-4">
                 <img src="/images/icons/eco-conscious.svg" alt="Eco-Conscious" className="w-full h-full" />
               </div>
-              <h3 className="text-xl font-bold text-offwhite-50 mb-3">Eco-Conscious</h3>
-              <p className="text-sage-200">Sustainable practices that protect your lawn ecosystem</p>
+              <h3 className="text-lg md:text-xl font-bold text-offwhite-50 mb-2 md:mb-3">Eco-Conscious</h3>
+              <p className="text-sm md:text-base text-sage-200">Sustainable practices that protect your lawn ecosystem</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4">
+              <div className="w-12 md:w-16 h-12 md:h-16 mx-auto mb-3 md:mb-4">
                 <img src="/images/icons/trusted-partner.svg" alt="Trusted Partner" className="w-full h-full" />
               </div>
-              <h3 className="text-xl font-bold text-offwhite-50 mb-3">Trusted Partner</h3>
-              <p className="text-sage-200">Building long-term relationships with homeowners and businesses</p>
+              <h3 className="text-lg md:text-xl font-bold text-offwhite-50 mb-2 md:mb-3">Trusted Partner</h3>
+              <p className="text-sm md:text-base text-sage-200">Building long-term relationships with homeowners and businesses</p>
             </div>
           </div>
           <Link
@@ -274,16 +274,16 @@ const ServicesPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-offwhite-50">
-        <div className="container-max text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-sage-900 mb-6">
+      <section className="py-12 md:py-20 bg-offwhite-50">
+        <div className="container-max px-4 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-sage-900 mb-4 md:mb-6">
             Ready to Transform Your Property?
           </h2>
-          <p className="text-xl text-sage-700 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-sage-700 mb-6 md:mb-8 max-w-3xl mx-auto">
             Start with our pet waste removal service and experience the Field & Foyer difference.
             Your property sanctuary awaits.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
             <Link
               to="/contact"
               className="btn-primary text-lg"
