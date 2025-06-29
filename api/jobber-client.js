@@ -7,32 +7,88 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  // Get the Jobber access token from environment variables (server-side only)
-  const accessToken = process.env.JOBBER_ACCESS_TOKEN
+  // Get Jobber credentials from environment variables (server-side only)
+  const clientId = process.env.JOBBER_CLIENT_ID
+  const clientSecret = process.env.JOBBER_CLIENT_SECRET
+  const accessToken = process.env.JOBBER_ACCESS_TOKEN // Fallback for existing setup
 
-  if (!accessToken) {
-    console.error('JOBBER_ACCESS_TOKEN environment variable not set')
-    return res.status(500).json({
-      success: false,
-      errors: ['Server configuration error - Jobber access token not configured']
-    })
+  // Function to get a fresh access token using client credentials
+  async function getFreshAccessToken() {
+    if (!clientId || !clientSecret) {
+      throw new Error('JOBBER_CLIENT_ID and JOBBER_CLIENT_SECRET environment variables not set')
+    }
+
+    try {
+      const tokenResponse = await fetch('https://api.getjobber.com/api/oauth/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          grant_type: 'client_credentials',
+          client_id: clientId,
+          client_secret: clientSecret,
+          scope: 'read_clients write_clients'
+        })
+      })
+
+      if (!tokenResponse.ok) {
+        const errorData = await tokenResponse.text()
+        throw new Error(`Token request failed: ${tokenResponse.status} ${errorData}`)
+      }
+
+      const tokenData = await tokenResponse.json()
+      return tokenData.access_token
+    } catch (error) {
+      console.error('Failed to get fresh access token:', error)
+      throw error
+    }
   }
 
-  // Check if token is expired
-  try {
-    const payload = JSON.parse(Buffer.from(accessToken.split('.')[1], 'base64').toString())
-    const currentTime = Math.floor(Date.now() / 1000)
-    if (payload.exp && payload.exp < currentTime) {
+  // Function to check if token is expired
+  function isTokenExpired(token) {
+    try {
+      const payload = JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString())
+      const currentTime = Math.floor(Date.now() / 1000)
+      return payload.exp && payload.exp < currentTime
+    } catch (error) {
+      console.warn('Could not parse token expiration:', error)
+      return false // Assume valid if we can't parse
+    }
+  }
+
+  // Get a valid access token
+  let validAccessToken = accessToken
+
+  // If we have client credentials, use them to get a fresh token
+  if (clientId && clientSecret) {
+    try {
+      console.log('Using client credentials to get fresh access token...')
+      validAccessToken = await getFreshAccessToken()
+    } catch (error) {
+      console.error('Failed to get fresh token with client credentials:', error)
+      return res.status(500).json({
+        success: false,
+        errors: ['Failed to authenticate with Jobber API using client credentials']
+      })
+    }
+  } else if (accessToken) {
+    // Fallback to existing access token, but check if expired
+    if (isTokenExpired(accessToken)) {
+      const payload = JSON.parse(Buffer.from(accessToken.split('.')[1], 'base64').toString())
       const expDate = new Date(payload.exp * 1000)
       console.error(`Jobber access token expired at ${expDate.toISOString()}`)
       return res.status(500).json({
         success: false,
-        errors: [`Jobber access token expired at ${expDate.toLocaleString()}. Please regenerate your token.`]
+        errors: [`Jobber access token expired at ${expDate.toLocaleString()}. Please set up client credentials (JOBBER_CLIENT_ID and JOBBER_CLIENT_SECRET) for automatic token refresh.`]
       })
     }
-  } catch (error) {
-    console.warn('Could not parse token expiration:', error)
-    // Continue anyway - token might be valid
+  } else {
+    console.error('No Jobber credentials configured')
+    return res.status(500).json({
+      success: false,
+      errors: ['Server configuration error - No Jobber credentials configured. Please set either JOBBER_ACCESS_TOKEN or JOBBER_CLIENT_ID/JOBBER_CLIENT_SECRET.']
+    })
   }
 
   try {
@@ -131,7 +187,7 @@ export default async function handler(req, res) {
     const response = await fetch('https://api.getjobber.com/api/graphql', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${accessToken}`,
+        'Authorization': `Bearer ${validAccessToken}`,
         'Content-Type': 'application/json',
         'X-JOBBER-GRAPHQL-VERSION': '2025-01-20'
       },
@@ -185,7 +241,7 @@ export default async function handler(req, res) {
         await fetch('https://api.getjobber.com/api/graphql', {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${accessToken}`,
+            'Authorization': `Bearer ${validAccessToken}`,
             'Content-Type': 'application/json',
             'X-JOBBER-GRAPHQL-VERSION': '2025-01-20'
           },
