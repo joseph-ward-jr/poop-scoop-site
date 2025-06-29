@@ -12,8 +12,10 @@ export const useGlobalNewsletter = (): UseGlobalNewsletterReturn => {
   const [newsletterSource, setNewsletterSource] = useState('Website')
 
   const openNewsletter = useCallback((source: string = 'Website') => {
+    console.log('openNewsletter called with source:', source)
     setNewsletterSource(source)
     setIsNewsletterOpen(true)
+    console.log('Newsletter should now be open')
   }, [])
 
   const closeNewsletter = useCallback(() => {

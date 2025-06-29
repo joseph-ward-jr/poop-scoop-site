@@ -20,13 +20,19 @@ const BlogPage = () => {
 
   // Show newsletter popup after user has been on blog page for a bit
   useEffect(() => {
+    console.log('BlogPage useEffect running, hasShownNewsletter:', hasShownNewsletter)
     if (!hasShownNewsletter) {
+      console.log('Setting up newsletter timer for 5 seconds...')
       const timer = setTimeout(() => {
+        console.log('Timer fired, opening newsletter popup')
         openNewsletter('Blog Page Visit')
         setHasShownNewsletter(true)
-      }, 15000) // Show after 15 seconds of browsing the blog
+      }, 5000) // Show after 5 seconds for testing (was 15000)
 
-      return () => clearTimeout(timer)
+      return () => {
+        console.log('Cleaning up newsletter timer')
+        clearTimeout(timer)
+      }
     }
   }, [hasShownNewsletter, openNewsletter])
 
@@ -39,6 +45,16 @@ const BlogPage = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Home & Yard Insights
             </h1>
+            {/* Debug button - remove after testing */}
+            <button
+              onClick={() => {
+                console.log('Manual newsletter test button clicked')
+                openNewsletter('Manual Test')
+              }}
+              className="bg-red-600 text-white px-4 py-2 rounded mb-4 text-sm"
+            >
+              TEST NEWSLETTER (Debug)
+            </button>
             <p className="text-xl text-sage-200 mb-8 leading-relaxed">
               Expert tips, eco-friendly solutions, and professional insights for maintaining 
               a beautiful, safe, and healthy home environment.
