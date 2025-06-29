@@ -16,7 +16,13 @@ class JobberApiService {
 
   constructor() {
     // Get access token from environment variables
+    // Try VITE_ prefixed version first (for local development)
     this.accessToken = ((import.meta as any).env?.VITE_JOBBER_ACCESS_TOKEN as string) || null
+
+    // If no token found, log for debugging
+    if (!this.accessToken) {
+      console.warn('Jobber access token not found in environment variables')
+    }
   }
 
   /**
@@ -31,6 +37,10 @@ class JobberApiService {
    */
   private async makeRequest<T>(query: string, variables?: any): Promise<JobberApiResponse<T>> {
     if (!this.accessToken) {
+      console.error('Jobber access token not configured. Available env vars:', {
+        hasViteToken: !!((import.meta as any).env?.VITE_JOBBER_ACCESS_TOKEN),
+        envKeys: Object.keys((import.meta as any).env || {}).filter(key => key.includes('JOBBER'))
+      })
       throw new Error('Jobber access token not configured')
     }
 

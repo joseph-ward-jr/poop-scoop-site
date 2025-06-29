@@ -1,19 +1,36 @@
 import { useState } from 'react'
 import ContactForm from '../components/ContactForm'
+import { useJobberSubmission } from '../hooks/useJobberSubmission'
 import { ContactFormData } from '../types/jobber'
 
 const ContactPage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const { isSubmitting, submitToJobber } = useJobberSubmission()
 
   const handleFormSubmit = async (data: ContactFormData) => {
     console.log('Form submitted:', data)
     setSubmitError(null)
-    setIsSubmitting(true)
 
     try {
-      // Submit to secure API endpoint
+      // Try the direct Jobber API approach first (same as test page)
+      console.log('Attempting direct Jobber API submission...')
+      const result = await submitToJobber(data)
+
+      if (result.success) {
+        console.log('Successfully created Jobber client via direct API:', result.client)
+        setIsSubmitted(true)
+        return
+      } else {
+        console.warn('Direct API failed, trying serverless fallback...', result.errors)
+      }
+    } catch (directError) {
+      console.warn('Direct API error, trying serverless fallback:', directError)
+    }
+
+    // Fallback to serverless API if direct approach fails
+    try {
+      console.log('Attempting serverless API submission...')
       const response = await fetch('/api/jobber-client', {
         method: 'POST',
         headers: {
@@ -25,25 +42,23 @@ const ContactPage = () => {
       const result = await response.json()
 
       if (result.success) {
-        console.log('Successfully created Jobber client:', result.client)
+        console.log('Successfully created Jobber client via serverless API:', result.client)
         setIsSubmitted(true)
       } else {
         // Handle API errors but still show success to user
         const errorMessage = result.errors?.join(', ') || 'Failed to submit to Jobber'
         setSubmitError(errorMessage)
-        console.error('Jobber submission failed:', result.errors)
+        console.error('Serverless API submission failed:', result.errors)
 
         // Still show success to user for better UX
         setIsSubmitted(true)
       }
-    } catch (error) {
-      console.error('Form submission error:', error)
+    } catch (serverlessError) {
+      console.error('Both direct and serverless API failed:', serverlessError)
       setSubmitError('An unexpected error occurred while submitting.')
 
       // Still show success to user for better UX
       setIsSubmitted(true)
-    } finally {
-      setIsSubmitting(false)
     }
 
     // Reset form after 5 seconds (increased time to show any error messages)
