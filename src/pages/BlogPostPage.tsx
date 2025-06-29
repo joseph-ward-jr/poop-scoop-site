@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { getBlogPostBySlug } from '../data/blogPosts'
-import NewsletterModal from '../components/NewsletterModal'
 import { BlogPost } from '../types/blog'
+import { useGlobalNewsletterContext } from '../components/GlobalNewsletterProvider'
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>()
   const [post, setPost] = useState<BlogPost | null>(null)
-  const [showNewsletterModal, setShowNewsletterModal] = useState(false)
-  const [hasShownModal, setHasShownModal] = useState(false)
+  const { openNewsletter } = useGlobalNewsletterContext()
 
   useEffect(() => {
     if (slug) {
@@ -16,18 +15,6 @@ const BlogPostPage = () => {
       setPost(foundPost || null)
     }
   }, [slug])
-
-  // Show newsletter modal after user has read for a bit (if enabled for this post)
-  useEffect(() => {
-    if (post?.showNewsletterPrompt && !hasShownModal) {
-      const timer = setTimeout(() => {
-        setShowNewsletterModal(true)
-        setHasShownModal(true)
-      }, 30000) // Show after 30 seconds
-
-      return () => clearTimeout(timer)
-    }
-  }, [post, hasShownModal])
 
   if (!slug) {
     return <Navigate to="/blog" replace />
@@ -169,28 +156,30 @@ const BlogPostPage = () => {
                   Want More Tips Like This?
                 </h3>
                 <p className="text-sage-600 mb-6 max-w-2xl mx-auto">
-                  Subscribe to our newsletter for weekly insights on home cleaning, 
+                  Subscribe to our newsletter for weekly insights on home cleaning,
                   lawn maintenance, and eco-friendly solutions.
                 </p>
-                <button
-                  onClick={() => setShowNewsletterModal(true)}
-                  className="bg-sage-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-sage-700 transition-colors"
-                >
-                  Subscribe to Newsletter
-                </button>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <button
+                    onClick={() => openNewsletter(`Blog Post: ${post.title}`)}
+                    className="bg-sage-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-sage-700 transition-colors shadow-lg hover:shadow-xl"
+                  >
+                    📧 Subscribe to Newsletter
+                  </button>
+                  <Link
+                    to="/blog"
+                    className="text-sage-600 hover:text-sage-800 font-medium transition-colors"
+                  >
+                    ← Back to All Articles
+                  </Link>
+                </div>
               </div>
             </div>
           )}
         </div>
       </article>
 
-      {/* Newsletter Modal */}
-      <NewsletterModal
-        isOpen={showNewsletterModal}
-        onClose={() => setShowNewsletterModal(false)}
-        source={`Blog Post: ${post.title}`}
-        title="Get Weekly Home & Yard Tips!"
-      />
+
     </div>
   )
 }

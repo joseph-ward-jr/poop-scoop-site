@@ -1,19 +1,34 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import BlogCard from '../components/BlogCard'
 import { blogPosts } from '../data/blogPosts'
+import { useGlobalNewsletterContext } from '../components/GlobalNewsletterProvider'
 
 const BlogPage = () => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
-  
+  const [hasShownNewsletter, setHasShownNewsletter] = useState(false)
+  const { openNewsletter } = useGlobalNewsletterContext()
+
   // Get all unique tags
   const allTags = Array.from(new Set(blogPosts.flatMap(post => post.tags)))
-  
+
   // Filter posts by selected tag
-  const filteredPosts = selectedTag 
+  const filteredPosts = selectedTag
     ? blogPosts.filter(post => post.tags.includes(selectedTag))
     : blogPosts
 
   const featuredPost = blogPosts[0] // First post is featured
+
+  // Show newsletter popup after user has been on blog page for a bit
+  useEffect(() => {
+    if (!hasShownNewsletter) {
+      const timer = setTimeout(() => {
+        openNewsletter('Blog Page Visit')
+        setHasShownNewsletter(true)
+      }, 15000) // Show after 15 seconds of browsing the blog
+
+      return () => clearTimeout(timer)
+    }
+  }, [hasShownNewsletter, openNewsletter])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-offwhite-50 to-cream-50">
@@ -124,20 +139,22 @@ const BlogPage = () => {
         {/* Newsletter CTA */}
         <section className="mt-20">
           <div className="bg-gradient-to-r from-sage-600 to-sage-700 rounded-3xl p-12 text-center text-white">
-            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
+            <h2 className="text-3xl font-bold mb-4">📧 Subscribe to Our Newsletter</h2>
             <p className="text-sage-100 mb-8 max-w-2xl mx-auto">
-              Get weekly tips and insights delivered straight to your inbox. 
+              Get weekly tips and insights delivered straight to your inbox.
               Learn about eco-friendly cleaning, lawn maintenance, and creating a healthier home environment.
             </p>
-            <button
-              onClick={() => {
-                // This will be handled by individual blog posts
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-              }}
-              className="bg-white text-sage-700 px-8 py-4 rounded-xl font-semibold hover:bg-sage-50 transition-colors"
-            >
-              Read Our Latest Article
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button
+                onClick={() => openNewsletter('Blog Page CTA')}
+                className="bg-white text-sage-700 px-8 py-4 rounded-xl font-semibold hover:bg-sage-50 transition-colors shadow-lg hover:shadow-xl"
+              >
+                Subscribe Now
+              </button>
+              <span className="text-sage-200 text-sm">
+                Join 500+ homeowners getting weekly tips
+              </span>
+            </div>
           </div>
         </section>
       </div>
