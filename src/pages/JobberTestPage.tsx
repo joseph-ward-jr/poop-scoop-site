@@ -7,7 +7,7 @@ const JobberTestPage = () => {
   const [connectionStatus, setConnectionStatus] = useState<'testing' | 'connected' | 'failed'>('testing')
   const [accountInfo, setAccountInfo] = useState<any>(null)
   const [testResults, setTestResults] = useState<string[]>([])
-  const { isSubmitting, submitToJobber, lastResult } = useJobberSubmission()
+  const { isSubmitting, submitToJobber } = useJobberSubmission()
 
   // Test form data
   const [formData, setFormData] = useState<ContactFormData>({
@@ -37,21 +37,10 @@ const JobberTestPage = () => {
         
         // Try to get account info for verification
         try {
-          const query = `
-            query GetAccount {
-              account {
-                id
-                name
-                industry
-                createdAt
-              }
-            }
-          `
-          
-          const response = await (jobberApi as any).makeRequest(query)
-          if (response.data?.account) {
-            setAccountInfo(response.data.account)
-            addTestResult(`📊 Connected to account: ${response.data.account.name}`)
+          const accountInfo = await jobberApi.getAccountInfo()
+          if (accountInfo) {
+            setAccountInfo(accountInfo)
+            addTestResult(`📊 Connected to account: ${accountInfo.name}`)
           }
         } catch (error) {
           addTestResult('⚠️ Connected but could not fetch account details')

@@ -213,12 +213,36 @@ class JobberApiService {
           }
         }
       `
-      
+
       const response = await this.makeRequest(query)
       return !response.errors && !!response.data
     } catch (error) {
       console.error('Jobber API connection test failed:', error)
       return false
+    }
+  }
+
+  /**
+   * Get account information for testing purposes
+   */
+  async getAccountInfo(): Promise<any> {
+    try {
+      const query = `
+        query GetAccount {
+          account {
+            id
+            name
+            industry
+            createdAt
+          }
+        }
+      `
+
+      const response = await this.makeRequest<{ account: any }>(query)
+      return response.data?.account || null
+    } catch (error) {
+      console.error('Failed to get account info:', error)
+      return null
     }
   }
 }

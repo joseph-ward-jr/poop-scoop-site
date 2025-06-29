@@ -6,7 +6,7 @@ import JobberTestPage from '../JobberTestPage'
 vi.mock('../../services/jobberApi', () => ({
   jobberApi: {
     testConnection: vi.fn(),
-    makeRequest: vi.fn()
+    getAccountInfo: vi.fn()
   }
 }))
 
@@ -27,7 +27,7 @@ describe('JobberTestPage', () => {
     vi.clearAllMocks()
     // Reset mocks to default implementations
     vi.mocked(jobberApi.testConnection).mockResolvedValue(true)
-    vi.mocked(jobberApi.makeRequest).mockResolvedValue({ data: null })
+    vi.mocked(jobberApi.getAccountInfo).mockResolvedValue(null)
   })
 
   it('renders the test page with all sections', () => {
@@ -48,15 +48,11 @@ describe('JobberTestPage', () => {
 
   it('displays connection success when API connection works', async () => {
     vi.mocked(jobberApi.testConnection).mockResolvedValueOnce(true)
-    vi.mocked(jobberApi.makeRequest).mockResolvedValueOnce({
-      data: {
-        account: {
-          id: '123',
-          name: 'Test Account',
-          industry: 'Landscaping',
-          createdAt: '2023-01-01T00:00:00Z'
-        }
-      }
+    vi.mocked(jobberApi.getAccountInfo).mockResolvedValueOnce({
+      id: '123',
+      name: 'Test Account',
+      industry: 'Landscaping',
+      createdAt: '2023-01-01T00:00:00Z'
     })
 
     render(<JobberTestPage />)
