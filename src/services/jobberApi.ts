@@ -323,75 +323,46 @@ class JobberApiService {
   }
 
   /**
-   * Create a client in Jobber from newsletter subscription data
+   * Create a client in Jobber from newsletter subscription data using serverless function
    */
   async createClientFromNewsletter(subscriptionData: NewsletterSubscriptionData): Promise<NewsletterJobberSubmissionResult> {
     try {
-      // Parse name into first and last name
-      const nameParts = subscriptionData.name.trim().split(' ')
-      const firstName = nameParts[0] || ''
-      const lastName = nameParts.slice(1).join(' ') || ''
+      // Use the same serverless function approach as contact forms
+      // This ensures proper token refresh handling
+      const response = await fetch('/api/jobber-newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: subscriptionData.name,
+          email: subscriptionData.email,
+          interests: subscriptionData.interests,
+          source: subscriptionData.source,
+          subscriptionDate: subscriptionData.subscriptionDate
+        })
+      })
 
-      // Build client input for newsletter subscriber
-      const clientInput: JobberClientInput = {
-        firstName,
-        lastName: lastName || undefined,
-        emails: [{
-          description: 'MAIN',
-          primary: true,
-          address: subscriptionData.email
-        }] as JobberEmailInput[]
-        // Note: Newsletter subscribers typically don't provide phone/address initially
-      }
-
-      const mutation = `
-        mutation CreateNewsletterClient($input: ClientCreateInput!) {
-          clientCreate(input: $input) {
-            client {
-              id
-              firstName
-              lastName
-              emails {
-                id
-                address
-                primary
-                description
-              }
-            }
-            userErrors {
-              message
-              path
-            }
-          }
-        }
-      `
-
-      const response = await this.makeRequest<JobberClientCreateResponse>(mutation, { input: clientInput })
-
-      if (response.errors && response.errors.length > 0) {
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ errors: ['Network error'] }))
         return {
           success: false,
-          errors: response.errors.map(error => error.message)
+          errors: errorData.errors || [`HTTP ${response.status}: ${response.statusText}`]
         }
       }
 
-      if (response.data?.clientCreate.userErrors && response.data.clientCreate.userErrors.length > 0) {
+      const result = await response.json()
+
+      if (result.success) {
+        return {
+          success: true,
+          client: result.client
+        }
+      } else {
         return {
           success: false,
-          errors: response.data.clientCreate.userErrors.map(error => error.message)
+          errors: result.errors || ['Unknown error occurred']
         }
-      }
-
-      if (!response.data?.clientCreate.client) {
-        return {
-          success: false,
-          errors: ['Failed to create client - no client data returned']
-        }
-      }
-
-      return {
-        success: true,
-        client: response.data.clientCreate.client
       }
 
     } catch (error) {
