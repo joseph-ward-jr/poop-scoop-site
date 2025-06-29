@@ -155,12 +155,14 @@ export default async function handler(req, res) {
       `Submitted: ${new Date().toLocaleString()}`
     ].filter(Boolean).join('\n\n')
 
-    // First, ensure we have a custom field for form notes
-    console.log('Step 1: Setting up custom field for form notes...')
-    let formNotesFieldId = null
+    // First, ensure we have custom fields for form data
+    console.log('Step 1: Setting up custom fields for form data...')
+    let contactPreferenceFieldId = null
+    let additionalNotesFieldId = null
+    let leadSourceFieldId = null
 
     try {
-      // Check if custom field already exists
+      // Check if custom fields already exist
       const checkFieldQuery = `
         query CheckCustomFields {
           customFieldConfigurations(first: 50) {
@@ -192,27 +194,48 @@ export default async function handler(req, res) {
       const checkResult = await checkResponse.json()
       console.log('Custom field check result:', JSON.stringify(checkResult, null, 2))
 
-      // Look for existing "Form Notes" field
+      // Look for existing custom fields
       if (checkResult.data?.customFieldConfigurations?.nodes) {
-        const existingField = checkResult.data.customFieldConfigurations.nodes.find(
-          field => field.name === 'Form Notes' && field.appliesTo === 'ALL_CLIENTS'
+        const existingFields = checkResult.data.customFieldConfigurations.nodes
+
+        // Find Contact Preference field
+        const contactPrefField = existingFields.find(
+          field => field.name === 'Contact Preference' && field.appliesTo === 'ALL_CLIENTS'
         )
-        if (existingField) {
-          formNotesFieldId = existingField.id
-          console.log('Found existing Form Notes field:', formNotesFieldId)
+        if (contactPrefField) {
+          contactPreferenceFieldId = contactPrefField.id
+          console.log('Found existing Contact Preference field:', contactPreferenceFieldId)
+        }
+
+        // Find Additional Notes field
+        const additionalNotesField = existingFields.find(
+          field => field.name === 'Additional Notes' && field.appliesTo === 'ALL_CLIENTS'
+        )
+        if (additionalNotesField) {
+          additionalNotesFieldId = additionalNotesField.id
+          console.log('Found existing Additional Notes field:', additionalNotesFieldId)
+        }
+
+        // Find Lead Source field
+        const leadSourceField = existingFields.find(
+          field => field.name === 'Lead Source' && field.appliesTo === 'ALL_CLIENTS'
+        )
+        if (leadSourceField) {
+          leadSourceFieldId = leadSourceField.id
+          console.log('Found existing Lead Source field:', leadSourceFieldId)
         }
       }
 
-      // Create the custom field if it doesn't exist
-      if (!formNotesFieldId) {
-        console.log('Creating new Form Notes custom field...')
+      // Create Contact Preference field if it doesn't exist
+      if (!contactPreferenceFieldId) {
+        console.log('Creating Contact Preference custom field...')
 
-        const createFieldMutation = `
-          mutation CreateFormNotesField {
+        const createContactPrefMutation = `
+          mutation CreateContactPreferenceField {
             customFieldConfigurationCreateText(
               input: {
                 appliesTo: ALL_CLIENTS
-                name: "Form Notes"
+                name: "Contact Preference"
                 transferable: false
                 readOnly: true
                 defaultValue: ""
@@ -234,7 +257,7 @@ export default async function handler(req, res) {
           }
         `
 
-        const createFieldResponse = await fetch('https://api.getjobber.com/api/graphql', {
+        const createContactPrefResponse = await fetch('https://api.getjobber.com/api/graphql', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${validAccessToken}`,
@@ -242,24 +265,124 @@ export default async function handler(req, res) {
             'X-JOBBER-GRAPHQL-VERSION': '2025-01-20'
           },
           body: JSON.stringify({
-            query: createFieldMutation
+            query: createContactPrefMutation
           })
         })
 
-        const createFieldResult = await createFieldResponse.json()
-        console.log('Create field result:', JSON.stringify(createFieldResult, null, 2))
+        const createContactPrefResult = await createContactPrefResponse.json()
+        console.log('Create Contact Preference field result:', JSON.stringify(createContactPrefResult, null, 2))
 
-        if (createFieldResult.errors && createFieldResult.errors.length > 0) {
-          console.error('GraphQL errors when creating custom field:', createFieldResult.errors)
-        } else if (createFieldResult.data?.customFieldConfigurationCreateText.userErrors && createFieldResult.data.customFieldConfigurationCreateText.userErrors.length > 0) {
-          console.error('User errors when creating custom field:', createFieldResult.data.customFieldConfigurationCreateText.userErrors)
-        } else if (createFieldResult.data?.customFieldConfigurationCreateText.customFieldConfiguration) {
-          formNotesFieldId = createFieldResult.data.customFieldConfigurationCreateText.customFieldConfiguration.id
-          console.log('Successfully created Form Notes custom field:', formNotesFieldId)
+        if (createContactPrefResult.data?.customFieldConfigurationCreateText.customFieldConfiguration) {
+          contactPreferenceFieldId = createContactPrefResult.data.customFieldConfigurationCreateText.customFieldConfiguration.id
+          console.log('Successfully created Contact Preference custom field:', contactPreferenceFieldId)
+        }
+      }
+
+      // Create Additional Notes field if it doesn't exist
+      if (!additionalNotesFieldId) {
+        console.log('Creating Additional Notes custom field...')
+
+        const createAdditionalNotesMutation = `
+          mutation CreateAdditionalNotesField {
+            customFieldConfigurationCreateText(
+              input: {
+                appliesTo: ALL_CLIENTS
+                name: "Additional Notes"
+                transferable: false
+                readOnly: true
+                defaultValue: ""
+              }
+            ) {
+              customFieldConfiguration {
+                createdAt
+                id
+                name
+                valueType
+                appliesTo
+                readOnly
+              }
+              userErrors {
+                message
+                path
+              }
+            }
+          }
+        `
+
+        const createAdditionalNotesResponse = await fetch('https://api.getjobber.com/api/graphql', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${validAccessToken}`,
+            'Content-Type': 'application/json',
+            'X-JOBBER-GRAPHQL-VERSION': '2025-01-20'
+          },
+          body: JSON.stringify({
+            query: createAdditionalNotesMutation
+          })
+        })
+
+        const createAdditionalNotesResult = await createAdditionalNotesResponse.json()
+        console.log('Create Additional Notes field result:', JSON.stringify(createAdditionalNotesResult, null, 2))
+
+        if (createAdditionalNotesResult.data?.customFieldConfigurationCreateText.customFieldConfiguration) {
+          additionalNotesFieldId = createAdditionalNotesResult.data.customFieldConfigurationCreateText.customFieldConfiguration.id
+          console.log('Successfully created Additional Notes custom field:', additionalNotesFieldId)
+        }
+      }
+
+      // Create Lead Source field if it doesn't exist
+      if (!leadSourceFieldId) {
+        console.log('Creating Lead Source custom field...')
+
+        const createLeadSourceMutation = `
+          mutation CreateLeadSourceField {
+            customFieldConfigurationCreateText(
+              input: {
+                appliesTo: ALL_CLIENTS
+                name: "Lead Source"
+                transferable: false
+                readOnly: true
+                defaultValue: ""
+              }
+            ) {
+              customFieldConfiguration {
+                createdAt
+                id
+                name
+                valueType
+                appliesTo
+                readOnly
+              }
+              userErrors {
+                message
+                path
+              }
+            }
+          }
+        `
+
+        const createLeadSourceResponse = await fetch('https://api.getjobber.com/api/graphql', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${validAccessToken}`,
+            'Content-Type': 'application/json',
+            'X-JOBBER-GRAPHQL-VERSION': '2025-01-20'
+          },
+          body: JSON.stringify({
+            query: createLeadSourceMutation
+          })
+        })
+
+        const createLeadSourceResult = await createLeadSourceResponse.json()
+        console.log('Create Lead Source field result:', JSON.stringify(createLeadSourceResult, null, 2))
+
+        if (createLeadSourceResult.data?.customFieldConfigurationCreateText.customFieldConfiguration) {
+          leadSourceFieldId = createLeadSourceResult.data.customFieldConfigurationCreateText.customFieldConfiguration.id
+          console.log('Successfully created Lead Source custom field:', leadSourceFieldId)
         }
       }
     } catch (fieldError) {
-      console.error('Error setting up custom field:', fieldError)
+      console.error('Error setting up custom fields:', fieldError)
     }
 
     // Build client input for Jobber API
@@ -285,15 +408,38 @@ export default async function handler(req, res) {
       }
     }
 
-    // Add custom field to client input if we have the field ID
-    if (formNotesFieldId) {
-      console.log('Adding form notes to client creation with field ID:', formNotesFieldId)
-      clientInput.customFields = [{
-        customFieldConfigurationId: formNotesFieldId,
-        valueText: notes
-      }]
+    // Add custom fields to client input
+    const customFields = []
+
+    if (contactPreferenceFieldId) {
+      console.log('Adding Contact Preference to client creation with field ID:', contactPreferenceFieldId)
+      customFields.push({
+        customFieldConfigurationId: contactPreferenceFieldId,
+        valueText: contactPreference
+      })
+    }
+
+    if (additionalNotesFieldId && additionalInfo.trim()) {
+      console.log('Adding Additional Notes to client creation with field ID:', additionalNotesFieldId)
+      customFields.push({
+        customFieldConfigurationId: additionalNotesFieldId,
+        valueText: additionalInfo.trim()
+      })
+    }
+
+    if (leadSourceFieldId) {
+      console.log('Adding Lead Source to client creation with field ID:', leadSourceFieldId)
+      customFields.push({
+        customFieldConfigurationId: leadSourceFieldId,
+        valueText: 'Field & Foyer Website'
+      })
+    }
+
+    if (customFields.length > 0) {
+      clientInput.customFields = customFields
+      console.log('Client will be created with', customFields.length, 'custom fields')
     } else {
-      console.warn('No custom field ID available - client will be created without form notes')
+      console.warn('No custom field IDs available - client will be created without custom fields')
     }
 
     // GraphQL mutation for creating client with custom fields
