@@ -10,6 +10,14 @@ module.exports = async function handler(req, res) {
   }
 
   try {
+    // Check if Supabase is configured
+    if (!supabaseUrl || !supabaseAnonKey) {
+      console.error('Supabase environment variables not configured')
+      return res.status(500).json({
+        success: false,
+        errors: ['Database configuration error. Please contact support.']
+      })
+    }
     const { name, email, interests, source, subscriptionDate } = req.body
 
     // Validate required fields
@@ -30,33 +38,41 @@ module.exports = async function handler(req, res) {
     }
 
     // Create Supabase client
-    const supabase = createClient(supabaseUrl, supabaseAnonKey)
+    let subscriber = null
+    try {
+      const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
-    // Store in Supabase Database
-    const { data: subscriber, error } = await supabase
-      .from('newsletter_subscribers')
-      .insert([{
-        name: name || 'Newsletter Subscriber',
-        email: email.toLowerCase().trim(),
-        interests: interests || ['home-cleaning', 'lawn-maintenance'],
-        source: source || 'Website',
-        status: 'active'
-      }])
-      .select()
-      .single()
+      // Store in Supabase Database
+      const { data, error } = await supabase
+        .from('newsletter_subscribers')
+        .insert([{
+          name: name || 'Newsletter Subscriber',
+          email: email.toLowerCase().trim(),
+          interests: interests || ['home-cleaning', 'lawn-maintenance'],
+          source: source || 'Website',
+          status: 'active'
+        }])
+        .select()
+        .single()
 
-    if (error) {
-      console.error('Supabase error:', error)
-      if (error.code === '23505') { // Unique constraint violation
-        return res.status(409).json({
-          success: false,
-          errors: ['This email is already subscribed to our newsletter']
-        })
+      if (error) {
+        console.error('Supabase error:', error)
+        if (error.code === '23505') { // Unique constraint violation
+          return res.status(409).json({
+            success: false,
+            errors: ['This email is already subscribed to our newsletter']
+          })
+        }
+        // For other Supabase errors, log but don't fail the whole request
+        console.error('Supabase storage failed, continuing with Jobber only:', error)
+      } else {
+        subscriber = data
+        console.log('✅ Stored email in Supabase:', email)
       }
-      throw error
+    } catch (supabaseError) {
+      console.error('Supabase client error:', supabaseError)
+      // Continue without Supabase storage
     }
-
-    console.log('✅ Stored email in Supabase:', email)
 
     // Create Jobber Client (existing functionality)
     const jobberResult = await createJobberClient({
