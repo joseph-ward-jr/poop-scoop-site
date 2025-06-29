@@ -155,6 +155,113 @@ export default async function handler(req, res) {
       `Submitted: ${new Date().toLocaleString()}`
     ].filter(Boolean).join('\n\n')
 
+    // First, ensure we have a custom field for form notes
+    console.log('Step 1: Setting up custom field for form notes...')
+    let formNotesFieldId = null
+
+    try {
+      // Check if custom field already exists
+      const checkFieldQuery = `
+        query CheckCustomFields {
+          customFieldConfigurations(first: 50) {
+            nodes {
+              ... on CustomFieldConfigurationText {
+                id
+                name
+                valueType
+                appliesTo
+                readOnly
+              }
+            }
+          }
+        }
+      `
+
+      const checkResponse = await fetch('https://api.getjobber.com/api/graphql', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${validAccessToken}`,
+          'Content-Type': 'application/json',
+          'X-JOBBER-GRAPHQL-VERSION': '2025-01-20'
+        },
+        body: JSON.stringify({
+          query: checkFieldQuery
+        })
+      })
+
+      const checkResult = await checkResponse.json()
+      console.log('Custom field check result:', JSON.stringify(checkResult, null, 2))
+
+      // Look for existing "Form Notes" field
+      if (checkResult.data?.customFieldConfigurations?.nodes) {
+        const existingField = checkResult.data.customFieldConfigurations.nodes.find(
+          field => field.name === 'Form Notes' && field.appliesTo === 'ALL_CLIENTS'
+        )
+        if (existingField) {
+          formNotesFieldId = existingField.id
+          console.log('Found existing Form Notes field:', formNotesFieldId)
+        }
+      }
+
+      // Create the custom field if it doesn't exist
+      if (!formNotesFieldId) {
+        console.log('Creating new Form Notes custom field...')
+
+        const createFieldMutation = `
+          mutation CreateFormNotesField {
+            customFieldConfigurationCreateText(
+              input: {
+                appliesTo: ALL_CLIENTS
+                name: "Form Notes"
+                transferable: false
+                readOnly: true
+                defaultValue: ""
+              }
+            ) {
+              customFieldConfiguration {
+                createdAt
+                id
+                name
+                valueType
+                appliesTo
+                readOnly
+              }
+              userErrors {
+                message
+                path
+              }
+            }
+          }
+        `
+
+        const createFieldResponse = await fetch('https://api.getjobber.com/api/graphql', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${validAccessToken}`,
+            'Content-Type': 'application/json',
+            'X-JOBBER-GRAPHQL-VERSION': '2025-01-20'
+          },
+          body: JSON.stringify({
+            query: createFieldMutation
+          })
+        })
+
+        const createFieldResult = await createFieldResponse.json()
+        console.log('Create field result:', JSON.stringify(createFieldResult, null, 2))
+
+        if (createFieldResult.errors && createFieldResult.errors.length > 0) {
+          console.error('GraphQL errors when creating custom field:', createFieldResult.errors)
+        } else if (createFieldResult.data?.customFieldConfigurationCreateText.userErrors && createFieldResult.data.customFieldConfigurationCreateText.userErrors.length > 0) {
+          console.error('User errors when creating custom field:', createFieldResult.data.customFieldConfigurationCreateText.userErrors)
+        } else if (createFieldResult.data?.customFieldConfigurationCreateText.customFieldConfiguration) {
+          formNotesFieldId = createFieldResult.data.customFieldConfigurationCreateText.customFieldConfiguration.id
+          console.log('Successfully created Form Notes custom field:', formNotesFieldId)
+        }
+      }
+    } catch (fieldError) {
+      console.error('Error setting up custom field:', fieldError)
+    }
+
     // Build client input for Jobber API
     const clientInput = {
       firstName,
@@ -178,7 +285,18 @@ export default async function handler(req, res) {
       }
     }
 
-    // GraphQL mutation for creating client
+    // Add custom field to client input if we have the field ID
+    if (formNotesFieldId) {
+      console.log('Adding form notes to client creation with field ID:', formNotesFieldId)
+      clientInput.customFields = [{
+        customFieldConfigurationId: formNotesFieldId,
+        valueText: notes
+      }]
+    } else {
+      console.warn('No custom field ID available - client will be created without form notes')
+    }
+
+    // GraphQL mutation for creating client with custom fields
     const mutation = `
       mutation CreateClient($input: ClientCreateInput!) {
         clientCreate(input: $input) {
@@ -206,6 +324,16 @@ export default async function handler(req, res) {
               province
               postalCode
               country
+            }
+            customFields {
+              ... on CustomFieldValueText {
+                id
+                customFieldConfiguration {
+                  id
+                  name
+                }
+                valueText
+              }
             }
           }
           userErrors {
@@ -253,179 +381,13 @@ export default async function handler(req, res) {
     // Success case
     if (result.data?.clientCreate.client) {
       const client = result.data.clientCreate.client
+      console.log('Successfully created client:', client.id)
 
-      // Create or find custom field for form notes and add to client
-      try {
-        console.log('Setting up custom field for form notes...')
-
-        // First, check if our custom field already exists
-        const checkFieldQuery = `
-          query CheckCustomFields {
-            customFieldConfigurations(first: 50) {
-              nodes {
-                ... on CustomFieldConfigurationText {
-                  id
-                  name
-                  valueType
-                  appliesTo
-                  readOnly
-                }
-              }
-            }
-          }
-        `
-
-        const checkResponse = await fetch('https://api.getjobber.com/api/graphql', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${validAccessToken}`,
-            'Content-Type': 'application/json',
-            'X-JOBBER-GRAPHQL-VERSION': '2025-01-20'
-          },
-          body: JSON.stringify({
-            query: checkFieldQuery
-          })
-        })
-
-        const checkResult = await checkResponse.json()
-        console.log('Custom field check result:', checkResult)
-
-        let formNotesFieldId = null
-
-        // Look for existing "Form Notes" field
-        if (checkResult.data?.customFieldConfigurations?.nodes) {
-          const existingField = checkResult.data.customFieldConfigurations.nodes.find(
-            field => field.name === 'Form Notes' && field.appliesTo === 'ALL_CLIENTS'
-          )
-          if (existingField) {
-            formNotesFieldId = existingField.id
-            console.log('Found existing Form Notes field:', formNotesFieldId)
-          }
-        }
-
-        // Create the custom field if it doesn't exist
-        if (!formNotesFieldId) {
-          console.log('Creating new Form Notes custom field...')
-
-          const createFieldMutation = `
-            mutation CreateFormNotesField($input: CustomFieldConfigurationCreateTextInput!) {
-              customFieldConfigurationCreateText(input: $input) {
-                customFieldConfiguration {
-                  id
-                  name
-                  valueType
-                  appliesTo
-                  readOnly
-                }
-                userErrors {
-                  message
-                  path
-                }
-              }
-            }
-          `
-
-          const createFieldResponse = await fetch('https://api.getjobber.com/api/graphql', {
-            method: 'POST',
-            headers: {
-              'Authorization': `Bearer ${validAccessToken}`,
-              'Content-Type': 'application/json',
-              'X-JOBBER-GRAPHQL-VERSION': '2025-01-20'
-            },
-            body: JSON.stringify({
-              query: createFieldMutation,
-              variables: {
-                input: {
-                  appliesTo: 'ALL_CLIENTS',
-                  name: 'Form Notes',
-                  readOnly: true,
-                  transferable: false,
-                  defaultValue: ''
-                }
-              }
-            })
-          })
-
-          const createFieldResult = await createFieldResponse.json()
-          console.log('Create field result:', createFieldResult)
-
-          if (createFieldResult.errors && createFieldResult.errors.length > 0) {
-            console.error('GraphQL errors when creating custom field:', createFieldResult.errors)
-          } else if (createFieldResult.data?.customFieldConfigurationCreateText.userErrors && createFieldResult.data.customFieldConfigurationCreateText.userErrors.length > 0) {
-            console.error('User errors when creating custom field:', createFieldResult.data.customFieldConfigurationCreateText.userErrors)
-          } else if (createFieldResult.data?.customFieldConfigurationCreateText.customFieldConfiguration) {
-            formNotesFieldId = createFieldResult.data.customFieldConfigurationCreateText.customFieldConfiguration.id
-            console.log('Successfully created Form Notes custom field:', formNotesFieldId)
-          }
-        }
-
-        // Now add the form notes to the client using the custom field
-        if (formNotesFieldId) {
-          console.log('Adding form notes to client using custom field:', formNotesFieldId)
-
-          const updateClientMutation = `
-            mutation UpdateClientWithFormNotes($clientId: ID!, $input: ClientEditInput!) {
-              clientEdit(clientId: $clientId, input: $input) {
-                client {
-                  id
-                  firstName
-                  lastName
-                  customFields {
-                    ... on CustomFieldValueText {
-                      id
-                      customFieldConfiguration {
-                        name
-                      }
-                      valueText
-                    }
-                  }
-                }
-                userErrors {
-                  message
-                  path
-                }
-              }
-            }
-          `
-
-          const updateResponse = await fetch('https://api.getjobber.com/api/graphql', {
-            method: 'POST',
-            headers: {
-              'Authorization': `Bearer ${validAccessToken}`,
-              'Content-Type': 'application/json',
-              'X-JOBBER-GRAPHQL-VERSION': '2025-01-20'
-            },
-            body: JSON.stringify({
-              query: updateClientMutation,
-              variables: {
-                clientId: client.id,
-                input: {
-                  customFields: [
-                    {
-                      customFieldConfigurationId: formNotesFieldId,
-                      valueText: notes
-                    }
-                  ]
-                }
-              }
-            })
-          })
-
-          const updateResult = await updateResponse.json()
-          console.log('Update client with form notes result:', updateResult)
-
-          if (updateResult.errors && updateResult.errors.length > 0) {
-            console.error('GraphQL errors when updating client with form notes:', updateResult.errors)
-          } else if (updateResult.data?.clientEdit.userErrors && updateResult.data.clientEdit.userErrors.length > 0) {
-            console.error('User errors when updating client with form notes:', updateResult.data.clientEdit.userErrors)
-          } else if (updateResult.data?.clientEdit.client) {
-            console.log('Successfully added form notes to client via custom field:', updateResult.data.clientEdit.client)
-          }
-        }
-
-      } catch (customFieldError) {
-        console.error('Failed to add form notes via custom field:', customFieldError)
-        // Don't fail the entire operation if custom field creation fails
+      // Log custom field information if present
+      if (client.customFields && client.customFields.length > 0) {
+        console.log('Client created with custom fields:', client.customFields)
+      } else {
+        console.log('Client created without custom fields')
       }
 
       return res.status(200).json({
