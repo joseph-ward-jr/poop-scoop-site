@@ -136,7 +136,7 @@ const ContactPage = () => {
             Begin the Conversation
             </h1>
             <p className="text-xl text-sage-700 leading-relaxed">
-            The first step toward a more seamless home care experience is a simple conversation. Let’s discuss your needs, beginning with our thoughtful outdoor pet care solutions. Contact us to schedule your personalized consultation and discover the Field & Foyer standard of service.
+            The first step toward a more seamless home care experience is a simple conversation. Let’s discuss your needs, beginning with our thoughtful pet care solutions. Contact us to schedule your personalized consultation and discover the Field & Foyer standard of service.
             </p>
           </div>
         </div>

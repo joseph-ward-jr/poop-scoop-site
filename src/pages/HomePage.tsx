@@ -122,7 +122,7 @@ const HomePage = () => {
               {/* Body Paragraph */}
               <p className="text-xl md:text-2xl text-sage-600 leading-relaxed max-w-2xl font-light">
                 Elevating your lifestyle with premium home and lawn services that exceed expectations.
-                From outdoor pet care to comprehensive property maintenance coming soon, we deliver excellence in every detail.
+                From lawn care to comprehensive home maintenance coming soon, we deliver excellence in every detail.
               </p>
 
               {/* Buttons */}

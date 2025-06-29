@@ -7,7 +7,7 @@ const ServicesPage = () => {
       name: 'Pet Waste Removal',
       image: '/images/services/pet-waste-removal.jpg',
       status: 'Available Now',
-      description: 'Professional pet waste management that transforms your outdoor space into a pristine haven.',
+      description: 'Professional pet waste management that transforms your property into a pristine haven.',
       features: [
         'Weekly and bi-weekly maintenance schedules',
         'One-time restoration services',
@@ -24,15 +24,15 @@ const ServicesPage = () => {
 
   const comingSoonServices = [
     {
-      name: 'Indoor House Cleaning',
+      name: 'Home Maintenance Services',
       image: '/images/services/house-cleaning.jpg',
-      description: 'Premium residential cleaning services bringing the same attention to detail indoors.',
+      description: 'Premium home maintenance and cleaning services bringing the same attention to detail indoors.',
       status: 'Coming Fall 2025'
     },
     {
-      name: 'Lawn Maintenance',
+      name: 'Lawn Care Services',
       image: '/images/services/lawn-maintenance.jpg',
-      description: 'Professional lawn care, mowing, edging, and seasonal yard maintenance to keep your outdoor space pristine.',
+      description: 'Professional lawn care, mowing, edging, and seasonal maintenance to keep your property pristine.',
       status: 'Coming Spring 2026'
     }
   ]
@@ -48,7 +48,7 @@ const ServicesPage = () => {
             </h1>
             <p className="text-xl md:text-2xl text-sage-700 leading-relaxed mb-8">
               Field & Foyer offers premium home and lawn services designed to enhance your complete living experience.
-              Starting with pet waste removal, expanding to indoor cleaning, then bringing our expertise to lawn service.
+              Starting with pet waste removal, expanding to home maintenance services, then bringing our expertise to comprehensive lawn care.
             </p>
             <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full">
               <img src="/images/icons/leaf-icon.svg" alt="Service" className="w-5 h-5 mr-2" />
@@ -66,7 +66,7 @@ const ServicesPage = () => {
               Available Now
             </h2>
             <p className="text-xl text-sage-700 max-w-3xl mx-auto">
-              Our first flagship service, setting the standard for thoughtful outdoor care.
+              Our first flagship service, setting the standard for thoughtful property care.
             </p>
           </div>
 
@@ -145,7 +145,7 @@ const ServicesPage = () => {
               Our Growth Journey
             </h2>
             <p className="text-xl text-sage-700 max-w-4xl mx-auto">
-              We're strategically expanding our services: starting with outdoor pet care, growing into complete lawn and yard maintenance,
+              We're strategically expanding our services: starting with pet care, growing into complete lawn care and maintenance,
               then bringing our premium standards indoors. Here's our roadmap.
             </p>
           </div>
@@ -241,7 +241,7 @@ const ServicesPage = () => {
                 <div className="space-y-3">
                   <h3 className="font-bold text-sage-800 text-lg">Commercial Properties</h3>
                   <ul className="space-y-2 text-sage-600">
-                    <li>• Office complexes with outdoor areas</li>
+                    <li>• Office complexes with property areas</li>
                     <li>• Retail centers and shopping plazas</li>
                     <li>• Hotels and hospitality properties</li>
                     <li>• Multi-unit residential complexes</li>
@@ -277,11 +277,11 @@ const ServicesPage = () => {
       <section className="section-padding bg-offwhite-50">
         <div className="container-max text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-sage-900 mb-6">
-            Ready to Transform Your Outdoor Space?
+            Ready to Transform Your Property?
           </h2>
           <p className="text-xl text-sage-700 mb-8 max-w-3xl mx-auto">
             Start with our pet waste removal service and experience the Field & Foyer difference.
-            Your outdoor sanctuary awaits.
+            Your property sanctuary awaits.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
