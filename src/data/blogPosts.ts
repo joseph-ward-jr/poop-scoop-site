@@ -7,7 +7,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'backyard-vs-bathroom-barefoot-safety',
     excerpt: 'Discover the shocking truth about outdoor contamination and how professional cleaning with eco-friendly solutions like Wysiwash can transform your yard into a safe haven.',
     author: 'Field & Foyer Team',
-    publishedAt: '2024-12-15',
+    publishedAt: '2025-06-29',
     readTime: 8,
     tags: ['Pet Waste', 'Yard Safety', 'Eco-Friendly Cleaning', 'Health & Safety'],
     featuredImage: '/images/blog/backyard-vs-bathroom.jpg',
@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
     content: `
 # Why Your Backyard is Worse for Being Barefoot Than Your Bathroom
 
-*Published on December 15, 2024 by the Field & Foyer Team*
+*Published on June 28, 2025 by the Field & Foyer Team*
 
 When was the last time you walked barefoot through your bathroom? Probably never, right? Yet many of us think nothing of stepping barefoot onto our backyard grass. Here's the shocking truth: **your backyard is likely harboring more dangerous bacteria and parasites than your bathroom floor.**
 
