@@ -120,8 +120,22 @@ The contact forms use a unified `ContactForm` component with the following field
 The forms are integrated with Jobber API for automatic client creation:
 
 1. **Setup**: Copy `.env.example` to `.env.local` and add your Jobber access token
-2. **Testing**: Run `npm run test:jobber` to verify API connection
+2. **Testing**:
+   - Run `npm run test:jobber` to verify API connection
+   - Visit `http://localhost:3000/test/jobber` for interactive OAuth2 testing
+   - Use the contact form at `http://localhost:3000/contact` for production testing
 3. **Documentation**: See `docs/JOBBER_INTEGRATION.md` for detailed setup instructions
+
+#### OAuth2 Testing Workflow
+
+For comprehensive OAuth2 integration testing:
+
+1. **Start Development Server**: `npm run dev`
+2. **Access Test Page**: Navigate to `http://localhost:3000/test/jobber`
+3. **Verify Connection**: Check that the connection status shows "Connected to Jobber API"
+4. **Test Form Submission**: Use the pre-filled form or enter your own test data
+5. **Verify in Jobber**: Check your Jobber account to confirm client creation
+6. **Monitor Results**: Review the real-time test console for detailed feedback
 
 The integration includes:
 - Automatic client creation in Jobber

@@ -9,7 +9,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest",
-    "test:jobber": "node scripts/test-jobber-connection.js"
+    "test:jobber": "node scripts/test-jobber-connection.js",
+    "setup:oauth": "node scripts/setup-oauth-test.js"
   },
   "dependencies": {
     "react": "^18.2.0",

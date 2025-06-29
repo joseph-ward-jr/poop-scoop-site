@@ -20,6 +20,9 @@ import PetWasteRemovalPricingPage from './pages/pricing/PetWasteRemovalPricingPa
 import LawnCarePricingPage from './pages/pricing/LawnCarePricingPage'
 import HouseCleaningPricingPage from './pages/pricing/HouseCleaningPricingPage'
 
+// Test pages
+import JobberTestPage from './pages/JobberTestPage'
+
 function App() {
   return (
     <Router>
@@ -50,6 +53,9 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/terms" element={<TermsOfServicePage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
+
+          {/* Test pages */}
+          <Route path="/test/jobber" element={<JobberTestPage />} />
         </Routes>
       </Layout>
     </Router>
