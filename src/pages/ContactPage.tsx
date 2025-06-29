@@ -1,26 +1,34 @@
 import { useState } from 'react'
 import ContactForm from '../components/ContactForm'
-import { useJobberSubmission } from '../hooks/useJobberSubmission'
 import { ContactFormData } from '../types/jobber'
 
 const ContactPage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
-  const { isSubmitting, submitToJobber } = useJobberSubmission()
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleFormSubmit = async (data: ContactFormData) => {
     console.log('Form submitted:', data)
     setSubmitError(null)
+    setIsSubmitting(true)
 
     try {
-      // Submit to Jobber API
-      const result = await submitToJobber(data)
+      // Submit to secure API endpoint
+      const response = await fetch('/api/jobber-client', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      })
+
+      const result = await response.json()
 
       if (result.success) {
         console.log('Successfully created Jobber client:', result.client)
         setIsSubmitted(true)
       } else {
-        // Handle Jobber API errors but still show success to user
+        // Handle API errors but still show success to user
         const errorMessage = result.errors?.join(', ') || 'Failed to submit to Jobber'
         setSubmitError(errorMessage)
         console.error('Jobber submission failed:', result.errors)
@@ -30,10 +38,12 @@ const ContactPage = () => {
       }
     } catch (error) {
       console.error('Form submission error:', error)
-      setSubmitError('An unexpected error occurred while submitting to Jobber.')
+      setSubmitError('An unexpected error occurred while submitting.')
 
       // Still show success to user for better UX
       setIsSubmitted(true)
+    } finally {
+      setIsSubmitting(false)
     }
 
     // Reset form after 5 seconds (increased time to show any error messages)
