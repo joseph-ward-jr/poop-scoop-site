@@ -7,7 +7,7 @@ const AboutPage = () => {
     'Transparent pricing with no hidden fees or surprises',
     'Reliable service - we show up when scheduled, rain or shine',
     'Lawn-safe products and sanitization methods',
-    'Local business expanding to serve all your outdoor needs'
+    'Local business expanding to serve all your lawn and home care needs'
   ]
 
   const teamMembers = [
@@ -41,7 +41,7 @@ const AboutPage = () => {
             A Thoughtful Approach to Modern Home Care
             </h1>
             <p className="text-xl text-sage-700 leading-relaxed">
-            Field & Foyer was founded on a simple philosophy: that caring for your home should be a sophisticated yet seamless experience. Our journey begins with perfecting your outdoor sanctuary through meticulous pet care and waste management. From this foundation, we will soon extend our signature standard of quality to detailed indoor services and comprehensive lawn maintenance, becoming your single, trusted partner in home stewardship.
+            Field & Foyer was founded on a simple philosophy: that caring for your home should be a sophisticated yet seamless experience. Our journey begins with perfecting your property through meticulous pet care and waste management. From this foundation, we will soon extend our signature standard of quality to comprehensive lawn care and detailed home maintenance services, becoming your single, trusted partner in home stewardship.
             </p>
           </div>
         </div>
@@ -61,7 +61,7 @@ const AboutPage = () => {
 
 In 2025, we turned that vision into a reality. As a family-owned business, we bring that personal-level commitment to our clients, starting with a service fundamental to a pristine yard: premium pet waste management. Our mission is to elevate this essential service, proving that even the most necessary tasks can be performed with a boutique-like feel, absolute discretion, and an extraordinary level of care.
 
-What starts with premium pet care is the first step on our journey. We are deliberately growing to become your single, trusted partner for complete home stewardship, soon expanding to include comprehensive lawn maintenance and meticulous indoor cleaning. As we grow, our core promise remains the same: we only accept extraordinary work from our employees, because our standards are higher than anyone else's. That is the Field & Foyer difference.
+What starts with premium pet care is the first step on our journey. We are deliberately growing to become your single, trusted partner for complete home stewardship, soon expanding to include comprehensive lawn care and meticulous home maintenance services. As we grow, our core promise remains the same: we only accept extraordinary work from our employees, because our standards are higher than anyone else's. That is the Field & Foyer difference.
                 </p>
               </div>
             </div>
@@ -120,7 +120,7 @@ What starts with premium pet care is the first step on our journey. We are delib
               Meet Our Team
             </h2>
             <p className="text-xl text-sage-700">
-              The dedicated professionals behind your pristine outdoor spaces
+              The dedicated professionals behind your pristine lawn and home care
             </p>
           </div>
 
@@ -154,7 +154,7 @@ What starts with premium pet care is the first step on our journey. We are delib
           </h2>
           <p className="text-xl text-sage-100 mb-8 max-w-2xl mx-auto">
             Experience the difference of working with a local, family-owned business
-            that truly cares about your home and outdoor spaces.
+            that truly cares about your lawn and home care needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
