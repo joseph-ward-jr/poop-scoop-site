@@ -51,7 +51,12 @@ const OAuthCallbackPage = () => {
           setStatus('success')
           setMessage('Successfully obtained access token and refresh token!')
           setTokenInfo(result.tokens)
-          
+
+          // Store refresh token in localStorage for the success page
+          if (result.tokens.refresh_token) {
+            localStorage.setItem('jobber_refresh_token', result.tokens.refresh_token)
+          }
+
           // Redirect to success page after 3 seconds
           setTimeout(() => {
             navigate('/oauth/success')
@@ -96,18 +101,40 @@ const OAuthCallbackPage = () => {
               {tokenInfo && (
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
                   <h3 className="font-semibold text-green-900 mb-2">Token Information:</h3>
-                  <div className="text-left text-sm space-y-2">
+                  <div className="text-left text-sm space-y-3">
                     <div>
-                      <span className="font-medium">Access Token:</span>
-                      <span className="ml-2 font-mono text-xs bg-gray-100 px-2 py-1 rounded">
-                        {tokenInfo.access_token?.substring(0, 20)}...
-                      </span>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="font-medium">Refresh Token (COPY THIS):</span>
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText(tokenInfo.refresh_token)
+                            alert('Refresh token copied to clipboard!')
+                          }}
+                          className="bg-green-600 text-white px-2 py-1 rounded text-xs hover:bg-green-700 transition-colors"
+                        >
+                          Copy
+                        </button>
+                      </div>
+                      <div className="font-mono text-xs bg-white border border-green-300 px-2 py-2 rounded break-all">
+                        {tokenInfo.refresh_token}
+                      </div>
                     </div>
                     <div>
-                      <span className="font-medium">Refresh Token:</span>
-                      <span className="ml-2 font-mono text-xs bg-gray-100 px-2 py-1 rounded">
-                        {tokenInfo.refresh_token?.substring(0, 20)}...
-                      </span>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="font-medium">Access Token:</span>
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText(tokenInfo.access_token)
+                            alert('Access token copied to clipboard!')
+                          }}
+                          className="bg-gray-600 text-white px-2 py-1 rounded text-xs hover:bg-gray-700 transition-colors"
+                        >
+                          Copy
+                        </button>
+                      </div>
+                      <div className="font-mono text-xs bg-white border border-green-300 px-2 py-2 rounded break-all">
+                        {tokenInfo.access_token}
+                      </div>
                     </div>
                     {tokenInfo.expires_at && (
                       <div>
