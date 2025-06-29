@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { useGlobalNewsletterContext } from './GlobalNewsletterProvider'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -8,7 +7,6 @@ const Header = () => {
   const [pricingDropdownOpen, setPricingDropdownOpen] = useState(false)
   const location = useLocation()
   const headerRef = useRef<HTMLElement>(null)
-  const { openNewsletter } = useGlobalNewsletterContext()
 
   const services = [
     {
@@ -108,7 +106,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-12">
+          <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -253,19 +251,9 @@ const Header = () => {
               )}
             </div>
 
-            <button
-              onClick={() => {
-                openNewsletter('Header Navigation')
-                closeAllDropdowns()
-              }}
-              className="bg-sage-600 hover:bg-sage-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 ml-4 text-md"
-            >
-              📧 Newsletter
-            </button>
-
             <Link
               to="/contact?form=true"
-              className="bg-sage-800 hover:bg-sage-900 btn-primary ml-2 text-md"
+              className="bg-sage-800 hover:bg-sage-900 btn-primary ml-8 text-md"
               onClick={closeAllDropdowns}
             >
               Get In Touch
@@ -360,17 +348,7 @@ const Header = () => {
                 ))}
               </div>
 
-              <div className="pt-4 space-y-3">
-                <button
-                  onClick={() => {
-                    openNewsletter('Mobile Navigation')
-                    setIsMenuOpen(false)
-                  }}
-                  className="bg-sage-600 hover:bg-sage-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 w-full"
-                >
-                  📧 Subscribe to Newsletter
-                </button>
-
+              <div className="pt-4">
                 <Link
                   to="/contact?quote=true"
                   className="btn-primary w-full text-center block"
