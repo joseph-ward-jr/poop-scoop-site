@@ -156,7 +156,7 @@ export default async function handler(req, res) {
     ].filter(Boolean).join('\n\n')
 
     // First, check what permissions our token has
-    console.log('Step 0: Checking token permissions...')
+    console.log('Step 0: Checking token permissions and scopes...')
     try {
       const permissionsQuery = `
         query CheckPermissions {
