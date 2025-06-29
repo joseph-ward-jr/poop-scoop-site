@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
-import { GlobalNewsletterProvider } from './components/GlobalNewsletterProvider'
+
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
 import AboutPage from './pages/AboutPage'
@@ -36,7 +36,6 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <GlobalNewsletterProvider>
         <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -74,7 +73,6 @@ function App() {
           <Route path="/oauth/success" element={<OAuthSuccessPage />} />
         </Routes>
         </Layout>
-      </GlobalNewsletterProvider>
     </Router>
   )
 }
