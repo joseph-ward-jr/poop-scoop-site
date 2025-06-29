@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import BlogCard from '../components/BlogCard'
 import { blogPosts } from '../data/blogPosts'
-import { BlogPost } from '../types/blog'
 
 const BlogPage = () => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
@@ -15,7 +14,6 @@ const BlogPage = () => {
     : blogPosts
 
   const featuredPost = blogPosts[0] // First post is featured
-  const regularPosts = blogPosts.slice(1)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-offwhite-50 to-cream-50">

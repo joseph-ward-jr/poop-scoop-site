@@ -403,20 +403,7 @@ class JobberApiService {
     }
   }
 
-  /**
-   * Build notes field from newsletter subscription data
-   */
-  private buildNotesFromNewsletter(subscriptionData: NewsletterSubscriptionData): string {
-    const notes = []
 
-    notes.push(`Newsletter Subscription`)
-    notes.push(`Interests: ${subscriptionData.interests.join(', ')}`)
-    notes.push(`Source: ${subscriptionData.source}`)
-    notes.push(`Subscribed: ${subscriptionData.subscriptionDate}`)
-    notes.push(`Lead Source: Field & Foyer Blog`)
-
-    return notes.join('\n\n')
-  }
 }
 
 // Export singleton instance

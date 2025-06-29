@@ -32,7 +32,8 @@ describe('useNewsletterSubscription', () => {
         id: '123',
         firstName: 'John',
         lastName: 'Doe',
-        emails: [{ id: '1', address: 'john@example.com', primary: true, description: 'MAIN' }]
+        emails: [{ id: '1', address: 'john@example.com', primary: true, description: 'MAIN' }],
+        phones: []
       }
     }
 
@@ -72,7 +73,8 @@ describe('useNewsletterSubscription', () => {
         id: '123',
         firstName: 'Newsletter',
         lastName: 'Subscriber',
-        emails: [{ id: '1', address: 'test@example.com', primary: true, description: 'MAIN' }]
+        emails: [{ id: '1', address: 'test@example.com', primary: true, description: 'MAIN' }],
+        phones: []
       }
     }
 
@@ -153,7 +155,7 @@ describe('useNewsletterSubscription', () => {
       resolvePromise = resolve
     })
 
-    vi.mocked(jobberApi.createClientFromNewsletter).mockReturnValue(promise)
+    vi.mocked(jobberApi.createClientFromNewsletter).mockReturnValue(promise as any)
 
     const { result } = renderHook(() => useNewsletterSubscription())
 
