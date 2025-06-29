@@ -47,6 +47,40 @@ const AboutPage = () => {
         </div>
       </section>
 
+      {/* Team Section - Moved to top to emphasize family-owned business */}
+      <section className="section-padding bg-white">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
+              Meet Our Team
+            </h2>
+            <p className="text-xl text-sage-700">
+              The dedicated professionals behind your pristine lawn and home care
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
+              <div
+                key={index}
+                className="text-center p-6 bg-sage-50 rounded-xl hover:shadow-lg transition-shadow duration-300"
+              >
+                <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-sage-900 mb-2">{member.name}</h3>
+                <p className="text-sage-600 font-semibold mb-3">{member.role}</p>
+                <p className="text-sage-700">{member.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Our Story Section */}
       <section className="section-padding bg-white">
         <div className="container-max">
@@ -112,39 +146,7 @@ What starts with premium pet care is the first step on our journey. We are delib
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
-              Meet Our Team
-            </h2>
-            <p className="text-xl text-sage-700">
-              The dedicated professionals behind your pristine lawn and home care
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <div
-                key={index}
-                className="text-center p-6 bg-sage-50 rounded-xl hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-sage-900 mb-2">{member.name}</h3>
-                <p className="text-sage-600 font-semibold mb-3">{member.role}</p>
-                <p className="text-sage-700">{member.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="section-padding bg-sage-600">
