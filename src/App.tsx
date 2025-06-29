@@ -23,6 +23,10 @@ import HouseCleaningPricingPage from './pages/pricing/HouseCleaningPricingPage'
 // Test pages
 import JobberTestPage from './pages/JobberTestPage'
 
+// OAuth pages
+import OAuthCallbackPage from './pages/OAuthCallbackPage'
+import OAuthSuccessPage from './pages/OAuthSuccessPage'
+
 function App() {
   return (
     <Router>
@@ -56,6 +60,10 @@ function App() {
 
           {/* Test pages */}
           <Route path="/test/jobber" element={<JobberTestPage />} />
+
+          {/* OAuth pages */}
+          <Route path="/oauth/callback" element={<OAuthCallbackPage />} />
+          <Route path="/oauth/success" element={<OAuthSuccessPage />} />
         </Routes>
       </Layout>
     </Router>
