@@ -95,7 +95,7 @@ const PrivacyPolicyPage = () => {
             </p>
             <div className="bg-gray-50 p-4 rounded-lg">
               <p><strong>Field & Foyer</strong><br />
-              Email: customersupport@fieldandfoyer.com<br />
+              Email: support@fieldandfoyer.com<br />
               Phone: (770) 547-8457<br />
               Address: Greater Metro Area, Georgia</p>
             </div>

@@ -82,7 +82,7 @@ const ContactPage = () => {
     {
       image: '/images/icons/email.svg',
       title: 'Email',
-      details: 'customersupport@fieldandfoyer.com',
+      details: 'support@fieldandfoyer.com',
       description: 'We respond within 24 hours'
     },
     {

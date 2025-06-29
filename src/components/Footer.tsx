@@ -33,7 +33,7 @@ const Footer = () => {
                 </p>
                 <p className="text-sage-200 flex items-center">
                   <img src="/images/icons/email.svg" alt="Email" className="w-4 h-4 mr-3" />
-                  <a href="mailto:hello@fieldandfoyer.com" className="hover:text-sage-300 transition-colors">customersupport@fieldandfoyer.com</a>
+                  <a href="mailto:hello@fieldandfoyer.com" className="hover:text-sage-300 transition-colors">support@fieldandfoyer.com</a>
                 </p>
               </div>
             </div>

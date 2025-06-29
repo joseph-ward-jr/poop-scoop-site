@@ -127,7 +127,7 @@ describe('ContactPage', () => {
     expect(screen.getByText('Phone')).toBeInTheDocument()
     expect(screen.getByText('(770) 547-8457')).toBeInTheDocument()
     expect(screen.getByText('Email')).toBeInTheDocument()
-    expect(screen.getByText('customersupport@fieldandfoyer.com')).toBeInTheDocument()
+    expect(screen.getByText('support@fieldandfoyer.com')).toBeInTheDocument()
     expect(screen.getByText('Service Area')).toBeInTheDocument()
     expect(screen.getByText('Hours')).toBeInTheDocument()
   })
