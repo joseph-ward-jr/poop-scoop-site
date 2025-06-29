@@ -1,7 +1,10 @@
 // Enhanced Newsletter API with Supabase + Jobber Integration
-import { newsletterService } from '../lib/supabase.js'
+const { createClient } = require('@supabase/supabase-js')
 
-export default async function handler(req, res) {
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
@@ -26,17 +29,36 @@ export default async function handler(req, res) {
       })
     }
 
-    // 1. Store in Supabase Database
-    const subscriber = await newsletterService.addSubscriber({
-      name: name || 'Newsletter Subscriber',
-      email: email.toLowerCase().trim(),
-      interests: interests || ['home-cleaning', 'lawn-maintenance'],
-      source: source || 'Website'
-    })
+    // Create Supabase client
+    const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+    // Store in Supabase Database
+    const { data: subscriber, error } = await supabase
+      .from('newsletter_subscribers')
+      .insert([{
+        name: name || 'Newsletter Subscriber',
+        email: email.toLowerCase().trim(),
+        interests: interests || ['home-cleaning', 'lawn-maintenance'],
+        source: source || 'Website',
+        status: 'active'
+      }])
+      .select()
+      .single()
+
+    if (error) {
+      console.error('Supabase error:', error)
+      if (error.code === '23505') { // Unique constraint violation
+        return res.status(409).json({
+          success: false,
+          errors: ['This email is already subscribed to our newsletter']
+        })
+      }
+      throw error
+    }
 
     console.log('✅ Stored email in Supabase:', email)
 
-    // 2. Create Jobber Client (existing functionality)
+    // Create Jobber Client (existing functionality)
     const jobberResult = await createJobberClient({
       name: name || 'Newsletter Subscriber',
       email: email.toLowerCase().trim(),
@@ -47,9 +69,10 @@ export default async function handler(req, res) {
 
     // Update Supabase record with Jobber client ID if successful
     if (jobberResult.success && jobberResult.client?.id) {
-      await newsletterService.updateSubscriber(subscriber.id, {
-        jobber_client_id: jobberResult.client.id
-      })
+      await supabase
+        .from('newsletter_subscribers')
+        .update({ jobber_client_id: jobberResult.client.id })
+        .eq('email', email.toLowerCase().trim())
     }
 
     console.log('📋 Jobber result:', jobberResult.success ? 'Success' : 'Failed')
@@ -64,14 +87,6 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error('Newsletter subscription error:', error)
-    
-    // Check if it's a duplicate email error
-    if (error.message?.includes('already subscribed')) {
-      return res.status(409).json({
-        success: false,
-        errors: [error.message]
-      })
-    }
 
     return res.status(500).json({
       success: false,
@@ -83,19 +98,19 @@ export default async function handler(req, res) {
 // Jobber client creation (calls existing API)
 async function createJobberClient(data) {
   try {
-    const baseUrl = process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}` 
+    const baseUrl = process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
       : 'http://localhost:3000'
-    
+
     const response = await fetch(`${baseUrl}/api/jobber-newsletter`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
-    
+
     const result = await response.json()
     return result
-    
+
   } catch (error) {
     console.error('❌ Jobber client creation failed:', error)
     return { success: false, error: error.message }

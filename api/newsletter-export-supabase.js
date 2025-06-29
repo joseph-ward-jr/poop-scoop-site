@@ -1,7 +1,10 @@
 // Newsletter Export API using Supabase
-import { newsletterService } from '../lib/supabase.js'
+const { createClient } = require('@supabase/supabase-js')
 
-export default async function handler(req, res) {
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+module.exports = async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
@@ -14,14 +17,40 @@ export default async function handler(req, res) {
       limit = 1000 
     } = req.query
 
-    // Get subscribers with filters
-    const filters = {}
-    if (interests) filters.interests = interests
-    if (source) filters.source = source
-    if (limit) filters.limit = parseInt(limit)
+    // Create Supabase client
+    const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
-    const subscribers = await newsletterService.getActiveSubscribers(filters)
-    const total = await newsletterService.getSubscriberCount()
+    // Build query
+    let query = supabase
+      .from('newsletter_subscribers')
+      .select('*')
+      .eq('status', 'active')
+      .order('created_at', { ascending: false })
+
+    // Apply filters
+    if (interests) {
+      query = query.contains('interests', [interests])
+    }
+
+    if (source) {
+      query = query.eq('source', source)
+    }
+
+    if (limit) {
+      query = query.limit(parseInt(limit))
+    }
+
+    const { data: subscribers, error } = await query
+
+    if (error) throw error
+
+    // Get total count
+    const { count: total, error: countError } = await supabase
+      .from('newsletter_subscribers')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'active')
+
+    if (countError) throw countError
 
     // Format response based on requested format
     switch (format.toLowerCase()) {
