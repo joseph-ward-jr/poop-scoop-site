@@ -155,6 +155,40 @@ export default async function handler(req, res) {
       `Submitted: ${new Date().toLocaleString()}`
     ].filter(Boolean).join('\n\n')
 
+    // First, check what permissions our token has
+    console.log('Step 0: Checking token permissions...')
+    try {
+      const permissionsQuery = `
+        query CheckPermissions {
+          account {
+            id
+            name
+          }
+        }
+      `
+
+      const permissionsResponse = await fetch('https://api.getjobber.com/api/graphql', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${validAccessToken}`,
+          'Content-Type': 'application/json',
+          'X-JOBBER-GRAPHQL-VERSION': '2025-01-20'
+        },
+        body: JSON.stringify({
+          query: permissionsQuery
+        })
+      })
+
+      const permissionsResult = await permissionsResponse.json()
+      console.log('Token permissions check result:', JSON.stringify(permissionsResult, null, 2))
+
+      if (permissionsResult.errors) {
+        console.error('Token permissions errors:', permissionsResult.errors)
+      }
+    } catch (permError) {
+      console.error('Error checking token permissions:', permError)
+    }
+
     // First, ensure we have custom fields for form data
     console.log('Step 1: Setting up custom fields for form data...')
     let contactPreferenceFieldId = null
