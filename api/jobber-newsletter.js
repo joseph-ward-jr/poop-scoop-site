@@ -7,6 +7,18 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 export default async function handler(req, res) {
+  // Add detailed logging for debugging 500 errors
+  console.log('=== Newsletter API Called ===')
+  console.log('Method:', req.method)
+  console.log('Body:', JSON.stringify(req.body))
+  console.log('Environment check:', {
+    hasJobberClientId: !!process.env.JOBBER_CLIENT_ID,
+    hasJobberSecret: !!process.env.JOBBER_CLIENT_SECRET,
+    hasJobberRefresh: !!process.env.JOBBER_REFRESH_TOKEN,
+    hasSupabaseUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+    hasSupabaseKey: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  })
+
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
@@ -308,10 +320,32 @@ export default async function handler(req, res) {
     })
 
   } catch (error) {
-    console.error('Unexpected error in newsletter subscription:', error)
+    console.error('=== NEWSLETTER API ERROR ===')
+    console.error('Error message:', error.message)
+    console.error('Error stack:', error.stack)
+    console.error('Error type:', error.constructor.name)
+    console.error('Full error object:', error)
+    console.error('Request body:', req.body)
+    console.error('Environment variables present:', {
+      JOBBER_CLIENT_ID: !!process.env.JOBBER_CLIENT_ID,
+      JOBBER_CLIENT_SECRET: !!process.env.JOBBER_CLIENT_SECRET,
+      JOBBER_REFRESH_TOKEN: !!process.env.JOBBER_REFRESH_TOKEN,
+      NEXT_PUBLIC_SUPABASE_URL: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    })
+
     return res.status(500).json({
       success: false,
-      errors: ['Unexpected error occurred: ' + error.message]
+      errors: [
+        'Newsletter subscription failed: ' + error.message,
+        'Error type: ' + error.constructor.name,
+        'Timestamp: ' + new Date().toISOString()
+      ],
+      debug: {
+        message: error.message,
+        type: error.constructor.name,
+        hasRequiredEnvVars: !!(process.env.JOBBER_CLIENT_ID && process.env.JOBBER_CLIENT_SECRET)
+      }
     })
   }
 }
