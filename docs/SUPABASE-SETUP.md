@@ -50,6 +50,29 @@ CREATE TRIGGER update_newsletter_subscribers_updated_at
   BEFORE UPDATE ON newsletter_subscribers
   FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
+-- Set up Row Level Security (RLS) policies
+-- Enable RLS on the table
+ALTER TABLE newsletter_subscribers ENABLE ROW LEVEL SECURITY;
+
+-- Policy to allow public inserts (for newsletter signups)
+CREATE POLICY "Allow public newsletter signups" ON newsletter_subscribers
+  FOR INSERT
+  TO public
+  WITH CHECK (true);
+
+-- Policy to allow reading active subscribers (for exports)
+CREATE POLICY "Allow reading active subscribers" ON newsletter_subscribers
+  FOR SELECT
+  TO public
+  USING (status = 'active');
+
+-- Policy to allow updates (for status changes like unsubscribe)
+CREATE POLICY "Allow status updates" ON newsletter_subscribers
+  FOR UPDATE
+  TO public
+  USING (true)
+  WITH CHECK (true);
+
 -- Insert test record
 INSERT INTO newsletter_subscribers (name, email, interests, source)
 VALUES (

@@ -334,7 +334,7 @@ class JobberApiService {
         timestamp: new Date().toISOString()
       })
 
-      // Use the enhanced Jobber newsletter API that now also saves to Supabase
+      // Use the working Jobber newsletter API (enhanced with Supabase storage)
       const response = await fetch('/api/jobber-newsletter', {
         method: 'POST',
         headers: {

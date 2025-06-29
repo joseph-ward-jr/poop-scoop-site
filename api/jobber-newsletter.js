@@ -282,8 +282,12 @@ export default async function handler(req, res) {
           .select()
           .single()
 
-        if (error && error.code !== '23505') { // Ignore duplicate email errors
-          console.error('Supabase storage failed:', error)
+        if (error) {
+          if (error.code === '23505') {
+            console.log('Email already exists in Supabase (duplicate)')
+          } else {
+            console.error('Supabase storage failed:', error)
+          }
         } else {
           console.log('✅ Also stored in Supabase for email campaigns')
           supabaseResult = subscriber
@@ -292,6 +296,8 @@ export default async function handler(req, res) {
         console.error('Supabase storage error:', supabaseError)
         // Don't fail the whole request if Supabase fails
       }
+    } else {
+      console.log('Supabase not configured, skipping database storage')
     }
 
     return res.status(200).json({
