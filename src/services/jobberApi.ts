@@ -77,7 +77,7 @@ class JobberApiService {
       const stateZip = addressParts[2] || ''
       const [province, postalCode] = stateZip.split(' ').filter(Boolean)
 
-      // Build client input
+      // Build client input according to official Jobber API schema
       const clientInput: JobberClientInput = {
         firstName,
         lastName: lastName || undefined,
@@ -97,8 +97,9 @@ class JobberApiService {
           province: province || undefined,
           postalCode: postalCode || undefined,
           country: 'US' // Default to US, could be made configurable
-        } as JobberAddressInput,
-        notes: this.buildNotesFromForm(formData)
+        } as JobberAddressInput
+        // Note: 'notes' field doesn't exist on ClientCreateInput according to Jobber API schema
+        // Notes will be added separately after client creation if needed
       }
 
       const mutation = `
@@ -160,9 +161,19 @@ class JobberApiService {
 
       // Success case
       if (response.data?.clientCreate.client) {
+        const client = response.data.clientCreate.client
+
+        // Try to add a note with form details (optional - won't fail if this doesn't work)
+        try {
+          await this.addClientNote(client.id, this.buildNotesFromForm(formData))
+        } catch (noteError) {
+          console.warn('Client created successfully but failed to add note:', noteError)
+          // Don't fail the entire operation if note creation fails
+        }
+
         return {
           success: true,
-          client: response.data.clientCreate.client
+          client: client
         }
       }
 
@@ -182,20 +193,52 @@ class JobberApiService {
   }
 
   /**
+   * Add a note to a client (optional enhancement)
+   */
+  private async addClientNote(clientId: string, noteContent: string): Promise<void> {
+    try {
+      const mutation = `
+        mutation AddClientNote($input: ClientNoteCreateInput!) {
+          clientNoteCreate(input: $input) {
+            clientNote {
+              id
+              note
+            }
+            userErrors {
+              message
+              path
+            }
+          }
+        }
+      `
+
+      await this.makeRequest(mutation, {
+        input: {
+          clientId: clientId,
+          note: noteContent
+        }
+      })
+    } catch (error) {
+      // Don't throw - this is optional functionality
+      console.warn('Failed to add client note:', error)
+    }
+  }
+
+  /**
    * Build notes field from form data
    */
   private buildNotesFromForm(formData: ContactFormData): string {
     const notes = []
-    
+
     notes.push(`Contact Preference: ${formData.contactPreference}`)
-    
+
     if (formData.additionalInfo.trim()) {
       notes.push(`Additional Information: ${formData.additionalInfo}`)
     }
-    
+
     notes.push(`Lead Source: Field & Foyer Website`)
     notes.push(`Submitted: ${new Date().toLocaleString()}`)
-    
+
     return notes.join('\n\n')
   }
 
