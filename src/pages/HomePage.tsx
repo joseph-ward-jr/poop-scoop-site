@@ -287,22 +287,16 @@ const HomePage = () => {
               </p>
             </div>
 
-            <ContactForm
-              variant="homepage"
-              onSubmit={handleFormSubmit}
-              enableJobberIntegration={false}
-              isLoading={isSubmitting}
-            />
-
-            {/* Success/Error Messages */}
-            {isSubmitted && (
-              <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                <h3 className="text-lg font-semibold text-green-900 mb-2">Thank You!</h3>
-                <p className="text-green-800">
-                  We've received your request and will contact you within 24 hours to discuss your personalized service plan.
+            {isSubmitted ? (
+              // Success page - matches contact page design
+              <div className="max-w-md mx-auto text-center p-8 bg-white rounded-2xl shadow-lg">
+                <div className="text-6xl mb-6">✅</div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">Thank You!</h2>
+                <p className="text-gray-600 mb-6">
+                  We've received your request and will contact you within 24 hours with your personalized service plan.
                 </p>
                 {submitError && (
-                  <div className="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded">
+                  <div className="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
                     <p className="text-sm text-yellow-800">
                       <strong>Note:</strong> There was a technical issue with our system, but we've still received your request.
                     </p>
@@ -311,7 +305,42 @@ const HomePage = () => {
                     </p>
                   </div>
                 )}
+                <div className="space-y-3">
+                  <p className="text-sm text-gray-500">
+                    What happens next?
+                  </p>
+                  <div className="text-left space-y-2 text-sm text-gray-600">
+                    <div className="flex items-center">
+                      <span className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs font-medium mr-3">1</span>
+                      We review your request and service area
+                    </div>
+                    <div className="flex items-center">
+                      <span className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs font-medium mr-3">2</span>
+                      We contact you within 24 hours
+                    </div>
+                    <div className="flex items-center">
+                      <span className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs font-medium mr-3">3</span>
+                      Schedule your free estimate
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => {
+                    setIsSubmitted(false)
+                    setSubmitError(null)
+                  }}
+                  className="mt-6 bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors"
+                >
+                  Submit Another Request
+                </button>
               </div>
+            ) : (
+              <ContactForm
+                variant="homepage"
+                onSubmit={handleFormSubmit}
+                enableJobberIntegration={false}
+                isLoading={isSubmitting}
+              />
             )}
           </div>
         </div>

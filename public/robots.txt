@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.fieldandfoyer.com/sitemap.xml
+
+# Disallow test pages
+Disallow: /test/
+Disallow: /oauth/
+
+# Allow important pages
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /contact
