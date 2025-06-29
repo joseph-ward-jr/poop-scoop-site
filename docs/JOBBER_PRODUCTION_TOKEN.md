@@ -1,12 +1,51 @@
-# Jobber Production Token Setup
+# Jobber Production Credentials Setup
 
 ## 🚨 **CRITICAL: Your Current Token Expires Every 60 Minutes**
 
-The token you're currently using from GraphiQL is a **test token** that expires every 60 minutes. For a production website that needs to work 24/7, you need a **permanent access token**.
+The token you're currently using from GraphiQL is a **test token** that expires every 60 minutes. For a production website that needs to work 24/7, you have two options:
 
-## ✅ **Solution: Get a Permanent Production Token**
+1. **Client Credentials (RECOMMENDED)** - Automatic token refresh
+2. **Permanent Access Token** - Manual token management
 
-### **Option 1: Private App Token (Recommended)**
+## ✅ **RECOMMENDED: Client Credentials (Automatic Token Refresh)**
+
+### **Option 1: Client Credentials (Best for Production)**
+
+This approach automatically gets fresh tokens when needed, so you never have to worry about expiration.
+
+1. **Create Your Jobber App** (same process as before)
+   - Go to [developer.getjobber.com](https://developer.getjobber.com)
+   - Click "New" to create an app
+   - Fill out the form with your business details
+
+2. **Get Client Credentials**
+   - After creating the app, you'll receive:
+     - **Client ID**: `abc123...`
+     - **Client Secret**: `xyz789...`
+   - These don't expire and can generate fresh tokens automatically
+
+3. **Set Environment Variables**
+
+   **Local Development (.env.local):**
+   ```env
+   VITE_JOBBER_ACCESS_TOKEN=your_current_token  # Keep for local dev
+   ```
+
+   **Production (Vercel):**
+   ```env
+   JOBBER_CLIENT_ID=your_client_id_here
+   JOBBER_CLIENT_SECRET=your_client_secret_here
+   ```
+
+4. **How It Works**
+   - Your serverless function automatically requests fresh tokens
+   - No manual token management required
+   - Works 24/7 without interruption
+   - Tokens refresh automatically when needed
+
+## ✅ **Alternative: Permanent Access Token**
+
+### **Option 2: Manual Token Management**
 
 1. **Go to Jobber Developer Center**
    - Visit: [developer.getjobber.com](https://developer.getjobber.com)
