@@ -9,13 +9,30 @@ export default async function handler(req, res) {
 
   // Get the Jobber access token from environment variables (server-side only)
   const accessToken = process.env.JOBBER_ACCESS_TOKEN
-  
+
   if (!accessToken) {
     console.error('JOBBER_ACCESS_TOKEN environment variable not set')
-    return res.status(500).json({ 
-      success: false, 
-      errors: ['Server configuration error'] 
+    return res.status(500).json({
+      success: false,
+      errors: ['Server configuration error - Jobber access token not configured']
     })
+  }
+
+  // Check if token is expired
+  try {
+    const payload = JSON.parse(Buffer.from(accessToken.split('.')[1], 'base64').toString())
+    const currentTime = Math.floor(Date.now() / 1000)
+    if (payload.exp && payload.exp < currentTime) {
+      const expDate = new Date(payload.exp * 1000)
+      console.error(`Jobber access token expired at ${expDate.toISOString()}`)
+      return res.status(500).json({
+        success: false,
+        errors: [`Jobber access token expired at ${expDate.toLocaleString()}. Please regenerate your token.`]
+      })
+    }
+  } catch (error) {
+    console.warn('Could not parse token expiration:', error)
+    // Continue anyway - token might be valid
   }
 
   try {
