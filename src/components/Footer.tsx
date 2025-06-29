@@ -81,10 +81,20 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="border-t border-sage-800 mt-12 pt-8 text-center">
-            <p className="text-sage-300">
-              © {currentYear} Field & Foyer. All rights reserved.
-            </p>
+          <div className="border-t border-sage-800 mt-12 pt-8">
+            <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+              <p className="text-sage-300">
+                © {currentYear} Field & Foyer. All rights reserved.
+              </p>
+              <div className="flex space-x-6">
+                <Link to="/privacy" className="text-sage-300 hover:text-sage-200 transition-colors text-sm">
+                  Privacy Policy
+                </Link>
+                <Link to="/terms" className="text-sage-300 hover:text-sage-200 transition-colors text-sm">
+                  Terms of Service
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>

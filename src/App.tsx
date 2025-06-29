@@ -7,6 +7,8 @@ import AboutPage from './pages/AboutPage'
 import TestimonialsPage from './pages/TestimonialsPage'
 import PricingPage from './pages/PricingPage'
 import ContactPage from './pages/ContactPage'
+import TermsOfServicePage from './pages/TermsOfServicePage'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 
 // Service-specific pages
 import PetWasteRemovalPage from './pages/services/PetWasteRemovalPage'
@@ -46,6 +48,8 @@ function App() {
           <Route path="/pricing/house-cleaning" element={<HouseCleaningPricingPage />} />
 
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/terms" element={<TermsOfServicePage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
         </Routes>
       </Layout>
     </Router>
