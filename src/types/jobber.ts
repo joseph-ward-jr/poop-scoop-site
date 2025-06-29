@@ -122,5 +122,6 @@ export interface NewsletterSubscriptionData {
 export interface NewsletterJobberSubmissionResult {
   success: boolean
   client?: JobberClient
+  subscriber?: any // Database subscriber record
   errors?: string[]
 }

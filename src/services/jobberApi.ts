@@ -323,13 +323,13 @@ class JobberApiService {
   }
 
   /**
-   * Create a client in Jobber from newsletter subscription data using serverless function
+   * Create a client in Jobber from newsletter subscription data using enhanced API
+   * This now stores in both database and Jobber for email campaigns
    */
   async createClientFromNewsletter(subscriptionData: NewsletterSubscriptionData): Promise<NewsletterJobberSubmissionResult> {
     try {
-      // Use the same serverless function approach as contact forms
-      // This ensures proper token refresh handling
-      const response = await fetch('/api/jobber-newsletter', {
+      // Use the enhanced newsletter-subscribe API that handles both database and Jobber
+      const response = await fetch('/api/newsletter-subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -356,7 +356,8 @@ class JobberApiService {
       if (result.success) {
         return {
           success: true,
-          client: result.client
+          client: result.jobberResult?.client || result.subscriber,
+          subscriber: result.subscriber // Database record
         }
       } else {
         return {
@@ -366,7 +367,7 @@ class JobberApiService {
       }
 
     } catch (error) {
-      console.error('Error creating newsletter client in Jobber:', error)
+      console.error('Error creating newsletter subscription:', error)
       return {
         success: false,
         errors: [error instanceof Error ? error.message : 'An unexpected error occurred']
