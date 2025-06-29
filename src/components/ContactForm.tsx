@@ -6,9 +6,10 @@ interface ContactFormProps {
   variant?: 'homepage' | 'contact'
   onSubmit?: (data: ContactFormData) => void
   enableJobberIntegration?: boolean
+  isLoading?: boolean
 }
 
-const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration = true }: ContactFormProps) => {
+const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration = true, isLoading = false }: ContactFormProps) => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -357,14 +358,14 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
 
       <button
         type="submit"
-        disabled={isSubmitting}
+        disabled={isSubmitting || isLoading}
         className={`w-full text-lg py-4 transition-all duration-300 ${
-          isSubmitting
+          isSubmitting || isLoading
             ? 'bg-gray-400 cursor-not-allowed'
             : 'btn-primary'
         }`}
       >
-        {isSubmitting ? (
+        {isSubmitting || isLoading ? (
           <span className="flex items-center justify-center">
             <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
