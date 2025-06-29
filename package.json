@@ -15,6 +15,7 @@
     "check-db": "node -e \"const { sql } = require('@vercel/postgres'); sql\\`SELECT COUNT(*) as count FROM newsletter_subscribers\\`.then(r => console.log('Total subscribers:', r.rows[0].count)).catch(console.error)\""
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.50.2",
     "@vercel/postgres": "^0.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
