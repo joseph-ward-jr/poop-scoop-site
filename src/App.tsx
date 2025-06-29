@@ -10,6 +10,10 @@ import ContactPage from './pages/ContactPage'
 import TermsOfServicePage from './pages/TermsOfServicePage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 
+// Blog pages
+import BlogPage from './pages/BlogPage'
+import BlogPostPage from './pages/BlogPostPage'
+
 // Service-specific pages
 import PetWasteRemovalPage from './pages/services/PetWasteRemovalPage'
 import LawnMaintenancePage from './pages/services/LawnMaintenancePage'
@@ -44,6 +48,8 @@ function App() {
           <Route path="/services/house-cleaning" element={<HouseCleaningPage />} />
 
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
 
           {/* Main pricing overview */}

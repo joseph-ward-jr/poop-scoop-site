@@ -6,7 +6,9 @@ import {
   ContactFormData,
   JobberEmailInput,
   JobberPhoneInput,
-  JobberAddressInput
+  JobberAddressInput,
+  NewsletterSubscriptionData,
+  NewsletterJobberSubmissionResult
 } from '../types/jobber'
 
 class JobberApiService {
@@ -318,6 +320,102 @@ class JobberApiService {
       console.error('Failed to get account info:', error)
       return null
     }
+  }
+
+  /**
+   * Create a client in Jobber from newsletter subscription data
+   */
+  async createClientFromNewsletter(subscriptionData: NewsletterSubscriptionData): Promise<NewsletterJobberSubmissionResult> {
+    try {
+      // Parse name into first and last name
+      const nameParts = subscriptionData.name.trim().split(' ')
+      const firstName = nameParts[0] || ''
+      const lastName = nameParts.slice(1).join(' ') || ''
+
+      // Build client input for newsletter subscriber
+      const clientInput: JobberClientInput = {
+        firstName,
+        lastName: lastName || undefined,
+        emails: [{
+          description: 'MAIN',
+          primary: true,
+          address: subscriptionData.email
+        }] as JobberEmailInput[]
+        // Note: Newsletter subscribers typically don't provide phone/address initially
+      }
+
+      const mutation = `
+        mutation CreateNewsletterClient($input: ClientCreateInput!) {
+          clientCreate(input: $input) {
+            client {
+              id
+              firstName
+              lastName
+              emails {
+                id
+                address
+                primary
+                description
+              }
+            }
+            userErrors {
+              message
+              path
+            }
+          }
+        }
+      `
+
+      const response = await this.makeRequest<JobberClientCreateResponse>(mutation, { input: clientInput })
+
+      if (response.errors && response.errors.length > 0) {
+        return {
+          success: false,
+          errors: response.errors.map(error => error.message)
+        }
+      }
+
+      if (response.data?.clientCreate.userErrors && response.data.clientCreate.userErrors.length > 0) {
+        return {
+          success: false,
+          errors: response.data.clientCreate.userErrors.map(error => error.message)
+        }
+      }
+
+      if (!response.data?.clientCreate.client) {
+        return {
+          success: false,
+          errors: ['Failed to create client - no client data returned']
+        }
+      }
+
+      return {
+        success: true,
+        client: response.data.clientCreate.client
+      }
+
+    } catch (error) {
+      console.error('Error creating newsletter client in Jobber:', error)
+      return {
+        success: false,
+        errors: [error instanceof Error ? error.message : 'An unexpected error occurred']
+      }
+    }
+  }
+
+  /**
+   * Build notes field from newsletter subscription data
+   */
+  private buildNotesFromNewsletter(subscriptionData: NewsletterSubscriptionData): string {
+    const notes = []
+
+    notes.push(`Newsletter Subscription`)
+    notes.push(`Interests: ${subscriptionData.interests.join(', ')}`)
+    notes.push(`Source: ${subscriptionData.source}`)
+    notes.push(`Subscribed: ${subscriptionData.subscriptionDate}`)
+    notes.push(`Lead Source: Field & Foyer Blog`)
+
+    return notes.join('\n\n')
   }
 }
 

@@ -109,3 +109,18 @@ export interface JobberSubmissionResult {
   client?: JobberClient
   errors?: string[]
 }
+
+// Newsletter subscription data for Jobber integration
+export interface NewsletterSubscriptionData {
+  name: string
+  email: string
+  interests: string[]
+  source: string
+  subscriptionDate: string
+}
+
+export interface NewsletterJobberSubmissionResult {
+  success: boolean
+  client?: JobberClient
+  errors?: string[]
+}
