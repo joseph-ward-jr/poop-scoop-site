@@ -19,25 +19,34 @@ export default async function handler(req, res) {
     }
 
     try {
+      // Jobber requires application/x-www-form-urlencoded format
+      const params = new URLSearchParams({
+        grant_type: 'client_credentials',
+        client_id: clientId,
+        client_secret: clientSecret,
+        scope: 'read_clients write_clients'
+      })
+
       const tokenResponse = await fetch('https://api.getjobber.com/api/oauth/token', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({
-          grant_type: 'client_credentials',
-          client_id: clientId,
-          client_secret: clientSecret,
-          scope: 'read_clients write_clients'
-        })
+        body: params.toString()
       })
 
       if (!tokenResponse.ok) {
         const errorData = await tokenResponse.text()
+        console.error('OAuth2 token request failed:', {
+          status: tokenResponse.status,
+          statusText: tokenResponse.statusText,
+          body: errorData
+        })
         throw new Error(`Token request failed: ${tokenResponse.status} ${errorData}`)
       }
 
       const tokenData = await tokenResponse.json()
+      console.log('Successfully obtained fresh access token via OAuth2')
       return tokenData.access_token
     } catch (error) {
       console.error('Failed to get fresh access token:', error)
@@ -60,17 +69,29 @@ export default async function handler(req, res) {
   // Get a valid access token
   let validAccessToken = accessToken
 
-  // If we have client credentials, use them to get a fresh token
+  // If we have client credentials, try to use them to get a fresh token
   if (clientId && clientSecret) {
     try {
-      console.log('Using client credentials to get fresh access token...')
+      console.log('Attempting to use client credentials for OAuth2 token...')
       validAccessToken = await getFreshAccessToken()
     } catch (error) {
-      console.error('Failed to get fresh token with client credentials:', error)
-      return res.status(500).json({
-        success: false,
-        errors: ['Failed to authenticate with Jobber API using client credentials']
-      })
+      console.error('Client credentials failed, falling back to access token:', error)
+
+      // Fall back to access token if client credentials don't work
+      if (accessToken && !isTokenExpired(accessToken)) {
+        console.log('Using fallback access token...')
+        validAccessToken = accessToken
+      } else {
+        return res.status(500).json({
+          success: false,
+          errors: [
+            'Failed to authenticate with Jobber API using client credentials.',
+            'Note: Jobber may not support client_credentials grant type for private apps.',
+            'Please use a permanent access token from your Jobber app instead.',
+            'Error details: ' + error.message
+          ]
+        })
+      }
     }
   } else if (accessToken) {
     // Fallback to existing access token, but check if expired
