@@ -254,14 +254,17 @@ export default async function handler(req, res) {
     if (result.data?.clientCreate.client) {
       const client = result.data.clientCreate.client
 
-      // Try to add a note with form details (optional)
+      // Add a note with form details
       try {
+        console.log('Adding client note with content:', notes)
+
         const noteMutation = `
           mutation AddClientNote($input: ClientNoteCreateInput!) {
             clientNoteCreate(input: $input) {
               clientNote {
                 id
                 note
+                createdAt
               }
               userErrors {
                 message
@@ -271,7 +274,7 @@ export default async function handler(req, res) {
           }
         `
 
-        await fetch('https://api.getjobber.com/api/graphql', {
+        const noteResponse = await fetch('https://api.getjobber.com/api/graphql', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${validAccessToken}`,
@@ -288,8 +291,21 @@ export default async function handler(req, res) {
             }
           })
         })
+
+        const noteResult = await noteResponse.json()
+
+        if (noteResult.errors && noteResult.errors.length > 0) {
+          console.error('GraphQL errors when creating note:', noteResult.errors)
+        } else if (noteResult.data?.clientNoteCreate.userErrors && noteResult.data.clientNoteCreate.userErrors.length > 0) {
+          console.error('User errors when creating note:', noteResult.data.clientNoteCreate.userErrors)
+        } else if (noteResult.data?.clientNoteCreate.clientNote) {
+          console.log('Successfully created client note:', noteResult.data.clientNoteCreate.clientNote)
+        } else {
+          console.warn('Unexpected note creation response:', noteResult)
+        }
+
       } catch (noteError) {
-        console.warn('Failed to add client note:', noteError)
+        console.error('Failed to add client note:', noteError)
         // Don't fail the entire operation if note creation fails
       }
 
