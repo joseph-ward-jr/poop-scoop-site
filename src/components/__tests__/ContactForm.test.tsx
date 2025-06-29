@@ -2,9 +2,25 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import ContactForm from '../ContactForm'
 
+// Mock the Jobber API service
+vi.mock('../../services/jobberApi', () => ({
+  jobberApi: {
+    createClientFromForm: vi.fn()
+  }
+}))
+
+// Mock the hook
+vi.mock('../../hooks/useJobberSubmission', () => ({
+  useJobberSubmission: () => ({
+    isSubmitting: false,
+    submitToJobber: vi.fn().mockResolvedValue({ success: true }),
+    lastResult: null
+  })
+}))
+
 describe('ContactForm', () => {
   it('renders all required fields for homepage variant', () => {
-    render(<ContactForm variant="homepage" />)
+    render(<ContactForm variant="homepage" enableJobberIntegration={false} />)
     
     expect(screen.getByLabelText(/full name/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/email address/i)).toBeInTheDocument()
@@ -16,7 +32,7 @@ describe('ContactForm', () => {
   })
 
   it('renders all required fields for contact variant', () => {
-    render(<ContactForm variant="contact" />)
+    render(<ContactForm variant="contact" enableJobberIntegration={false} />)
     
     expect(screen.getByLabelText(/full name/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/email address/i)).toBeInTheDocument()
@@ -28,7 +44,7 @@ describe('ContactForm', () => {
   })
 
   it('validates required fields', async () => {
-    render(<ContactForm variant="homepage" />)
+    render(<ContactForm variant="homepage" enableJobberIntegration={false} />)
     
     const submitButton = screen.getByRole('button', { name: /begin my journey/i })
     fireEvent.click(submitButton)
@@ -43,7 +59,7 @@ describe('ContactForm', () => {
 
   it('calls onSubmit with form data when submitted', async () => {
     const mockOnSubmit = vi.fn()
-    render(<ContactForm variant="homepage" onSubmit={mockOnSubmit} />)
+    render(<ContactForm variant="homepage" onSubmit={mockOnSubmit} enableJobberIntegration={false} />)
     
     // Fill out the form
     fireEvent.change(screen.getByLabelText(/full name/i), { target: { value: 'John Doe' } })
@@ -69,7 +85,7 @@ describe('ContactForm', () => {
   })
 
   it('shows success message for contact variant after submission', async () => {
-    render(<ContactForm variant="contact" />)
+    render(<ContactForm variant="contact" enableJobberIntegration={false} />)
     
     // Fill out required fields
     fireEvent.change(screen.getByLabelText(/full name/i), { target: { value: 'John Doe' } })
@@ -89,7 +105,7 @@ describe('ContactForm', () => {
 
   it('submits form successfully', async () => {
     const mockOnSubmit = vi.fn()
-    render(<ContactForm variant="homepage" onSubmit={mockOnSubmit} />)
+    render(<ContactForm variant="homepage" onSubmit={mockOnSubmit} enableJobberIntegration={false} />)
 
     // Fill out and submit form
     fireEvent.change(screen.getByLabelText(/full name/i), { target: { value: 'John Doe' } })
@@ -108,5 +124,21 @@ describe('ContactForm', () => {
       contactPreference: 'text',
       additionalInfo: ''
     })
+  })
+
+  it('can disable Jobber integration', () => {
+    render(<ContactForm variant="homepage" enableJobberIntegration={false} />)
+
+    // Form should still render normally
+    expect(screen.getByLabelText(/full name/i)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /begin my journey/i })).toBeInTheDocument()
+  })
+
+  it('enables Jobber integration by default', () => {
+    render(<ContactForm variant="homepage" />)
+
+    // Form should render with Jobber integration enabled (default behavior)
+    expect(screen.getByLabelText(/full name/i)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /begin my journey/i })).toBeInTheDocument()
   })
 })

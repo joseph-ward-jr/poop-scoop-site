@@ -105,7 +105,7 @@ The site uses Tailwind CSS with custom utility classes defined in `src/index.css
 - `.section-padding` - Consistent section spacing
 - `.container-max` - Maximum width container
 
-## Form Handling
+## Form Handling & Jobber Integration
 
 The contact forms use a unified `ContactForm` component with the following fields:
 - Name (required)
@@ -115,11 +115,19 @@ The contact forms use a unified `ContactForm` component with the following field
 - Contact preference: Call, Email, or Text (required)
 - Additional information (optional)
 
-The forms currently log data to the console. To integrate with a backend:
+### Jobber API Integration
 
-1. Replace the `console.log()` calls in form submission handlers
-2. Add your API endpoint or form service (e.g., Netlify Forms, Formspree)
-3. Add proper error handling and loading states
+The forms are integrated with Jobber API for automatic client creation:
+
+1. **Setup**: Copy `.env.example` to `.env.local` and add your Jobber access token
+2. **Testing**: Run `npm run test:jobber` to verify API connection
+3. **Documentation**: See `docs/JOBBER_INTEGRATION.md` for detailed setup instructions
+
+The integration includes:
+- Automatic client creation in Jobber
+- Graceful error handling and fallbacks
+- Loading states and user feedback
+- Comprehensive test coverage
 
 ## Testing
 
