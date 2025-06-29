@@ -38,7 +38,7 @@ const ContactPage = () => {
     } else {
       // Production: Use secure serverless API
       try {
-        console.log('Production mode: Using secure serverless API...')
+        console.log('Production mode: Using secure serverless API....')
         const response = await fetch('/api/jobber-client', {
           method: 'POST',
           headers: {
