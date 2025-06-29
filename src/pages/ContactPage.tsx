@@ -1,52 +1,71 @@
 import { useState } from 'react'
 import ContactForm from '../components/ContactForm'
+import { useJobberSubmission } from '../hooks/useJobberSubmission'
 import { ContactFormData } from '../types/jobber'
 
 const ContactPage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const { isSubmitting, submitToJobber } = useJobberSubmission()
 
   const handleFormSubmit = async (data: ContactFormData) => {
     console.log('Form submitted:', data)
     setSubmitError(null)
-    setIsSubmitting(true)
 
-    try {
-      // Submit to secure API endpoint
-      const response = await fetch('/api/jobber-client', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      })
+    // Check if we're in development (has VITE_ token) or production (needs serverless API)
+    const isDevelopment = !!(import.meta as any).env?.VITE_JOBBER_ACCESS_TOKEN
 
-      const result = await response.json()
+    if (isDevelopment) {
+      // Development: Use direct API (same as test page)
+      try {
+        console.log('Development mode: Using direct Jobber API...')
+        const result = await submitToJobber(data)
 
-      if (result.success) {
-        console.log('Successfully created Jobber client:', result.client)
-        setIsSubmitted(true)
-      } else {
-        // Handle API errors but still show success to user
-        const errorMessage = result.errors?.join(', ') || 'Failed to submit to Jobber'
-        setSubmitError(errorMessage)
-        console.error('Jobber submission failed:', result.errors)
-
-        // Still show success to user for better UX
+        if (result.success) {
+          console.log('Successfully created Jobber client via direct API:', result.client)
+          setIsSubmitted(true)
+        } else {
+          const errorMessage = result.errors?.join(', ') || 'Failed to submit to Jobber'
+          setSubmitError(errorMessage)
+          console.error('Direct API submission failed:', result.errors)
+          setIsSubmitted(true)
+        }
+      } catch (error) {
+        console.error('Development API error:', error)
+        setSubmitError('An unexpected error occurred while submitting.')
         setIsSubmitted(true)
       }
-    } catch (error) {
-      console.error('Form submission error:', error)
-      setSubmitError('An unexpected error occurred while submitting.')
+    } else {
+      // Production: Use secure serverless API
+      try {
+        console.log('Production mode: Using secure serverless API...')
+        const response = await fetch('/api/jobber-client', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        })
 
-      // Still show success to user for better UX
-      setIsSubmitted(true)
-    } finally {
-      setIsSubmitting(false)
+        const result = await response.json()
+
+        if (result.success) {
+          console.log('Successfully created Jobber client via serverless API:', result.client)
+          setIsSubmitted(true)
+        } else {
+          const errorMessage = result.errors?.join(', ') || 'Failed to submit to Jobber'
+          setSubmitError(errorMessage)
+          console.error('Serverless API submission failed:', result.errors)
+          setIsSubmitted(true)
+        }
+      } catch (error) {
+        console.error('Production API error:', error)
+        setSubmitError('An unexpected error occurred while submitting.')
+        setIsSubmitted(true)
+      }
     }
 
-    // Reset form after 5 seconds (increased time to show any error messages)
+    // Reset form after 5 seconds
     setTimeout(() => {
       setIsSubmitted(false)
       setSubmitError(null)
