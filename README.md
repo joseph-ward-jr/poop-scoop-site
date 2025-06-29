@@ -146,6 +146,21 @@ The integration includes:
 - Loading states and user feedback
 - Comprehensive test coverage
 
+### Newsletter API Endpoint
+
+The newsletter system uses a dedicated serverless function (`/api/jobber-newsletter`) that:
+
+- **Automatic Token Refresh**: Uses the same refresh token flow as contact forms
+- **Error Handling**: Graceful handling of expired tokens and API failures
+- **Source Tracking**: Records where each newsletter subscription originated
+- **Interest Categorization**: Tracks subscriber interests for targeted campaigns
+- **Notes Integration**: Adds detailed notes to Jobber client records
+
+**Environment Variables Required:**
+- `JOBBER_CLIENT_ID`: Your Jobber app client ID
+- `JOBBER_CLIENT_SECRET`: Your Jobber app client secret
+- `JOBBER_REFRESH_TOKEN`: Long-lived refresh token for automatic token renewal
+
 ## Blog System & Newsletter Integration
 
 The website features a comprehensive blog system with integrated newsletter subscription functionality:
@@ -176,7 +191,9 @@ The website features a comprehensive blog system with integrated newsletter subs
 
 - **TypeScript Types**: Comprehensive type definitions for blog and newsletter data
 - **React Components**: Reusable BlogCard, NewsletterModal, and blog page components
-- **API Integration**: Newsletter subscriptions create Jobber clients with proper categorization
+- **Serverless API**: Newsletter subscriptions use serverless functions with automatic token refresh
+- **Jobber Integration**: Newsletter subscriptions create Jobber clients with proper categorization
+- **Token Management**: Automatic refresh token flow prevents token expiration issues
 - **Test Coverage**: Full test suite for blog functionality and newsletter integration
 
 ## Testing
