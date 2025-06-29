@@ -328,6 +328,12 @@ class JobberApiService {
    */
   async createClientFromNewsletter(subscriptionData: NewsletterSubscriptionData): Promise<NewsletterJobberSubmissionResult> {
     try {
+      console.log('Attempting newsletter subscription:', {
+        endpoint: '/api/jobber-newsletter',
+        data: subscriptionData,
+        timestamp: new Date().toISOString()
+      })
+
       // Use the enhanced Jobber newsletter API that now also saves to Supabase
       const response = await fetch('/api/jobber-newsletter', {
         method: 'POST',
@@ -344,10 +350,25 @@ class JobberApiService {
       })
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ errors: ['Network error'] }))
+        console.error('Newsletter API Response Error:', {
+          status: response.status,
+          statusText: response.statusText,
+          url: response.url,
+          headers: Object.fromEntries(response.headers.entries())
+        })
+
+        let errorData
+        try {
+          errorData = await response.json()
+          console.error('Newsletter API Error Data:', errorData)
+        } catch (parseError) {
+          console.error('Failed to parse error response:', parseError)
+          errorData = { errors: [`HTTP ${response.status}: ${response.statusText}`] }
+        }
+
         return {
           success: false,
-          errors: errorData.errors || [`HTTP ${response.status}: ${response.statusText}`]
+          errors: errorData.errors || [`HTTP ${response.status}: ${response.statusText} - URL: ${response.url}`]
         }
       }
 
@@ -367,10 +388,20 @@ class JobberApiService {
       }
 
     } catch (error) {
-      console.error('Error creating newsletter subscription:', error)
+      console.error('Error creating newsletter subscription:', {
+        error,
+        message: error instanceof Error ? error.message : 'Unknown error',
+        stack: error instanceof Error ? error.stack : undefined,
+        type: typeof error
+      })
+
       return {
         success: false,
-        errors: [error instanceof Error ? error.message : 'An unexpected error occurred']
+        errors: [
+          error instanceof Error ? error.message : 'An unexpected error occurred',
+          `Error type: ${typeof error}`,
+          `Timestamp: ${new Date().toISOString()}`
+        ]
       }
     }
   }

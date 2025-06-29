@@ -42,12 +42,13 @@ const NewsletterPopup = ({ isOpen, onClose, source }: NewsletterPopupProps) => {
       return
     }
 
+    const formData: NewsletterFormData = {
+      email: email.trim(),
+      name: name.trim() || undefined,
+      interests: ['home-cleaning', 'lawn-maintenance'] // Default interests for general signup
+    }
+
     try {
-      const formData: NewsletterFormData = {
-        email: email.trim(),
-        name: name.trim() || undefined,
-        interests: ['home-cleaning', 'lawn-maintenance'] // Default interests for general signup
-      }
 
       const result = await submitNewsletter(formData, source)
       
@@ -61,11 +62,24 @@ const NewsletterPopup = ({ isOpen, onClose, source }: NewsletterPopupProps) => {
       } else {
         const errorMessage = result.errors?.join(', ') || 'Failed to subscribe to newsletter'
         setSubmitError(errorMessage)
-        console.error('Newsletter subscription failed:', result.errors)
+        console.error('Newsletter subscription failed:', {
+          errors: result.errors,
+          fullResult: result,
+          formData,
+          source
+        })
       }
     } catch (error) {
-      setSubmitError('An unexpected error occurred. Please try again.')
-      console.error('Newsletter subscription error:', error)
+      const detailedError = `Unexpected error: ${error instanceof Error ? error.message : 'Unknown error'}`
+      setSubmitError(detailedError)
+      console.error('Newsletter subscription error:', {
+        error,
+        message: error instanceof Error ? error.message : 'Unknown error',
+        stack: error instanceof Error ? error.stack : undefined,
+        formData,
+        source,
+        timestamp: new Date().toISOString()
+      })
     }
   }
 
