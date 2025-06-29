@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import ContactForm from '../components/ContactForm'
 import { useJobberSubmission } from '../hooks/useJobberSubmission'
 import { ContactFormData } from '../types/jobber'
+import { useGlobalNewsletterContext } from '../components/GlobalNewsletterProvider'
 
 const HomePage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const { isSubmitting, submitToJobber } = useJobberSubmission()
+  const { openNewsletter } = useGlobalNewsletterContext()
 
   const handleFormSubmit = async (data: ContactFormData) => {
     console.log('Form submitted from homepage:', data)
@@ -139,6 +141,27 @@ const HomePage = () => {
                 >
                   Explore Services
                 </Link>
+              </div>
+
+              {/* Newsletter CTA */}
+              <div className="bg-sage-50 border border-sage-200 rounded-2xl p-6 mt-8">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-semibold text-sage-800 mb-1">
+                      Get Weekly Home & Yard Tips
+                    </h3>
+                    <p className="text-sage-600 text-sm">
+                      Expert advice delivered to your inbox every week
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => openNewsletter('Homepage Hero')}
+                    className="bg-sage-600 hover:bg-sage-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg flex items-center space-x-2"
+                  >
+                    <span>📧</span>
+                    <span>Subscribe</span>
+                  </button>
+                </div>
               </div>
             </div>
             {/* Right Side - Designated Space for Graphic */}
