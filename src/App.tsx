@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
+import { GlobalNewsletterProvider } from './components/GlobalNewsletterProvider'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
 import AboutPage from './pages/AboutPage'
@@ -9,6 +10,10 @@ import PricingPage from './pages/PricingPage'
 import ContactPage from './pages/ContactPage'
 import TermsOfServicePage from './pages/TermsOfServicePage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
+
+// Blog pages
+import BlogPage from './pages/BlogPage'
+import BlogPostPage from './pages/BlogPostPage'
 
 // Service-specific pages
 import PetWasteRemovalPage from './pages/services/PetWasteRemovalPage'
@@ -31,7 +36,8 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <Layout>
+      <GlobalNewsletterProvider>
+        <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
 
@@ -44,6 +50,8 @@ function App() {
           <Route path="/services/house-cleaning" element={<HouseCleaningPage />} />
 
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
 
           {/* Main pricing overview */}
@@ -65,7 +73,8 @@ function App() {
           <Route path="/oauth/callback" element={<OAuthCallbackPage />} />
           <Route path="/oauth/success" element={<OAuthSuccessPage />} />
         </Routes>
-      </Layout>
+        </Layout>
+      </GlobalNewsletterProvider>
     </Router>
   )
 }

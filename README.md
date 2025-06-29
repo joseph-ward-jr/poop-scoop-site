@@ -14,6 +14,7 @@ A modern, responsive website for a professional pet waste removal service built 
 
 - **Homepage**: Hero section with benefits and integrated contact form
 - **About Us**: Company story and team information
+- **Blog**: Professional insights and tips with newsletter integration
 - **Testimonials**: Customer reviews with interactive carousel
 - **Pricing**: Detailed pricing tables with FAQ section
 - **Contact**: Comprehensive contact form with validation
@@ -75,6 +76,8 @@ src/
 ├── pages/              # Page components
 │   ├── HomePage.tsx    # Landing page
 │   ├── AboutPage.tsx   # About us page
+│   ├── BlogPage.tsx    # Blog listing page
+│   ├── BlogPostPage.tsx # Individual blog posts
 │   ├── TestimonialsPage.tsx # Customer testimonials
 │   ├── PricingPage.tsx # Pricing and FAQ
 │   └── ContactPage.tsx # Contact form
@@ -142,6 +145,56 @@ The integration includes:
 - Graceful error handling and fallbacks
 - Loading states and user feedback
 - Comprehensive test coverage
+
+### Newsletter API Endpoint
+
+The newsletter system uses a dedicated serverless function (`/api/jobber-newsletter`) that:
+
+- **Automatic Token Refresh**: Uses the same refresh token flow as contact forms
+- **Error Handling**: Graceful handling of expired tokens and API failures
+- **Source Tracking**: Records where each newsletter subscription originated
+- **Interest Categorization**: Tracks subscriber interests for targeted campaigns
+- **Notes Integration**: Adds detailed notes to Jobber client records
+
+**Environment Variables Required:**
+- `JOBBER_CLIENT_ID`: Your Jobber app client ID
+- `JOBBER_CLIENT_SECRET`: Your Jobber app client secret
+- `JOBBER_REFRESH_TOKEN`: Long-lived refresh token for automatic token renewal
+
+## Blog System & Newsletter Integration
+
+The website features a comprehensive blog system with integrated newsletter subscription functionality:
+
+### Blog Features
+
+- **Modern Blog Interface**: Clean, responsive design with tag filtering
+- **Individual Post Pages**: Dynamic routing for detailed blog content
+- **SEO Optimization**: Proper meta tags and structured content
+- **Featured Content**: Highlighted articles with professional insights
+
+### Newsletter Integration
+
+- **Jobber CRM Integration**: Newsletter subscribers automatically added to Jobber
+- **Smart Prompts**: Context-aware newsletter signup prompts on blog posts
+- **Interest Targeting**: Subscribers can select specific areas of interest
+- **Professional Content**: Weekly tips on home cleaning, lawn maintenance, and eco-friendly solutions
+
+### Current Content
+
+- **Featured Article**: "Why Your Backyard is Worse for Being Barefoot Than Your Bathroom"
+  - Professional insights on outdoor contamination
+  - Wysiwash eco-friendly disinfectant information
+  - Health and safety recommendations
+  - Expert cleaning solutions
+
+### Technical Implementation
+
+- **TypeScript Types**: Comprehensive type definitions for blog and newsletter data
+- **React Components**: Reusable BlogCard, NewsletterModal, and blog page components
+- **Serverless API**: Newsletter subscriptions use serverless functions with automatic token refresh
+- **Jobber Integration**: Newsletter subscriptions create Jobber clients with proper categorization
+- **Token Management**: Automatic refresh token flow prevents token expiration issues
+- **Test Coverage**: Full test suite for blog functionality and newsletter integration
 
 ## Testing
 

@@ -6,7 +6,9 @@ import {
   ContactFormData,
   JobberEmailInput,
   JobberPhoneInput,
-  JobberAddressInput
+  JobberAddressInput,
+  NewsletterSubscriptionData,
+  NewsletterJobberSubmissionResult
 } from '../types/jobber'
 
 class JobberApiService {
@@ -319,6 +321,61 @@ class JobberApiService {
       return null
     }
   }
+
+  /**
+   * Create a client in Jobber from newsletter subscription data using enhanced API
+   * This now stores in both database and Jobber for email campaigns
+   */
+  async createClientFromNewsletter(subscriptionData: NewsletterSubscriptionData): Promise<NewsletterJobberSubmissionResult> {
+    try {
+      // Use the enhanced Jobber newsletter API that now also saves to Supabase
+      const response = await fetch('/api/jobber-newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: subscriptionData.name,
+          email: subscriptionData.email,
+          interests: subscriptionData.interests,
+          source: subscriptionData.source,
+          subscriptionDate: subscriptionData.subscriptionDate
+        })
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ errors: ['Network error'] }))
+        return {
+          success: false,
+          errors: errorData.errors || [`HTTP ${response.status}: ${response.statusText}`]
+        }
+      }
+
+      const result = await response.json()
+
+      if (result.success) {
+        return {
+          success: true,
+          client: result.jobberResult?.client || result.subscriber,
+          subscriber: result.subscriber // Database record
+        }
+      } else {
+        return {
+          success: false,
+          errors: result.errors || ['Unknown error occurred']
+        }
+      }
+
+    } catch (error) {
+      console.error('Error creating newsletter subscription:', error)
+      return {
+        success: false,
+        errors: [error instanceof Error ? error.message : 'An unexpected error occurred']
+      }
+    }
+  }
+
+
 }
 
 // Export singleton instance

@@ -140,6 +140,27 @@ const HomePage = () => {
                   Explore Services
                 </Link>
               </div>
+
+              {/* Blog CTA */}
+              <div className="bg-sage-50 border border-sage-200 rounded-2xl p-6 mt-8">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-semibold text-sage-800 mb-1">
+                      Expert Home & Yard Tips
+                    </h3>
+                    <p className="text-sage-600 text-sm">
+                      Read our latest insights on eco-friendly cleaning and maintenance
+                    </p>
+                  </div>
+                  <Link
+                    to="/blog"
+                    className="bg-sage-600 hover:bg-sage-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg flex items-center space-x-2"
+                  >
+                    <span>📖</span>
+                    <span>Read Blog</span>
+                  </Link>
+                </div>
+              </div>
             </div>
             {/* Right Side - Designated Space for Graphic */}
             <div className="lg:col-span-5 relative">

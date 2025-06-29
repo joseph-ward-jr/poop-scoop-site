@@ -53,6 +53,7 @@ const Header = () => {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Testimonials', href: '/testimonials' },
     { name: 'Contact', href: '/contact' },
   ]
@@ -105,7 +106,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-12">
+          <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -252,7 +253,7 @@ const Header = () => {
 
             <Link
               to="/contact?form=true"
-              className="bg-sage-800 hover:bg-sage-900 btn-primary ml-6 text-md"
+              className="bg-sage-800 hover:bg-sage-900 btn-primary ml-8 text-md"
               onClick={closeAllDropdowns}
             >
               Get In Touch
