@@ -33,6 +33,20 @@ class JobberApiService {
   }
 
   /**
+   * Check if token is expired based on JWT payload
+   */
+  private isTokenExpired(token: string): boolean {
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]))
+      const currentTime = Math.floor(Date.now() / 1000)
+      return payload.exp && payload.exp < currentTime
+    } catch (error) {
+      console.warn('Could not parse token expiration:', error)
+      return false // Assume valid if we can't parse
+    }
+  }
+
+  /**
    * Make a GraphQL request to Jobber API
    */
   private async makeRequest<T>(query: string, variables?: any): Promise<JobberApiResponse<T>> {
@@ -42,6 +56,14 @@ class JobberApiService {
         envKeys: Object.keys((import.meta as any).env || {}).filter(key => key.includes('JOBBER'))
       })
       throw new Error('Jobber access token not configured')
+    }
+
+    // Check if token is expired
+    if (this.isTokenExpired(this.accessToken)) {
+      const payload = JSON.parse(atob(this.accessToken.split('.')[1]))
+      const expDate = new Date(payload.exp * 1000)
+      console.error(`Jobber access token expired at ${expDate.toLocaleString()}`)
+      throw new Error(`Jobber access token expired at ${expDate.toLocaleString()}. Please regenerate your token from the Jobber Developer Center.`)
     }
 
     try {
