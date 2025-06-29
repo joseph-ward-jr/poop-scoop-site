@@ -12,7 +12,8 @@
     "test:jobber": "node scripts/test-jobber-connection.js",
     "setup:oauth": "node scripts/setup-oauth-test.js",
     "setup-db": "node scripts/setup-database.js",
-    "check-db": "node -e \"const { sql } = require('@vercel/postgres'); sql\\`SELECT COUNT(*) as count FROM newsletter_subscribers\\`.then(r => console.log('Total subscribers:', r.rows[0].count)).catch(console.error)\""
+    "check-db": "node -e \"const { sql } = require('@vercel/postgres'); sql\\`SELECT COUNT(*) as count FROM newsletter_subscribers\\`.then(r => console.log('Total subscribers:', r.rows[0].count)).catch(console.error)\"",
+    "check-supabase": "node -e \"import('./lib/supabase.js').then(({newsletterService}) => newsletterService.getSubscriberCount().then(count => console.log('Supabase subscribers:', count)).catch(console.error))\""
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.50.2",
