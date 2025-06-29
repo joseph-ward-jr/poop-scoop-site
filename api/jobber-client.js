@@ -10,21 +10,22 @@ export default async function handler(req, res) {
   // Get Jobber credentials from environment variables (server-side only)
   const clientId = process.env.JOBBER_CLIENT_ID
   const clientSecret = process.env.JOBBER_CLIENT_SECRET
+  const refreshToken = process.env.JOBBER_REFRESH_TOKEN
   const accessToken = process.env.JOBBER_ACCESS_TOKEN // Fallback for existing setup
 
-  // Function to get a fresh access token using client credentials
+  // Function to get a fresh access token using refresh token (proper OAuth2 flow)
   async function getFreshAccessToken() {
-    if (!clientId || !clientSecret) {
-      throw new Error('JOBBER_CLIENT_ID and JOBBER_CLIENT_SECRET environment variables not set')
+    if (!clientId || !clientSecret || !refreshToken) {
+      throw new Error('JOBBER_CLIENT_ID, JOBBER_CLIENT_SECRET, and JOBBER_REFRESH_TOKEN environment variables required')
     }
 
     try {
-      // Jobber requires application/x-www-form-urlencoded format
+      // Use refresh token flow as documented by Jobber
       const params = new URLSearchParams({
-        grant_type: 'client_credentials',
+        grant_type: 'refresh_token',
         client_id: clientId,
         client_secret: clientSecret,
-        scope: 'read_clients write_clients'
+        refresh_token: refreshToken
       })
 
       const tokenResponse = await fetch('https://api.getjobber.com/api/oauth/token', {
@@ -37,19 +38,25 @@ export default async function handler(req, res) {
 
       if (!tokenResponse.ok) {
         const errorData = await tokenResponse.text()
-        console.error('OAuth2 token request failed:', {
+        console.error('Refresh token request failed:', {
           status: tokenResponse.status,
           statusText: tokenResponse.statusText,
           body: errorData
         })
-        throw new Error(`Token request failed: ${tokenResponse.status} ${errorData}`)
+        throw new Error(`Refresh token request failed: ${tokenResponse.status} ${errorData}`)
       }
 
       const tokenData = await tokenResponse.json()
-      console.log('Successfully obtained fresh access token via OAuth2')
+      console.log('Successfully refreshed access token using refresh token')
+
+      // Note: The response may include a new refresh token if rotation is enabled
+      if (tokenData.refresh_token && tokenData.refresh_token !== refreshToken) {
+        console.warn('New refresh token received - you may need to update JOBBER_REFRESH_TOKEN environment variable')
+      }
+
       return tokenData.access_token
     } catch (error) {
-      console.error('Failed to get fresh access token:', error)
+      console.error('Failed to refresh access token:', error)
       throw error
     }
   }
@@ -69,15 +76,15 @@ export default async function handler(req, res) {
   // Get a valid access token
   let validAccessToken = accessToken
 
-  // If we have client credentials, try to use them to get a fresh token
-  if (clientId && clientSecret) {
+  // If we have refresh token credentials, use them to get a fresh token
+  if (clientId && clientSecret && refreshToken) {
     try {
-      console.log('Attempting to use client credentials for OAuth2 token...')
+      console.log('Using refresh token to get fresh access token...')
       validAccessToken = await getFreshAccessToken()
     } catch (error) {
-      console.error('Client credentials failed, falling back to access token:', error)
+      console.error('Refresh token failed, falling back to access token:', error)
 
-      // Fall back to access token if client credentials don't work
+      // Fall back to access token if refresh token doesn't work
       if (accessToken && !isTokenExpired(accessToken)) {
         console.log('Using fallback access token...')
         validAccessToken = accessToken
@@ -85,9 +92,9 @@ export default async function handler(req, res) {
         return res.status(500).json({
           success: false,
           errors: [
-            'Failed to authenticate with Jobber API using client credentials.',
-            'Note: Jobber may not support client_credentials grant type for private apps.',
-            'Please use a permanent access token from your Jobber app instead.',
+            'Failed to refresh access token using refresh token.',
+            'Your refresh token may be expired or invalid.',
+            'Please re-authorize your Jobber app or use a permanent access token.',
             'Error details: ' + error.message
           ]
         })
@@ -108,7 +115,12 @@ export default async function handler(req, res) {
     console.error('No Jobber credentials configured')
     return res.status(500).json({
       success: false,
-      errors: ['Server configuration error - No Jobber credentials configured. Please set either JOBBER_ACCESS_TOKEN or JOBBER_CLIENT_ID/JOBBER_CLIENT_SECRET.']
+      errors: [
+        'Server configuration error - No Jobber credentials configured.',
+        'Please set either:',
+        '1. JOBBER_ACCESS_TOKEN (permanent token), or',
+        '2. JOBBER_CLIENT_ID + JOBBER_CLIENT_SECRET + JOBBER_REFRESH_TOKEN (OAuth2 flow)'
+      ]
     })
   }
 
