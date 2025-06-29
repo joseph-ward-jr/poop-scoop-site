@@ -326,7 +326,7 @@ export default async function handler(req, res) {
               country
             }
             customFields {
-              ... on CustomFieldValueText {
+              ... on CustomFieldText {
                 id
                 customFieldConfiguration {
                   id
