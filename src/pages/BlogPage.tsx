@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import BlogCard from '../components/BlogCard'
 import { blogPosts } from '../data/blogPosts'
 import { useGlobalNewsletterContext } from '../components/GlobalNewsletterProvider'
+import { testNewsletterEndpoints } from '../utils/apiTest'
 
 const BlogPage = () => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
@@ -39,6 +40,16 @@ const BlogPage = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Home & Yard Insights
             </h1>
+            {/* Temporary API test button */}
+            <button
+              onClick={() => {
+                console.log('🧪 Testing API endpoints...')
+                testNewsletterEndpoints()
+              }}
+              className="bg-red-600 text-white px-4 py-2 rounded mb-4 text-sm"
+            >
+              🧪 Test API Endpoints (Check Console)
+            </button>
             <p className="text-xl text-sage-200 mb-8 leading-relaxed">
               Expert tips, eco-friendly solutions, and professional insights for maintaining 
               a beautiful, safe, and healthy home environment.
