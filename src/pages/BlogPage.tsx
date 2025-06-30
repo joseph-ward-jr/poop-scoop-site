@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import BlogCard from '../components/BlogCard'
 import { blogPosts } from '../data/blogPosts'
 
@@ -121,6 +122,33 @@ const BlogPage = () => {
           )}
         </section>
 
+        {/* Call-to-Action */}
+        <section className="mt-20">
+          <div className="bg-gradient-to-r from-sage-600 to-sage-700 rounded-3xl p-12 text-center text-white">
+            <h2 className="text-3xl font-bold mb-4">🌿 Transform Your Outdoor Space Today</h2>
+            <p className="text-sage-100 mb-8 max-w-2xl mx-auto">
+              Ready to create a safer, cleaner yard for your family and pets? Our eco-friendly services
+              make outdoor spaces healthier and more enjoyable. Get started with a free consultation.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                to="/contact?form=true"
+                className="bg-white text-sage-700 px-8 py-4 rounded-xl font-semibold hover:bg-sage-50 transition-colors shadow-lg hover:shadow-xl"
+              >
+                Get Free Consultation
+              </Link>
+              <Link
+                to="/contact?quote=true"
+                className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-sage-700 transition-colors"
+              >
+                Request Quote
+              </Link>
+            </div>
+            <p className="text-sage-200 text-sm mt-4">
+              Serving eco-conscious homeowners with safe, effective yard maintenance
+            </p>
+          </div>
+        </section>
 
       </div>
     </div>
