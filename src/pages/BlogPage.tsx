@@ -127,21 +127,21 @@ const BlogPage = () => {
           <div className="bg-gradient-to-r from-sage-600 to-sage-700 rounded-3xl p-12 text-center text-white">
             <h2 className="text-3xl font-bold mb-4">🌿 Transform Your Outdoor Space Today</h2>
             <p className="text-sage-100 mb-8 max-w-2xl mx-auto">
-              Ready to create a safer, cleaner yard for your family and pets? Our eco-friendly services
-              make outdoor spaces healthier and more enjoyable. Get started with a free consultation.
+              Ready to create a safer, cleaner yard for your family and pets? Explore our eco-friendly services
+              and get a personalized quote for your outdoor space transformation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
-                to="/contact?form=true"
+                to="/contact?quote=true"
                 className="bg-white text-sage-700 px-8 py-4 rounded-xl font-semibold hover:bg-sage-50 transition-colors shadow-lg hover:shadow-xl"
               >
-                Get Free Consultation
+                Request Quote
               </Link>
               <Link
-                to="/contact?quote=true"
+                to="/services"
                 className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-sage-700 transition-colors"
               >
-                Request Quote
+                View Our Services
               </Link>
             </div>
             <p className="text-sage-200 text-sm mt-4">
