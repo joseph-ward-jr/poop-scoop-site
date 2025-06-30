@@ -152,21 +152,21 @@ const BlogPostPage = () => {
               Ready to Transform Your Outdoor Space?
             </h3>
             <p className="text-sage-100 mb-6 max-w-2xl mx-auto">
-              Get a free consultation and see how our eco-friendly services can make your yard safer,
+              Discover our eco-friendly services and get a personalized quote for making your yard safer,
               cleaner, and more enjoyable for your family and pets.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
-                to="/contact?form=true"
+                to="/contact?quote=true"
                 className="bg-white text-sage-700 px-8 py-4 rounded-xl font-semibold hover:bg-sage-50 transition-colors shadow-lg hover:shadow-xl"
               >
-                Get Free Consultation
+                Request Quote
               </Link>
               <Link
-                to="/contact?quote=true"
+                to="/services"
                 className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-sage-700 transition-colors"
               >
-                Request Quote
+                View Our Services
               </Link>
             </div>
           </div>
