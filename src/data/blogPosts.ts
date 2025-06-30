@@ -16,7 +16,7 @@ export const blogPosts: BlogPost[] = [
       metaDescription: 'Learn why your backyard may be more contaminated than your bathroom and how professional eco-friendly cleaning can make it safe for barefoot enjoyment.',
       keywords: ['backyard safety', 'pet waste removal', 'eco-friendly disinfectant', 'Wysiwash', 'yard cleaning', 'barefoot safety']
     },
-    showNewsletterPrompt: true,
+
     content: `
 # Why Your Backyard is Worse for Being Barefoot Than Your Bathroom
 
@@ -117,10 +117,6 @@ We understand that your outdoor space should be as safe and clean as your indoor
 Don't let your backyard remain a hidden health hazard. Professional cleaning with eco-friendly solutions like Wysiwash can transform your outdoor space into the safe, clean environment your family deserves.
 
 **Ready to make your yard safer than your bathroom?** Contact Field & Foyer today for a comprehensive assessment and treatment plan.
-
----
-
-*Want more tips on maintaining a safe, clean outdoor environment? Subscribe to our newsletter for weekly insights on eco-friendly home and yard maintenance.*
     `
   }
 ]
