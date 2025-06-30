@@ -40,7 +40,7 @@ const ServicesPage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-offwhite-50 via-cream-50 to-sage-50 py-12 md:py-20">
+      <section className="bg-gradient-to-br from-offwhite-50 via-cream-50 to-sage-50 py-12 md:py-16">
         <div className="container-max px-4">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-bold text-sage-900 mb-4 md:mb-6">
@@ -59,7 +59,7 @@ const ServicesPage = () => {
       </section>
 
       {/* Current Services */}
-      <section className="py-12 md:py-20 bg-offwhite-50">
+      <section className="py-12 md:py-16 bg-offwhite-50">
         <div className="container-max px-4">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-sage-900 mb-4 md:mb-6">
@@ -138,7 +138,7 @@ const ServicesPage = () => {
       </section>
 
       {/* Coming Soon Services */}
-      <section className="py-12 md:py-20 bg-cream-50">
+      <section className="py-12 md:py-16 bg-cream-50">
         <div className="container-max px-4">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-sage-900 mb-4 md:mb-6">
@@ -184,7 +184,7 @@ const ServicesPage = () => {
       </section>
 
       {/* Why Choose Field & Foyer */}
-      <section className="py-12 md:py-20 bg-sage-600">
+      <section className="py-12 md:py-16 bg-sage-600">
         <div className="container-max px-4 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-offwhite-50 mb-6 md:mb-8">
             Why Choose Field & Foyer?
@@ -274,7 +274,7 @@ const ServicesPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-20 bg-offwhite-50">
+      <section className="py-12 md:py-16 bg-offwhite-50">
         <div className="container-max px-4 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-sage-900 mb-4 md:mb-6">
             Ready to Transform Your Property?

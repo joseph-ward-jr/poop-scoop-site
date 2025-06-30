@@ -82,7 +82,7 @@ const PetWasteRemovalPricingPage = () => {
       {/* Pricing Plans */}
       <section className="section-padding bg-white">
         <div className="container-max">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
             {pricingPlans.map((plan) => (
               <div
                 key={plan.id}
@@ -179,7 +179,7 @@ const PetWasteRemovalPricingPage = () => {
       <section className="section-padding bg-white">
         <div className="container-max">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
+            <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
                 Optional Add-On Services
               </h2>
@@ -274,7 +274,7 @@ const PetWasteRemovalPricingPage = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
                 <div className="bg-sage-50 rounded-xl p-6">
                   <h3 className="text-xl font-bold text-sage-800 mb-4">Volume Discounts Available</h3>
                   <ul className="space-y-2 text-sage-600">

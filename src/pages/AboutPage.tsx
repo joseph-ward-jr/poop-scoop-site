@@ -50,7 +50,7 @@ const AboutPage = () => {
       {/* Team Section - Moved to top to emphasize family-owned business */}
       <section className="section-padding bg-white">
         <div className="container-max">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
               Meet Our Team
             </h2>
@@ -84,7 +84,7 @@ const AboutPage = () => {
       {/* Our Story Section */}
       <section className="section-padding bg-white">
         <div className="container-max">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-6">
                 Our Story

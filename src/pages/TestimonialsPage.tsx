@@ -155,7 +155,7 @@ const TestimonialsPage = () => {
       {/* All Testimonials Grid */}
       <section className="section-padding bg-cream-50">
         <div className="container-max">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
               All Customer Reviews
             </h2>

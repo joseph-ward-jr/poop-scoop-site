@@ -103,9 +103,9 @@ const HomePage = () => {
       {/* Premium Minimalist Hero Section */}
       <section className="relative min-h-screen flex items-center bg-offwhite-50">
         <div className="container-max px-4 md:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center min-h-screen py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-screen py-12">
             {/* Left Side - Content */}
-            <div className="lg:col-span-7 space-y-12">
+            <div className="lg:col-span-7 space-y-8">
               {/* Top Tag */}
               <div className="inline-flex items-center px-4 py-2 bg-sage-100/50 rounded-full">
                 <span className="text-sage-700 font-medium text-xs tracking-[0.2em] uppercase">
@@ -206,7 +206,7 @@ const HomePage = () => {
         </div>
 
         <div className="container-max px-4 md:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-32">
+          <div className="text-center mb-16">
             <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full text-sage-800 font-medium text-sm tracking-wide uppercase mb-8">
               ✨ The Field & Foyer Difference
             </div>
@@ -263,7 +263,7 @@ const HomePage = () => {
               Ready for Your<br />
               <span className="bg-gradient-to-r from-cream-200 to-offwhite-100 bg-clip-text text-transparent">Lawn Transformation?</span>
             </h2>
-            <p className="text-2xl text-sage-100 mb-16 leading-relaxed font-light max-w-4xl mx-auto">
+            <p className="text-2xl text-sage-100 mb-10 leading-relaxed font-light max-w-4xl mx-auto">
               Join discerning homeowners who trust
               <span className="font-medium text-offwhite-50"> Field & Foyer </span>
               for their complete home and lawn needs.
@@ -300,7 +300,7 @@ const HomePage = () => {
 
         <div className="container-max px-4 md:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-20">
+            <div className="text-center mb-12">
               <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full text-sage-800 font-medium text-sm tracking-wide uppercase mb-8">
                 🌱 Start Your Journey
               </div>
