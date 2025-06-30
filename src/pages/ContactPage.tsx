@@ -145,7 +145,7 @@ const ContactPage = () => {
       {/* Contact Info Cards */}
       <section className="section-padding bg-gradient-to-br from-offwhite-50 to-sage-50">
         <div className="container-max">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             {contactInfo.map((info, index) => {
               // Define unique gradient and accent colors for each card
               const cardStyles = [
@@ -237,7 +237,7 @@ const ContactPage = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
               Request Your Free Estimate
             </h2>
-            <p className="text-xl text-gray-600 mb-12 leading-relaxed">
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Get your personalized quote within 24 hours. No obligations, just honest pricing for premium service.
             </p>
             <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl">
@@ -263,7 +263,7 @@ const ContactPage = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
               <div className="text-center p-8 bg-gray-50 rounded-2xl">
                 <div className="w-16 h-16 bg-primary-600 text-black rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6">
                   1

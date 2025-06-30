@@ -129,7 +129,7 @@ const BlogPostPage = () => {
 
       {/* Featured Image */}
       {post.featuredImage && (
-        <div className="aspect-video max-w-6xl mx-auto my-12 px-4 sm:px-6 lg:px-8">
+        <div className="aspect-video max-w-6xl mx-auto my-8 px-4 sm:px-6 lg:px-8">
           <img
             src={post.featuredImage}
             alt={post.title}
@@ -147,7 +147,7 @@ const BlogPostPage = () => {
           />
 
           {/* Call-to-Action */}
-          <div className="mt-16 p-8 bg-gradient-to-r from-sage-600 to-sage-700 rounded-2xl text-center text-white">
+          <div className="mt-10 p-8 bg-gradient-to-r from-sage-600 to-sage-700 rounded-2xl text-center text-white">
             <h3 className="text-2xl font-bold mb-4">
               Ready to Transform Your Outdoor Space?
             </h3>
