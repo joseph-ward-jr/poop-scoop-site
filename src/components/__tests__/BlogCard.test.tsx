@@ -18,8 +18,7 @@ const mockPost: BlogPost = {
     metaTitle: 'Test Blog Post',
     metaDescription: 'This is a test blog post.',
     keywords: ['test', 'blog']
-  },
-  showNewsletterPrompt: true
+  }
 }
 
 const renderWithRouter = (component: React.ReactElement) => {

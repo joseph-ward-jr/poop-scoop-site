@@ -141,11 +141,35 @@ const BlogPostPage = () => {
       {/* Article Content */}
       <article className="container-max px-4 sm:px-6 lg:px-8 pb-16">
         <div className="max-w-4xl mx-auto">
-          <div 
+          <div
             className="prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: formatContent(post.content) }}
           />
-          
+
+          {/* Call-to-Action */}
+          <div className="mt-16 p-8 bg-gradient-to-r from-sage-600 to-sage-700 rounded-2xl text-center text-white">
+            <h3 className="text-2xl font-bold mb-4">
+              Ready to Transform Your Outdoor Space?
+            </h3>
+            <p className="text-sage-100 mb-6 max-w-2xl mx-auto">
+              Get a free consultation and see how our eco-friendly services can make your yard safer,
+              cleaner, and more enjoyable for your family and pets.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                to="/contact?form=true"
+                className="bg-white text-sage-700 px-8 py-4 rounded-xl font-semibold hover:bg-sage-50 transition-colors shadow-lg hover:shadow-xl"
+              >
+                Get Free Consultation
+              </Link>
+              <Link
+                to="/contact?quote=true"
+                className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-sage-700 transition-colors"
+              >
+                Request Quote
+              </Link>
+            </div>
+          </div>
 
         </div>
       </article>
