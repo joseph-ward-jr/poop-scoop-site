@@ -119,6 +119,20 @@ const HomePage = () => {
                 Our Priority.
               </h1>
 
+              {/* Services Status */}
+              <div className="flex flex-col sm:flex-row gap-4 text-sm">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span className="text-sage-700 font-medium">Available Now:</span>
+                  <span className="text-sage-600">Pet Waste Removal</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                  <span className="text-sage-700 font-medium">Coming Soon:</span>
+                  <span className="text-sage-600">House Cleaning • Lawn Care</span>
+                </div>
+              </div>
+
               {/* Body Paragraph */}
               <p className="text-xl md:text-2xl text-sage-600 leading-relaxed max-w-2xl font-light">
                 Elevating your lifestyle with premium home and lawn services that exceed expectations.
