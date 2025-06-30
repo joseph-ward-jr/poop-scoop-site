@@ -123,13 +123,40 @@ describe('ContactPage', () => {
 
   it('shows contact information cards', () => {
     render(<ContactPage />)
-    
+
     expect(screen.getByText('Phone')).toBeInTheDocument()
     expect(screen.getByText('(770) 547-8457')).toBeInTheDocument()
     expect(screen.getByText('Email')).toBeInTheDocument()
     expect(screen.getByText('support@fieldandfoyer.com')).toBeInTheDocument()
     expect(screen.getByText('Service Area')).toBeInTheDocument()
     expect(screen.getByText('Hours')).toBeInTheDocument()
+  })
+
+  it('shows enhanced contact cards with proper styling', () => {
+    render(<ContactPage />)
+
+    // Check that all four contact cards are rendered
+    const phoneCard = screen.getByText('Phone').closest('div')
+    const emailCard = screen.getByText('Email').closest('div')
+    const serviceAreaCard = screen.getByText('Service Area').closest('div')
+    const hoursCard = screen.getByText('Hours').closest('div')
+
+    expect(phoneCard).toBeInTheDocument()
+    expect(emailCard).toBeInTheDocument()
+    expect(serviceAreaCard).toBeInTheDocument()
+    expect(hoursCard).toBeInTheDocument()
+
+    // Check that cards have enhanced styling classes
+    expect(phoneCard).toHaveClass('group', 'relative', 'text-center', 'p-8')
+    expect(emailCard).toHaveClass('group', 'relative', 'text-center', 'p-8')
+    expect(serviceAreaCard).toHaveClass('group', 'relative', 'text-center', 'p-8')
+    expect(hoursCard).toHaveClass('group', 'relative', 'text-center', 'p-8')
+
+    // Check that contact details are displayed
+    expect(screen.getByText('Call us Monday-Friday, 8am-6pm')).toBeInTheDocument()
+    expect(screen.getByText('We respond within 24 hours')).toBeInTheDocument()
+    expect(screen.getByText('Serving 5+ neighborhoods')).toBeInTheDocument()
+    expect(screen.getByText('Weekend service available')).toBeInTheDocument()
   })
 
   it('shows what happens next section', () => {
