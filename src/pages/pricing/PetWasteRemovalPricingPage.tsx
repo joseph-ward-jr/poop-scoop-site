@@ -19,10 +19,8 @@ const PetWasteRemovalPricingPage = () => {
         'Text notifications'
       ],
       pricing: {
-        '1 dog': { small: 25, medium: 30, large: 35 },
-        '2 dogs': { small: 30, medium: 35, large: 45 },
-        '3 dogs': { small: 35, medium: 45, large: 55 },
-        '4+ dogs': { small: 45, medium: 55, large: 65 }
+        '1-2 dogs': { small: 25, large: 35 },
+        '3+ dogs': { small: 35, large: 50 }
       }
     },
     {
@@ -40,10 +38,8 @@ const PetWasteRemovalPricingPage = () => {
         'Service updates'
       ],
       pricing: {
-        '1 dog': { small: 35, medium: 40, large: 50 },
-        '2 dogs': { small: 40, medium: 50, large: 60 },
-        '3 dogs': { small: 50, medium: 60, large: 75 },
-        '4+ dogs': { small: 60, medium: 75, large: 90 }
+        '1-2 dogs': { small: 35, large: 50 },
+        '3+ dogs': { small: 50, large: 70 }
       }
     },
     {
@@ -61,10 +57,8 @@ const PetWasteRemovalPricingPage = () => {
         'Satisfaction guarantee'
       ],
       pricing: {
-        '1 dog': { small: 75, medium: 100, large: 125 },
-        '2 dogs': { small: 100, medium: 125, large: 150 },
-        '3 dogs': { small: 125, medium: 150, large: 200 },
-        '4+ dogs': { small: 150, medium: 200, large: 250 }
+        '1-2 dogs': { small: 125, large: 175 },
+        '3+ dogs': { small: 175, large: 250 }
       }
     }
   ]
@@ -117,6 +111,9 @@ const PetWasteRemovalPricingPage = () => {
                     {plan.description}
                   </p>
                   <div className="mb-6">
+                    <div className={`text-sm font-medium mb-1 ${plan.popular ? 'text-sage-200' : 'text-sage-600'}`}>
+                      starting at
+                    </div>
                     <span className={`text-4xl font-bold ${plan.popular ? 'text-white' : 'text-sage-900'}`}>
                       ${plan.basePrice}
                     </span>
@@ -162,9 +159,8 @@ const PetWasteRemovalPricingPage = () => {
                 <thead>
                   <tr className="border-b border-sage-200">
                     <th className="text-left py-3 px-4 font-semibold text-sage-800">Number of Dogs</th>
-                    <th className="text-center py-3 px-4 font-semibold text-sage-800">Small Yard<br/><span className="text-sm font-normal">(under 1/4 acre)</span></th>
-                    <th className="text-center py-3 px-4 font-semibold text-sage-800">Medium Yard<br/><span className="text-sm font-normal">(1/4 - 1/2 acre)</span></th>
-                    <th className="text-center py-3 px-4 font-semibold text-sage-800">Large Yard<br/><span className="text-sm font-normal">(over 1/2 acre)</span></th>
+                    <th className="text-center py-3 px-4 font-semibold text-sage-800">Standard Yard<br/><span className="text-sm font-normal">(1/4 - 3/4 acre)</span></th>
+                    <th className="text-center py-3 px-4 font-semibold text-sage-800">Large Yard<br/><span className="text-sm font-normal">(1+ acre)</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -172,7 +168,6 @@ const PetWasteRemovalPricingPage = () => {
                     <tr key={dogs} className="border-b border-sage-100">
                       <td className="py-3 px-4 font-medium text-sage-800">{dogs}</td>
                       <td className="text-center py-3 px-4 text-sage-700">${prices.small}</td>
-                      <td className="text-center py-3 px-4 text-sage-700">${prices.medium}</td>
                       <td className="text-center py-3 px-4 text-sage-700">${prices.large}</td>
                     </tr>
                   ))}
@@ -221,7 +216,6 @@ const PetWasteRemovalPricingPage = () => {
 
               <div className="bg-sage-100 rounded-xl p-6 text-center">
                 <p className="text-sage-800 font-medium text-lg mb-4">
-                  <img src="/images/icons/checkmark.svg" alt="Custom Quote" className="w-5 h-5 inline mr-2" />
                   Custom quotes available for properties with unique requirements
                 </p>
                 <a href="/contact?quote=true" className="btn-primary">
