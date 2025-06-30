@@ -34,8 +34,7 @@ const PetWasteRemovalPricingPage = () => {
         'Thorough waste removal',
         'Gate security check',
         'Flexible scheduling',
-        'Service updates',
-        'Quality assurance check'
+        'Service updates'
       ],
       pricing: {
         '1-2 dogs': { small: 35, large: 50 },
@@ -52,9 +51,7 @@ const PetWasteRemovalPricingPage = () => {
         'Complete yard restoration',
         'Deep cleaning service',
         'Debris removal',
-        'Same-day availability',
-        'Satisfaction guarantee',
-        'Before/after photos'
+        'Satisfaction guarantee'
       ],
       pricing: {
         '1-2 dogs': { small: 125, large: 175 },

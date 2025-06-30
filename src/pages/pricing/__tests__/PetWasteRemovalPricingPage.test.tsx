@@ -75,24 +75,21 @@ describe('PetWasteRemovalPricingPage', () => {
 
   it('shows updated features for bi-weekly service', () => {
     render(<PetWasteRemovalPricingPage />)
-    
+
     expect(screen.getByText('Every other week cleanup')).toBeInTheDocument()
     expect(screen.getByText('Thorough waste removal')).toBeInTheDocument()
     expect(screen.getByText('Gate security check')).toBeInTheDocument()
     expect(screen.getByText('Flexible scheduling')).toBeInTheDocument()
     expect(screen.getByText('Service updates')).toBeInTheDocument()
-    expect(screen.getByText('Quality assurance check')).toBeInTheDocument()
   })
 
   it('shows updated features for one-time cleanup', () => {
     render(<PetWasteRemovalPricingPage />)
-    
+
     expect(screen.getByText('Complete yard restoration')).toBeInTheDocument()
     expect(screen.getByText('Deep cleaning service')).toBeInTheDocument()
     expect(screen.getByText('Debris removal')).toBeInTheDocument()
-    expect(screen.getByText('Same-day availability')).toBeInTheDocument()
     expect(screen.getByText('Satisfaction guarantee')).toBeInTheDocument()
-    expect(screen.getByText('Before/after photos')).toBeInTheDocument()
   })
 
   it('shows detailed pricing table with default weekly service', () => {
