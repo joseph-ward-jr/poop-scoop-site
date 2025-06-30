@@ -111,6 +111,9 @@ const PetWasteRemovalPricingPage = () => {
                     {plan.description}
                   </p>
                   <div className="mb-6">
+                    <div className={`text-sm font-medium mb-1 ${plan.popular ? 'text-sage-200' : 'text-sage-600'}`}>
+                      starting at
+                    </div>
                     <span className={`text-4xl font-bold ${plan.popular ? 'text-white' : 'text-sage-900'}`}>
                       ${plan.basePrice}
                     </span>
