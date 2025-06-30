@@ -169,7 +169,7 @@ const PetWasteRemovalPage = () => {
                     <li>• Flexible scheduling around residents</li>
                     <li>• Professional, uniformed service teams</li>
                     <li>• Detailed service reporting</li>
-                    <li>• Liability insurance and bonding</li>
+                    <li>• Liability insurance</li>
                     <li>• Emergency and on-call services</li>
                   </ul>
                 </div>

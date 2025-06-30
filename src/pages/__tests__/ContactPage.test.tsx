@@ -173,7 +173,7 @@ describe('ContactPage', () => {
     
     expect(screen.getByText('Why Choose Field & Foyer?')).toBeInTheDocument()
     expect(screen.getByText('100% Satisfaction Guarantee')).toBeInTheDocument()
-    expect(screen.getByText('Fully Insured & Bonded')).toBeInTheDocument()
+    expect(screen.getByText('Fully Insured')).toBeInTheDocument()
     expect(screen.getByText('Eco-Friendly Methods')).toBeInTheDocument()
     expect(screen.getByText('Local Family Business')).toBeInTheDocument()
   })
