@@ -19,7 +19,7 @@ const BlogPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-offwhite-50 to-cream-50">
       {/* Hero Section */}
-      <section className="bg-sage-800 text-white py-20">
+      <section className="bg-sage-800 text-white py-12">
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -38,10 +38,10 @@ const BlogPage = () => {
         </div>
       </section>
 
-      <div className="container-max px-4 sm:px-6 lg:px-8 py-16">
+      <div className="container-max px-4 sm:px-6 lg:px-8 py-12">
         {/* Featured Post */}
         {featuredPost && (
-          <section className="mb-16">
+          <section className="mb-10">
             <div className="flex items-center mb-8">
               <h2 className="text-3xl font-bold text-sage-800">Featured Article</h2>
               <div className="ml-4 h-px bg-sage-200 flex-1"></div>
@@ -123,7 +123,7 @@ const BlogPage = () => {
         </section>
 
         {/* Call-to-Action */}
-        <section className="mt-20">
+        <section className="mt-12">
           <div className="bg-gradient-to-r from-sage-600 to-sage-700 rounded-3xl p-12 text-center text-white">
             <h2 className="text-3xl font-bold mb-4">🌿 Transform Your Outdoor Space Today</h2>
             <p className="text-sage-100 mb-8 max-w-2xl mx-auto">
