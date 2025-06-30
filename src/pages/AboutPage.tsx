@@ -1,7 +1,7 @@
 const AboutPage = () => {
   const reasons = [
     'Family-owned and operated',
-    'Fully insured and bonded for your peace of mind',
+    'Fully insured for your peace of mind',
     'Eco-conscious methods that protect your lawn ecosystem',
     'Flexible scheduling to fit your busy lifestyle',
     'Transparent pricing with no hidden fees or surprises',
