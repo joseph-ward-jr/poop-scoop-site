@@ -13,10 +13,10 @@ const PetWasteRemovalPricingPage = () => {
       features: [
         'Weekly yard cleanup',
         'All waste removed and disposed',
-        'Yard deodorizing spray',
         'Gate left securely closed',
         'Service rain or shine',
-        'Text notifications'
+        'Text notifications',
+        'Professional service guarantee'
       ],
       pricing: {
         '1-2 dogs': { small: 25, large: 35 },
@@ -32,10 +32,10 @@ const PetWasteRemovalPricingPage = () => {
       features: [
         'Every other week cleanup',
         'Thorough waste removal',
-        'Yard deodorizing spray',
         'Gate security check',
         'Flexible scheduling',
-        'Service updates'
+        'Service updates',
+        'Quality assurance check'
       ],
       pricing: {
         '1-2 dogs': { small: 35, large: 50 },
@@ -47,14 +47,14 @@ const PetWasteRemovalPricingPage = () => {
       name: 'One-time Cleanup',
       popular: false,
       description: 'Perfect for special events or initial cleanup',
-      basePrice: 75,
+      basePrice: 125,
       features: [
         'Complete yard restoration',
         'Deep cleaning service',
-        'Sanitization treatment',
         'Debris removal',
         'Same-day availability',
-        'Satisfaction guarantee'
+        'Satisfaction guarantee',
+        'Before/after photos'
       ],
       pricing: {
         '1-2 dogs': { small: 125, large: 175 },
@@ -173,6 +173,90 @@ const PetWasteRemovalPricingPage = () => {
                   ))}
                 </tbody>
               </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Add-On Services Section */}
+      <section className="section-padding bg-white">
+        <div className="container-max">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
+                Optional Add-On Services
+              </h2>
+              <p className="text-xl text-sage-700 leading-relaxed">
+                Enhance your service with our premium add-ons for the ultimate yard care experience
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-sage-50 to-cream-50 rounded-2xl p-8 md:p-12 shadow-lg border border-sage-200">
+              <div className="flex flex-col md:flex-row items-center justify-between">
+                <div className="flex-1 mb-6 md:mb-0 md:mr-8">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-sage-500 rounded-full flex items-center justify-center mr-4">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-sage-900">
+                      Deodorizing & Sanitization Treatment
+                    </h3>
+                  </div>
+                  <p className="text-sage-700 text-lg leading-relaxed mb-4">
+                    Professional-grade deodorizing spray and sanitization treatment to eliminate odors and bacteria,
+                    leaving your yard fresh and hygienic for your family and pets.
+                  </p>
+                  <ul className="space-y-2 text-sage-600">
+                    <li className="flex items-center">
+                      <svg className="w-4 h-4 text-sage-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Eliminates pet odors and bacteria
+                    </li>
+                    <li className="flex items-center">
+                      <svg className="w-4 h-4 text-sage-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Safe for pets and children
+                    </li>
+                    <li className="flex items-center">
+                      <svg className="w-4 h-4 text-sage-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Long-lasting freshness
+                    </li>
+                    <li className="flex items-center">
+                      <svg className="w-4 h-4 text-sage-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Eco-friendly formula
+                    </li>
+                  </ul>
+                </div>
+                <div className="text-center">
+                  <div className="bg-white rounded-xl p-6 shadow-lg border border-sage-200">
+                    <div className="text-sm font-medium text-sage-600 mb-2">Add-on Price</div>
+                    <div className="text-4xl font-bold text-sage-900 mb-2">$15</div>
+                    <div className="text-sm text-sage-600 mb-4">per visit</div>
+                    <div className="bg-sage-100 rounded-lg p-3">
+                      <p className="text-sm text-sage-700 font-medium">
+                        Available with any service plan
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 text-center">
+              <p className="text-sage-600 mb-4">
+                Want to add deodorizing & sanitization to your service?
+              </p>
+              <a href="/contact?addon=deodorizing" className="btn-primary">
+                Request Add-On Service
+              </a>
             </div>
           </div>
         </div>
