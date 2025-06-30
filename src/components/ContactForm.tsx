@@ -121,11 +121,11 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
     return (
       <form
         onSubmit={handleSubmit}
-        className="bg-offwhite-50 rounded-[2rem] p-12 shadow-2xl border border-sage-200 hover:shadow-3xl transition-all duration-500"
+        className="bg-offwhite-50 rounded-[2rem] p-8 shadow-2xl border border-sage-200 hover:shadow-3xl transition-all duration-500 space-y-6"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="name" className="block text-lg font-semibold text-sage-800 mb-4">
+            <label htmlFor="name" className="block text-sm font-medium text-sage-800 mb-2">
               Full Name *
             </label>
             <input
@@ -135,12 +135,12 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
               value={formData.name}
               onChange={handleInputChange}
               required
-              className="w-full px-6 py-5 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 text-lg hover:border-sage-300"
+              className="w-full px-4 py-3 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 hover:border-sage-300"
               placeholder="Your full name"
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-lg font-semibold text-sage-800 mb-4">
+            <label htmlFor="email" className="block text-sm font-medium text-sage-800 mb-2">
               Email Address *
             </label>
             <input
@@ -150,15 +150,15 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
               value={formData.email}
               onChange={handleInputChange}
               required
-              className="w-full px-6 py-5 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 text-lg hover:border-sage-300"
+              className="w-full px-4 py-3 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 hover:border-sage-300"
               placeholder="your@email.com"
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="phone" className="block text-lg font-semibold text-sage-800 mb-4">
+            <label htmlFor="phone" className="block text-sm font-medium text-sage-800 mb-2">
               Phone Number *
             </label>
             <input
@@ -168,12 +168,12 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
               value={formData.phone}
               onChange={handleInputChange}
               required
-              className="w-full px-6 py-5 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 text-lg hover:border-sage-300"
+              className="w-full px-4 py-3 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 hover:border-sage-300"
               placeholder="(123) 456-7890"
             />
           </div>
           <div>
-            <label htmlFor="address" className="block text-lg font-semibold text-sage-800 mb-4">
+            <label htmlFor="address" className="block text-sm font-medium text-sage-800 mb-2">
               Home or Commercial Address *
             </label>
             <input
@@ -183,14 +183,14 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
               value={formData.address}
               onChange={handleInputChange}
               required
-              className="w-full px-6 py-5 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 text-lg hover:border-sage-300"
+              className="w-full px-4 py-3 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 hover:border-sage-300"
               placeholder="123 Main St, City, State 12345"
             />
           </div>
         </div>
 
-        <div className="mb-10">
-          <label htmlFor="contactPreference" className="block text-lg font-semibold text-sage-800 mb-4">
+        <div>
+          <label htmlFor="contactPreference" className="block text-sm font-medium text-sage-800 mb-2">
             How would you like to be contacted? *
           </label>
           <select
@@ -199,7 +199,7 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
             value={formData.contactPreference}
             onChange={handleInputChange}
             required
-            className="w-full px-6 py-5 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 text-lg hover:border-sage-300"
+            className="w-full px-4 py-3 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 hover:border-sage-300"
           >
             <option value="">Select contact method</option>
             <option value="call">Call</option>
@@ -208,8 +208,8 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
           </select>
         </div>
 
-        <div className="mb-12">
-          <label htmlFor="additionalInfo" className="block text-lg font-semibold text-sage-800 mb-4">
+        <div>
+          <label htmlFor="additionalInfo" className="block text-sm font-medium text-sage-800 mb-2">
             Additional Information
           </label>
           <textarea
@@ -218,7 +218,7 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
             value={formData.additionalInfo}
             onChange={handleInputChange}
             rows={4}
-            className="w-full px-6 py-5 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 text-lg hover:border-sage-300"
+            className="w-full px-4 py-3 border-2 border-sage-200 rounded-2xl focus:ring-4 focus:ring-sage-300 focus:border-sage-500 transition-all duration-300 bg-cream-50 hover:border-sage-300"
             placeholder="Tell us what services you're interested in, any special requirements, access instructions, or questions you have..."
           />
         </div>
@@ -226,7 +226,7 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full font-bold py-6 px-12 rounded-2xl text-xl transition-all duration-500 shadow-xl hover:shadow-2xl group ${
+          className={`w-full font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-500 shadow-xl hover:shadow-2xl group ${
             isSubmitting
               ? 'bg-gray-400 cursor-not-allowed'
               : 'bg-sage-600 hover:bg-sage-700 hover:-translate-y-1 hover:scale-105'
