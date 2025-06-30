@@ -143,22 +143,89 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-gradient-to-br from-offwhite-50 to-sage-50">
         <div className="container-max">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {contactInfo.map((info, index) => (
-              <div
-                key={index}
-                className="text-center p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="w-12 h-12 mx-auto mb-4">
-                  <img src={info.image} alt={info.title} className="w-full h-full object-contain" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {contactInfo.map((info, index) => {
+              // Define unique gradient and accent colors for each card
+              const cardStyles = [
+                {
+                  gradient: 'from-sage-50 to-sage-100',
+                  iconBg: 'bg-sage-500',
+                  iconColor: 'text-offwhite-50',
+                  titleColor: 'text-sage-800',
+                  detailColor: 'text-sage-600',
+                  border: 'border-sage-200',
+                  shadow: 'shadow-sage-200/50'
+                },
+                {
+                  gradient: 'from-cream-50 to-cream-100',
+                  iconBg: 'bg-cream-500',
+                  iconColor: 'text-offwhite-50',
+                  titleColor: 'text-cream-800',
+                  detailColor: 'text-cream-600',
+                  border: 'border-cream-200',
+                  shadow: 'shadow-cream-200/50'
+                },
+                {
+                  gradient: 'from-offwhite-100 to-offwhite-200',
+                  iconBg: 'bg-sage-600',
+                  iconColor: 'text-offwhite-50',
+                  titleColor: 'text-sage-800',
+                  detailColor: 'text-sage-600',
+                  border: 'border-offwhite-300',
+                  shadow: 'shadow-offwhite-300/50'
+                },
+                {
+                  gradient: 'from-sage-100 to-cream-50',
+                  iconBg: 'bg-cream-600',
+                  iconColor: 'text-offwhite-50',
+                  titleColor: 'text-sage-800',
+                  detailColor: 'text-cream-700',
+                  border: 'border-sage-200',
+                  shadow: 'shadow-sage-200/50'
+                }
+              ][index]
+
+              return (
+                <div
+                  key={index}
+                  className={`group relative text-center p-8 bg-gradient-to-br ${cardStyles.gradient} rounded-2xl border ${cardStyles.border} hover:shadow-2xl ${cardStyles.shadow} transition-all duration-500 hover:-translate-y-2 hover:scale-105 overflow-hidden`}
+                >
+                  {/* Subtle background pattern */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white to-transparent transform rotate-45 translate-x-full group-hover:translate-x-[-100%] transition-transform duration-1000"></div>
+                  </div>
+
+                  {/* Icon container with enhanced styling */}
+                  <div className={`relative w-20 h-20 mx-auto mb-6 ${cardStyles.iconBg} rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-3`}>
+                    <div className="w-10 h-10">
+                      <img
+                        src={info.image}
+                        alt={info.title}
+                        className="w-full h-full object-contain filter brightness-0 invert"
+                      />
+                    </div>
+                    {/* Glow effect */}
+                    <div className={`absolute inset-0 ${cardStyles.iconBg} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`}></div>
+                  </div>
+
+                  {/* Content */}
+                  <h3 className={`text-xl font-bold ${cardStyles.titleColor} mb-3 group-hover:scale-105 transition-transform duration-300`}>
+                    {info.title}
+                  </h3>
+                  <p className={`${cardStyles.detailColor} font-semibold text-lg mb-3 group-hover:scale-105 transition-transform duration-300 delay-75`}>
+                    {info.details}
+                  </p>
+                  <p className="text-gray-600 text-sm leading-relaxed group-hover:scale-105 transition-transform duration-300 delay-100">
+                    {info.description}
+                  </p>
+
+                  {/* Decorative corner accent */}
+                  <div className={`absolute top-0 right-0 w-16 h-16 ${cardStyles.iconBg} opacity-10 rounded-bl-full transform translate-x-8 -translate-y-8 group-hover:scale-150 transition-transform duration-500`}></div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{info.title}</h3>
-                <p className="text-primary-600 font-semibold mb-2">{info.details}</p>
-                <p className="text-gray-600 text-sm">{info.description}</p>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
