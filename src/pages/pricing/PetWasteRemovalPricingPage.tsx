@@ -216,7 +216,6 @@ const PetWasteRemovalPricingPage = () => {
 
               <div className="bg-sage-100 rounded-xl p-6 text-center">
                 <p className="text-sage-800 font-medium text-lg mb-4">
-                  <img src="/images/icons/checkmark.svg" alt="Custom Quote" className="w-5 h-5 inline mr-2" />
                   Custom quotes available for properties with unique requirements
                 </p>
                 <a href="/contact?quote=true" className="btn-primary">
