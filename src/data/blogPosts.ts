@@ -143,7 +143,6 @@ Different surfaces offer various advantages:
 **Solutions:**
 - **Understand that marking** is different from elimination
 - **Focus training** on full elimination sessions
-- **Consider neutering** if your dog isn't already fixed
 - **Use enzymatic cleaners** on previous marking spots
 
 ### Challenge: Regression After Initial Success
@@ -205,29 +204,13 @@ Proper waste management protects local ecosystems:
 - **Check boundaries** and repair any fencing
 - **Assess overall effectiveness** and make adjustments
 
-## Professional Support Options
-
-### When to Call Field & Foyer
-
-Consider professional help if:
-
-- **Training isn't progressing** after 4-6 weeks
-- **Multiple dogs** are creating complex dynamics
-- **Health concerns** arise from waste accumulation
-- **Yard damage** is extensive and needs restoration
 
 ### Our Comprehensive Services
-
-**Training Support:**
-- **Customized training plans** for your specific situation
-- **Ongoing consultation** throughout the training process
-- **Problem-solving assistance** for challenging cases
 
 **Maintenance Services:**
 - **Regular pet waste removal** from designated areas
 - **Professional poop scooping** services on your schedule
 - **Sanitization treatments** using eco-friendly products
-- **Area restoration** and surface replacement
 - **Odor control solutions** for persistent problems
 
 ## The Long-Term Benefits
@@ -277,15 +260,15 @@ For additional support or professional maintenance services, Field & Foyer is he
     seo: {
       metaTitle: 'Backyard vs Bathroom: Barefoot Safety Comparison | Field & Foyer',
       metaDescription: 'Learn why your backyard may be more contaminated than your bathroom and how professional eco-friendly cleaning can make it safe for barefoot enjoyment.',
-      keywords: ['backyard safety', 'pet waste removal', 'eco-friendly disinfectant', 'Wysiwash', 'yard cleaning', 'barefoot safety']
+      keywords: ['backyard safety', 'pet waste removal', 'eco-friendly disinfectant', 'Wysiwash', 'yard cleaning', 'barefoot safety', 'poop scooping']
     },
 
     content: `
 # Why Your Backyard is Worse for Being Barefoot Than Your Bathroom
 
-*Published on June 29, 2025 by Joey Ward*
+*Published on June 28, 2025 by Joey Ward*
 
-When was the last time you walked barefoot through your bathroom? Probably never, right? Yet many of us think nothing of stepping barefoot onto our backyard grass. Here's the shocking truth: **your backyard is likely harboring more dangerous bacteria and parasites than your bathroom floor.**
+Your backyard looks clean and green—but what’s really lurking beneath the grass? Even the most well-kept **lawns can harbor bacteria, parasites, and fungi that pose risks to your family and pets.**
 
 ## The Hidden Dangers Lurking in Your Yard
 
