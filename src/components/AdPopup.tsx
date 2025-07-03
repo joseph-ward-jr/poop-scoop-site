@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 
 interface AdPopupProps {
   isOpen: boolean
@@ -10,15 +10,8 @@ const AdPopup = ({ isOpen, onClose }: AdPopupProps) => {
     if (!isOpen) return
 
     // Handle keyboard events
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = () => {
       onClose() // Close on any key press
-    }
-
-    // Handle escape key specifically (optional, since any key closes it)
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        onClose()
-      }
     }
 
     // Add event listeners
