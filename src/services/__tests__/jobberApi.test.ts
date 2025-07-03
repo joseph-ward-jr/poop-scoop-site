@@ -166,20 +166,35 @@ describe('JobberApiService', () => {
         }
       }
 
-      ;(fetch as any).mockResolvedValueOnce({
-        ok: true,
-        json: async () => mockResponse
-      })
+      // Mock both the client creation call and the note creation call
+      ;(fetch as any)
+        .mockResolvedValueOnce({
+          ok: true,
+          json: async () => mockResponse
+        })
+        .mockResolvedValueOnce({
+          ok: true,
+          json: async () => ({ data: { clientNoteCreate: { clientNote: { id: 'note123' }, userErrors: [] } } })
+        })
 
       await jobberApi.createClientFromForm(mockFormData)
 
-      const fetchCall = (fetch as any).mock.calls[0]
-      const requestBody = JSON.parse(fetchCall[1].body)
-      const notes = requestBody.variables.input.notes
-      
-      expect(notes).toContain('Contact Preference: email')
-      expect(notes).toContain('Additional Information: Interested in weekly service')
-      expect(notes).toContain('Lead Source: Field & Foyer Website')
+      // Check that fetch was called twice (client creation + note creation)
+      expect(fetch).toHaveBeenCalledTimes(2)
+
+      // Check the first call (client creation) - should NOT have notes in input
+      const clientCreateCall = (fetch as any).mock.calls[0]
+      const clientCreateBody = JSON.parse(clientCreateCall[1].body)
+      expect(clientCreateBody.variables.input.notes).toBeUndefined()
+
+      // Check the second call (note creation) - should have the note content
+      const noteCreateCall = (fetch as any).mock.calls[1]
+      const noteCreateBody = JSON.parse(noteCreateCall[1].body)
+      const noteContent = noteCreateBody.variables.input.note
+
+      expect(noteContent).toContain('Contact Preference: email')
+      expect(noteContent).toContain('Additional Information: Interested in weekly service')
+      expect(noteContent).toContain('Lead Source: Field & Foyer Website')
     })
   })
 

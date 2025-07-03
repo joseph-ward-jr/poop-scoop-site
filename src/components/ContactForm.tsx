@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useJobberSubmission } from '../hooks/useJobberSubmission'
 import { ContactFormData } from '../types/jobber'
+import { trackLead, trackContact } from './MetaPixel'
 
 interface ContactFormProps {
   variant?: 'homepage' | 'contact'
@@ -36,6 +37,13 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
     setSubmitError(null)
 
     try {
+      // Track Meta Pixel events for form submission
+      trackContact({
+        content_category: 'Contact Form',
+        content_name: variant === 'homepage' ? 'Homepage Contact Form' : 'Contact Page Form',
+        value: 1
+      })
+
       // If custom onSubmit is provided, use it
       if (onSubmit) {
         onSubmit(formData)
@@ -50,6 +58,15 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
 
         if (result.success) {
           console.log('Successfully created Jobber client:', result.client)
+
+          // Track successful lead conversion
+          trackLead({
+            content_category: 'Contact Form',
+            content_name: variant === 'homepage' ? 'Homepage Contact Form' : 'Contact Page Form',
+            value: 1,
+            currency: 'USD'
+          })
+
           setIsSubmitted(true)
           resetFormAfterDelay()
         } else {

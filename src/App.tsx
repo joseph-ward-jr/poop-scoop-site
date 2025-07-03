@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
+import MetaPixel from './components/MetaPixel'
 
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
@@ -36,6 +37,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <MetaPixel />
         <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
