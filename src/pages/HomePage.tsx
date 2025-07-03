@@ -130,6 +130,20 @@ const HomePage = () => {
                 Our Priority.
               </h1>
 
+              {/* Services Status */}
+              <div className="flex flex-col sm:flex-row gap-4 text-sm">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-sage-700 font-medium">Available Now:</span>
+                  <span className="text-sage-600">Pet Waste Removal</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                  <span className="text-sage-700 font-medium">Coming Soon:</span>
+                  <span className="text-sage-600">House Cleaning • Lawn Care</span>
+                </div>
+              </div>
+
               {/* Body Paragraph */}
               <p className="text-xl md:text-2xl text-sage-600 leading-relaxed max-w-2xl font-light">
                 We proudly specialize in professional pet waste removal and lawn sanitization services that elevate your property into a pristine, refined sanctuary.
@@ -174,21 +188,6 @@ const HomePage = () => {
             </div>
             {/* Right Side - Designated Space for Graphic */}
             <div className="lg:col-span-5 relative">
-              {/* Services Status - Positioned above image area */}
-              <div className="absolute -top-4 right-0 z-20 flex flex-col lg:flex-row gap-2 lg:gap-3">
-                <div className="inline-flex items-center px-3 py-1.5 bg-green-100/95 backdrop-blur-sm rounded-full animate-pulse shadow-lg">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                  <span className="text-green-800 font-bold text-xs lg:text-sm tracking-wide">
-                    AVAILABLE NOW: Pet Waste Removal
-                  </span>
-                </div>
-                <div className="inline-flex items-center px-3 py-1.5 bg-amber-100/95 backdrop-blur-sm rounded-full shadow-lg">
-                  <div className="w-2 h-2 bg-amber-500 rounded-full mr-2"></div>
-                  <span className="text-amber-800 font-semibold text-xs lg:text-sm tracking-wide">
-                    COMING SOON: House Cleaning • Lawn Care
-                  </span>
-                </div>
-              </div>
 
               <div className="aspect-square max-w-lg mx-auto">
                 {/* Rounded corner graphic element space */}
