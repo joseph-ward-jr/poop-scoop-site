@@ -29,6 +29,7 @@ export type MetaPixelEvent =
 // Meta Pixel parameters for events
 export interface MetaPixelParameters {
   content_category?: string;
+  content_id?: string;
   content_ids?: string[];
   content_name?: string;
   content_type?: string;
