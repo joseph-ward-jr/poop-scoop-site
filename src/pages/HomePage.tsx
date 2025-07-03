@@ -109,7 +109,7 @@ const HomePage = () => {
               {/* Top Tag */}
               <div className="inline-flex items-center px-4 py-2 bg-sage-100/50 rounded-full">
                 <span className="text-sage-700 font-medium text-xs tracking-[0.2em] uppercase">
-                  Premium Home & Lawn Services
+                  Premium Pet Waste Removal Services
                 </span>
               </div>
 
@@ -119,24 +119,10 @@ const HomePage = () => {
                 Our Priority.
               </h1>
 
-              {/* Services Status */}
-              <div className="flex flex-col sm:flex-row gap-4 text-sm">
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-sage-700 font-medium">Available Now:</span>
-                  <span className="text-sage-600">Pet Waste Removal</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                  <span className="text-sage-700 font-medium">Coming Soon:</span>
-                  <span className="text-sage-600">House Cleaning • Lawn Care</span>
-                </div>
-              </div>
-
               {/* Body Paragraph */}
               <p className="text-xl md:text-2xl text-sage-600 leading-relaxed max-w-2xl font-light">
-                Elevating your lifestyle with premium home and lawn services that exceed expectations.
-                From lawn care to comprehensive home maintenance coming soon, we deliver excellence in every detail.
+                We proudly specialize in professional pet waste removal and lawn sanitization services that elevate your property into a pristine, refined sanctuary.
+                <span className="font-medium text-sage-800"> Our vision reaches far beyond today's offerings: we are crafting a comprehensive home care experience that will encompass premium house cleaning and meticulous lawn maintenance, each delivered with the same uncompromising standard of excellence and attention to detail.</span>
               </p>
 
               {/* Buttons */}
@@ -178,6 +164,22 @@ const HomePage = () => {
             </div>
             {/* Right Side - Designated Space for Graphic */}
             <div className="lg:col-span-5 relative">
+              {/* Services Status - Positioned above image area */}
+              <div className="absolute -top-4 right-0 z-20 flex flex-col lg:flex-row gap-2 lg:gap-3">
+                <div className="inline-flex items-center px-3 py-1.5 bg-green-100/95 backdrop-blur-sm rounded-full animate-pulse shadow-lg">
+                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                  <span className="text-green-800 font-bold text-xs lg:text-sm tracking-wide">
+                    AVAILABLE NOW: Pet Waste Removal
+                  </span>
+                </div>
+                <div className="inline-flex items-center px-3 py-1.5 bg-amber-100/95 backdrop-blur-sm rounded-full shadow-lg">
+                  <div className="w-2 h-2 bg-amber-500 rounded-full mr-2"></div>
+                  <span className="text-amber-800 font-semibold text-xs lg:text-sm tracking-wide">
+                    COMING SOON: House Cleaning • Lawn Care
+                  </span>
+                </div>
+              </div>
+
               <div className="aspect-square max-w-lg mx-auto">
                 {/* Rounded corner graphic element space */}
                 <div className="w-full h-full bg-gradient-to-br from-sage-100/20 to-cream-100/20 rounded-3xl border border-sage-200/30 flex items-center justify-center">
