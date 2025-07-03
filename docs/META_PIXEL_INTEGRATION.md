@@ -12,12 +12,12 @@ The Meta Pixel (Facebook Pixel) is integrated to track:
 
 ## Implementation Details
 
-### 1. Base Pixel Code (SPA Version)
+### 1. Base Pixel Code (Standard Implementation)
 
-The Meta Pixel base code is added to `index.html` in the `<head>` section. **Important**: For Single Page Applications (SPAs), the base code should only initialize the pixel, NOT track PageView events:
+The Meta Pixel base code is added to `index.html` in the `<head>` section. This follows Facebook's standard implementation pattern for maximum compatibility:
 
 ```html
-<!-- Meta Pixel Code (SPA Version - Init Only) -->
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -28,7 +28,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1387106492582276');
-// PageView tracking handled by React for SPA
+fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1387106492582276&ev=PageView&noscript=1"
@@ -38,22 +38,22 @@ src="https://www.facebook.com/tr?id=1387106492582276&ev=PageView&noscript=1"
 
 **Pixel ID**: `1387106492582276`
 
-**Key SPA Difference**: Notice that `fbq('track', 'PageView');` is NOT included in the base code. This prevents double-tracking of the initial page load.
+**Detection Compatibility**: This standard implementation ensures Facebook's detection tools (Pixel Helper, Events Manager) can properly identify the pixel on your website.
 
 ### 2. React Components
 
 #### MetaPixel Component (`src/components/MetaPixel.tsx`)
 
-A React component specifically designed for Single Page Applications that:
-- Tracks the initial page load (since base code doesn't include PageView)
-- Automatically tracks page views when routes change
+A React component designed for Single Page Applications that:
+- Tracks route changes (initial page load handled by base code)
+- Automatically tracks page views when users navigate between pages
 - Provides utility functions for custom event tracking
 - Handles graceful fallbacks when pixel is not available
 
-#### Key SPA Features:
-- **Complete Page View Tracking**: Handles BOTH initial page load AND route changes
-- **No Double Tracking**: Prevents duplicate PageView events on first page
-- **Async Loading Support**: Waits for fbq to be available before tracking
+#### Key Features:
+- **Route Change Tracking**: Handles page views for SPA navigation
+- **No Double Tracking**: Skips initial page load (handled by base code)
+- **Detection Compatible**: Works with Facebook's standard detection tools
 - **TypeScript Support**: Full type definitions for events and parameters
 - **Error Handling**: Graceful handling when fbq is not available
 - **Console Logging**: Development-friendly logging for debugging
@@ -62,10 +62,12 @@ A React component specifically designed for Single Page Applications that:
 
 #### Automatic Events:
 - **PageView**: Tracked automatically on initial page load AND every route change (SPA-optimized)
+- **ViewContent**: Automatically tracked for key pages (services, pricing, about)
 
 #### Custom Events:
-- **Contact**: Tracked when contact forms are submitted
+- **Contact**: Tracked when contact forms are submitted and phone links are clicked
 - **Lead**: Tracked when successful lead conversions occur
+- **InitiateCheckout**: Tracked when users click "Get In Touch" or "Get Free Quote" buttons
 
 #### Contact Form Integration:
 The `ContactForm` component automatically tracks:
@@ -79,10 +81,13 @@ The `ContactForm` component automatically tracks:
 trackMetaPixelEvent('Lead', { value: 100, currency: 'USD' })
 
 // Specific tracking functions
-trackLead({ content_name: 'Contact Form', value: 1 })
+trackLead({ content_name: 'Contact Form', value: 50, currency: 'USD' })
 trackContact({ content_category: 'Pet Waste Removal' })
-trackViewContent({ content_name: 'Services Page' })
+trackViewContent({ content_name: 'Services Page', content_type: 'service_overview' })
 trackSearch('pet waste removal atlanta')
+trackInitiateCheckout({ content_name: 'Get In Touch Button' })
+trackPhoneCall({ content_name: 'Footer Phone Link' })
+trackSchedule({ content_name: 'Service Booking', value: 100 })
 ```
 
 ## File Structure
@@ -170,37 +175,35 @@ The test suite covers:
    - Select your pixel (ID: 1387106492582276)
    - Use "Test Events" to verify real-time tracking
 
-## Single Page Application (SPA) Best Practices
+## Single Page Application (SPA) Implementation
 
-This implementation follows Meta's recommended best practices for SPAs:
+This implementation balances Facebook's detection requirements with SPA functionality:
 
-### Why SPA Implementation is Different
+### Detection vs SPA Optimization
 
-**Traditional Websites**: Each page load triggers the pixel code, so `fbq('track', 'PageView')` can be included in the base code.
+**Facebook's Detection Tools**: Expect to see the standard implementation pattern with `fbq('track', 'PageView')` in the base code for proper pixel detection.
 
-**Single Page Applications**: The page only loads once, then content changes dynamically. Including `fbq('track', 'PageView')` in the base code would:
-- ❌ Only track the first page
-- ❌ Miss all subsequent route changes
-- ❌ Cause double-tracking if also handled by React
+**SPA Requirements**: Need to track route changes without double-tracking the initial page load.
 
-### Our SPA Solution
+### Our Hybrid Solution
 
-1. **Base Code**: Only initializes the pixel (`fbq('init', 'PIXEL_ID')`)
-2. **React Component**: Handles ALL PageView tracking including:
-   - Initial page load
-   - Route changes via React Router
-   - Async loading scenarios
+1. **Base Code**: Standard implementation with `fbq('init', 'PIXEL_ID')` AND `fbq('track', 'PageView')`
+2. **React Component**: Handles route changes only, skipping initial page load
 
 ### SPA Tracking Flow
 
 ```
-1. User visits site → Base code initializes pixel
-2. React loads → MetaPixel component tracks initial PageView
+1. User visits site → Base code initializes pixel AND tracks initial PageView
+2. React loads → MetaPixel component skips initial tracking (already handled)
 3. User navigates → MetaPixel component tracks route change PageView
 4. Repeat step 3 for all navigation
 ```
 
-This ensures every page is tracked exactly once, following Meta's SPA guidelines.
+This ensures:
+- ✅ Facebook detection tools can identify the pixel
+- ✅ Initial page load is tracked once
+- ✅ Route changes are tracked properly
+- ✅ No double-tracking occurs
 
 ## Configuration
 

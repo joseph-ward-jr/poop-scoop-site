@@ -39,9 +39,12 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
     try {
       // Track Meta Pixel events for form submission
       trackContact({
-        content_category: 'Contact Form',
+        content_type: 'service_inquiry',
+        content_id: 'pet-waste-removal-contact',
         content_name: variant === 'homepage' ? 'Homepage Contact Form' : 'Contact Page Form',
-        value: 1
+        content_category: 'Pet Waste Removal',
+        value: 1,
+        currency: 'USD'
       })
 
       // If custom onSubmit is provided, use it
@@ -61,9 +64,11 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
 
           // Track successful lead conversion
           trackLead({
-            content_category: 'Contact Form',
-            content_name: variant === 'homepage' ? 'Homepage Contact Form' : 'Contact Page Form',
-            value: 1,
+            content_type: 'service_lead',
+            content_id: 'pet-waste-removal-lead',
+            content_name: variant === 'homepage' ? 'Homepage Contact Form Lead' : 'Contact Page Form Lead',
+            content_category: 'Pet Waste Removal',
+            value: 50, // Estimated lead value
             currency: 'USD'
           })
 

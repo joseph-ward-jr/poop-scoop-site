@@ -26,15 +26,15 @@ describe('MetaPixel Component', () => {
     );
   });
 
-  it('should track PageView on initial mount (SPA behavior)', () => {
+  it('should NOT track PageView on initial mount (handled by base code)', () => {
     render(
       <BrowserRouter>
         <MetaPixel />
       </BrowserRouter>
     );
 
-    // Should track PageView immediately for SPA
-    expect(mockFbq).toHaveBeenCalledWith('track', 'PageView');
+    // Should NOT track PageView on initial mount since base code handles it
+    expect(mockFbq).not.toHaveBeenCalled();
   });
 
   it('should handle fbq not being immediately available', () => {
