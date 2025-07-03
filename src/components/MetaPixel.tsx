@@ -7,27 +7,24 @@ const MetaPixel = () => {
   const isInitialLoad = useRef(true);
 
   useEffect(() => {
-    // Wait for fbq to be available
+    // Skip tracking on initial load since base code already tracks it
+    if (isInitialLoad.current) {
+      isInitialLoad.current = false;
+      console.log('Meta Pixel: Initial PageView handled by base code for', location.pathname);
+      return;
+    }
+
+    // Track subsequent route changes only
     const trackPageView = () => {
       if (typeof window !== 'undefined' && window.fbq) {
         window.fbq('track', 'PageView');
-        console.log('Meta Pixel: PageView tracked for', location.pathname);
+        console.log('Meta Pixel: Route change PageView tracked for', location.pathname);
       } else {
-        // If fbq is not ready, wait a bit and try again
-        setTimeout(trackPageView, 100);
+        console.warn('Meta Pixel: fbq not available for route change tracking');
       }
     };
 
-    // For SPA, we need to track ALL page views including the initial one
-    // since the base code doesn't include PageView tracking
-    if (isInitialLoad.current) {
-      // Track initial page load
-      trackPageView();
-      isInitialLoad.current = false;
-    } else {
-      // Track subsequent route changes
-      trackPageView();
-    }
+    trackPageView();
   }, [location.pathname]);
 
   return null; // This component doesn't render anything
