@@ -2,11 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { MetaPixelEvent, MetaPixelParameters } from '../types/meta-pixel';
 
-interface MetaPixelProps {
-  pixelId?: string;
-}
-
-const MetaPixel = ({ pixelId = '1387106492582276' }: MetaPixelProps) => {
+const MetaPixel = () => {
   const location = useLocation();
   const isInitialLoad = useRef(true);
 
