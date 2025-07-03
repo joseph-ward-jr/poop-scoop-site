@@ -121,8 +121,8 @@ const HomePage = () => {
 
               {/* Body Paragraph */}
               <p className="text-xl md:text-2xl text-sage-600 leading-relaxed max-w-2xl font-light">
-                Currently specializing in professional pet waste removal services that transform your property into a pristine haven.
-                <span className="font-medium text-sage-800"> Our vision extends beyond today's offerings—we're building a comprehensive home care ecosystem that will include premium house cleaning and expert lawn maintenance, all delivered with the same unwavering standard of excellence.</span>
+                We proudly specialize in professional pet waste removal and lawn sanitization services that elevate your property into a pristine, refined sanctuary.
+                <span className="font-medium text-sage-800"> Our vision reaches far beyond today's offerings: we are crafting a comprehensive home care experience that will encompass premium house cleaning and meticulous lawn maintenance, each delivered with the same uncompromising standard of excellence and attention to detail.</span>
               </p>
 
               {/* Buttons */}
@@ -164,17 +164,17 @@ const HomePage = () => {
             </div>
             {/* Right Side - Designated Space for Graphic */}
             <div className="lg:col-span-5 relative">
-              {/* Services Status - Positioned over image area */}
-              <div className="absolute top-0 right-0 z-20 flex flex-col lg:flex-row gap-3 lg:gap-4">
-                <div className="inline-flex items-center px-4 py-2 bg-green-100/95 backdrop-blur-sm rounded-full animate-pulse shadow-lg">
-                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                  <span className="text-green-800 font-bold text-sm lg:text-base tracking-wide">
+              {/* Services Status - Positioned above image area */}
+              <div className="absolute -top-4 right-0 z-20 flex flex-col lg:flex-row gap-2 lg:gap-3">
+                <div className="inline-flex items-center px-3 py-1.5 bg-green-100/95 backdrop-blur-sm rounded-full animate-pulse shadow-lg">
+                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                  <span className="text-green-800 font-bold text-xs lg:text-sm tracking-wide">
                     AVAILABLE NOW: Pet Waste Removal
                   </span>
                 </div>
-                <div className="inline-flex items-center px-4 py-2 bg-amber-100/95 backdrop-blur-sm rounded-full shadow-lg">
-                  <div className="w-2.5 h-2.5 bg-amber-500 rounded-full mr-2"></div>
-                  <span className="text-amber-800 font-semibold text-sm lg:text-base tracking-wide">
+                <div className="inline-flex items-center px-3 py-1.5 bg-amber-100/95 backdrop-blur-sm rounded-full shadow-lg">
+                  <div className="w-2 h-2 bg-amber-500 rounded-full mr-2"></div>
+                  <span className="text-amber-800 font-semibold text-xs lg:text-sm tracking-wide">
                     COMING SOON: House Cleaning • Lawn Care
                   </span>
                 </div>
