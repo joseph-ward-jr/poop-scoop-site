@@ -9,6 +9,7 @@ A modern, responsive website for a professional pet waste removal service built 
 - **SEO Friendly**: Semantic HTML structure with proper meta tags
 - **Conversion Optimized**: Strategic CTAs and lead capture forms
 - **Mobile Responsive**: Looks great on all devices from phones to desktops
+- **Analytics Tracking**: Integrated Meta Pixel for conversion tracking and audience building
 
 ## Pages
 
@@ -195,6 +196,33 @@ The website features a comprehensive blog system with integrated newsletter subs
 - **Jobber Integration**: Newsletter subscriptions create Jobber clients with proper categorization
 - **Token Management**: Automatic refresh token flow prevents token expiration issues
 - **Test Coverage**: Full test suite for blog functionality and newsletter integration
+
+## Meta Pixel Integration
+
+The website includes comprehensive Meta Pixel (Facebook Pixel) integration for tracking user interactions and conversions:
+
+### Features
+- **Automatic Page View Tracking**: Tracks page views across all routes
+- **Contact Form Tracking**: Monitors form submissions and successful lead conversions
+- **Custom Event Support**: Extensible system for tracking business-specific events
+- **TypeScript Support**: Full type definitions for events and parameters
+
+### Implementation
+- **Base Pixel Code**: Integrated in `index.html` for universal tracking
+- **React Component**: `MetaPixel` component handles route-based page view tracking
+- **Utility Functions**: Helper functions for custom event tracking
+- **Error Handling**: Graceful fallbacks when pixel is unavailable
+
+### Pixel ID
+`1387106492582276`
+
+### Documentation
+See `docs/META_PIXEL_INTEGRATION.md` for detailed implementation guide, usage examples, and troubleshooting.
+
+### Testing
+```bash
+npm test -- MetaPixel.test.tsx
+```
 
 ## Testing
 
