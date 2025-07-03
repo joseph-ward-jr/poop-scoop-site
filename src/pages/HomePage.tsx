@@ -1,13 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ContactForm from '../components/ContactForm'
+import AdPopup from '../components/AdPopup'
 import { useJobberSubmission } from '../hooks/useJobberSubmission'
 import { ContactFormData } from '../types/jobber'
 
 const HomePage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
+  const [showAdPopup, setShowAdPopup] = useState(false)
   const { isSubmitting, submitToJobber } = useJobberSubmission()
+
+  // Show popup when component mounts
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowAdPopup(true)
+    }, 1000) // Show popup after 1 second
+
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleFormSubmit = async (data: ContactFormData) => {
     console.log('Form submitted from homepage:', data)
@@ -109,7 +120,7 @@ const HomePage = () => {
               {/* Top Tag */}
               <div className="inline-flex items-center px-4 py-2 bg-sage-100/50 rounded-full">
                 <span className="text-sage-700 font-medium text-xs tracking-[0.2em] uppercase">
-                  Premium Pet Waste Removal Services
+                  Premium Pet Waste Removal & Lawn Sanitization Services
                 </span>
               </div>
 
@@ -122,7 +133,6 @@ const HomePage = () => {
               {/* Body Paragraph */}
               <p className="text-xl md:text-2xl text-sage-600 leading-relaxed max-w-2xl font-light">
                 We proudly specialize in professional pet waste removal and lawn sanitization services that elevate your property into a pristine, refined sanctuary.
-                <span className="font-medium text-sage-800"> Our vision reaches far beyond today's offerings: we are crafting a comprehensive home care experience that will encompass premium house cleaning and meticulous lawn maintenance, each delivered with the same uncompromising standard of excellence and attention to detail.</span>
               </p>
 
               {/* Buttons */}
@@ -217,8 +227,8 @@ const HomePage = () => {
               <span className="text-gradient">Field & Foyer?</span>
             </h2>
             <p className="text-2xl text-sage-600 max-w-5xl mx-auto leading-relaxed font-light">
-            Field & Foyer was founded on the belief that you deserve a higher standard of home care without the complexity of managing multiple providers. We deliver one unwavering standard of excellence for every service—from meticulous lawn care to comprehensive interior solutions—all managed through a single, trusted point of contact. 
-              <span className="font-medium text-sage-800"> This integrated approach is about more than just completing tasks; it’s about providing thoughtful, complete home stewardship that gives you true peace of mind.</span>
+            Field & Foyer was founded on the belief that you deserve a higher standard of pet waste removal and lawn sanitization services. We deliver one unwavering standard of excellence, transforming your outdoor space into a pristine, safe environment for your family and pets.
+              <span className="font-medium text-sage-800"> Our specialized approach is about more than just waste removal; it’s about providing thoughtful, professional lawn sanitization that gives you true peace of mind.</span>
             </p>
           </div>
 
@@ -262,14 +272,14 @@ const HomePage = () => {
               Transform Your Space
             </div>
             <h2 className="section-title text-offwhite-50 mb-12">
-              Ready for Your<br />
-              <span className="bg-gradient-to-r from-cream-200 to-offwhite-100 bg-clip-text text-transparent">Lawn Transformation?</span>
+              Ready for a<br />
+              <span className="bg-gradient-to-r from-cream-200 to-offwhite-100 bg-clip-text text-transparent">Pristine Lawn?</span>
             </h2>
             <p className="text-2xl text-sage-100 mb-10 leading-relaxed font-light max-w-4xl mx-auto">
               Join discerning homeowners who trust
               <span className="font-medium text-offwhite-50"> Field & Foyer </span>
-              for their complete home and lawn needs.
-              <span className="font-medium text-offwhite-50"> Experience our growing suite of premium services.</span>
+              for professional pet waste removal and lawn sanitization.
+              <span className="font-medium text-offwhite-50"> Experience the difference of a truly pristine outdoor space.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-8 justify-center">
               <button
@@ -374,6 +384,12 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Advertisement Popup */}
+      <AdPopup
+        isOpen={showAdPopup}
+        onClose={() => setShowAdPopup(false)}
+      />
     </div>
   )
 }
