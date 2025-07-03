@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { MetaPixelEvent, MetaPixelParameters } from '../types/meta-pixel';
 
@@ -8,12 +8,29 @@ interface MetaPixelProps {
 
 const MetaPixel = ({ pixelId = '1387106492582276' }: MetaPixelProps) => {
   const location = useLocation();
+  const isInitialLoad = useRef(true);
 
   useEffect(() => {
-    // Track page view on route change
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('track', 'PageView');
-      console.log('Meta Pixel: PageView tracked for', location.pathname);
+    // Wait for fbq to be available
+    const trackPageView = () => {
+      if (typeof window !== 'undefined' && window.fbq) {
+        window.fbq('track', 'PageView');
+        console.log('Meta Pixel: PageView tracked for', location.pathname);
+      } else {
+        // If fbq is not ready, wait a bit and try again
+        setTimeout(trackPageView, 100);
+      }
+    };
+
+    // For SPA, we need to track ALL page views including the initial one
+    // since the base code doesn't include PageView tracking
+    if (isInitialLoad.current) {
+      // Track initial page load
+      trackPageView();
+      isInitialLoad.current = false;
+    } else {
+      // Track subsequent route changes
+      trackPageView();
     }
   }, [location.pathname]);
 

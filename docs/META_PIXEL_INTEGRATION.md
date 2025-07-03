@@ -12,12 +12,12 @@ The Meta Pixel (Facebook Pixel) is integrated to track:
 
 ## Implementation Details
 
-### 1. Base Pixel Code
+### 1. Base Pixel Code (SPA Version)
 
-The Meta Pixel base code is added to `index.html` in the `<head>` section:
+The Meta Pixel base code is added to `index.html` in the `<head>` section. **Important**: For Single Page Applications (SPAs), the base code should only initialize the pixel, NOT track PageView events:
 
 ```html
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel Code (SPA Version - Init Only) -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -28,7 +28,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1387106492582276');
-fbq('track', 'PageView');
+// PageView tracking handled by React for SPA
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1387106492582276&ev=PageView&noscript=1"
@@ -38,17 +38,22 @@ src="https://www.facebook.com/tr?id=1387106492582276&ev=PageView&noscript=1"
 
 **Pixel ID**: `1387106492582276`
 
+**Key SPA Difference**: Notice that `fbq('track', 'PageView');` is NOT included in the base code. This prevents double-tracking of the initial page load.
+
 ### 2. React Components
 
 #### MetaPixel Component (`src/components/MetaPixel.tsx`)
 
-A React component that:
+A React component specifically designed for Single Page Applications that:
+- Tracks the initial page load (since base code doesn't include PageView)
 - Automatically tracks page views when routes change
 - Provides utility functions for custom event tracking
 - Handles graceful fallbacks when pixel is not available
 
-#### Key Features:
-- **Automatic Page View Tracking**: Tracks page views on route changes using React Router
+#### Key SPA Features:
+- **Complete Page View Tracking**: Handles BOTH initial page load AND route changes
+- **No Double Tracking**: Prevents duplicate PageView events on first page
+- **Async Loading Support**: Waits for fbq to be available before tracking
 - **TypeScript Support**: Full type definitions for events and parameters
 - **Error Handling**: Graceful handling when fbq is not available
 - **Console Logging**: Development-friendly logging for debugging
@@ -56,7 +61,7 @@ A React component that:
 ### 3. Event Tracking
 
 #### Automatic Events:
-- **PageView**: Tracked automatically on every page load and route change
+- **PageView**: Tracked automatically on initial page load AND every route change (SPA-optimized)
 
 #### Custom Events:
 - **Contact**: Tracked when contact forms are submitted
@@ -164,6 +169,38 @@ The test suite covers:
    - Visit [Facebook Events Manager](https://www.facebook.com/events_manager)
    - Select your pixel (ID: 1387106492582276)
    - Use "Test Events" to verify real-time tracking
+
+## Single Page Application (SPA) Best Practices
+
+This implementation follows Meta's recommended best practices for SPAs:
+
+### Why SPA Implementation is Different
+
+**Traditional Websites**: Each page load triggers the pixel code, so `fbq('track', 'PageView')` can be included in the base code.
+
+**Single Page Applications**: The page only loads once, then content changes dynamically. Including `fbq('track', 'PageView')` in the base code would:
+- ❌ Only track the first page
+- ❌ Miss all subsequent route changes
+- ❌ Cause double-tracking if also handled by React
+
+### Our SPA Solution
+
+1. **Base Code**: Only initializes the pixel (`fbq('init', 'PIXEL_ID')`)
+2. **React Component**: Handles ALL PageView tracking including:
+   - Initial page load
+   - Route changes via React Router
+   - Async loading scenarios
+
+### SPA Tracking Flow
+
+```
+1. User visits site → Base code initializes pixel
+2. React loads → MetaPixel component tracks initial PageView
+3. User navigates → MetaPixel component tracks route change PageView
+4. Repeat step 3 for all navigation
+```
+
+This ensures every page is tracked exactly once, following Meta's SPA guidelines.
 
 ## Configuration
 

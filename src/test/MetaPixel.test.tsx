@@ -26,14 +26,33 @@ describe('MetaPixel Component', () => {
     );
   });
 
-  it('should track PageView on mount', () => {
+  it('should track PageView on initial mount (SPA behavior)', () => {
     render(
       <BrowserRouter>
         <MetaPixel />
       </BrowserRouter>
     );
 
+    // Should track PageView immediately for SPA
     expect(mockFbq).toHaveBeenCalledWith('track', 'PageView');
+  });
+
+  it('should handle fbq not being immediately available', () => {
+    // Set fbq to undefined to simulate it not being loaded yet
+    const originalFbq = window.fbq;
+    (window as any).fbq = undefined;
+
+    // Should not throw error when fbq is not available
+    expect(() => {
+      render(
+        <BrowserRouter>
+          <MetaPixel />
+        </BrowserRouter>
+      );
+    }).not.toThrow();
+
+    // Restore original fbq
+    (window as any).fbq = originalFbq;
   });
 });
 
