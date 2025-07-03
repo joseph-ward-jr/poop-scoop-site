@@ -106,6 +106,22 @@ const HomePage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-screen py-12">
             {/* Left Side - Content */}
             <div className="lg:col-span-7 space-y-8">
+              {/* Services Status - Prominent with Pulsing Animation */}
+              <div className="space-y-4">
+                <div className="inline-flex items-center px-6 py-3 bg-green-100 rounded-full animate-pulse">
+                  <div className="w-3 h-3 bg-green-500 rounded-full mr-3 animate-pulse"></div>
+                  <span className="text-green-800 font-bold text-lg tracking-wide">
+                    AVAILABLE NOW: Pet Waste Removal
+                  </span>
+                </div>
+                <div className="inline-flex items-center px-6 py-3 bg-amber-100 rounded-full ml-4">
+                  <div className="w-3 h-3 bg-amber-500 rounded-full mr-3"></div>
+                  <span className="text-amber-800 font-semibold text-lg tracking-wide">
+                    COMING SOON: House Cleaning • Lawn Care
+                  </span>
+                </div>
+              </div>
+
               {/* Top Tag */}
               <div className="inline-flex items-center px-4 py-2 bg-sage-100/50 rounded-full">
                 <span className="text-sage-700 font-medium text-xs tracking-[0.2em] uppercase">
@@ -119,24 +135,10 @@ const HomePage = () => {
                 Our Priority.
               </h1>
 
-              {/* Services Status */}
-              <div className="flex flex-col sm:flex-row gap-4 text-sm">
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-sage-700 font-medium">Available Now:</span>
-                  <span className="text-sage-600">Pet Waste Removal</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                  <span className="text-sage-700 font-medium">Coming Soon:</span>
-                  <span className="text-sage-600">House Cleaning • Lawn Care</span>
-                </div>
-              </div>
-
               {/* Body Paragraph */}
               <p className="text-xl md:text-2xl text-sage-600 leading-relaxed max-w-2xl font-light">
-                Elevating your lifestyle with premium home and lawn services that exceed expectations.
-                From lawn care to comprehensive home maintenance coming soon, we deliver excellence in every detail.
+                Currently specializing in professional pet waste removal services that transform your property into a pristine haven.
+                <span className="font-medium text-sage-800"> Our vision extends beyond today's offerings—we're building a comprehensive home care ecosystem that will include premium house cleaning and expert lawn maintenance, all delivered with the same unwavering standard of excellence.</span>
               </p>
 
               {/* Buttons */}
