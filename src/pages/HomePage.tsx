@@ -135,8 +135,7 @@ const HomePage = () => {
 
               {/* Body Paragraph */}
               <p className="text-xl md:text-2xl text-sage-600 leading-relaxed max-w-2xl font-light">
-                Elevating your lifestyle with premium home and lawn services that exceed expectations.
-                From lawn care to comprehensive home maintenance coming soon, we deliver excellence in every detail.
+                We proudly specialize in professional pet waste removal and lawn sanitization services that elevate your property into a pristine, refined sanctuary.
               </p>
 
               {/* Buttons */}
