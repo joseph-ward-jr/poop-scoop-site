@@ -62,10 +62,12 @@ A React component designed for Single Page Applications that:
 
 #### Automatic Events:
 - **PageView**: Tracked automatically on initial page load AND every route change (SPA-optimized)
+- **ViewContent**: Automatically tracked for key pages (services, pricing, about)
 
 #### Custom Events:
-- **Contact**: Tracked when contact forms are submitted
+- **Contact**: Tracked when contact forms are submitted and phone links are clicked
 - **Lead**: Tracked when successful lead conversions occur
+- **InitiateCheckout**: Tracked when users click "Get In Touch" or "Get Free Quote" buttons
 
 #### Contact Form Integration:
 The `ContactForm` component automatically tracks:
@@ -79,10 +81,13 @@ The `ContactForm` component automatically tracks:
 trackMetaPixelEvent('Lead', { value: 100, currency: 'USD' })
 
 // Specific tracking functions
-trackLead({ content_name: 'Contact Form', value: 1 })
+trackLead({ content_name: 'Contact Form', value: 50, currency: 'USD' })
 trackContact({ content_category: 'Pet Waste Removal' })
-trackViewContent({ content_name: 'Services Page' })
+trackViewContent({ content_name: 'Services Page', content_type: 'service_overview' })
 trackSearch('pet waste removal atlanta')
+trackInitiateCheckout({ content_name: 'Get In Touch Button' })
+trackPhoneCall({ content_name: 'Footer Phone Link' })
+trackSchedule({ content_name: 'Service Booking', value: 100 })
 ```
 
 ## File Structure

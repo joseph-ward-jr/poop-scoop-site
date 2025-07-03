@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { trackPhoneCall } from './MetaPixel'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -29,7 +30,13 @@ const Footer = () => {
               <div className="space-y-3">
                 <p className="text-sage-200 flex items-center">
                   <img src="/images/icons/phone.svg" alt="Phone" className="w-4 h-4 mr-3" />
-                  <a href="tel:+111111111" className="hover:text-sage-300 transition-colors">(770) 547-8457</a>
+                  <a
+                    href="tel:+17705478457"
+                    className="hover:text-sage-300 transition-colors"
+                    onClick={() => trackPhoneCall({ content_name: 'Footer Phone Link' })}
+                  >
+                    (770) 547-8457
+                  </a>
                 </p>
                 <p className="text-sage-200 flex items-center">
                   <img src="/images/icons/email.svg" alt="Email" className="w-4 h-4 mr-3" />

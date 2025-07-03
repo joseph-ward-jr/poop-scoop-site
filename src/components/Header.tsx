@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { trackInitiateCheckout } from './MetaPixel'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -254,7 +255,10 @@ const Header = () => {
             <Link
               to="/contact?form=true"
               className="bg-sage-800 hover:bg-sage-900 btn-primary ml-8 text-md"
-              onClick={closeAllDropdowns}
+              onClick={() => {
+                closeAllDropdowns();
+                trackInitiateCheckout({ content_name: 'Header Get In Touch Button' });
+              }}
             >
               Get In Touch
             </Link>
@@ -352,7 +356,10 @@ const Header = () => {
                 <Link
                   to="/contact?quote=true"
                   className="btn-primary w-full text-center block"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    trackInitiateCheckout({ content_name: 'Mobile Get Free Quote Button' });
+                  }}
                 >
                   Get Free Quote
                 </Link>
