@@ -19,7 +19,7 @@ const PetWasteRemovalPricingPage = () => {
         'Professional service guarantee'
       ],
       pricing: {
-        '1-2 dogs': { standard: 25, large: 40 },
+        '1-2 dogs': { standard: 25, large: 35 },
         '3+ dogs': { standard: 35, large: 50 }
       }
     },
@@ -38,7 +38,7 @@ const PetWasteRemovalPricingPage = () => {
       ],
       pricing: {
         '1-2 dogs': { standard: 35, large: 50 },
-        '3+ dogs': { standard: 50, large: 65 }
+        '3+ dogs': { standard: 50, large: 70 }
       }
     },
     {
@@ -54,8 +54,8 @@ const PetWasteRemovalPricingPage = () => {
         'Satisfaction guarantee'
       ],
       pricing: {
-        '1-2 dogs': { standard: 125, large: 140 },
-        '3+ dogs': { standard: 175, large: 190 }
+        '1-2 dogs': { standard: 125, large: 175 },
+        '3+ dogs': { standard: 175, large: 250 }
       }
     }
   ]
