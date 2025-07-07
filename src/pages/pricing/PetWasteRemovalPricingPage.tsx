@@ -19,8 +19,8 @@ const PetWasteRemovalPricingPage = () => {
         'Professional service guarantee'
       ],
       pricing: {
-        '1-2 dogs': { small: 25, large: 35 },
-        '3+ dogs': { small: 35, large: 50 }
+        '1-2 dogs': { standard: 25, large: 40 },
+        '3+ dogs': { standard: 35, large: 50 }
       }
     },
     {
@@ -37,8 +37,8 @@ const PetWasteRemovalPricingPage = () => {
         'Service updates'
       ],
       pricing: {
-        '1-2 dogs': { small: 35, large: 50 },
-        '3+ dogs': { small: 50, large: 70 }
+        '1-2 dogs': { standard: 35, large: 50 },
+        '3+ dogs': { standard: 50, large: 65 }
       }
     },
     {
@@ -54,8 +54,8 @@ const PetWasteRemovalPricingPage = () => {
         'Satisfaction guarantee'
       ],
       pricing: {
-        '1-2 dogs': { small: 125, large: 175 },
-        '3+ dogs': { small: 175, large: 250 }
+        '1-2 dogs': { standard: 125, large: 140 },
+        '3+ dogs': { standard: 175, large: 190 }
       }
     }
   ]
@@ -117,6 +117,9 @@ const PetWasteRemovalPricingPage = () => {
                     <span className={`text-lg ${plan.popular ? 'text-sage-100' : 'text-sage-600'}`}>
                       /visit
                     </span>
+                    <div className={`text-xs mt-2 ${plan.popular ? 'text-sage-200' : 'text-sage-500'}`}>
+                      $20 minimum charge applies
+                    </div>
                   </div>
                 </div>
 
@@ -156,20 +159,27 @@ const PetWasteRemovalPricingPage = () => {
                 <thead>
                   <tr className="border-b border-sage-200">
                     <th className="text-left py-3 px-4 font-semibold text-sage-800">Number of Dogs</th>
-                    <th className="text-center py-3 px-4 font-semibold text-sage-800">Standard Yard<br/><span className="text-sm font-normal">(1/4 - 3/4 acre)</span></th>
-                    <th className="text-center py-3 px-4 font-semibold text-sage-800">Large Yard<br/><span className="text-sm font-normal">(1+ acre)</span></th>
+                    <th className="text-center py-3 px-4 font-semibold text-sage-800">Standard Yard<br/><span className="text-sm font-normal">(1/4 - 1 acre)</span></th>
+                    <th className="text-center py-3 px-4 font-semibold text-sage-800">Large Yard<br/><span className="text-sm font-normal">(1+ acre)*</span></th>
                   </tr>
                 </thead>
                 <tbody>
                   {Object.entries(pricingPlans.find(p => p.id === selectedPlan)?.pricing || {}).map(([dogs, prices]) => (
                     <tr key={dogs} className="border-b border-sage-100">
                       <td className="py-3 px-4 font-medium text-sage-800">{dogs}</td>
-                      <td className="text-center py-3 px-4 text-sage-700">${prices.small}</td>
+                      <td className="text-center py-3 px-4 text-sage-700">${prices.standard}</td>
                       <td className="text-center py-3 px-4 text-sage-700">${prices.large}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            <div className="mt-6 p-4 bg-sage-50 rounded-lg border border-sage-200">
+              <p className="text-sm text-sage-700">
+                <span className="font-semibold">*Large Yard Pricing:</span> Base price shown is for 1+ acre properties.
+                Additional $15 charge applies for each additional 1/4 acre beyond the first acre.
+              </p>
             </div>
           </div>
         </div>
