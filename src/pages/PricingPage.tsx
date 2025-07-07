@@ -12,56 +12,47 @@ const PricingPage = () => {
       features: [
         'Weekly yard cleanup',
         'All waste removed and disposed',
-        'Yard deodorizing spray',
         'Gate left securely closed',
         'Service rain or shine',
-        'Text notifications'
+        'Text notifications',
+        'Professional service guarantee'
       ],
       pricing: {
-        '1 dog': { small: 25, medium: 30, large: 35 },
-        '2 dogs': { small: 30, medium: 35, large: 45 },
-        '3 dogs': { small: 35, medium: 45, large: 55 },
-        '4+ dogs': { small: 45, medium: 55, large: 65 }
+        '1-2 dogs': { standard: 25, large: 35 },
+        '3+ dogs': { standard: 35, large: 50 }
       }
     },
     {
       name: 'Bi-Weekly Service',
       popular: false,
-      description: 'Great for smaller dogs or less active yards',
+      description: 'Great balance of cleanliness and value',
       basePrice: 35,
       features: [
         'Every other week cleanup',
         'Thorough waste removal',
-        'Yard inspection',
         'Gate security check',
         'Flexible scheduling',
-        'Email reminders'
+        'Service updates'
       ],
       pricing: {
-        '1 dog': { small: 35, medium: 40, large: 45 },
-        '2 dogs': { small: 40, medium: 45, large: 55 },
-        '3 dogs': { small: 45, medium: 55, large: 65 },
-        '4+ dogs': { small: 55, medium: 65, large: 75 }
+        '1-2 dogs': { standard: 35, large: 50 },
+        '3+ dogs': { standard: 50, large: 70 }
       }
     },
     {
       name: 'One-Time Cleanup',
       popular: false,
-      description: 'Perfect for spring cleaning or special occasions',
-      basePrice: 75,
+      description: 'Perfect for special events or initial cleanup',
+      basePrice: 125,
       features: [
         'Complete yard restoration',
         'Deep cleaning service',
-        'Sanitization treatment',
-        'Before/after photos',
-        'Same-day service available',
-        'No commitment required'
+        'Debris removal',
+        'Satisfaction guarantee'
       ],
       pricing: {
-        '1 dog': { small: 75, medium: 85, large: 100 },
-        '2 dogs': { small: 85, medium: 100, large: 125 },
-        '3 dogs': { small: 100, medium: 125, large: 150 },
-        '4+ dogs': { small: 125, medium: 150, large: 200 }
+        '1-2 dogs': { standard: 125, large: 175 },
+        '3+ dogs': { standard: 175, large: 250 }
       }
     }
   ]
@@ -151,12 +142,18 @@ const PricingPage = () => {
                     {plan.description}
                   </p>
                   <div className="mb-6">
+                    <div className={`text-sm font-medium mb-1 ${plan.popular ? 'text-sage-200' : 'text-sage-600'}`}>
+                      starting at
+                    </div>
                     <span className={`text-4xl font-bold ${plan.popular ? 'text-offwhite-50' : 'text-sage-900'}`}>
                       ${plan.basePrice}
                     </span>
                     <span className={`text-lg ${plan.popular ? 'text-sage-100' : 'text-sage-600'}`}>
                       /visit
                     </span>
+                    <div className={`text-xs mt-2 ${plan.popular ? 'text-sage-200' : 'text-sage-500'}`}>
+                      $20 minimum charge applies
+                    </div>
                   </div>
                 </div>
 
@@ -221,19 +218,15 @@ const PricingPage = () => {
                       <thead>
                         <tr className="border-b">
                           <th className="text-left py-3 px-4 font-semibold text-sage-900">
-                            Number of Pets
+                            Number of Dogs
                           </th>
                           <th className="text-center py-3 px-4 font-semibold text-sage-900">
-                            Small Garden<br />
-                            <span className="text-sm font-normal text-sage-600">(under 1/4 acre)</span>
+                            Standard Yard<br />
+                            <span className="text-sm font-normal text-sage-600">(1/4 - 1 acre)</span>
                           </th>
                           <th className="text-center py-3 px-4 font-semibold text-sage-900">
-                            Medium Garden<br />
-                            <span className="text-sm font-normal text-sage-600">(1/4 - 1/2 acre)</span>
-                          </th>
-                          <th className="text-center py-3 px-4 font-semibold text-sage-900">
-                            Large Garden<br />
-                            <span className="text-sm font-normal text-sage-600">(over 1/2 acre)</span>
+                            Large Yard<br />
+                            <span className="text-sm font-normal text-sage-600">(1+ acre)</span>
                           </th>
                         </tr>
                       </thead>
@@ -242,10 +235,7 @@ const PricingPage = () => {
                           <tr key={dogs} className="border-b border-sage-200 hover:bg-sage-50">
                             <td className="py-3 px-4 font-medium text-sage-900">{dogs}</td>
                             <td className="py-3 px-4 text-center text-sage-600 font-bold">
-                              ${prices.small}
-                            </td>
-                            <td className="py-3 px-4 text-center text-sage-600 font-bold">
-                              ${prices.medium}
+                              ${prices.standard}
                             </td>
                             <td className="py-3 px-4 text-center text-sage-600 font-bold">
                               ${prices.large}
@@ -254,6 +244,13 @@ const PricingPage = () => {
                         ))}
                       </tbody>
                     </table>
+                  </div>
+
+                  <div className="mt-6 p-4 bg-sage-100 rounded-lg border border-sage-200">
+                    <p className="text-sm text-sage-700">
+                      <span className="font-semibold">*Large Yard Pricing:</span> Base price shown is for 1+ acre properties.
+                      Additional $15 charge applies for each additional 1/4 acre beyond the first acre.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -336,7 +333,6 @@ const PricingPage = () => {
 
               <div className="bg-sage-100 rounded-xl p-6 text-center">
                 <p className="text-sage-800 font-medium text-lg mb-4">
-                  <img src="/images/icons/checkmark.svg" alt="Commercial Solutions" className="w-5 h-5 inline mr-2" />
                   Volume discounts, flexible billing, and custom service plans available
                 </p>
                 <a href="/contact" className="btn-primary">
