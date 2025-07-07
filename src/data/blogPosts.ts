@@ -8,7 +8,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Discover the shocking ways dog waste damages your lawn beyond visible brown spots, and learn professional strategies to protect your grass investment while maintaining a healthy yard.',
     author: 'Joey Ward',
     publishedAt: '2025-07-07',
-    readTime: 12,
+    readTime: 9,
     tags: ['Lawn Care', 'Pet Waste', 'Yard Maintenance', 'Grass Health', 'Soil Management'],
     featuredImage: '/images/blog/dog-waste-lawn-damage-placeholder.jpg',
     seo: {
@@ -21,8 +21,6 @@ export const blogPosts: BlogPost[] = [
 # The Hidden Truth: How Dog Waste is Secretly Destroying Your Dream Lawn
 
 *Published on July 7, 2025 by Joey Ward*
-
-![Dog Waste Lawn Damage Placeholder](/images/blog/dog-waste-lawn-damage-placeholder.jpg)
 
 You've invested time, money, and effort into creating the perfect lawn. But if you're a dog owner, there's a silent destroyer working against you every single day. **Dog waste doesn't just create unsightly brown spots—it's systematically damaging your lawn in ways you never imagined.**
 
@@ -43,19 +41,19 @@ Here's what's really happening beneath the surface:
 
 **Surface-level brown spots are just the beginning.** The real destruction happens underground:
 
-#### Soil Compaction
+### Soil Compaction
 - **Heavy waste deposits** compress soil particles
 - **Reduced oxygen flow** to grass roots
 - **Impaired water infiltration** leading to drainage problems
 - **Stunted root development** across affected areas
 
-#### Microbial Imbalance
+### Microbial Imbalance
 - **Beneficial soil bacteria** killed by high ammonia levels
 - **Pathogenic organisms** flourishing in contaminated soil
 - **Disrupted nutrient cycling** preventing natural lawn recovery
 - **Long-term soil health** compromised for months or years
 
-#### Chemical Contamination
+### Chemical Contamination
 - **Pharmaceutical residues** from pet medications
 - **Heavy metals** concentrated in waste
 - **Hormone disruption** affecting plant growth
@@ -101,13 +99,13 @@ Dog waste contains high levels of sodium and chloride:
 
 The damage extends far beyond your property lines:
 
-#### Groundwater Contamination
+### Groundwater Contamination
 - **Nitrates leaching** into drinking water supplies
 - **Bacterial contamination** of local water sources
 - **Pharmaceutical residues** entering the water cycle
 - **Ecosystem disruption** in nearby streams and lakes
 
-#### Air Quality Issues
+### Air Quality Issues
 - **Ammonia emissions** contributing to air pollution
 - **Methane production** from anaerobic decomposition
 - **Particulate matter** from dried waste becoming airborne
@@ -139,13 +137,13 @@ The damage extends far beyond your property lines:
 
 Our professional approach goes beyond simple waste removal:
 
-#### Advanced Removal Techniques
+### Advanced Removal Techniques
 - **Complete waste extraction** including embedded particles
 - **Soil surface cleaning** to remove residual contamination
 - **Immediate area treatment** to prevent ongoing damage
 - **Preventive application** of soil conditioners
 
-#### Soil Restoration Services
+### Soil Restoration Services
 - **pH balancing** with professional-grade amendments
 - **Salt leaching** treatments to remove toxic buildup
 - **Microbial restoration** with beneficial bacteria introduction
@@ -163,13 +161,13 @@ Our professional approach goes beyond simple waste removal:
 
 ### Preventive Maintenance Programs
 
-#### Weekly Service Benefits
+### Weekly Service Benefits
 - **Consistent waste removal** prevents accumulation damage
 - **Regular soil treatment** maintains optimal growing conditions
 - **Early problem detection** before damage becomes severe
 - **Professional monitoring** of lawn health indicators
 
-#### Monthly Deep Treatment
+### Monthly Deep Treatment
 - **Comprehensive soil analysis** to identify problem areas
 - **Targeted treatment** of high-damage zones
 - **Preventive applications** to protect healthy areas
@@ -196,12 +194,12 @@ Our professional approach goes beyond simple waste removal:
 
 ### Long-term Lawn Protection
 
-#### Grass Variety Selection
+### Grass Variety Selection
 - **Choose salt-tolerant** grass varieties
 - **Plant dense, hardy** species that recover quickly
 - **Consider alternative** ground covers in high-traffic areas
 
-#### Soil Health Maintenance
+### Soil Health Maintenance
 - **Regular soil testing** to monitor pH and nutrient levels
 - **Annual aeration** to reduce compaction
 - **Organic matter addition** to improve soil biology
@@ -221,104 +219,23 @@ Our professional approach goes beyond simple waste removal:
 
 **Field & Foyer's professional approach delivers results DIY can't match:**
 
-#### Advanced Equipment
+### Advanced Equipment
 - **Commercial-grade** soil injection systems
 - **Professional pH meters** and soil analysis tools
 - **High-capacity** waste removal equipment
 - **Specialized application** systems for treatments
 
-#### Expert Knowledge
+### Expert Knowledge
 - **Soil science expertise** for proper diagnosis
 - **Grass biology understanding** for effective treatment
 - **Chemical compatibility** knowledge for safe applications
 - **Local climate factors** affecting treatment success
 
-#### Consistent Results
+### Consistent Results
 - **Systematic approach** ensuring no areas are missed
 - **Regular monitoring** to track improvement
 - **Adjustment protocols** when treatments need modification
 - **Long-term planning** for sustained lawn health
-
-## The Economics: Professional Service vs. DIY Costs
-
-### DIY Annual Costs
-- **Waste removal supplies**: $200-400
-- **Soil amendments**: $300-600
-- **Grass seed/sod**: $500-1,500
-- **Water costs**: $200-500
-- **Time investment**: 100+ hours
-- **Total**: $1,200-3,000+ plus significant time
-
-### Professional Service Value
-- **Complete waste management**: Included
-- **Soil restoration**: Professional-grade treatment
-- **Lawn protection**: Preventive care
-- **Time savings**: 100+ hours annually
-- **Guaranteed results**: Professional accountability
-- **Total value**: Often less than DIY when time is factored
-
-## Success Stories: Real Results from Professional Treatment
-
-### Case Study: Suburban Family with Two Large Dogs
-
-**The Problem:**
-- **40% of lawn** showing severe damage
-- **Soil pH** ranging from 4.2 to 9.1
-- **Salt levels** 300% above normal
-- **Three years** of failed DIY attempts
-
-**Professional Treatment:**
-- **Comprehensive soil analysis** and treatment plan
-- **Weekly waste removal** with Wysiwash treatment
-- **Monthly soil conditioning** and pH balancing
-- **Targeted reseeding** of damaged areas
-
-**Results After 6 Months:**
-- **95% grass coverage** restored
-- **Uniform green color** across entire lawn
-- **Soil pH** stabilized at 6.5-7.0
-- **Zero ongoing damage** with maintenance program
-
-### Case Study: Commercial Property with Dog Park
-
-**The Challenge:**
-- **High-traffic dog area** with 20+ dogs daily
-- **Complete grass death** in 60% of area
-- **Soil contamination** preventing any growth
-- **Odor issues** affecting property value
-
-**Professional Solution:**
-- **Daily waste removal** and treatment
-- **Soil replacement** in severely damaged areas
-- **Installation of drainage** systems
-- **Specialized grass varieties** for high-traffic use
-
-**Outcome:**
-- **Healthy grass** maintained despite heavy use
-- **Eliminated odor** problems
-- **Increased property** appeal and value
-- **Sustainable maintenance** program established
-
-## The Future of Your Lawn: Making the Right Choice
-
-### The Cost of Inaction
-
-**Delaying professional treatment only makes the problem worse:**
-
-- **Damage compounds** exponentially over time
-- **Soil contamination** becomes more difficult to reverse
-- **Replacement costs** increase dramatically
-- **Property value** continues to decline
-
-### The Benefits of Professional Care
-
-**Investing in professional pet waste management delivers:**
-
-- **Immediate improvement** in lawn appearance
-- **Long-term protection** of your landscaping investment
-- **Increased property value** and curb appeal
-- **Peace of mind** knowing the problem is solved
-- **Time freedom** to enjoy your yard instead of fighting damage
 
 ## Take Action Today: Your Lawn Can't Wait
 
@@ -335,7 +252,6 @@ Our professional approach goes beyond simple waste removal:
 
 We don't just remove waste—we restore your lawn to its full potential:
 
-- **Comprehensive soil restoration** using proven techniques
 - **Eco-friendly treatments** safe for your family and pets
 - **Consistent, reliable service** you can count on
 - **Professional expertise** backed by guaranteed results
