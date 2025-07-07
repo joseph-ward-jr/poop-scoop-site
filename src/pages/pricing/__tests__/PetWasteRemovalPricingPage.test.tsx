@@ -101,6 +101,32 @@ describe('PetWasteRemovalPricingPage', () => {
     // Check that pricing table headers are present
     expect(screen.getByText('Number of Dogs')).toBeInTheDocument()
     expect(screen.getByText(/Standard Yard/)).toBeInTheDocument()
-    expect(screen.getByText(/Large Yard/)).toBeInTheDocument()
+    // Use getAllByText to handle multiple "Large Yard" occurrences
+    const largeYardElements = screen.getAllByText(/Large Yard/)
+    expect(largeYardElements.length).toBeGreaterThan(0)
+  })
+
+  it('displays $20 minimum charge on all pricing cards', () => {
+    render(<PetWasteRemovalPricingPage />)
+
+    // Check that all three cards show the $20 minimum charge
+    const minimumChargeTexts = screen.getAllByText('$20 minimum charge applies')
+    expect(minimumChargeTexts).toHaveLength(3)
+  })
+
+  it('shows updated yard size ranges in table headers', () => {
+    render(<PetWasteRemovalPricingPage />)
+
+    // Check for updated yard size ranges
+    expect(screen.getByText('(1/4 - 1 acre)')).toBeInTheDocument()
+    expect(screen.getByText('(1+ acre)*')).toBeInTheDocument()
+  })
+
+  it('displays large yard pricing explanation', () => {
+    render(<PetWasteRemovalPricingPage />)
+
+    // Check for the large yard pricing explanation
+    expect(screen.getByText(/Large Yard Pricing:/)).toBeInTheDocument()
+    expect(screen.getByText(/Additional \$15 charge applies for each additional 1\/4 acre/)).toBeInTheDocument()
   })
 })
