@@ -146,7 +146,7 @@ const HomePage = () => {
 
               {/* Body Paragraph */}
               <p className="text-xl md:text-2xl text-sage-600 leading-relaxed max-w-2xl font-light">
-                We proudly specialize in professional pet waste removal and lawn sanitization services that elevate your property into a pristine, refined sanctuary.
+                <span className="font-semibold text-sage-800">Scooping waste is just the beginning.</span> Dangerous bacteria, parasites, and pathogens remain embedded in your yard soil—and every day your dog tracks these invisible threats directly into your home on their paws. Our comprehensive sanitization service eliminates what simple removal leaves behind, protecting the spaces where your family lives and walks barefoot.
               </p>
 
               {/* Buttons */}
