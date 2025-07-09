@@ -124,29 +124,10 @@ const HomePage = () => {
                 </span>
               </div>
 
-              {/* Urgent Health Warning */}
-              <div className="bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-400 p-6 rounded-lg mb-8">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0">
-                    <svg className="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-red-800">
-                      <strong>Critical Health Alert:</strong> Scooping waste isn't enough to protect your family.
-                    </p>
-                    <p className="mt-1 text-sm text-red-700">
-                      Dangerous bacteria and parasites remain in your yard soil—and your dog tracks them directly into your home on their paws.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
               {/* Main Headline */}
               <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl font-bold text-sage-900 leading-[0.9] tracking-tight">
                 Beyond Scooping.<br />
-                <span className="text-red-700">True Protection.</span>
+                <span className="text-sage-700">True Protection.</span>
               </h1>
 
               {/* Services Status */}
@@ -154,7 +135,7 @@ const HomePage = () => {
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                   <span className="text-sage-700 font-medium">Available Now:</span>
-                  <span className="text-sage-600">Professional Yard Sanitization</span>
+                  <span className="text-sage-600">Pet Waste Removal</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
@@ -165,7 +146,7 @@ const HomePage = () => {
 
               {/* Body Paragraph */}
               <p className="text-xl md:text-2xl text-sage-600 leading-relaxed max-w-2xl font-light">
-                <span className="font-semibold text-sage-800">Every day your dog walks through contaminated soil, they bring invisible threats into your home.</span> Our luxury sanitization service eliminates harmful bacteria, parasites, and pathogens that simple waste removal leaves behind—protecting the spaces where your family lives, plays, and walks barefoot.
+                We proudly specialize in professional pet waste removal and lawn sanitization services that elevate your property into a pristine, refined sanctuary.
               </p>
 
               {/* Buttons */}
@@ -239,15 +220,15 @@ const HomePage = () => {
         <div className="container-max px-4 md:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full text-sage-800 font-medium text-sm tracking-wide uppercase mb-8">
-              ⚠️ Critical Health Warning
+              ✨ The Field & Foyer Difference
             </div>
             <h2 className="section-title text-sage-900 mb-8">
-              The Hidden Danger<br />
-              <span className="text-gradient">In Your Yard</span>
+              Why Choose<br />
+              <span className="text-gradient">Field & Foyer?</span>
             </h2>
             <p className="text-2xl text-sage-600 max-w-5xl mx-auto leading-relaxed font-light">
-              <span className="font-semibold text-red-700">The shocking truth:</span> Even after diligent waste removal, your yard harbors dangerous bacteria, parasites, and pathogens in the soil. Every time your dog steps outside and returns, they're tracking these invisible threats directly onto your floors, furniture, and into the spaces where your children play.
-              <span className="font-medium text-sage-800"> Field & Foyer's professional sanitization service eliminates these hidden dangers, creating a truly safe environment for your family.</span>
+            Field & Foyer was founded on the belief that you deserve a higher standard of pet waste removal and lawn sanitization services. We deliver one unwavering standard of excellence, transforming your outdoor space into a pristine, safe environment for your family and pets.
+              <span className="font-medium text-sage-800"> Our specialized approach is about more than just waste removal; it's about providing thoughtful, professional lawn sanitization that gives you true peace of mind.</span>
             </p>
           </div>
 
@@ -291,14 +272,14 @@ const HomePage = () => {
               Transform Your Space
             </div>
             <h2 className="section-title text-offwhite-50 mb-12">
-              Protect Your Family<br />
-              <span className="bg-gradient-to-r from-cream-200 to-offwhite-100 bg-clip-text text-transparent">From Hidden Threats</span>
+              Ready for a<br />
+              <span className="bg-gradient-to-r from-cream-200 to-offwhite-100 bg-clip-text text-transparent">Pristine Lawn?</span>
             </h2>
             <p className="text-2xl text-sage-100 mb-10 leading-relaxed font-light max-w-4xl mx-auto">
-              Don't let invisible dangers compromise your family's health. Join discerning homeowners who trust
+              Join discerning homeowners who trust
               <span className="font-medium text-offwhite-50"> Field & Foyer </span>
-              for comprehensive yard sanitization that goes beyond simple waste removal.
-              <span className="font-medium text-offwhite-50"> Your family's safety is worth the investment.</span>
+              for professional pet waste removal and lawn sanitization.
+              <span className="font-medium text-offwhite-50"> Experience the difference of a truly pristine outdoor space.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-8 justify-center">
               <button
