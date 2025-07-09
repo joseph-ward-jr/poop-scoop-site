@@ -193,13 +193,24 @@ const HomePage = () => {
               <div className="aspect-square max-w-lg mx-auto">
                 {/* Rounded corner graphic element space */}
                 <div className="w-full h-full bg-gradient-to-br from-sage-100/20 to-cream-100/20 rounded-3xl border border-sage-200/30 flex items-center justify-center">
-                  {/* Placeholder for graphic element - replace with your chosen image */}
+                  {/* Hero video element */}
                   <div className="w-90 h-90 rounded-2xl overflow-hidden shadow-lg bg-white/50 backdrop-blur-sm border border-sage-200/50">
-                    <img
-                      src="/images/hero/garden-sanctuary.jpg"
-                      alt="Beautiful Lawn Sanctuary"
+                    <video
+                      src="/videos/hero/sanitization-demo.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="w-full h-full object-cover opacity-80"
-                    />
+                      poster="/images/hero/garden-sanctuary.jpg"
+                    >
+                      {/* Fallback for browsers that don't support video */}
+                      <img
+                        src="/images/hero/garden-sanctuary.jpg"
+                        alt="Yard Sanitization Service"
+                        className="w-full h-full object-cover opacity-80"
+                      />
+                    </video>
                   </div>
                 </div>
               </div>
