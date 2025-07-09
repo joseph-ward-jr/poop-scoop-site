@@ -116,7 +116,7 @@ const HomePage = () => {
         <div className="container-max px-4 md:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-screen py-12">
             {/* Left Side - Content */}
-            <div className="lg:col-span-7 space-y-8">
+            <div className="lg:col-span-6 space-y-8">
               {/* Top Tag */}
               <div className="inline-flex items-center px-4 py-2 bg-sage-100/50 rounded-full">
                 <span className="text-sage-700 font-medium text-xs tracking-[0.2em] uppercase">
@@ -187,7 +187,7 @@ const HomePage = () => {
               </div>
             </div>
             {/* Right Side - Designated Space for Graphic */}
-            <div className="lg:col-span-5 relative flex items-start justify-center">
+            <div className="lg:col-span-6 relative flex items-start justify-center">
               <div className="aspect-square max-w-4xl mx-auto">
                 {/* Rounded corner graphic element space */}
                 <div className="w-full h-full bg-gradient-to-br from-sage-100/20 to-cream-100/20 rounded-3xl border border-sage-200/30 flex items-center justify-center">
