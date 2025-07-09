@@ -112,11 +112,11 @@ const HomePage = () => {
   return (
     <div>
       {/* Premium Minimalist Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-offwhite-50">
+      <section className="relative min-h-[80vh] flex items-center bg-offwhite-50">
         <div className="container-max px-4 md:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-screen py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[80vh] py-8">
             {/* Left Side - Content */}
-            <div className="lg:col-span-7 space-y-8">
+            <div className="lg:col-span-6 space-y-8">
               {/* Top Tag */}
               <div className="inline-flex items-center px-4 py-2 bg-sage-100/50 rounded-full">
                 <span className="text-sage-700 font-medium text-xs tracking-[0.2em] uppercase">
@@ -126,8 +126,8 @@ const HomePage = () => {
 
               {/* Main Headline */}
               <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl font-bold text-sage-900 leading-[0.9] tracking-tight">
-                Your Standards.<br />
-                Our Priority.
+                Beyond Scooping.<br />
+                <span className="text-sage-700">True Protection.</span>
               </h1>
 
               {/* Services Status */}
@@ -146,7 +146,7 @@ const HomePage = () => {
 
               {/* Body Paragraph */}
               <p className="text-xl md:text-2xl text-sage-600 leading-relaxed max-w-2xl font-light">
-                We proudly specialize in professional pet waste removal and lawn sanitization services that elevate your property into a pristine, refined sanctuary.
+                <span className="font-semibold text-sage-800">Scooping waste is just the beginning.</span> Dangerous bacteria, parasites, and pathogens remain embedded in your yard soil—and every day your dog tracks these invisible threats directly into your home on their paws. Our comprehensive sanitization service eliminates what simple removal leaves behind, protecting the spaces where your family lives and walks barefoot.
               </p>
 
               {/* Buttons */}
@@ -187,19 +187,28 @@ const HomePage = () => {
               </div>
             </div>
             {/* Right Side - Designated Space for Graphic */}
-            <div className="lg:col-span-5 relative">
-
-
-              <div className="aspect-square max-w-lg mx-auto">
+            <div className="lg:col-span-6 relative flex items-start justify-center">
+              <div className="aspect-square max-w-4xl mx-auto relative -top-16">
                 {/* Rounded corner graphic element space */}
                 <div className="w-full h-full bg-gradient-to-br from-sage-100/20 to-cream-100/20 rounded-3xl border border-sage-200/30 flex items-center justify-center">
-                  {/* Placeholder for graphic element - replace with your chosen image */}
-                  <div className="w-90 h-90 rounded-2xl overflow-hidden shadow-lg bg-white/50 backdrop-blur-sm border border-sage-200/50">
-                    <img
-                      src="/images/hero/garden-sanctuary.jpg"
-                      alt="Beautiful Lawn Sanctuary"
+                  {/* Hero video element */}
+                  <div className="w-full h-full rounded-2xl overflow-hidden shadow-lg bg-white/50 backdrop-blur-sm border border-sage-200/50">
+                    <video
+                      src="/videos/hero/sanitization-demo.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="w-full h-full object-cover opacity-80"
-                    />
+                      poster="/images/hero/garden-sanctuary.jpg"
+                    >
+                      {/* Fallback for browsers that don't support video */}
+                      <img
+                        src="/images/hero/garden-sanctuary.jpg"
+                        alt="Yard Sanitization Service"
+                        className="w-full h-full object-cover opacity-80"
+                      />
+                    </video>
                   </div>
                 </div>
               </div>
@@ -228,7 +237,7 @@ const HomePage = () => {
             </h2>
             <p className="text-2xl text-sage-600 max-w-5xl mx-auto leading-relaxed font-light">
             Field & Foyer was founded on the belief that you deserve a higher standard of pet waste removal and lawn sanitization services. We deliver one unwavering standard of excellence, transforming your outdoor space into a pristine, safe environment for your family and pets.
-              <span className="font-medium text-sage-800"> Our specialized approach is about more than just waste removal; it’s about providing thoughtful, professional lawn sanitization that gives you true peace of mind.</span>
+              <span className="font-medium text-sage-800"> Our specialized approach is about more than just waste removal; it's about providing thoughtful, professional lawn sanitization that gives you true peace of mind.</span>
             </p>
           </div>
 
