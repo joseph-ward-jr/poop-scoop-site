@@ -128,7 +128,7 @@ describe('ContactPage', () => {
     expect(screen.getByText('(770) 547-8457')).toBeInTheDocument()
     expect(screen.getByText('Email')).toBeInTheDocument()
     expect(screen.getByText('support@fieldandfoyer.com')).toBeInTheDocument()
-    expect(screen.getAllByText('Service Area')).toHaveLength(2) // One in contact cards, one in maps section
+    expect(screen.getByText('Service Area')).toBeInTheDocument()
     expect(screen.getByText('Hours')).toBeInTheDocument()
   })
 
@@ -138,8 +138,7 @@ describe('ContactPage', () => {
     // Check that all four contact cards are rendered
     const phoneCard = screen.getByText('Phone').closest('div')
     const emailCard = screen.getByText('Email').closest('div')
-    const serviceAreaCards = screen.getAllByText('Service Area')
-    const serviceAreaCard = serviceAreaCards[0].closest('div') // Get the first one (contact info card)
+    const serviceAreaCard = screen.getByText('Service Area').closest('div')
     const hoursCard = screen.getByText('Hours').closest('div')
 
     expect(phoneCard).toBeInTheDocument()
@@ -183,21 +182,7 @@ describe('ContactPage', () => {
     render(<ContactPage />)
 
     expect(screen.getByText('Find Us on the Map')).toBeInTheDocument()
-    expect(screen.getByText(/Located in the heart of the Greater Metro Area/)).toBeInTheDocument()
+    expect(screen.getByText(/Based in Canton, GA, we proudly serve the surrounding areas/)).toBeInTheDocument()
     expect(screen.getByTitle('Field and Foyer Location')).toBeInTheDocument()
-  })
-
-  it('shows additional location info cards in maps section', () => {
-    render(<ContactPage />)
-
-    // Check for the three info cards in the maps section
-    expect(screen.getAllByText('Service Area')).toHaveLength(2) // One in contact cards, one in maps section
-    expect(screen.getByText('Quick Response')).toBeInTheDocument()
-    expect(screen.getByText('Easy Booking')).toBeInTheDocument()
-
-    // Check for their descriptions
-    expect(screen.getByText('Greater Metro Area with 5+ neighborhoods served')).toBeInTheDocument()
-    expect(screen.getByText('Same-day service available in most areas')).toBeInTheDocument()
-    expect(screen.getByText('Call or use our form below to get started')).toBeInTheDocument()
   })
 })
