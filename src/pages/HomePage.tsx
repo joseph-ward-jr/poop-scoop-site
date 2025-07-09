@@ -187,14 +187,12 @@ const HomePage = () => {
               </div>
             </div>
             {/* Right Side - Designated Space for Graphic */}
-            <div className="lg:col-span-5 relative">
-
-
-              <div className="aspect-square max-w-lg mx-auto">
+            <div className="lg:col-span-5 relative flex items-start justify-center pt-8">
+              <div className="aspect-square max-w-xl mx-auto">
                 {/* Rounded corner graphic element space */}
                 <div className="w-full h-full bg-gradient-to-br from-sage-100/20 to-cream-100/20 rounded-3xl border border-sage-200/30 flex items-center justify-center">
                   {/* Hero video element */}
-                  <div className="w-90 h-90 rounded-2xl overflow-hidden shadow-lg bg-white/50 backdrop-blur-sm border border-sage-200/50">
+                  <div className="w-full h-full rounded-2xl overflow-hidden shadow-lg bg-white/50 backdrop-blur-sm border border-sage-200/50">
                     <video
                       src="/videos/hero/sanitization-demo.mp4"
                       autoPlay
