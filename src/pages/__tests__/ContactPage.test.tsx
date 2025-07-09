@@ -170,11 +170,19 @@ describe('ContactPage', () => {
 
   it('shows why choose us section', () => {
     render(<ContactPage />)
-    
+
     expect(screen.getByText('Why Choose Field & Foyer?')).toBeInTheDocument()
     expect(screen.getByText('100% Satisfaction Guarantee')).toBeInTheDocument()
     expect(screen.getByText('Fully Insured')).toBeInTheDocument()
     expect(screen.getByText('Eco-Friendly Methods')).toBeInTheDocument()
     expect(screen.getByText('Local Family Business')).toBeInTheDocument()
+  })
+
+  it('shows Google Maps section', () => {
+    render(<ContactPage />)
+
+    expect(screen.getByText('Find Us on the Map')).toBeInTheDocument()
+    expect(screen.getByText(/Based in Canton, GA, we proudly serve the surrounding areas with professional pet waste removal services. Use the map below to see our service coverage./)).toBeInTheDocument()
+    expect(screen.getByTitle('Field and Foyer Location')).toBeInTheDocument()
   })
 })

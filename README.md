@@ -18,7 +18,7 @@ A modern, responsive website for a professional pet waste removal service built 
 - **Blog**: Professional insights and tips with newsletter integration
 - **Testimonials**: Customer reviews with interactive carousel
 - **Pricing**: Detailed pricing tables with FAQ section
-- **Contact**: Comprehensive contact form with validation
+- **Contact**: Comprehensive contact form with validation and embedded Google Maps
 
 ## Tech Stack
 
@@ -222,6 +222,32 @@ See `docs/META_PIXEL_INTEGRATION.md` for detailed implementation guide, usage ex
 ### Testing
 ```bash
 npm test -- MetaPixel.test.tsx
+```
+
+## Google Maps Integration
+
+The contact page features an embedded Google Maps component that displays the business location:
+
+### Features
+- **Interactive Map**: Embedded Google Maps showing Field & Foyer's location
+- **Responsive Design**: Adapts to different screen sizes with proper aspect ratios
+- **Loading States**: Shows loading spinner while map loads
+- **Error Handling**: Graceful fallback when map fails to load
+- **Business Overlay**: Displays business information over the map
+- **Additional Location Info**: Three info cards below the map highlighting service area, response time, and booking process
+
+### Implementation
+- **Component**: `GoogleMapsEmbed` component handles the iframe embedding
+- **Styling**: Matches the site's design system with rounded corners and shadows
+- **Accessibility**: Proper alt text and title attributes for screen readers
+- **Performance**: Lazy loading enabled for optimal page performance
+
+### Location
+The map is positioned between the contact information cards and the contact form on the contact page, providing a natural flow for users seeking location information.
+
+### Testing
+```bash
+npm test -- GoogleMapsEmbed.test.tsx
 ```
 
 ## Testing
