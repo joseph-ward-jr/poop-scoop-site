@@ -112,9 +112,9 @@ const HomePage = () => {
   return (
     <div>
       {/* Premium Minimalist Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-offwhite-50">
+      <section className="relative min-h-[80vh] flex items-center bg-offwhite-50">
         <div className="container-max px-4 md:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-screen py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[80vh] py-8">
             {/* Left Side - Content */}
             <div className="lg:col-span-6 space-y-8">
               {/* Top Tag */}
