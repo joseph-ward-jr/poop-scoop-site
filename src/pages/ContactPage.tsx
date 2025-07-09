@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ContactForm from '../components/ContactForm'
+import GoogleMapsEmbed from '../components/GoogleMapsEmbed'
 import { useJobberSubmission } from '../hooks/useJobberSubmission'
 import { ContactFormData } from '../types/jobber'
 
@@ -226,6 +227,51 @@ const ContactPage = () => {
                 </div>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Google Maps Section */}
+      <section className="section-padding bg-white">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Find Us on the Map
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              Located in the heart of the Greater Metro Area, we're here to serve your neighborhood with professional pet waste removal services. Visit our location or get directions directly from Google Maps.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <GoogleMapsEmbed className="h-96 md:h-[500px]" />
+          </div>
+
+          {/* Additional location info */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="text-center p-6 bg-gradient-to-br from-sage-50 to-sage-100 rounded-2xl border border-sage-200">
+              <div className="w-12 h-12 bg-sage-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <img src="/images/icons/location.svg" alt="Service Area" className="w-6 h-6 filter brightness-0 invert" />
+              </div>
+              <h3 className="text-lg font-semibold text-sage-800 mb-2">Service Area</h3>
+              <p className="text-sage-600 text-sm">Greater Metro Area with 5+ neighborhoods served</p>
+            </div>
+
+            <div className="text-center p-6 bg-gradient-to-br from-cream-50 to-cream-100 rounded-2xl border border-cream-200">
+              <div className="w-12 h-12 bg-cream-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <img src="/images/icons/clock.svg" alt="Response Time" className="w-6 h-6 filter brightness-0 invert" />
+              </div>
+              <h3 className="text-lg font-semibold text-cream-800 mb-2">Quick Response</h3>
+              <p className="text-cream-600 text-sm">Same-day service available in most areas</p>
+            </div>
+
+            <div className="text-center p-6 bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl border border-primary-200">
+              <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <img src="/images/icons/phone.svg" alt="Contact" className="w-6 h-6 filter brightness-0 invert" />
+              </div>
+              <h3 className="text-lg font-semibold text-primary-800 mb-2">Easy Booking</h3>
+              <p className="text-primary-600 text-sm">Call or use our form below to get started</p>
+            </div>
           </div>
         </div>
       </section>
