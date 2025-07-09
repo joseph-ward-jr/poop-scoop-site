@@ -253,24 +253,6 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Google Maps Section */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Find Us on the Map
-            </h2>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Based in Canton, GA, we proudly serve the surrounding areas with professional pet waste removal services. Use the map below to see our service coverage.
-            </p>
-          </div>
-
-          <div className="max-w-5xl mx-auto">
-            <GoogleMapsEmbed className="h-96 md:h-[500px]" />
-          </div>
-        </div>
-      </section>
-
       {/* What Happens Next */}
       <section className="section-padding bg-white">
         <div className="container-max">
@@ -338,6 +320,24 @@ const ContactPage = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Google Maps Section */}
+      <section className="section-padding bg-white">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Find Us on the Map
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              Based in Canton, GA, we proudly serve the surrounding areas with professional pet waste removal services. Use the map below to see our service coverage.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <GoogleMapsEmbed className="h-96 md:h-[500px]" />
           </div>
         </div>
       </section>
