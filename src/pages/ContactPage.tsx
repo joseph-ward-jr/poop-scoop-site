@@ -239,7 +239,7 @@ const ContactPage = () => {
               Find Us on the Map
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Based in Canton, GA, we proudly serve the surrounding areas with professional pet waste removal services. Use the map below to see our service coverage and get directions to your neighborhood.
+              Based in Canton, GA, we proudly serve the surrounding areas with professional pet waste removal services. Use the map below to see our service coverage.
             </p>
           </div>
 

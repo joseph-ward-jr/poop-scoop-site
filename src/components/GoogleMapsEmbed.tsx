@@ -63,7 +63,7 @@ const GoogleMapsEmbed = ({ className = '' }: GoogleMapsEmbedProps) => {
       </div>
 
       {/* Map overlay with business info */}
-      <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-sage-200/50 z-20">
+      <div className="absolute bottom-2 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-sage-200/50 z-20">
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 bg-sage-500 rounded-full flex items-center justify-center">
             <img src="/images/icons/location.svg" alt="Location" className="w-5 h-5 filter brightness-0 invert" />

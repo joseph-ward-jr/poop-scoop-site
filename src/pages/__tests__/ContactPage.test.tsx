@@ -182,7 +182,7 @@ describe('ContactPage', () => {
     render(<ContactPage />)
 
     expect(screen.getByText('Find Us on the Map')).toBeInTheDocument()
-    expect(screen.getByText(/Based in Canton, GA, we proudly serve the surrounding areas/)).toBeInTheDocument()
+    expect(screen.getByText(/Based in Canton, GA, we proudly serve the surrounding areas with professional pet waste removal services. Use the map below to see our service coverage./)).toBeInTheDocument()
     expect(screen.getByTitle('Field and Foyer Location')).toBeInTheDocument()
   })
 })
