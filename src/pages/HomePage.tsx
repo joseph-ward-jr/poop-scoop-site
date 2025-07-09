@@ -187,8 +187,8 @@ const HomePage = () => {
               </div>
             </div>
             {/* Right Side - Designated Space for Graphic */}
-            <div className="lg:col-span-5 relative flex items-start justify-center pt-4">
-              <div className="aspect-square max-w-2xl mx-auto">
+            <div className="lg:col-span-5 relative flex items-start justify-center">
+              <div className="aspect-square max-w-4xl mx-auto">
                 {/* Rounded corner graphic element space */}
                 <div className="w-full h-full bg-gradient-to-br from-sage-100/20 to-cream-100/20 rounded-3xl border border-sage-200/30 flex items-center justify-center">
                   {/* Hero video element */}
