@@ -16,16 +16,42 @@ const BlogCard = ({ post, variant = 'default' }: BlogCardProps) => {
     })
   }
 
+  const isVideo = (url: string) => {
+    return url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.ogg')
+  }
+
+  const renderMedia = (url: string, alt: string, className: string) => {
+    if (isVideo(url)) {
+      return (
+        <video
+          src={url}
+          className={className}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+      )
+    }
+    return (
+      <img
+        src={url}
+        alt={alt}
+        className={className}
+      />
+    )
+  }
+
   if (variant === 'featured') {
     return (
       <article className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
         {post.featuredImage && (
           <div className="aspect-video overflow-hidden">
-            <img
-              src={post.featuredImage}
-              alt={post.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
+            {renderMedia(
+              post.featuredImage,
+              post.title,
+              "w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            )}
           </div>
         )}
         <div className="p-8">
@@ -76,11 +102,11 @@ const BlogCard = ({ post, variant = 'default' }: BlogCardProps) => {
     <article className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 group">
       {post.featuredImage && (
         <div className="aspect-video overflow-hidden">
-          <img
-            src={post.featuredImage}
-            alt={post.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          />
+          {renderMedia(
+            post.featuredImage,
+            post.title,
+            "w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          )}
         </div>
       )}
       <div className="p-6">
