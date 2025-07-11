@@ -10,7 +10,7 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2025-07-11',
     readTime: 7,
     tags: ['Pet Safety', 'Summer Care', 'Outdoor Dogs', 'Heat Protection', 'Pet Health'],
-    featuredImage: '/images/blog/summer-safety-outdoor-dogs.mp4',
+    featuredImage: '/videos/blog/summer-safety-outdoor-dogs.mp4',
     seo: {
       metaTitle: 'Summer Safety Tips for Outdoor Dogs: Heat Protection & Health | Field & Foyer',
       metaDescription: 'Essential summer safety tips for outdoor dogs. Learn heat protection, hydration strategies, and proper waste management to keep your pets healthy in hot weather.',
