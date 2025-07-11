@@ -44,10 +44,6 @@ Field & Foyer's strategic growth plan:
   - Size: 300x300px
   - Style: Green, sustainable methods
 
-### Hero Section
-- `hero/garden-sanctuary.jpg` - Beautiful outdoor sanctuary
-  - Size: 500x500px
-  - Style: Pristine garden space, peaceful and elegant
 
 ### Team Members
 - `team/sarah-johnson.jpg` - Professional headshot of founder
@@ -131,8 +127,7 @@ public/images/
 │   ├── thoughtful-service.jpg
 │   ├── premium-quality.jpg
 │   └── sustainable-practices.jpg
-├── hero/
-│   └── garden-sanctuary.jpg
+
 ├── team/
 │   ├── sarah-johnson.jpg
 │   ├── mike-thompson.jpg
