@@ -94,8 +94,6 @@ Summer brings longer days, warmer weather, and more time outdoors with our furry
 
 **Summer makes regular poop scooping absolutely critical:**
 
-- **Remove waste within 2-4 hours** to prevent bacterial explosion
-- **Daily removal** becomes essential, not optional
 - **Professional poop scooping services** ensure consistent removal
 - **Sanitization treatments** become more important than ever
 
@@ -135,8 +133,6 @@ Summer brings longer days, warmer weather, and more time outdoors with our furry
 **Hot weather makes professional pet waste management essential:**
 
 ### Frequent Removal Schedule
-- **Twice-daily service** during heat waves
-- **Early morning** and **evening removal** to avoid peak heat
 - **Emergency response** for urgent situations
 - **Consistent service** regardless of weather conditions
 
@@ -158,12 +154,10 @@ Summer brings longer days, warmer weather, and more time outdoors with our furry
 
 **Morning (Before 10 AM):**
 - Check and refill all water sources
-- Remove any waste from overnight
 - Ensure shade structures are secure
 - Test ground temperature with your hand
 
 **Evening (After 6 PM):**
-- Perform thorough waste removal
 - Clean and refill water bowls
 - Check for signs of heat stress
 - Prepare cooling aids for next day
