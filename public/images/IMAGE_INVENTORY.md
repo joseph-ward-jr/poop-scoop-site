@@ -10,8 +10,7 @@ public/images/
 │   ├── thoughtful-service.jpg ✅ PLACEHOLDER CREATED
 │   ├── premium-quality.jpg ✅ PLACEHOLDER CREATED
 │   └── sustainable-practices.jpg ✅ PLACEHOLDER CREATED
-├── hero/
-│   └── garden-sanctuary.jpg ✅ PLACEHOLDER CREATED
+
 ├── services/
 │   ├── pet-waste-removal.jpg ✅ PLACEHOLDER CREATED
 │   ├── lawn-maintenance.jpg ✅ PLACEHOLDER CREATED
@@ -35,14 +34,7 @@ public/images/
 
 ## 🎯 Images You Need to Replace
 
-### 1. Hero Section
-**File**: `public/images/hero/garden-sanctuary.jpg`
-- **Size**: 500x500px
-- **Usage**: HomePage hero section
-- **Style**: Beautiful outdoor sanctuary, pristine garden space, peaceful and elegant
-- **AI Prompt**: "Beautiful garden sanctuary, pristine outdoor space, peaceful and elegant garden, sage green and natural tones, professional photography, serene backyard oasis"
-
-### 2. Benefits Section (HomePage)
+### 1. Benefits Section (HomePage)
 **File**: `public/images/benefits/thoughtful-service.jpg`
 - **Size**: 300x300px
 - **Usage**: HomePage benefits section
@@ -61,7 +53,7 @@ public/images/
 - **Style**: Eco-friendly practices, green sustainable methods
 - **AI Prompt**: "Eco-friendly garden practices, sustainable landscaping methods, green environmental care, natural organic approach, sage green and earth tones"
 
-### 3. Service Images
+### 2. Service Images
 **File**: `public/images/services/pet-waste-removal.jpg`
 - **Size**: 400x300px
 - **Usage**: ServicesPage, PetWasteRemovalPage
@@ -80,7 +72,7 @@ public/images/
 - **Style**: Clean, organized interior space
 - **AI Prompt**: "Spotless, organized home interior, premium residential cleaning service, clean modern home, professional housekeeping results"
 
-### 4. Team Photos (AboutPage)
+### 3. Team Photos (AboutPage)
 **File**: `public/images/team/sarah-johnson.jpg`
 - **Size**: 300x300px
 - **Usage**: AboutPage team section

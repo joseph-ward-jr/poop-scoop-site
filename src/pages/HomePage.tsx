@@ -200,14 +200,14 @@ const HomePage = () => {
                       muted
                       playsInline
                       className="w-full h-full object-cover opacity-80"
-                      poster="/images/hero/garden-sanctuary.jpg"
                     >
                       {/* Fallback for browsers that don't support video */}
-                      <img
-                        src="/images/hero/garden-sanctuary.jpg"
-                        alt="Yard Sanitization Service"
-                        className="w-full h-full object-cover opacity-80"
-                      />
+                      <div className="w-full h-full bg-gradient-to-br from-sage-200 to-sage-300 flex items-center justify-center">
+                        <div className="text-sage-700 text-center">
+                          <div className="text-4xl mb-2">🌿</div>
+                          <div className="text-lg font-medium">Professional Yard Sanitization</div>
+                        </div>
+                      </div>
                     </video>
                   </div>
                 </div>
