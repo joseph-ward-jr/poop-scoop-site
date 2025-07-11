@@ -55,7 +55,6 @@ const BlogPostPage = () => {
           loop
           muted
           playsInline
-          controls
         />
       )
     }
