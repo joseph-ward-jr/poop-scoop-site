@@ -2,6 +2,204 @@ import { BlogPost } from '../types/blog'
 
 export const blogPosts: BlogPost[] = [
   {
+    id: '4',
+    title: 'Summer Safety Tips for Outdoor Dogs: Protecting Your Pet from Heat and Hidden Hazards',
+    slug: 'summer-safety-tips-outdoor-dogs',
+    excerpt: 'Keep your outdoor dogs safe this summer with essential heat protection tips, hydration strategies, and proper waste management to prevent health risks in hot weather.',
+    author: 'Joey Ward',
+    publishedAt: '2025-07-11',
+    readTime: 7,
+    tags: ['Pet Safety', 'Summer Care', 'Outdoor Dogs', 'Heat Protection', 'Pet Health'],
+    featuredImage: '/images/blog/summer-safety-outdoor-dogs.mp4',
+    seo: {
+      metaTitle: 'Summer Safety Tips for Outdoor Dogs: Heat Protection & Health | Field & Foyer',
+      metaDescription: 'Essential summer safety tips for outdoor dogs. Learn heat protection, hydration strategies, and proper waste management to keep your pets healthy in hot weather.',
+      keywords: ['summer dog safety', 'outdoor dog care', 'heat protection dogs', 'dog hydration', 'pet waste summer', 'poop scooping hot weather', 'dog heat stroke prevention', 'summer pet health']
+    },
+
+    content: `
+# Summer Safety Tips for Outdoor Dogs: Protecting Your Pet from Heat and Hidden Hazards
+
+*Published on July 11, 2025 by Joey Ward*
+
+Summer brings longer days, warmer weather, and more time outdoors with our furry companions. But **rising temperatures create serious health risks for outdoor dogs** that many pet owners overlook. From heat stroke to increased bacterial growth in waste, summer presents unique challenges that require proactive protection strategies.
+
+## The Hidden Dangers of Summer Heat
+
+### Heat-Related Health Risks
+
+**Dogs don't sweat like humans do.** They rely primarily on panting and limited sweating through their paw pads to regulate body temperature. This makes them particularly vulnerable to:
+
+- **Heat exhaustion** when temperatures exceed 80°F
+- **Heat stroke** which can be fatal within minutes
+- **Burned paw pads** from hot pavement and surfaces
+- **Dehydration** leading to organ failure
+
+### Temperature Danger Zones
+
+**Know when it's too hot for outdoor activities:**
+
+- **70-80°F**: Safe with adequate shade and water
+- **80-85°F**: Limit outdoor time, increase water access
+- **85-90°F**: Short outdoor periods only, constant monitoring
+- **90°F+**: Emergency conditions - bring dogs inside immediately
+
+## Essential Summer Safety Strategies
+
+### Hydration is Critical
+
+**Water requirements double in summer heat.** Ensure your outdoor dogs have:
+
+### Multiple Water Sources
+- **Fresh, cool water** available 24/7
+- **Elevated bowls** to prevent contamination
+- **Shaded water stations** to keep water cool
+- **Backup water sources** in case primary sources fail
+
+### Cooling Strategies
+- **Kiddie pools** for safe cooling and play
+- **Wet towels** placed on shaded surfaces
+- **Frozen treats** made from dog-safe ingredients
+- **Misting systems** for gradual temperature reduction
+
+### Shelter and Shade Solutions
+
+**Proper shelter can be life-saving:**
+
+### Adequate Shade Coverage
+- **Natural shade** from trees and structures
+- **Artificial shade** using tarps or canopies
+- **Ventilated shelters** that allow air circulation
+- **Elevated platforms** to avoid ground heat
+
+### Shelter Requirements
+- **Large enough** for dogs to stand and turn around
+- **Well-ventilated** to prevent heat buildup
+- **Insulated** to block heat transfer
+- **Positioned** to catch prevailing breezes
+
+## The Summer Waste Management Challenge
+
+### Increased Health Risks
+
+**Hot weather accelerates bacterial growth in pet waste,** creating serious health hazards:
+
+### Bacterial Multiplication
+- **E. coli and Salmonella** multiply rapidly in heat
+- **Parasite eggs** remain viable longer in warm conditions
+- **Ammonia production** increases, creating toxic fumes
+- **Fly and pest attraction** escalates dramatically
+
+### The Poop Scooping Urgency
+
+**Summer makes regular poop scooping absolutely critical:**
+
+- **Remove waste within 2-4 hours** to prevent bacterial explosion
+- **Daily removal** becomes essential, not optional
+- **Professional poop scooping services** ensure consistent removal
+- **Sanitization treatments** become more important than ever
+
+### Heat-Related Waste Hazards
+
+**Summer conditions make pet waste exponentially more dangerous:**
+
+- **Dried waste particles** become airborne in heat
+- **Concentrated ammonia** can cause respiratory issues
+- **Increased odors** affect outdoor enjoyment
+- **Ground contamination** spreads faster in warm soil
+
+## Recognizing Heat Emergency Signs
+
+### Early Warning Signs
+- **Excessive panting** or difficulty breathing
+- **Drooling** more than usual
+- **Lethargy** or reluctance to move
+- **Loss of appetite** or interest in activities
+
+### Emergency Symptoms
+- **Vomiting or diarrhea**
+- **Stumbling or loss of coordination**
+- **Bright red gums and tongue**
+- **Collapse or unconsciousness**
+
+### Immediate Action Steps
+1. **Move to shade** or air conditioning immediately
+2. **Apply cool water** to paw pads and belly
+3. **Offer small amounts** of cool water
+4. **Contact veterinarian** immediately
+
+## Professional Summer Solutions
+
+### Field & Foyer's Summer Service Advantages
+
+**Hot weather makes professional pet waste management essential:**
+
+### Frequent Removal Schedule
+- **Twice-daily service** during heat waves
+- **Early morning** and **evening removal** to avoid peak heat
+- **Emergency response** for urgent situations
+- **Consistent service** regardless of weather conditions
+
+### Advanced Sanitization
+- **Heat-resistant treatments** that work in high temperatures
+- **Odor control solutions** specifically for summer conditions
+- **Bacterial elimination** using professional-grade products
+- **Safe application** methods that protect pets and family
+
+### Health Protection Benefits
+- **Reduced disease transmission** during peak bacterial growth
+- **Eliminated fly and pest breeding** grounds
+- **Improved air quality** around outdoor spaces
+- **Peace of mind** during summer outdoor activities
+
+## Creating a Summer-Safe Environment
+
+### Daily Maintenance Checklist
+
+**Morning (Before 10 AM):**
+- Check and refill all water sources
+- Remove any waste from overnight
+- Ensure shade structures are secure
+- Test ground temperature with your hand
+
+**Evening (After 6 PM):**
+- Perform thorough waste removal
+- Clean and refill water bowls
+- Check for signs of heat stress
+- Prepare cooling aids for next day
+
+### Weekly Deep Maintenance
+- **Sanitize all water bowls** and feeding areas
+- **Clean and disinfect** shelter areas
+- **Inspect shade structures** for damage
+- **Professional waste area treatment** for bacterial control
+
+## Take Action for Summer Safety
+
+**Summer heat doesn't wait, and neither should your pet's protection plan.** Every day of extreme heat increases health risks for outdoor dogs, making proactive care essential.
+
+### Getting Started is Simple
+
+**Immediate steps you can take today:**
+1. **Assess your current setup** for adequate shade and water
+2. **Establish a consistent waste removal routine**
+3. **Create emergency cooling supplies** and action plan
+4. **Consider professional poop scooping services** for consistent protection
+
+### The Field & Foyer Summer Commitment
+
+We understand that summer brings unique challenges for pet owners. Our professional services ensure:
+
+- **Reliable waste removal** even in extreme heat
+- **Consistent sanitization** when bacterial growth peaks
+- **Peace of mind** so you can focus on keeping your pets cool and safe
+
+**Don't let summer heat compromise your pet's health and safety.** Professional waste management becomes even more critical when temperatures rise and bacterial growth accelerates.
+
+**Ready to ensure your outdoor dogs stay safe and healthy all summer long?** Contact Field & Foyer today to discuss our summer service options and create a comprehensive protection plan for your furry family members.
+    `
+  },
+  {
     id: '3',
     title: 'The Hidden Truth: How Dog Waste is Secretly Destroying Your Dream Lawn',
     slug: 'dog-waste-lawn-damage-hidden-truth',
