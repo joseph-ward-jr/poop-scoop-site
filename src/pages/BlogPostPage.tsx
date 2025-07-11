@@ -41,6 +41,32 @@ const BlogPostPage = () => {
     })
   }
 
+  const isVideo = (url: string) => {
+    return url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.ogg')
+  }
+
+  const renderFeaturedMedia = (url: string, alt: string) => {
+    if (isVideo(url)) {
+      return (
+        <video
+          src={url}
+          className="w-full h-full object-cover rounded-2xl shadow-lg"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+      )
+    }
+    return (
+      <img
+        src={url}
+        alt={alt}
+        className="w-full h-full object-cover rounded-2xl shadow-lg"
+      />
+    )
+  }
+
   // Convert markdown-style content to HTML (basic conversion)
   const formatContent = (content: string) => {
     return content
@@ -127,14 +153,10 @@ const BlogPostPage = () => {
         </div>
       </header>
 
-      {/* Featured Image */}
+      {/* Featured Media */}
       {post.featuredImage && (
         <div className="aspect-video max-w-6xl mx-auto my-8 px-4 sm:px-6 lg:px-8">
-          <img
-            src={post.featuredImage}
-            alt={post.title}
-            className="w-full h-full object-cover rounded-2xl shadow-lg"
-          />
+          {renderFeaturedMedia(post.featuredImage, post.title)}
         </div>
       )}
 
