@@ -82,13 +82,35 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Services */}
+            {/* Locations */}
             <div>
-              <h3 className="text-lg font-semibold mb-6 text-offwhite-50">Our Services</h3>
-              <ul className="text-sm space-y-3 text-sage-200">
-                <li>Pet Waste Removal</li>
-                <li>Indoor House Cleaning (Coming Soon)</li>
-                <li>Lawn Maintenance (Coming Soon)</li>
+              <h3 className="text-lg font-semibold mb-6 text-offwhite-50">Service Areas</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/locations/canton" className="text-sage-200 hover:text-sage-300 transition-colors">
+                    Canton, GA
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/locations/ballground" className="text-sage-200 hover:text-sage-300 transition-colors">
+                    Ballground, GA
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/locations/holly-springs" className="text-sage-200 hover:text-sage-300 transition-colors">
+                    Holly Springs, GA
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/locations/milton" className="text-sage-200 hover:text-sage-300 transition-colors">
+                    Milton, GA
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/locations/woodstock" className="text-sage-200 hover:text-sage-300 transition-colors">
+                    Woodstock, GA
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

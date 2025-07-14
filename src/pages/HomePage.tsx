@@ -266,6 +266,96 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="section-padding bg-cream-50">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full text-sage-800 font-medium text-sm tracking-wide uppercase mb-8">
+              ⭐ Customer Stories
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
+              What Our Customers Say
+            </h2>
+            <p className="text-xl text-sage-700 max-w-3xl mx-auto">
+              We believe the most authentic measure of our work is the satisfaction of the homeowners we serve
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                id: 1,
+                name: 'Jennifer M.',
+                location: 'Canton',
+                petName: 'Bella & Max',
+                rating: 5,
+                text: 'Field & Foyer has been a lifesaver! With two large dogs, keeping our grass clean was becoming impossible. Joey, Robb, and their team are reliable, professional, and our outdoor space has never looked better. Highly recommend!',
+                service: 'Weekly Service'
+              },
+              {
+                id: 2,
+                name: 'David W.',
+                location: 'Holly Springs',
+                petName: 'Buddy',
+                rating: 5,
+                text: 'Professional, punctual, and affordable. They show up every week like clockwork, even in bad weather. Buddy\'s yard is always spotless when I get home from work.',
+                service: 'Weekly Service'
+              },
+              {
+                id: 3,
+                name: 'Lisa T.',
+                location: 'Woodstock',
+                petName: 'Luna & Rocky',
+                rating: 5,
+                text: 'As a busy mom with two kids and two dogs, I don\'t have time for keeping up with my yard. Field & Foyer takes care of everything so we can just enjoy our yard.',
+                service: 'Weekly Service'
+              }
+            ].map((testimonial) => (
+              <div
+                key={testimonial.id}
+                className="card-modern hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="mb-4">
+                  {Array.from({ length: 5 }, (_, i) => (
+                    <span key={i} className={`text-xl ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'}`}>
+                      ⭐
+                    </span>
+                  ))}
+                </div>
+                <blockquote className="text-sage-700 mb-6 leading-relaxed">
+                  "{testimonial.text}"
+                </blockquote>
+                <div className="border-t border-sage-200 pt-4">
+                  <p className="font-bold text-sage-900">{testimonial.name}</p>
+                  <p className="text-sage-600 font-semibold text-sm">
+                    {testimonial.petName}'s Parent
+                  </p>
+                  <p className="text-sage-500 text-sm">{testimonial.location}</p>
+                  <p className="text-sage-500 text-sm mt-1">{testimonial.service}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-sage-800 mb-2">50+</div>
+                <p className="text-sage-600">Happy Customers</p>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-sage-800 mb-2">100+</div>
+                <p className="text-sage-600">Services Completed</p>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-sage-800 mb-2">99%</div>
+                <p className="text-sage-600">Customer Satisfaction</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="relative section-padding bg-gradient-to-br from-sage-600 via-sage-700 to-sage-800 overflow-hidden">
         {/* Animated background elements */}
