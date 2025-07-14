@@ -163,18 +163,15 @@ const WoodstockPage = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-4xl mb-4">🏘️</div>
+            <div className="bg-sage-700/50 backdrop-blur-sm rounded-xl p-6 border border-sage-500/30 hover:bg-sage-700/70 hover:scale-105 transition-all duration-300 hover:shadow-xl">
               <h3 className="text-xl font-bold text-offwhite-50 mb-3">Community Focused</h3>
               <p className="text-sage-100">Local service that understands and supports Woodstock values</p>
             </div>
-            <div className="text-center">
-              <div className="text-4xl mb-4">👨‍👩‍👧‍👦</div>
+            <div className="bg-sage-700/50 backdrop-blur-sm rounded-xl p-6 border border-sage-500/30 hover:bg-sage-700/70 hover:scale-105 transition-all duration-300 hover:shadow-xl">
               <h3 className="text-xl font-bold text-offwhite-50 mb-3">Family Friendly</h3>
               <p className="text-sage-100">Safe, reliable service that busy Woodstock families can trust</p>
             </div>
-            <div className="text-center">
-              <div className="text-4xl mb-4">🤝</div>
+            <div className="bg-sage-700/50 backdrop-blur-sm rounded-xl p-6 border border-sage-500/30 hover:bg-sage-700/70 hover:scale-105 transition-all duration-300 hover:shadow-xl">
               <h3 className="text-xl font-bold text-offwhite-50 mb-3">Neighbor to Neighbor</h3>
               <p className="text-sage-100">Personal service that treats your property like our own</p>
             </div>

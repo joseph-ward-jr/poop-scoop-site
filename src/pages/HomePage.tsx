@@ -285,56 +285,44 @@ const HomePage = () => {
             {[
               {
                 id: 1,
-                name: 'Customer Name 1',
-                location: 'Canton, GA',
+                name: 'Brandon R.',
                 rating: 5,
-                text: '[Placeholder for Google review content - Replace with actual customer testimonial]',
-                service: 'Weekly Service',
+                text: 'Awesome service! Joey is professional, reliable and takes care of the dirty work so we didn\'t have to. Very friendly and showed up on time, highly recommend!',
                 verified: true
               },
               {
                 id: 2,
-                name: 'Customer Name 2',
-                location: 'Holly Springs, GA',
+                name: 'Klane P.',
                 rating: 5,
-                text: '[Placeholder for Google review content - Replace with actual customer testimonial]',
-                service: 'Bi-weekly Service',
+                text: 'First time using such a service, so not sure what to expect. Extremely pleased with the results and exceeded my expectations. I would definitely recommend.',
                 verified: true
               },
               {
                 id: 3,
-                name: 'Customer Name 3',
-                location: 'Woodstock, GA',
+                name: 'Rebecca C.',
                 rating: 5,
-                text: '[Placeholder for Google review content - Replace with actual customer testimonial]',
-                service: 'Weekly Service',
+                text: 'They were fantastic taking care of our pup waste. We were a little hesitant on trying a pet waste service st first, but the guys at Field and Foyer were top notch!!! They didn\'t leave a single stone unturned! They are thorough, friendly, on time, professional and awesome! I highly recommend them!!!',
                 verified: true
               },
               {
                 id: 4,
-                name: 'Customer Name 4',
-                location: 'Milton, GA',
+                name: 'Deborah C.',
                 rating: 5,
-                text: '[Placeholder for Google review content - Replace with actual customer testimonial]',
-                service: 'Weekly Service',
+                text: 'Field and Foyer is a great service! They left my yard poop free! The team was courteous and friendly!',
                 verified: true
               },
               {
                 id: 5,
-                name: 'Customer Name 5',
-                location: 'Ballground, GA',
+                name: 'Judith D.',
                 rating: 5,
-                text: '[Placeholder for Google review content - Replace with actual customer testimonial]',
-                service: 'Bi-weekly Service',
+                text: 'Field and Foyer do not disappoint. Timely, thorough, leaving our yard neat and relieved of poop 😊',
                 verified: true
               },
               {
                 id: 6,
-                name: 'Customer Name 6',
-                location: 'Canton, GA',
+                name: 'Jul L.',
                 rating: 5,
-                text: '[Placeholder for Google review content - Replace with actual customer testimonial]',
-                service: 'Weekly Service',
+                text: 'Outstanding service backed by an even more exceptional team. Everyone was knowledgeable, approachable, and genuinely helpful. Their rates were more competitive than any I\'ve come across in the past. Highly recommend!',
                 verified: true
               }
             ].map((testimonial) => (
@@ -364,8 +352,6 @@ const HomePage = () => {
                 </blockquote>
                 <div className="border-t border-sage-200 pt-4">
                   <p className="font-bold text-sage-900">{testimonial.name}</p>
-                  <p className="text-sage-500 text-sm">{testimonial.location}</p>
-                  <p className="text-sage-500 text-sm mt-1">{testimonial.service}</p>
                 </div>
               </div>
             ))}

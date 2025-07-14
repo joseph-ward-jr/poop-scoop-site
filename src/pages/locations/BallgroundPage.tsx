@@ -163,18 +163,15 @@ const BallgroundPage = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-4xl mb-4">🏡</div>
+            <div className="bg-sage-700/50 backdrop-blur-sm rounded-xl p-6 border border-sage-500/30 hover:bg-sage-700/70 hover:scale-105 transition-all duration-300 hover:shadow-xl">
               <h3 className="text-xl font-bold text-offwhite-50 mb-3">Rural Specialists</h3>
               <p className="text-sage-100">Expert service for larger properties and rural settings</p>
             </div>
-            <div className="text-center">
-              <div className="text-4xl mb-4">🌿</div>
+            <div className="bg-sage-700/50 backdrop-blur-sm rounded-xl p-6 border border-sage-500/30 hover:bg-sage-700/70 hover:scale-105 transition-all duration-300 hover:shadow-xl">
               <h3 className="text-xl font-bold text-offwhite-50 mb-3">Well Water Safe</h3>
               <p className="text-sage-100">Eco-friendly methods that protect your well water and septic systems</p>
             </div>
-            <div className="text-center">
-              <div className="text-4xl mb-4">🤝</div>
+            <div className="bg-sage-700/50 backdrop-blur-sm rounded-xl p-6 border border-sage-500/30 hover:bg-sage-700/70 hover:scale-105 transition-all duration-300 hover:shadow-xl">
               <h3 className="text-xl font-bold text-offwhite-50 mb-3">Respectful Service</h3>
               <p className="text-sage-100">Understanding of rural privacy and property boundaries</p>
             </div>

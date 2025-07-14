@@ -163,18 +163,15 @@ const CantonPage = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-4xl mb-4">🏆</div>
+            <div className="bg-sage-700/50 backdrop-blur-sm rounded-xl p-6 border border-sage-500/30 hover:bg-sage-700/70 hover:scale-105 transition-all duration-300 hover:shadow-xl">
               <h3 className="text-xl font-bold text-offwhite-50 mb-3">Local Expertise</h3>
               <p className="text-sage-100">Deep understanding of Canton's neighborhoods and community needs</p>
             </div>
-            <div className="text-center">
-              <div className="text-4xl mb-4">🌱</div>
+            <div className="bg-sage-700/50 backdrop-blur-sm rounded-xl p-6 border border-sage-500/30 hover:bg-sage-700/70 hover:scale-105 transition-all duration-300 hover:shadow-xl">
               <h3 className="text-xl font-bold text-offwhite-50 mb-3">Eco-Friendly</h3>
               <p className="text-sage-100">Safe, natural cleaning methods that protect Canton's environment</p>
             </div>
-            <div className="text-center">
-              <div className="text-4xl mb-4">⚡</div>
+            <div className="bg-sage-700/50 backdrop-blur-sm rounded-xl p-6 border border-sage-500/30 hover:bg-sage-700/70 hover:scale-105 transition-all duration-300 hover:shadow-xl">
               <h3 className="text-xl font-bold text-offwhite-50 mb-3">Reliable Service</h3>
               <p className="text-sage-100">Consistent, professional service that Canton families depend on</p>
             </div>
