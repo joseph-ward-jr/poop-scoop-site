@@ -1,8 +1,6 @@
-# Location Videos
+# Location Hero Videos
 
 This directory contains hero videos for each location page. Each video should be optimized for web and represent the local area.
-
-**Note: Location pages now use MP4 videos instead of images, similar to the homepage hero video.**
 
 ## Required Videos
 
@@ -14,7 +12,7 @@ This directory contains hero videos for each location page. Each video should be
 - **Quality**: High quality, professional appearance
 - **Audio**: No audio needed (videos play muted)
 
-### Required Files (moved to `/public/videos/locations/`)
+### Required Files
 
 1. **canton-hero.mp4**
    - Location: Canton, GA
@@ -43,6 +41,7 @@ This directory contains hero videos for each location page. Each video should be
 - **Muted**: Videos play without sound
 - **Mobile Optimized**: `playsInline` attribute for iOS compatibility
 - **Responsive**: Videos scale properly on all devices
+- **Shadow Effect**: Videos have a subtle shadow for visual depth
 
 ## Fallback Behavior
 
@@ -58,3 +57,12 @@ If a video fails to load, the page will automatically display a fallback with:
 - Videos should be optimized for web to ensure fast loading
 - Consider using video compression tools to reduce file size while maintaining quality
 - Videos play similar to the homepage hero video implementation
+- Each video has both JavaScript error handling and HTML fallback content
+
+## Video Optimization Tips
+
+1. **Compression**: Use tools like HandBrake or FFmpeg to compress videos
+2. **Format**: H.264 codec in MP4 container for best browser compatibility
+3. **Bitrate**: Aim for 1-2 Mbps for good quality at reasonable file size
+4. **Frame Rate**: 24-30 fps is sufficient for hero videos
+5. **Resolution**: 1080x1080px provides good quality for square aspect ratio

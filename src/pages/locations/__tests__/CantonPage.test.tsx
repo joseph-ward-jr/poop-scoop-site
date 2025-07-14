@@ -31,8 +31,9 @@ describe('CantonPage', () => {
     // Check for service area information
     expect(screen.getByText(/Downtown Canton, Hickory Flat/)).toBeInTheDocument()
     
-    // Check for image placeholder
-    expect(screen.getByAltText('Canton, GA - Professional Pet Waste Removal Service Area')).toBeInTheDocument()
+    // Check for video element
+    const video = document.querySelector('video')
+    expect(video).toBeInTheDocument()
     
     // Check for why choose us section
     expect(screen.getByText('Why Canton Chooses Field & Foyer')).toBeInTheDocument()
@@ -53,13 +54,17 @@ describe('CantonPage', () => {
     expect(screen.getByText('Fully insured and bonded')).toBeInTheDocument()
   })
 
-  it('displays image placeholder with proper fallback', () => {
+  it('displays video element with proper fallback', () => {
     renderWithRouter(<CantonPage />)
 
-    // Check for image element
-    const image = screen.getByAltText('Canton, GA - Professional Pet Waste Removal Service Area')
-    expect(image).toBeInTheDocument()
-    expect(image).toHaveAttribute('src', '/images/locations/canton-hero.jpg')
+    // Check for video element
+    const video = document.querySelector('video')
+    expect(video).toBeInTheDocument()
+    expect(video).toHaveAttribute('src', '/videos/locations/canton-hero.mp4')
+    expect(video).toHaveProperty('autoplay', true)
+    expect(video).toHaveProperty('loop', true)
+    expect(video).toHaveProperty('muted', true)
+    expect(video).toHaveProperty('playsInline', true)
   })
 
   it('has proper navigation links', () => {

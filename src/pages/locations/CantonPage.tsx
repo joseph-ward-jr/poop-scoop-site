@@ -108,14 +108,17 @@ const CantonPage = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-sage-100 to-cream-100 rounded-2xl overflow-hidden">
-                <img
-                  src="/images/locations/canton-hero.jpg"
-                  alt="Canton, GA - Professional Pet Waste Removal Service Area"
+              <div className="aspect-square bg-gradient-to-br from-sage-100 to-cream-100 rounded-2xl overflow-hidden shadow-lg">
+                <video
+                  src="/videos/locations/canton-hero.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    // Fallback to placeholder if image doesn't exist
-                    const target = e.target as HTMLImageElement;
+                    // Fallback to placeholder if video doesn't exist
+                    const target = e.target as HTMLVideoElement;
                     target.style.display = 'none';
                     const parent = target.parentElement;
                     if (parent) {
@@ -130,7 +133,16 @@ const CantonPage = () => {
                       `;
                     }
                   }}
-                />
+                >
+                  {/* Fallback for browsers that don't support video */}
+                  <div className="w-full h-full flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="text-6xl mb-4">🏡</div>
+                      <h3 className="text-2xl font-bold text-sage-800 mb-2">Canton, GA</h3>
+                      <p className="text-sage-600">Professional Pet Waste Removal</p>
+                    </div>
+                  </div>
+                </video>
               </div>
             </div>
           </div>
