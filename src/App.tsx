@@ -6,7 +6,6 @@ import MetaPixel from './components/MetaPixel'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
 import AboutPage from './pages/AboutPage'
-import TestimonialsPage from './pages/TestimonialsPage'
 import PricingPage from './pages/PricingPage'
 import ContactPage from './pages/ContactPage'
 import TermsOfServicePage from './pages/TermsOfServicePage'
@@ -25,6 +24,13 @@ import HouseCleaningPage from './pages/services/HouseCleaningPage'
 import PetWasteRemovalPricingPage from './pages/pricing/PetWasteRemovalPricingPage'
 import LawnCarePricingPage from './pages/pricing/LawnCarePricingPage'
 import HouseCleaningPricingPage from './pages/pricing/HouseCleaningPricingPage'
+
+// Location pages
+import CantonPage from './pages/locations/CantonPage'
+import BallgroundPage from './pages/locations/BallgroundPage'
+import HollySpringsPage from './pages/locations/HollySpringsPage'
+import MiltonPage from './pages/locations/MiltonPage'
+import WoodstockPage from './pages/locations/WoodstockPage'
 
 // Test pages
 import JobberTestPage from './pages/JobberTestPage'
@@ -53,7 +59,6 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
-          <Route path="/testimonials" element={<TestimonialsPage />} />
 
           {/* Main pricing overview */}
           <Route path="/pricing" element={<PricingPage />} />
@@ -62,6 +67,13 @@ function App() {
           <Route path="/pricing/pet-waste-removal" element={<PetWasteRemovalPricingPage />} />
           <Route path="/pricing/lawn-care" element={<LawnCarePricingPage />} />
           <Route path="/pricing/house-cleaning" element={<HouseCleaningPricingPage />} />
+
+          {/* Location pages */}
+          <Route path="/locations/canton" element={<CantonPage />} />
+          <Route path="/locations/ballground" element={<BallgroundPage />} />
+          <Route path="/locations/holly-springs" element={<HollySpringsPage />} />
+          <Route path="/locations/milton" element={<MiltonPage />} />
+          <Route path="/locations/woodstock" element={<WoodstockPage />} />
 
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/terms" element={<TermsOfServicePage />} />

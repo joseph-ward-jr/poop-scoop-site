@@ -93,7 +93,7 @@ const HomePage = () => {
     {
       image: '/images/benefits/premium-quality.jpg',
       title: 'Premium',
-      description: 'A single, high standard of service tailored to the discerning homeowner. Expect meticulous results, absolute discretion, and a seamless client experience from a team that values quality above all else.'
+      description: 'A single, high standard of service tailored to the quality-focused homeowner. Expect meticulous results, absolute discretion, and a seamless client experience from a team that values quality above all else.'
     },
     {
       image: '/images/benefits/sustainable-practices.jpg',
@@ -266,6 +266,116 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="section-padding bg-cream-50">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full text-sage-800 font-medium text-sm tracking-wide uppercase mb-8">
+              ⭐ Customer Stories
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
+              What Our Customers Say
+            </h2>
+            <p className="text-xl text-sage-700 max-w-3xl mx-auto">
+              We believe the most authentic measure of our work is the satisfaction of the homeowners we serve
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+            {[
+              {
+                id: 1,
+                name: 'Brandon R.',
+                rating: 5,
+                text: 'Awesome service! Joey is professional, reliable and takes care of the dirty work so we didn\'t have to. Very friendly and showed up on time, highly recommend!',
+                verified: true
+              },
+              {
+                id: 2,
+                name: 'Klane P.',
+                rating: 5,
+                text: 'First time using such a service, so not sure what to expect. Extremely pleased with the results and exceeded my expectations. I would definitely recommend.',
+                verified: true
+              },
+              {
+                id: 3,
+                name: 'Rebecca C.',
+                rating: 5,
+                text: 'They were fantastic taking care of our pup waste. We were a little hesitant on trying a pet waste service st first, but the guys at Field and Foyer were top notch!!! They didn\'t leave a single stone unturned! They are thorough, friendly, on time, professional and awesome! I highly recommend them!!!',
+                verified: true
+              },
+              {
+                id: 4,
+                name: 'Deborah C.',
+                rating: 5,
+                text: 'Field and Foyer is a great service! They left my yard poop free! The team was courteous and friendly!',
+                verified: true
+              },
+              {
+                id: 5,
+                name: 'Judith D.',
+                rating: 5,
+                text: 'Field and Foyer do not disappoint. Timely, thorough, leaving our yard neat and relieved of poop 😊',
+                verified: true
+              },
+              {
+                id: 6,
+                name: 'Jul L.',
+                rating: 5,
+                text: 'Outstanding service backed by an even more exceptional team. Everyone was knowledgeable, approachable, and genuinely helpful. Their rates were more competitive than any I\'ve come across in the past. Highly recommend!',
+                verified: true
+              }
+            ].map((testimonial) => (
+              <div
+                key={testimonial.id}
+                className="card-modern hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <span key={i} className={`text-xl ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'}`}>
+                        ⭐
+                      </span>
+                    ))}
+                  </div>
+                  {testimonial.verified && (
+                    <div className="flex items-center text-blue-600 text-sm">
+                      <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      Google Verified
+                    </div>
+                  )}
+                </div>
+                <blockquote className="text-sage-700 mb-6 leading-relaxed flex-grow">
+                  "{testimonial.text}"
+                </blockquote>
+                <div className="border-t border-sage-200 pt-4 mt-auto">
+                  <p className="font-bold text-sage-900">{testimonial.name}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-sage-800 mb-2">50+</div>
+                <p className="text-sage-600">Happy Customers</p>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-sage-800 mb-2">100+</div>
+                <p className="text-sage-600">Services Completed</p>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-sage-800 mb-2">99%</div>
+                <p className="text-sage-600">Customer Satisfaction</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="relative section-padding bg-gradient-to-br from-sage-600 via-sage-700 to-sage-800 overflow-hidden">
         {/* Animated background elements */}
@@ -285,7 +395,7 @@ const HomePage = () => {
               <span className="bg-gradient-to-r from-cream-200 to-offwhite-100 bg-clip-text text-transparent">Pristine Lawn?</span>
             </h2>
             <p className="text-2xl text-sage-100 mb-10 leading-relaxed font-light max-w-4xl mx-auto">
-              Join discerning homeowners who trust
+              Join quality-conscious homeowners who trust
               <span className="font-medium text-offwhite-50"> Field & Foyer </span>
               for professional pet waste removal and lawn sanitization.
               <span className="font-medium text-offwhite-50"> Experience the difference of a truly pristine outdoor space.</span>

@@ -6,6 +6,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false)
   const [pricingDropdownOpen, setPricingDropdownOpen] = useState(false)
+  const [locationsDropdownOpen, setLocationsDropdownOpen] = useState(false)
   const location = useLocation()
   const headerRef = useRef<HTMLElement>(null)
 
@@ -51,11 +52,33 @@ const Header = () => {
     }
   ]
 
+  const locations = [
+    {
+      name: 'Canton, GA',
+      href: '/locations/canton'
+    },
+    {
+      name: 'Ballground, GA',
+      href: '/locations/ballground'
+    },
+    {
+      name: 'Holly Springs, GA',
+      href: '/locations/holly-springs'
+    },
+    {
+      name: 'Milton, GA',
+      href: '/locations/milton'
+    },
+    {
+      name: 'Woodstock, GA',
+      href: '/locations/woodstock'
+    }
+  ]
+
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Testimonials', href: '/testimonials' },
     { name: 'Contact', href: '/contact' },
   ]
 
@@ -64,6 +87,7 @@ const Header = () => {
   const closeAllDropdowns = () => {
     setServicesDropdownOpen(false)
     setPricingDropdownOpen(false)
+    setLocationsDropdownOpen(false)
   }
 
   // Close dropdowns when clicking outside
@@ -132,6 +156,7 @@ const Header = () => {
                 onClick={() => {
                   setServicesDropdownOpen(!servicesDropdownOpen)
                   setPricingDropdownOpen(false)
+                  setLocationsDropdownOpen(false)
                 }}
                 className={`font-semibold text-md transition-all duration-500 relative group flex items-center ${
                   isActive('/services')
@@ -195,6 +220,7 @@ const Header = () => {
                 onClick={() => {
                   setPricingDropdownOpen(!pricingDropdownOpen)
                   setServicesDropdownOpen(false)
+                  setLocationsDropdownOpen(false)
                 }}
                 className={`font-semibold text-md transition-all duration-500 relative group flex items-center ${
                   isActive('/pricing')
@@ -245,6 +271,47 @@ const Header = () => {
                         }`}>
                           {pricing.status}
                         </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Locations Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => {
+                  setLocationsDropdownOpen(!locationsDropdownOpen)
+                  setServicesDropdownOpen(false)
+                  setPricingDropdownOpen(false)
+                }}
+                className={`font-semibold text-md transition-all duration-500 relative group flex items-center ${
+                  isActive('/locations')
+                    ? 'text-sage-800'
+                    : 'text-sage-600 hover:text-sage-800'
+                }`}
+              >
+                Locations
+                <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                <div className={`absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-sage-400 to-sage-600 rounded-full transition-all duration-300 ${
+                  isActive('/locations') ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'
+                }`}></div>
+              </button>
+
+              {locationsDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-sage-100 py-2 z-50">
+                  {locations.map((location) => (
+                    <Link
+                      key={location.name}
+                      to={location.href}
+                      className="block px-4 py-3 hover:bg-sage-50 transition-colors group"
+                      onClick={closeAllDropdowns}
+                    >
+                      <div className="font-semibold text-sage-800 group-hover:text-sage-600">
+                        {location.name}
                       </div>
                     </Link>
                   ))}
@@ -348,6 +415,23 @@ const Header = () => {
                         {pricing.status}
                       </span>
                     </div>
+                  </Link>
+                ))}
+              </div>
+
+              {/* Mobile Locations Section */}
+              <div className="pt-2">
+                <div className="px-4 py-2 text-sage-800 font-semibold text-sm uppercase tracking-wide">
+                  Locations
+                </div>
+                {locations.map((location) => (
+                  <Link
+                    key={location.name}
+                    to={location.href}
+                    className="block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 text-sage-600 hover:text-sage-700 hover:bg-sage-50"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <span>{location.name}</span>
                   </Link>
                 ))}
               </div>
