@@ -6,20 +6,16 @@ import { ContactFormData } from '../../types/jobber'
 
 const WoodstockPage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [submitError, setSubmitError] = useState<string | null>(null)
   const { isSubmitting, submitToJobber } = useJobberSubmission()
 
   const handleFormSubmit = async (formData: ContactFormData) => {
     try {
-      setSubmitError(null)
       const result = await submitToJobber(formData)
       if (result.success) {
         setIsSubmitted(true)
-      } else {
-        setSubmitError(result.error || 'Failed to submit form. Please try again.')
       }
     } catch (error) {
-      setSubmitError('An unexpected error occurred. Please try again.')
+      console.error('Form submission error:', error)
     }
   }
 

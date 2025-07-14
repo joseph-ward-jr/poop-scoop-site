@@ -281,7 +281,7 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {[
               {
                 id: 1,
@@ -328,7 +328,7 @@ const HomePage = () => {
             ].map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="card-modern hover:shadow-xl transition-shadow duration-300"
+                className="card-modern hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center">
@@ -347,10 +347,10 @@ const HomePage = () => {
                     </div>
                   )}
                 </div>
-                <blockquote className="text-sage-700 mb-6 leading-relaxed">
+                <blockquote className="text-sage-700 mb-6 leading-relaxed flex-grow">
                   "{testimonial.text}"
                 </blockquote>
-                <div className="border-t border-sage-200 pt-4">
+                <div className="border-t border-sage-200 pt-4 mt-auto">
                   <p className="font-bold text-sage-900">{testimonial.name}</p>
                 </div>
               </div>

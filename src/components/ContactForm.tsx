@@ -4,7 +4,7 @@ import { ContactFormData } from '../types/jobber'
 import { trackLead, trackContact } from './MetaPixel'
 
 interface ContactFormProps {
-  variant?: 'homepage' | 'contact'
+  variant?: 'homepage' | 'contact' | 'location'
   onSubmit?: (data: ContactFormData) => void
   enableJobberIntegration?: boolean
   isLoading?: boolean
@@ -401,6 +401,144 @@ const ContactForm = ({ variant = 'homepage', onSubmit, enableJobberIntegration =
       </button>
     </form>
   )
+
+  // Location variant styling (same as contact for now)
+  if (variant === 'location') {
+    return (
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-6"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              Full Name *
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              placeholder="Your full name"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              Email Address *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              placeholder="your@email.com"
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+              Phone Number *
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              placeholder="(123) 456-7890"
+            />
+          </div>
+          <div>
+            <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
+              Home or Commercial Address *
+            </label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value={formData.address}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              placeholder="123 Main St, City, State 12345"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor="contactPreference" className="block text-sm font-medium text-gray-700 mb-2">
+            How would you like to be contacted? *
+          </label>
+          <select
+            id="contactPreference"
+            name="contactPreference"
+            value={formData.contactPreference}
+            onChange={handleInputChange}
+            required
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          >
+            <option value="">Select contact method</option>
+            <option value="call">Call</option>
+            <option value="email">Email</option>
+            <option value="text">Text</option>
+          </select>
+        </div>
+
+        <div>
+          <label htmlFor="additionalInfo" className="block text-sm font-medium text-gray-700 mb-2">
+            Additional Information
+          </label>
+          <textarea
+            id="additionalInfo"
+            name="additionalInfo"
+            value={formData.additionalInfo}
+            onChange={handleInputChange}
+            rows={4}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            placeholder="Tell us what services you're interested in, any special requirements, access instructions, or questions you have..."
+          />
+        </div>
+
+        {submitError && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+            <p className="text-red-600 text-sm">{submitError}</p>
+          </div>
+        )}
+
+        <button
+          type="submit"
+          disabled={isSubmitting || isLoading}
+          className={`w-full text-lg py-4 transition-all duration-300 ${
+            isSubmitting || isLoading
+              ? 'bg-gray-400 cursor-not-allowed'
+              : 'btn-primary'
+          }`}
+        >
+          {isSubmitting || isLoading ? (
+            <span className="flex items-center justify-center">
+              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Submitting...
+            </span>
+          ) : (
+            'Request My Free Estimate'
+          )}
+        </button>
+      </form>
+    )
+  }
 }
 
 export default ContactForm
