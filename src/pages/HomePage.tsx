@@ -93,7 +93,7 @@ const HomePage = () => {
     {
       image: '/images/benefits/premium-quality.jpg',
       title: 'Premium',
-      description: 'A single, high standard of service tailored to the discerning homeowner. Expect meticulous results, absolute discretion, and a seamless client experience from a team that values quality above all else.'
+      description: 'A single, high standard of service tailored to the quality-focused homeowner. Expect meticulous results, absolute discretion, and a seamless client experience from a team that values quality above all else.'
     },
     {
       image: '/images/benefits/sustainable-practices.jpg',
@@ -409,7 +409,7 @@ const HomePage = () => {
               <span className="bg-gradient-to-r from-cream-200 to-offwhite-100 bg-clip-text text-transparent">Pristine Lawn?</span>
             </h2>
             <p className="text-2xl text-sage-100 mb-10 leading-relaxed font-light max-w-4xl mx-auto">
-              Join discerning homeowners who trust
+              Join quality-conscious homeowners who trust
               <span className="font-medium text-offwhite-50"> Field & Foyer </span>
               for professional pet waste removal and lawn sanitization.
               <span className="font-medium text-offwhite-50"> Experience the difference of a truly pristine outdoor space.</span>

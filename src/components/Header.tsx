@@ -55,28 +55,23 @@ const Header = () => {
   const locations = [
     {
       name: 'Canton, GA',
-      href: '/locations/canton',
-      description: 'Professional pet waste removal in Canton'
+      href: '/locations/canton'
     },
     {
       name: 'Ballground, GA',
-      href: '/locations/ballground',
-      description: 'Rural property specialists in Ballground'
+      href: '/locations/ballground'
     },
     {
       name: 'Holly Springs, GA',
-      href: '/locations/holly-springs',
-      description: 'Premium service in Holly Springs'
+      href: '/locations/holly-springs'
     },
     {
       name: 'Milton, GA',
-      href: '/locations/milton',
-      description: 'Luxury & equestrian properties in Milton'
+      href: '/locations/milton'
     },
     {
       name: 'Woodstock, GA',
-      href: '/locations/woodstock',
-      description: 'Community-focused service in Woodstock'
+      href: '/locations/woodstock'
     }
   ]
 
@@ -307,7 +302,7 @@ const Header = () => {
               </button>
 
               {locationsDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-sage-100 py-4 z-50">
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-sage-100 py-2 z-50">
                   {locations.map((location) => (
                     <Link
                       key={location.name}
@@ -317,9 +312,6 @@ const Header = () => {
                     >
                       <div className="font-semibold text-sage-800 group-hover:text-sage-600">
                         {location.name}
-                      </div>
-                      <div className="text-sm text-sage-600 mt-1">
-                        {location.description}
                       </div>
                     </Link>
                   ))}

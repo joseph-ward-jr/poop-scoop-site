@@ -41,7 +41,7 @@ const MiltonPage = () => {
             </h1>
             <p className="text-xl text-sage-700 leading-relaxed mb-8">
               Serving Milton homeowners with professional pet waste removal and lawn sanitization services. 
-              Specialized service for luxury properties, equestrian estates, and discerning families.
+              Specialized service for luxury properties, equestrian estates, and quality-focused families.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -181,7 +181,7 @@ const MiltonPage = () => {
               </h2>
               <p className="text-xl text-sage-700 leading-relaxed max-w-3xl mx-auto">
                 Join your Milton neighbors who trust Field & Foyer for professional pet waste removal. 
-                Luxury service for discerning homeowners!
+                Luxury service for quality-focused homeowners!
               </p>
             </div>
 

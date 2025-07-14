@@ -13,7 +13,7 @@ const PetWasteRemovalPage = () => {
             </h1>
             <p className="text-xl md:text-2xl text-sage-700 leading-relaxed mb-8">
               Professional pet waste management that transforms your outdoor sanctuary into a pristine haven. 
-              Reliable, discreet, and eco-conscious service for discerning pet owners.
+              Reliable, discreet, and eco-conscious service for quality-focused pet owners.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/contact" className="btn-primary text-lg">
