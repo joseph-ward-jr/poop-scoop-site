@@ -23,43 +23,7 @@ const WoodstockPage = () => {
     }
   }
 
-  const localTestimonials = [
-    {
-      id: 1,
-      name: 'Lisa T.',
-      location: 'Woodstock',
-      petName: 'Luna & Rocky',
-      rating: 5,
-      text: 'As a busy mom with two kids and two dogs, I don\'t have time for keeping up with my yard. Field & Foyer takes care of everything so we can just enjoy our yard.',
-      service: 'Weekly Service'
-    },
-    {
-      id: 2,
-      name: 'Michael J.',
-      location: 'Woodstock',
-      petName: 'Zeus & Apollo',
-      rating: 5,
-      text: 'Two German Shepherds make a lot of mess! Field & Foyer handles it all with a smile. They\'re friendly, reliable, and our property value has definitely improved (at least to us!).',
-      service: 'Weekly Service'
-    },
-    {
-      id: 3,
-      name: 'Carol D.',
-      location: 'Woodstock',
-      petName: 'Maggie',
-      rating: 5,
-      text: 'Woodstock has such a strong sense of community, and Field & Foyer fits right in. They\'re local, reliable, and treat our property with the same care we would.',
-      service: 'Bi-weekly Service'
-    }
-  ]
 
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <span key={i} className={`text-xl ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}>
-        ⭐
-      </span>
-    ))
-  }
 
   return (
     <div>
@@ -144,55 +108,36 @@ const WoodstockPage = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-sage-100 to-cream-100 rounded-2xl flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="text-6xl mb-4">🌳</div>
-                  <h3 className="text-2xl font-bold text-sage-800 mb-2">Woodstock, GA</h3>
-                  <p className="text-sage-600">Community-Focused Service</p>
-                </div>
+              <div className="aspect-square bg-gradient-to-br from-sage-100 to-cream-100 rounded-2xl overflow-hidden">
+                <img
+                  src="/images/locations/woodstock-hero.jpg"
+                  alt="Woodstock, GA - Community-Focused Pet Waste Removal Service"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback to placeholder if image doesn't exist
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      parent.innerHTML = `
+                        <div class="w-full h-full flex items-center justify-center">
+                          <div class="text-center p-8">
+                            <div class="text-6xl mb-4">🌳</div>
+                            <h3 class="text-2xl font-bold text-sage-800 mb-2">Woodstock, GA</h3>
+                            <p class="text-sage-600">Community-Focused Service</p>
+                          </div>
+                        </div>
+                      `;
+                    }
+                  }}
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Local Testimonials */}
-      <section className="section-padding bg-cream-50">
-        <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
-              What Woodstock Customers Say
-            </h2>
-            <p className="text-xl text-sage-700">
-              Real reviews from your Woodstock neighbors
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {localTestimonials.map((testimonial) => (
-              <div
-                key={testimonial.id}
-                className="card-modern hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="mb-4">
-                  {renderStars(testimonial.rating)}
-                </div>
-                <blockquote className="text-sage-700 mb-6 leading-relaxed">
-                  "{testimonial.text}"
-                </blockquote>
-                <div className="border-t border-sage-200 pt-4">
-                  <p className="font-bold text-sage-900">{testimonial.name}</p>
-                  <p className="text-sage-600 font-semibold text-sm">
-                    {testimonial.petName}'s Parent
-                  </p>
-                  <p className="text-sage-500 text-sm">{testimonial.location}</p>
-                  <p className="text-sage-500 text-sm mt-1">{testimonial.service}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Why Choose Us for Woodstock */}
       <section className="section-padding bg-sage-600">

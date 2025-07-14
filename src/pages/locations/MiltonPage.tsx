@@ -23,43 +23,7 @@ const MiltonPage = () => {
     }
   }
 
-  const localTestimonials = [
-    {
-      id: 1,
-      name: 'Katherine S.',
-      location: 'Milton',
-      petName: 'Winston & Belle',
-      rating: 5,
-      text: 'Milton\'s equestrian community values quality service, and Field & Foyer delivers exactly that. They understand our large properties and work around our horses and dogs perfectly.',
-      service: 'Weekly Service'
-    },
-    {
-      id: 2,
-      name: 'Robert H.',
-      location: 'Milton',
-      petName: 'Duke',
-      rating: 5,
-      text: 'Living on acreage in Milton, we needed a service that could handle our Great Dane\'s needs. Field & Foyer is thorough, reliable, and respectful of our property.',
-      service: 'Bi-weekly Service'
-    },
-    {
-      id: 3,
-      name: 'Jennifer M.',
-      location: 'Milton',
-      petName: 'Stella & Cooper',
-      rating: 5,
-      text: 'The team is professional and understands the luxury standards expected in Milton. Their eco-friendly approach is perfect for our family and our horses.',
-      service: 'Weekly Service'
-    }
-  ]
 
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <span key={i} className={`text-xl ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}>
-        ⭐
-      </span>
-    ))
-  }
 
   return (
     <div>
@@ -145,55 +109,36 @@ const MiltonPage = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-sage-100 to-cream-100 rounded-2xl flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="text-6xl mb-4">🐎</div>
-                  <h3 className="text-2xl font-bold text-sage-800 mb-2">Milton, GA</h3>
-                  <p className="text-sage-600">Luxury & Equestrian Properties</p>
-                </div>
+              <div className="aspect-square bg-gradient-to-br from-sage-100 to-cream-100 rounded-2xl overflow-hidden">
+                <img
+                  src="/images/locations/milton-hero.jpg"
+                  alt="Milton, GA - Luxury & Equestrian Property Pet Waste Removal"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback to placeholder if image doesn't exist
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      parent.innerHTML = `
+                        <div class="w-full h-full flex items-center justify-center">
+                          <div class="text-center p-8">
+                            <div class="text-6xl mb-4">🐎</div>
+                            <h3 class="text-2xl font-bold text-sage-800 mb-2">Milton, GA</h3>
+                            <p class="text-sage-600">Luxury & Equestrian Properties</p>
+                          </div>
+                        </div>
+                      `;
+                    }
+                  }}
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Local Testimonials */}
-      <section className="section-padding bg-cream-50">
-        <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
-              What Milton Customers Say
-            </h2>
-            <p className="text-xl text-sage-700">
-              Real reviews from your Milton neighbors
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {localTestimonials.map((testimonial) => (
-              <div
-                key={testimonial.id}
-                className="card-modern hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="mb-4">
-                  {renderStars(testimonial.rating)}
-                </div>
-                <blockquote className="text-sage-700 mb-6 leading-relaxed">
-                  "{testimonial.text}"
-                </blockquote>
-                <div className="border-t border-sage-200 pt-4">
-                  <p className="font-bold text-sage-900">{testimonial.name}</p>
-                  <p className="text-sage-600 font-semibold text-sm">
-                    {testimonial.petName}'s Parent
-                  </p>
-                  <p className="text-sage-500 text-sm">{testimonial.location}</p>
-                  <p className="text-sage-500 text-sm mt-1">{testimonial.service}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Why Choose Us for Milton */}
       <section className="section-padding bg-sage-600">

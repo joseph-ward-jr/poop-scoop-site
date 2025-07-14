@@ -31,14 +31,8 @@ describe('CantonPage', () => {
     // Check for service area information
     expect(screen.getByText(/Downtown Canton, Hickory Flat/)).toBeInTheDocument()
     
-    // Check for testimonials section
-    expect(screen.getByText('What Canton Customers Say')).toBeInTheDocument()
-    expect(screen.getByText('Real reviews from your Canton neighbors')).toBeInTheDocument()
-    
-    // Check for local testimonials
-    expect(screen.getByText('Jennifer M.')).toBeInTheDocument()
-    expect(screen.getByText('Robert C.')).toBeInTheDocument()
-    expect(screen.getByText('Amanda R.')).toBeInTheDocument()
+    // Check for image placeholder
+    expect(screen.getByAltText('Canton, GA - Professional Pet Waste Removal Service Area')).toBeInTheDocument()
     
     // Check for why choose us section
     expect(screen.getByText('Why Canton Chooses Field & Foyer')).toBeInTheDocument()
@@ -59,18 +53,13 @@ describe('CantonPage', () => {
     expect(screen.getByText('Fully insured and bonded')).toBeInTheDocument()
   })
 
-  it('displays local testimonials with correct information', () => {
+  it('displays image placeholder with proper fallback', () => {
     renderWithRouter(<CantonPage />)
-    
-    // Check for testimonial content
-    expect(screen.getByText(/Field & Foyer has been a lifesaver!/)).toBeInTheDocument()
-    expect(screen.getByText(/I was skeptical at first/)).toBeInTheDocument()
-    expect(screen.getByText(/I love that they use eco-friendly methods/)).toBeInTheDocument()
-    
-    // Check for pet names
-    expect(screen.getByText("Bella & Max's Parent")).toBeInTheDocument()
-    expect(screen.getByText("Charlie's Parent")).toBeInTheDocument()
-    expect(screen.getByText("Daisy's Parent")).toBeInTheDocument()
+
+    // Check for image element
+    const image = screen.getByAltText('Canton, GA - Professional Pet Waste Removal Service Area')
+    expect(image).toBeInTheDocument()
+    expect(image).toHaveAttribute('src', '/images/locations/canton-hero.jpg')
   })
 
   it('has proper navigation links', () => {

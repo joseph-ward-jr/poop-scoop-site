@@ -285,51 +285,85 @@ const HomePage = () => {
             {[
               {
                 id: 1,
-                name: 'Jennifer M.',
-                location: 'Canton',
-                petName: 'Bella & Max',
+                name: 'Customer Name 1',
+                location: 'Canton, GA',
                 rating: 5,
-                text: 'Field & Foyer has been a lifesaver! With two large dogs, keeping our grass clean was becoming impossible. Joey, Robb, and their team are reliable, professional, and our outdoor space has never looked better. Highly recommend!',
-                service: 'Weekly Service'
+                text: '[Placeholder for Google review content - Replace with actual customer testimonial]',
+                service: 'Weekly Service',
+                verified: true
               },
               {
                 id: 2,
-                name: 'David W.',
-                location: 'Holly Springs',
-                petName: 'Buddy',
+                name: 'Customer Name 2',
+                location: 'Holly Springs, GA',
                 rating: 5,
-                text: 'Professional, punctual, and affordable. They show up every week like clockwork, even in bad weather. Buddy\'s yard is always spotless when I get home from work.',
-                service: 'Weekly Service'
+                text: '[Placeholder for Google review content - Replace with actual customer testimonial]',
+                service: 'Bi-weekly Service',
+                verified: true
               },
               {
                 id: 3,
-                name: 'Lisa T.',
-                location: 'Woodstock',
-                petName: 'Luna & Rocky',
+                name: 'Customer Name 3',
+                location: 'Woodstock, GA',
                 rating: 5,
-                text: 'As a busy mom with two kids and two dogs, I don\'t have time for keeping up with my yard. Field & Foyer takes care of everything so we can just enjoy our yard.',
-                service: 'Weekly Service'
+                text: '[Placeholder for Google review content - Replace with actual customer testimonial]',
+                service: 'Weekly Service',
+                verified: true
+              },
+              {
+                id: 4,
+                name: 'Customer Name 4',
+                location: 'Milton, GA',
+                rating: 5,
+                text: '[Placeholder for Google review content - Replace with actual customer testimonial]',
+                service: 'Weekly Service',
+                verified: true
+              },
+              {
+                id: 5,
+                name: 'Customer Name 5',
+                location: 'Ballground, GA',
+                rating: 5,
+                text: '[Placeholder for Google review content - Replace with actual customer testimonial]',
+                service: 'Bi-weekly Service',
+                verified: true
+              },
+              {
+                id: 6,
+                name: 'Customer Name 6',
+                location: 'Canton, GA',
+                rating: 5,
+                text: '[Placeholder for Google review content - Replace with actual customer testimonial]',
+                service: 'Weekly Service',
+                verified: true
               }
             ].map((testimonial) => (
               <div
                 key={testimonial.id}
                 className="card-modern hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="mb-4">
-                  {Array.from({ length: 5 }, (_, i) => (
-                    <span key={i} className={`text-xl ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'}`}>
-                      ⭐
-                    </span>
-                  ))}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <span key={i} className={`text-xl ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'}`}>
+                        ⭐
+                      </span>
+                    ))}
+                  </div>
+                  {testimonial.verified && (
+                    <div className="flex items-center text-blue-600 text-sm">
+                      <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      Google Verified
+                    </div>
+                  )}
                 </div>
                 <blockquote className="text-sage-700 mb-6 leading-relaxed">
                   "{testimonial.text}"
                 </blockquote>
                 <div className="border-t border-sage-200 pt-4">
                   <p className="font-bold text-sage-900">{testimonial.name}</p>
-                  <p className="text-sage-600 font-semibold text-sm">
-                    {testimonial.petName}'s Parent
-                  </p>
                   <p className="text-sage-500 text-sm">{testimonial.location}</p>
                   <p className="text-sage-500 text-sm mt-1">{testimonial.service}</p>
                 </div>
