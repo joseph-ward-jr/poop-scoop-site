@@ -26,14 +26,14 @@ const ServicesPage = () => {
     {
       name: 'Home Maintenance Services',
       image: '/images/services/house-cleaning.jpg',
-      description: 'Premium home maintenance and cleaning services bringing the same attention to detail indoors.',
-      status: 'Future Service'
+      description: 'Premium home maintenance and cleaning services are planned for the future, bringing the same attention to detail indoors.',
+      status: 'In Development'
     },
     {
       name: 'Lawn Care Services',
       image: '/images/services/lawn-maintenance.jpg',
-      description: 'Professional lawn care, mowing, edging, and seasonal maintenance to keep your property pristine.',
-      status: 'Future Service'
+      description: 'Professional lawn care, mowing, edging, and seasonal maintenance services are being developed for future availability.',
+      status: 'In Development'
     }
   ]
 
@@ -47,12 +47,18 @@ const ServicesPage = () => {
               Our Services
             </h1>
             <p className="text-lg md:text-2xl text-sage-700 leading-relaxed mb-6 md:mb-8">
-              Field & Foyer offers premium home and lawn services designed to enhance your complete living experience.
-              Starting with pet waste removal, expanding to home maintenance services, then bringing our expertise to comprehensive lawn care.
+              Field & Foyer currently specializes in professional pet waste removal services.
+              We're building toward a complete home and lawn care experience, with plans to expand into
+              home maintenance and comprehensive lawn care services in the future.
             </p>
-            <div className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-sage-100 rounded-full">
-              <img src="/images/icons/leaf-icon.svg" alt="Service" className="w-4 md:w-5 h-4 md:h-5 mr-2" />
-              <span className="text-sm md:text-base text-sage-800 font-medium">Currently Serving: Pet Waste Removal</span>
+            <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
+              <div className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-sage-600 text-white rounded-full">
+                <img src="/images/icons/leaf-icon.svg" alt="Available Now" className="w-4 md:w-5 h-4 md:h-5 mr-2 filter brightness-0 invert" />
+                <span className="text-sm md:text-base font-medium">Available Now: Pet Waste Removal</span>
+              </div>
+              <div className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-cream-200 text-sage-700 rounded-full">
+                <span className="text-sm md:text-base font-medium">Coming Soon: Home & Lawn Care</span>
+              </div>
             </div>
           </div>
         </div>
@@ -142,18 +148,24 @@ const ServicesPage = () => {
         <div className="container-max px-4">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-sage-900 mb-4 md:mb-6">
-              Our Growth Journey
+              Future Services in Development
             </h2>
-            <p className="text-lg md:text-xl text-sage-700 max-w-4xl mx-auto">
-              We're strategically expanding our services: starting with pet care, growing into complete lawn care and maintenance,
-              then bringing our premium standards indoors. Here's our roadmap.
+            <p className="text-lg md:text-xl text-sage-700 max-w-4xl mx-auto mb-4">
+              We're strategically expanding our services to provide complete home and property care.
+              These services are currently in development and not yet available for booking.
             </p>
+            <div className="inline-flex items-center px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-medium">
+              ⚠️ These services are not currently available - Pet waste removal is our only active service
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {comingSoonServices.map((service, index) => (
-              <div key={index} className="card-modern text-center group opacity-75 hover:opacity-90 transition-opacity duration-300">
-                <div className="w-20 md:w-24 h-20 md:h-24 mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div key={index} className="card-modern text-center group opacity-60 hover:opacity-75 transition-opacity duration-300 relative">
+                <div className="absolute top-4 right-4 bg-amber-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                  NOT AVAILABLE
+                </div>
+                <div className="w-20 md:w-24 h-20 md:h-24 mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 grayscale">
                   <img
                     src={service.image}
                     alt={service.name}
@@ -162,8 +174,8 @@ const ServicesPage = () => {
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold text-sage-800 mb-3 md:mb-4">{service.name}</h3>
                 <p className="text-sm md:text-base text-sage-600 mb-4 md:mb-6 leading-relaxed">{service.description}</p>
-                <span className="inline-flex items-center px-3 md:px-4 py-1 md:py-2 bg-cream-200 text-sage-700 rounded-full text-sm font-medium">
-                  {service.status}
+                <span className="inline-flex items-center px-3 md:px-4 py-1 md:py-2 bg-gray-200 text-gray-600 rounded-full text-sm font-medium">
+                  In Development - Not Available for Booking
                 </span>
               </div>
             ))}
@@ -277,11 +289,11 @@ const ServicesPage = () => {
       <section className="py-12 md:py-16 bg-offwhite-50">
         <div className="container-max px-4 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-sage-900 mb-4 md:mb-6">
-            Ready to Transform Your Property?
+            Ready for Professional Pet Waste Removal?
           </h2>
           <p className="text-lg md:text-xl text-sage-700 mb-6 md:mb-8 max-w-3xl mx-auto">
-            Start with our pet waste removal service and experience the Field & Foyer difference.
-            Your property sanctuary awaits.
+            Experience our premium pet waste removal service today. Professional, reliable, and eco-conscious care
+            for your property. Additional services coming soon!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
             <Link
