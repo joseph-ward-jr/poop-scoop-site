@@ -1,24 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import ContactForm from '../components/ContactForm'
-import AdPopup from '../components/AdPopup'
 import { useJobberSubmission } from '../hooks/useJobberSubmission'
 import { ContactFormData } from '../types/jobber'
 
 const HomePage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
-  const [showAdPopup, setShowAdPopup] = useState(false)
   const { isSubmitting, submitToJobber } = useJobberSubmission()
-
-  // Show popup when component mounts
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowAdPopup(true)
-    }, 1000) // Show popup after 1 second
-
-    return () => clearTimeout(timer)
-  }, [])
 
   const handleFormSubmit = async (data: ContactFormData) => {
     console.log('Form submitted from homepage:', data)
@@ -503,12 +492,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-      {/* Advertisement Popup */}
-      <AdPopup
-        isOpen={showAdPopup}
-        onClose={() => setShowAdPopup(false)}
-      />
     </div>
   )
 }
