@@ -94,7 +94,7 @@ const LawnMaintenancePage = () => {
                   Commercial Lawn & Property Maintenance
                 </h2>
                 <p className="text-xl text-sage-700 leading-relaxed">
-                  Planning ahead for 2026? We're already accepting inquiries for commercial lawn maintenance
+                  Planning ahead for our future services? We're already accepting inquiries for commercial lawn maintenance
                   contracts. Get priority consideration for our commercial services launch.
                 </p>
               </div>
@@ -145,7 +145,7 @@ const LawnMaintenancePage = () => {
               Be First to Experience Our Lawn Care
             </h2>
             <p className="text-xl text-sage-100 mb-8 leading-relaxed">
-              Join our waitlist to be among the first customers when we launch lawn and yard maintenance services in 2026. 
+              Join our waitlist to be among the first customers when we launch lawn and yard maintenance services.
               Current pet waste removal customers get priority access.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
