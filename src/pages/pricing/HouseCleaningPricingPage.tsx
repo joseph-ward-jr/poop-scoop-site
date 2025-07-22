@@ -6,14 +6,14 @@ const HouseCleaningPricingPage = () => {
         <div className="container-max">
           <div className="text-center max-w-4xl mx-auto">
             <span className="inline-flex items-center px-4 py-2 bg-gray-200 text-sage-700 rounded-full text-sm font-medium mb-6">
-              Coming Fall 2025
+              Future Service
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-sage-900 mb-6">
               House Cleaning Pricing
             </h1>
             <p className="text-xl md:text-2xl text-sage-700 leading-relaxed mb-8">
-              Competitive residential cleaning rates with the same transparent pricing approach. 
-              Premium indoor cleaning services launching Fall 2025.
+              Competitive residential cleaning rates with the same transparent pricing approach.
+              Premium indoor cleaning services launching soon.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/contact?form=true" className="btn-primary text-lg">

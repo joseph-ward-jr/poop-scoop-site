@@ -6,7 +6,7 @@ const LawnMaintenancePage = () => {
         <div className="container-max">
           <div className="text-center max-w-4xl mx-auto">
             <span className="inline-flex items-center px-4 py-2 bg-cream-200 text-sage-700 rounded-full text-sm font-medium mb-6">
-              Coming Spring 2026
+              Future Service
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-sage-900 mb-6">
               Lawn Maintenance
@@ -49,13 +49,13 @@ const LawnMaintenancePage = () => {
                   status: 'active'
                 },
                 {
-                  period: 'Fall 2025',
+                  period: 'Future Service',
                   title: 'Indoor House Cleaning',
                   description: 'Expanding indoors with premium residential cleaning services.',
                   status: 'future'
                 },
                 {
-                  period: 'Early 2026',
+                  period: 'Future Service',
                   title: 'Lawn Maintenance',
                   description: 'Launching comprehensive lawn care services for existing and new customers.',
                   status: 'upcoming'
@@ -94,7 +94,7 @@ const LawnMaintenancePage = () => {
                   Commercial Lawn & Property Maintenance
                 </h2>
                 <p className="text-xl text-sage-700 leading-relaxed">
-                  Planning ahead for 2026? We're already accepting inquiries for commercial lawn maintenance
+                  Planning ahead for our future services? We're already accepting inquiries for commercial lawn maintenance
                   contracts. Get priority consideration for our commercial services launch.
                 </p>
               </div>
@@ -112,7 +112,7 @@ const LawnMaintenancePage = () => {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-sage-800 mb-4">Services Coming 2026:</h3>
+                  <h3 className="text-xl font-bold text-sage-800 mb-4">Future Services:</h3>
                   <ul className="space-y-2 text-sage-600">
                     <li>• Weekly/bi-weekly lawn maintenance</li>
                     <li>• Seasonal cleanup and preparation</li>
@@ -145,7 +145,7 @@ const LawnMaintenancePage = () => {
               Be First to Experience Our Lawn Care
             </h2>
             <p className="text-xl text-sage-100 mb-8 leading-relaxed">
-              Join our waitlist to be among the first customers when we launch lawn and yard maintenance services in 2026. 
+              Join our waitlist to be among the first customers when we launch lawn and yard maintenance services.
               Current pet waste removal customers get priority access.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
