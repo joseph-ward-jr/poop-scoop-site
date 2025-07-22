@@ -139,7 +139,7 @@ const HomePage = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                  <span className="text-sage-700 font-medium">Coming Soon:</span>
+                  <span className="text-sage-700 font-medium">Future Services:</span>
                   <span className="text-sage-600">House Cleaning • Lawn Care</span>
                 </div>
               </div>

@@ -27,13 +27,13 @@ const ServicesPage = () => {
       name: 'Home Maintenance Services',
       image: '/images/services/house-cleaning.jpg',
       description: 'Premium home maintenance and cleaning services bringing the same attention to detail indoors.',
-      status: 'Coming Fall 2025'
+      status: 'Future Service'
     },
     {
       name: 'Lawn Care Services',
       image: '/images/services/lawn-maintenance.jpg',
       description: 'Professional lawn care, mowing, edging, and seasonal maintenance to keep your property pristine.',
-      status: 'Coming Spring 2026'
+      status: 'Future Service'
     }
   ]
 

@@ -19,14 +19,14 @@ describe('HouseCleaningPricingPage', () => {
     expect(screen.getByRole('heading', { name: /house cleaning pricing/i })).toBeInTheDocument()
   })
 
-  it('displays the coming soon badge with correct timeline', () => {
+  it('displays the future service badge', () => {
     render(
       <RouterWrapper>
         <HouseCleaningPricingPage />
       </RouterWrapper>
     )
-    
-    expect(screen.getByText(/coming fall 2025/i)).toBeInTheDocument()
+
+    expect(screen.getByText(/future service/i)).toBeInTheDocument()
   })
 
   it('shows the main description about competitive rates', () => {
@@ -37,7 +37,7 @@ describe('HouseCleaningPricingPage', () => {
     )
     
     expect(screen.getByText(/competitive residential cleaning rates/i)).toBeInTheDocument()
-    expect(screen.getByText(/premium indoor cleaning services launching fall 2025/i)).toBeInTheDocument()
+    expect(screen.getByText(/premium indoor cleaning services launching soon/i)).toBeInTheDocument()
   })
 
   it('displays the transparent pricing section', () => {
@@ -87,7 +87,7 @@ describe('HouseCleaningPricingPage', () => {
     const heroSection = heroHeading.closest('section')
     expect(heroSection).toHaveClass('bg-gradient-to-br', 'from-sage-50', 'to-cream-50')
 
-    const comingSoonBadge = screen.getByText(/coming fall 2025/i)
-    expect(comingSoonBadge).toHaveClass('bg-gray-200', 'text-sage-700')
+    const futureServiceBadge = screen.getByText(/future service/i)
+    expect(futureServiceBadge).toHaveClass('bg-gray-200', 'text-sage-700')
   })
 })

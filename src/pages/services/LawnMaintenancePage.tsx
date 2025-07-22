@@ -49,13 +49,13 @@ const LawnMaintenancePage = () => {
                   status: 'active'
                 },
                 {
-                  period: 'Fall 2025',
+                  period: 'Future Service',
                   title: 'Indoor House Cleaning',
                   description: 'Expanding indoors with premium residential cleaning services.',
                   status: 'future'
                 },
                 {
-                  period: 'Early 2026',
+                  period: 'Future Service',
                   title: 'Lawn Maintenance',
                   description: 'Launching comprehensive lawn care services for existing and new customers.',
                   status: 'upcoming'
@@ -112,7 +112,7 @@ const LawnMaintenancePage = () => {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-sage-800 mb-4">Services Coming 2026:</h3>
+                  <h3 className="text-xl font-bold text-sage-800 mb-4">Future Services:</h3>
                   <ul className="space-y-2 text-sage-600">
                     <li>• Weekly/bi-weekly lawn maintenance</li>
                     <li>• Seasonal cleanup and preparation</li>

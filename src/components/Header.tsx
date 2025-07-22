@@ -21,13 +21,13 @@ const Header = () => {
       name: 'Indoor House Cleaning',
       href: '/services/house-cleaning',
       description: 'Premium residential cleaning',
-      status: 'Coming 2025'
+      status: 'Future Service'
     },
     {
       name: 'Lawn Maintenance',
       href: '/services/lawn-maintenance',
       description: 'Complete lawn care services',
-      status: 'Coming 2026'
+      status: 'Future Service'
     }
   ]
 
@@ -42,13 +42,13 @@ const Header = () => {
       name: 'House Cleaning Pricing',
       href: '/pricing/house-cleaning',
       description: 'Premium cleaning service rates',
-      status: 'Coming 2025'
+      status: 'Future Service'
     },
     {
       name: 'Lawn Care Pricing',
       href: '/pricing/lawn-care',
       description: 'Competitive lawn maintenance rates',
-      status: 'Coming 2026'
+      status: 'Future Service'
     }
   ]
 
