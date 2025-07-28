@@ -384,22 +384,26 @@ const HomePage = () => {
             {/* Pet Supermarket */}
             <div className="group">
               <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
-                <img
-                  src="/images/partners/pet-supermarket-logo.png"
-                  alt="Pet Supermarket"
-                  className="h-16 w-auto mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-                />
+                <div className="h-20 flex items-center justify-center">
+                  <img
+                    src="/images/partners/pet-supermarket-logo.png"
+                    alt="Pet Supermarket"
+                    className="max-h-16 max-w-full w-auto mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
               </div>
             </div>
 
             {/* Mountain View Animal Hospital */}
             <div className="group">
               <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
-                <img
-                  src="/images/partners/mountain-view-animal-hospital-logo.png"
-                  alt="Mountain View Animal Hospital"
-                  className="h-16 w-auto mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-                />
+                <div className="h-20 flex items-center justify-center bg-gradient-to-br from-sage-50 to-sage-100 rounded-xl p-4">
+                  <img
+                    src="/images/partners/mountain-view-animal-hospital-logo.png"
+                    alt="Mountain View Animal Hospital"
+                    className="max-h-16 max-w-full w-auto mx-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
               </div>
             </div>
           </div>

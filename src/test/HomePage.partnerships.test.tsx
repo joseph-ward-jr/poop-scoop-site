@@ -65,12 +65,12 @@ describe('HomePage Partnerships Section', () => {
 
   test('partner logos have proper styling classes', () => {
     renderHomePage()
-    
+
     const petSupemarketLogo = screen.getByAltText('Pet Supermarket')
     const mountainViewLogo = screen.getByAltText('Mountain View Animal Hospital')
-    
+
     // Check that logos have the expected CSS classes for styling
-    expect(petSupemarketLogo).toHaveClass('h-16', 'w-auto', 'mx-auto', 'opacity-70')
-    expect(mountainViewLogo).toHaveClass('h-16', 'w-auto', 'mx-auto', 'opacity-70')
+    expect(petSupemarketLogo).toHaveClass('max-h-16', 'max-w-full', 'w-auto', 'mx-auto', 'opacity-70')
+    expect(mountainViewLogo).toHaveClass('max-h-16', 'max-w-full', 'w-auto', 'mx-auto', 'opacity-90')
   })
 })
