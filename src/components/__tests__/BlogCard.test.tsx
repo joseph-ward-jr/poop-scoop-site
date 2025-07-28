@@ -70,7 +70,7 @@ describe('Dog Food Blog Post Integration', () => {
     expect(dogFoodPost?.title).toBe('The Ultimate Guide to High-Quality Dog Food: Why Premium Ingredients Matter for Your Pet\'s Health')
     expect(dogFoodPost?.author).toBe('Joey Ward')
     expect(dogFoodPost?.publishedAt).toBe('2025-07-28')
-    expect(dogFoodPost?.readTime).toBe(6)
+    expect(dogFoodPost?.readTime).toBe(3)
     expect(dogFoodPost?.slug).toBe('high-quality-dog-food-premium-ingredients-guide')
   })
 
@@ -81,7 +81,7 @@ describe('Dog Food Blog Post Integration', () => {
       renderWithRouter(<BlogCard post={dogFoodPost} />)
 
       expect(screen.getByText(/Ultimate Guide to High-Quality Dog Food/)).toBeInTheDocument()
-      expect(screen.getByText('6 min read')).toBeInTheDocument()
+      expect(screen.getByText('3 min read')).toBeInTheDocument()
       expect(screen.getByText(/premium dog food with high-quality ingredients/)).toBeInTheDocument()
       expect(screen.getByText('Pet Health')).toBeInTheDocument()
       expect(screen.getByText('Dog Nutrition')).toBeInTheDocument()
