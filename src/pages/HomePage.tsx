@@ -365,6 +365,51 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Partnerships Section */}
+      <section className="section-padding bg-offwhite-50">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center px-6 py-3 bg-sage-100 rounded-full text-sage-800 font-medium text-sm tracking-wide uppercase mb-8">
+              🤝 Trusted Partners
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-sage-900 mb-4">
+              Proudly Partnered With
+            </h2>
+            <p className="text-xl text-sage-700 max-w-3xl mx-auto">
+              We collaborate with trusted local businesses to provide comprehensive pet care solutions
+            </p>
+          </div>
+
+          <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16">
+            {/* Pet Supermarket */}
+            <div className="group">
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
+                <div className="h-30 w-70 flex items-center justify-center">
+                  <img
+                    src="/images/partners/pet-supermarket-logo.png"
+                    alt="Pet Supermarket"
+                    className="h-24 w-64 object-contain mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Mountain View Animal Hospital */}
+            <div className="group">
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
+                <div className="h-30 w-70 flex items-center justify-center bg-gradient-to-br from-sage-50 to-sage-100 rounded-xl">
+                  <img
+                    src="/images/partners/mountain-view-animal-hospital-logo.png"
+                    alt="Mountain View Animal Hospital"
+                    className="h-24 w-64 object-contain mx-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="relative section-padding bg-gradient-to-br from-sage-600 via-sage-700 to-sage-800 overflow-hidden">
         {/* Animated background elements */}
