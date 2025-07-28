@@ -70,7 +70,7 @@ describe('HomePage Partnerships Section', () => {
     const mountainViewLogo = screen.getByAltText('Mountain View Animal Hospital')
 
     // Check that logos have the expected CSS classes for styling
-    expect(petSupemarketLogo).toHaveClass('max-h-25', 'max-w-65', 'w-auto', 'mx-auto', 'opacity-70')
-    expect(mountainViewLogo).toHaveClass('max-h-25', 'max-w-65', 'w-auto', 'mx-auto', 'opacity-90')
+    expect(petSupemarketLogo).toHaveClass('h-24', 'w-64', 'object-contain', 'mx-auto', 'opacity-70')
+    expect(mountainViewLogo).toHaveClass('h-24', 'w-64', 'object-contain', 'mx-auto', 'opacity-90')
   })
 })

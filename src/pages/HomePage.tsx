@@ -388,7 +388,7 @@ const HomePage = () => {
                   <img
                     src="/images/partners/pet-supermarket-logo.png"
                     alt="Pet Supermarket"
-                    className="max-h-25 max-w-65 w-auto mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                    className="h-24 w-64 object-contain mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
               </div>
@@ -401,7 +401,7 @@ const HomePage = () => {
                   <img
                     src="/images/partners/mountain-view-animal-hospital-logo.png"
                     alt="Mountain View Animal Hospital"
-                    className="max-h-25 max-w-65 w-auto mx-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                    className="h-24 w-64 object-contain mx-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
               </div>
