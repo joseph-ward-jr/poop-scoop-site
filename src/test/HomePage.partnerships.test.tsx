@@ -38,8 +38,8 @@ describe('HomePage Partnerships Section', () => {
     expect(mountainViewLogo).toBeInTheDocument()
     
     // Check that logos have correct src paths
-    expect(petSupemarketLogo).toHaveAttribute('src', '/images/partners/pet-supermarket-logo.svg')
-    expect(mountainViewLogo).toHaveAttribute('src', '/images/partners/mountain-view-animal-hospital-logo.svg')
+    expect(petSupemarketLogo).toHaveAttribute('src', '/images/partners/pet-supermarket-logo.png')
+    expect(mountainViewLogo).toHaveAttribute('src', '/images/partners/mountain-view-animal-hospital-logo.png')
   })
 
   test('partnerships section appears between testimonials and CTA', () => {

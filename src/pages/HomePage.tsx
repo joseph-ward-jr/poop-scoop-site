@@ -385,7 +385,7 @@ const HomePage = () => {
             <div className="group">
               <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
                 <img
-                  src="/images/partners/pet-supermarket-logo.svg"
+                  src="/images/partners/pet-supermarket-logo.png"
                   alt="Pet Supermarket"
                   className="h-16 w-auto mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                 />
@@ -396,7 +396,7 @@ const HomePage = () => {
             <div className="group">
               <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
                 <img
-                  src="/images/partners/mountain-view-animal-hospital-logo.svg"
+                  src="/images/partners/mountain-view-animal-hospital-logo.png"
                   alt="Mountain View Animal Hospital"
                   className="h-16 w-auto mx-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                 />
