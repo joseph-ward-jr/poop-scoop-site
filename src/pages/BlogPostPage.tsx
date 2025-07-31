@@ -50,7 +50,7 @@ const BlogPostPage = () => {
       return (
         <video
           src={url}
-          className="w-full h-full object-cover rounded-2xl shadow-lg"
+          className="w-full h-full object-contain rounded-2xl shadow-lg"
           autoPlay
           loop
           muted

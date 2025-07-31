@@ -22,10 +22,12 @@ const BlogCard = ({ post, variant = 'default' }: BlogCardProps) => {
 
   const renderMedia = (url: string, alt: string, className: string) => {
     if (isVideo(url)) {
+      // Use object-contain for videos to show full video without cropping
+      const videoClassName = className.replace('object-cover', 'object-contain')
       return (
         <video
           src={url}
-          className={className}
+          className={videoClassName}
           autoPlay
           loop
           muted
