@@ -10,7 +10,7 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2025-07-31',
     readTime: 3,
     tags: ['Pet Health', 'Veterinary Care', 'Dog Health', 'Animal Clinic', 'Pet Care', 'Canton GA'],
-    featuredImage: '/images/blog/choosing-animal-clinic-placeholder.jpg',
+    featuredImage: '/videos/blog/choosing-animal-clinic.mp4',
     seo: {
       metaTitle: 'Choosing the Right Animal Clinic for Your Dog | Field & Foyer',
       metaDescription: 'Learn how to choose the best animal clinic for your dog. Discover why our family trusts Mountain View Animal Clinic in Canton, GA for exceptional veterinary care.',
