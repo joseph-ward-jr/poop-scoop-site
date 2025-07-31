@@ -43,8 +43,8 @@ The best clinics offer:
 - **Routine wellness exams** and vaccinations
 - **Diagnostic capabilities** (X-rays, blood work, ultrasound)
 - **Surgical and dental care**
-- **Emergency protocols**
-- **Behavioral and nutritional counseling**
+- **Microchipping** for pet identification
+- **Parasite prevention** programs
 
 ### 3. Quality Facilities
 
@@ -60,7 +60,7 @@ Exceptional clinics provide:
 - **Thorough explanations** of diagnoses and treatments
 - **Written care instructions**
 - **Transparent pricing**
-- **24/7 emergency communication**
+- **Accessible communication** for questions and concerns
 
 ## Why Our Family Chooses Mountain View Animal Clinic
 
@@ -71,9 +71,9 @@ Exceptional clinics provide:
 **Located at 2241 Cumming Hwy Suite 104, Canton, GA 30115**, Mountain View Animal Clinic provides:
 
 - **Thorough examinations** that catch health issues early
-- **Advanced diagnostic capabilities** for accurate diagnoses
+- **Advanced diagnostic capabilities** including X-rays, ultrasound, and in-house labs
 - **Honest treatment recommendations** without unnecessary upselling
-- **Emergency response** that has helped our dogs in critical situations
+- **Comprehensive care** from routine wellness to complex surgical procedures
 
 ### Personal, Family-Centered Approach
 
@@ -90,8 +90,8 @@ Over the years, they've provided:
 - **Routine wellness exams** and vaccinations
 - **Dental cleanings** preventing serious oral health issues
 - **Surgical procedures** performed with skill and compassion
-- **Chronic condition management** for our senior dog
-- **Emergency care** during a late-night health scare
+- **Diagnostic imaging** including X-rays and ultrasound
+- **Microchipping** for our dogs' safety and identification
 
 ## Red Flags to Avoid
 
@@ -106,7 +106,7 @@ Avoid clinics with:
 
 When selecting a clinic:
 1. **Visit in person** to assess the facility and staff
-2. **Ask about emergency procedures** and after-hours care
+2. **Ask about available services** and treatment approaches
 3. **Request references** from other pet owners
 4. **Trust your instincts** about the staff's genuine care for animals
 
