@@ -84,14 +84,14 @@ What sets them apart:
 - **Flexible scheduling** for working families
 - **Genuine care** for both pets and their families
 
-### Comprehensive Services We've Used
+### Comprehensive Services Available
 
-Over the years, they've provided:
+They offer a full range of veterinary services:
 - **Routine wellness exams** and vaccinations
-- **Dental cleanings** preventing serious oral health issues
+- **Professional dental care** for optimal oral health
 - **Surgical procedures** performed with skill and compassion
-- **Diagnostic imaging** including X-rays and ultrasound
-- **Microchipping** for our dogs' safety and identification
+- **Advanced diagnostic imaging** including X-rays and ultrasound
+- **Microchipping** for pet safety and identification
 
 ## Red Flags to Avoid
 
